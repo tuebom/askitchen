@@ -90,7 +90,7 @@
 					<div class="container">
 						<h2 class="tittle">New Arrivals</h2>
 						<div class="arrivals-grids">
-							<div class="col-md-3 arrival-grid simpleCart_shelfItem">
+							<div class="col-md-2 arrival-grid simpleCart_shelfItem">
 								<div class="grid-arr">
 									<div class="grid-arrival">
 										<figure>		
@@ -104,12 +104,6 @@
 											</a>		
 										</figure>	
 									</div>
-									<div class="ribben">
-										<p>NEW</p>
-									</div>
-									<div class="ribben1">
-										<p>SALE</p>
-									</div>
 									<div class="block">
 										<div class="starbox small ghosting"> </div>
 									</div>
@@ -121,7 +115,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-3 arrival-grid simpleCart_shelfItem">
+							<div class="col-md-2 arrival-grid simpleCart_shelfItem">
 								<div class="grid-arr">
 									<div class="grid-arrival">
 										<figure>		
@@ -135,9 +129,6 @@
 											</a>		
 										</figure>	
 									</div>
-									<div class="ribben2">
-										<p>OUT OF STOCK</p>
-									</div>
 									<div class="block">
 										<div class="starbox small ghosting"> </div>
 									</div>
@@ -149,7 +140,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-3 arrival-grid simpleCart_shelfItem">
+							<div class="col-md-2 arrival-grid simpleCart_shelfItem">
 								<div class="grid-arr">
 									<div class="grid-arrival">
 										<figure>		
@@ -163,8 +154,30 @@
 											</a>		
 										</figure>	
 									</div>
-									<div class="ribben1">
-										<p>SALE</p>
+									<div class="block">
+										<div class="starbox small ghosting"> </div>
+									</div>
+									<div class="women">
+										<h6><a href="single.html">Sed ut perspiciatis unde</a></h6>
+										<span class="size">XL / XXL / S </span>
+										<p ><del>$100.00</del><em class="item_price">$70.00</em></p>
+										<a href="#" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-2 arrival-grid simpleCart_shelfItem">
+								<div class="grid-arr">
+									<div class="grid-arrival">
+										<figure>		
+											<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal4">
+												<div class="grid-img">
+													<img src="<?=site_url('images/p11.jpg');?>" class="img-responsive" alt="">
+												</div>
+												<div class="grid-img">
+													<img src="<?=site_url('images/p12.jpg');?>" class="img-responsive" alt="">
+												</div>			
+											</a>		
+										</figure>	
 									</div>
 									<div class="block">
 										<div class="starbox small ghosting"> </div>
@@ -177,7 +190,32 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-3 arrival-grid simpleCart_shelfItem">
+							<div class="col-md-2 arrival-grid simpleCart_shelfItem">
+								<div class="grid-arr">
+									<div class="grid-arrival">
+										<figure>		
+											<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal3">
+												<div class="grid-img">
+													<img src="<?=site_url('images/p10.jpg');?>" class="img-responsive" alt="">
+												</div>
+												<div class="grid-img">
+													<img src="<?=site_url('images/p9.jpg');?>" class="img-responsive" alt="">
+												</div>			
+											</a>		
+										</figure>	
+									</div>
+									<div class="block">
+										<div class="starbox small ghosting"> </div>
+									</div>
+									<div class="women">
+										<h6><a href="single.html">Sed ut perspiciatis unde</a></h6>
+										<span class="size">XL / XXL / S </span>
+										<p ><del>$100.00</del><em class="item_price">$70.00</em></p>
+										<a href="#" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-2 arrival-grid simpleCart_shelfItem">
 								<div class="grid-arr">
 									<div class="grid-arrival">
 										<figure>		
@@ -205,9 +243,20 @@
 							<div class="clearfix"></div>
 						</div>
 					</div>
+					<nav>
+						<ul class="pagination">
+							<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+							<li><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+						</ul>
+					</nav>
 				</div>
 			<!--new-arrivals-->
-				<!--accessories-->
+			<!--accessories-->
 			<div class="accessories-w3l">
 				<div class="container">
 					<h3 class="tittle">20% Discount on</h3>
