@@ -96,10 +96,10 @@
 										<figure>		
 											<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal1">
 												<div class="grid-img">
-													<img  src="images/p6.jpg" class="img-responsive" alt="">
+													<img src="<?=site_url('images/p6.jpg');?>" class="img-responsive" alt="">
 												</div>
 												<div class="grid-img">
-													<img  src="images/p5.jpg" class="img-responsive"  alt="">
+													<img src="<?=site_url('images/p5.jpg');?>" class="img-responsive"  alt="">
 												</div>			
 											</a>		
 										</figure>	
@@ -127,10 +127,10 @@
 										<figure>		
 											<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal2">
 												<div class="grid-img">
-													<img  src="images/p7.jpg" class="img-responsive" alt="">
+													<img src="<?=site_url('images/p7.jpg');?>" class="img-responsive" alt="">
 												</div>
 												<div class="grid-img">
-													<img  src="images/p8.jpg" class="img-responsive"  alt="">
+													<img src="<?=site_url('images/p8.jpg');?>" class="img-responsive"  alt="">
 												</div>			
 											</a>		
 										</figure>	
@@ -155,10 +155,10 @@
 										<figure>		
 											<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal3">
 												<div class="grid-img">
-													<img  src="images/p10.jpg" class="img-responsive" alt="">
+													<img src="<?=site_url('images/p10.jpg');?>" class="img-responsive" alt="">
 												</div>
 												<div class="grid-img">
-													<img  src="images/p9.jpg" class="img-responsive"  alt="">
+													<img src="<?=site_url('images/p9.jpg');?>" class="img-responsive"  alt="">
 												</div>			
 											</a>		
 										</figure>	
@@ -183,10 +183,10 @@
 										<figure>		
 											<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal4">
 												<div class="grid-img">
-													<img  src="images/p11.jpg" class="img-responsive" alt="">
+													<img src="<?=site_url('images/p11.jpg');?>" class="img-responsive" alt="">
 												</div>
 												<div class="grid-img">
-													<img  src="images/p12.jpg" class="img-responsive"  alt="">
+													<img src="<?=site_url('images/p12.jpg');?>" class="img-responsive"  alt="">
 												</div>			
 											</a>		
 										</figure>	

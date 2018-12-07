@@ -5,7 +5,8 @@ class Home extends Public_Controller {
 
     public function __construct()
     {
-        parent::__construct();
+		parent::__construct();
+		$this->load->helper('url');
 		$this->load->model('golongan_model');
     }
 
