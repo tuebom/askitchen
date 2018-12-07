@@ -1,6 +1,6 @@
 		<!--banner-->
 		<!--<div class="banner-w3">
-			<div class="demo-1">            
+			<div class="demo-1">      
 				<div id="example1" class="core-slider core-slider__carousel example_1">
 					<div class="core-slider_viewport">
 						<div class="core-slider_list">
@@ -11,10 +11,10 @@
 								 <img src="images/b2.jpg" class="img-responsive" alt="">
 							 </div>
 							<div class="core-slider_item">
-								  <img src="images/b3.jpg" class="img-responsive" alt="">
+								 <img src="images/b3.jpg" class="img-responsive" alt="">
 							</div>
 							<div class="core-slider_item">
-								  <img src="images/b4.jpg" class="img-responsive" alt="">
+								 <img src="images/b4.jpg" class="img-responsive" alt="">
 							</div>
 						 </div>
 					</div>
@@ -29,9 +29,9 @@
 			<script src="js/coreSlider.js"></script>
 			<script>
 			$('#example1').coreSlider({
-			  pauseOnHover: false,
-			  interval: 3000,
-			  controlNavEnabled: true
+			 pauseOnHover: false,
+			 interval: 3000,
+			 controlNavEnabled: true
 			});
 
 			</script>
@@ -92,14 +92,14 @@
 						<div class="arrivals-grids">
 							<div class="col-md-3 arrival-grid simpleCart_shelfItem">
 								<div class="grid-arr">
-									<div  class="grid-arrival">
+									<div class="grid-arrival">
 										<figure>		
 											<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal1">
 												<div class="grid-img">
 													<img src="<?=site_url('images/p6.jpg');?>" class="img-responsive" alt="">
 												</div>
 												<div class="grid-img">
-													<img src="<?=site_url('images/p5.jpg');?>" class="img-responsive"  alt="">
+													<img src="<?=site_url('images/p5.jpg');?>" class="img-responsive" alt="">
 												</div>			
 											</a>		
 										</figure>	
@@ -123,14 +123,14 @@
 							</div>
 							<div class="col-md-3 arrival-grid simpleCart_shelfItem">
 								<div class="grid-arr">
-									<div  class="grid-arrival">
+									<div class="grid-arrival">
 										<figure>		
 											<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal2">
 												<div class="grid-img">
 													<img src="<?=site_url('images/p7.jpg');?>" class="img-responsive" alt="">
 												</div>
 												<div class="grid-img">
-													<img src="<?=site_url('images/p8.jpg');?>" class="img-responsive"  alt="">
+													<img src="<?=site_url('images/p8.jpg');?>" class="img-responsive" alt="">
 												</div>			
 											</a>		
 										</figure>	
@@ -151,14 +151,14 @@
 							</div>
 							<div class="col-md-3 arrival-grid simpleCart_shelfItem">
 								<div class="grid-arr">
-									<div  class="grid-arrival">
+									<div class="grid-arrival">
 										<figure>		
 											<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal3">
 												<div class="grid-img">
 													<img src="<?=site_url('images/p10.jpg');?>" class="img-responsive" alt="">
 												</div>
 												<div class="grid-img">
-													<img src="<?=site_url('images/p9.jpg');?>" class="img-responsive"  alt="">
+													<img src="<?=site_url('images/p9.jpg');?>" class="img-responsive" alt="">
 												</div>			
 											</a>		
 										</figure>	
@@ -179,14 +179,14 @@
 							</div>
 							<div class="col-md-3 arrival-grid simpleCart_shelfItem">
 								<div class="grid-arr">
-									<div  class="grid-arrival">
+									<div class="grid-arrival">
 										<figure>		
 											<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal4">
 												<div class="grid-img">
 													<img src="<?=site_url('images/p11.jpg');?>" class="img-responsive" alt="">
 												</div>
 												<div class="grid-img">
-													<img src="<?=site_url('images/p12.jpg');?>" class="img-responsive"  alt="">
+													<img src="<?=site_url('images/p12.jpg');?>" class="img-responsive" alt="">
 												</div>			
 											</a>		
 										</figure>	
@@ -230,14 +230,14 @@
 										<div class="caption">
 											<div class="col-md-3 cap-left simpleCart_shelfItem">
 												<div class="grid-arr">
-													<div  class="grid-arrival">
+													<div class="grid-arrival">
 														<figure>		
 															<a href="single.html">
 																<div class="grid-img">
-																	<img  src="images/p14.jpg" class="img-responsive" alt="">
+																	<img src="images/p14.jpg" class="img-responsive" alt="">
 																</div>
 																<div class="grid-img">
-																	<img  src="images/p13.jpg" class="img-responsive"  alt="">
+																	<img src="images/p13.jpg" class="img-responsive" alt="">
 																</div>			
 															</a>		
 														</figure>	
@@ -255,14 +255,14 @@
 											</div>
 											<div class="col-md-3 cap-left simpleCart_shelfItem">
 												<div class="grid-arr">
-													<div  class="grid-arrival">
+													<div class="grid-arrival">
 														<figure>		
 															<a href="single.html">
 																<div class="grid-img">
-																	<img  src="images/p15.jpg" class="img-responsive" alt="">
+																	<img src="images/p15.jpg" class="img-responsive" alt="">
 																</div>
 																<div class="grid-img">
-																	<img  src="images/p16.jpg" class="img-responsive"  alt="">
+																	<img src="images/p16.jpg" class="img-responsive" alt="">
 																</div>			
 															</a>		
 														</figure>	
@@ -283,14 +283,14 @@
 											</div>
 											<div class="col-md-3 cap-left simpleCart_shelfItem">
 												<div class="grid-arr">
-													<div  class="grid-arrival">
+													<div class="grid-arrival">
 														<figure>		
 															<a href="single.html">
 																<div class="grid-img">
-																	<img  src="images/p18.jpg" class="img-responsive" alt="">
+																	<img src="images/p18.jpg" class="img-responsive" alt="">
 																</div>
 																<div class="grid-img">
-																	<img  src="images/p17.jpg" class="img-responsive"  alt="">
+																	<img src="images/p17.jpg" class="img-responsive" alt="">
 																</div>			
 															</a>		
 														</figure>	
@@ -311,14 +311,14 @@
 											</div>
 											<div class="col-md-3 cap-left simpleCart_shelfItem">
 												<div class="grid-arr">
-													<div  class="grid-arrival">
+													<div class="grid-arrival">
 														<figure>		
 															<a href="single.html">
 																<div class="grid-img">
-																	<img  src="images/p20.jpg" class="img-responsive" alt="">
+																	<img src="images/p20.jpg" class="img-responsive" alt="">
 																</div>
 																<div class="grid-img">
-																	<img  src="images/p19.jpg" class="img-responsive"  alt="">
+																	<img src="images/p19.jpg" class="img-responsive" alt="">
 																</div>			
 															</a>		
 														</figure>	
@@ -344,14 +344,14 @@
 										<div class="caption">
 											<div class="col-md-3 cap-left simpleCart_shelfItem">
 												<div class="grid-arr">
-													<div  class="grid-arrival">
+													<div class="grid-arrival">
 														<figure>		
 															<a href="single.html">
 																<div class="grid-img">
-																	<img  src="images/p21.jpg" class="img-responsive" alt="">
+																	<img src="images/p21.jpg" class="img-responsive" alt="">
 																</div>
 																<div class="grid-img">
-																	<img  src="images/p22.jpg" class="img-responsive"  alt="">
+																	<img src="images/p22.jpg" class="img-responsive" alt="">
 																</div>			
 															</a>		
 														</figure>	
@@ -369,14 +369,14 @@
 											</div>
 											<div class="col-md-3 cap-left simpleCart_shelfItem">
 												<div class="grid-arr">
-													<div  class="grid-arrival">
+													<div class="grid-arrival">
 														<figure>		
 															<a href="single.html">
 																<div class="grid-img">
-																	<img  src="images/p24.jpg" class="img-responsive" alt="">
+																	<img src="images/p24.jpg" class="img-responsive" alt="">
 																</div>
 																<div class="grid-img">
-																	<img  src="images/p23.jpg" class="img-responsive"  alt="">
+																	<img src="images/p23.jpg" class="img-responsive" alt="">
 																</div>			
 															</a>		
 														</figure>	
@@ -397,14 +397,14 @@
 											</div>
 											<div class="col-md-3 cap-left simpleCart_shelfItem">
 												<div class="grid-arr">
-													<div  class="grid-arrival">
+													<div class="grid-arrival">
 														<figure>		
 															<a href="single.html">
 																<div class="grid-img">
-																	<img  src="images/p26.jpg" class="img-responsive" alt="">
+																	<img src="images/p26.jpg" class="img-responsive" alt="">
 																</div>
 																<div class="grid-img">
-																	<img  src="images/p25.jpg" class="img-responsive"  alt="">
+																	<img src="images/p25.jpg" class="img-responsive" alt="">
 																</div>			
 															</a>		
 														</figure>	
@@ -425,14 +425,14 @@
 											</div>
 											<div class="col-md-3 cap-left simpleCart_shelfItem">
 												<div class="grid-arr">
-													<div  class="grid-arrival">
+													<div class="grid-arrival">
 														<figure>		
 															<a href="single.html">
 																<div class="grid-img">
-																	<img  src="images/p10.jpg" class="img-responsive" alt="">
+																	<img src="images/p10.jpg" class="img-responsive" alt="">
 																</div>
 																<div class="grid-img">
-																	<img  src="images/p9.jpg" class="img-responsive"  alt="">
+																	<img src="images/p9.jpg" class="img-responsive" alt="">
 																</div>			
 															</a>		
 														</figure>	
@@ -466,7 +466,7 @@
 					<div class="latest-grids">
 						<div class="col-md-4 latest-grid">
 							<div class="latest-top">
-								<img  src="images/l1.jpg" class="img-responsive"  alt="">
+								<img src="images/l1.jpg" class="img-responsive" alt="">
 								<div class="latest-text">
 									<h4>Men</h4>
 								</div>
@@ -477,7 +477,7 @@
 						</div>
 						<div class="col-md-4 latest-grid">
 							<div class="latest-top">
-								<img  src="images/l2.jpg" class="img-responsive"  alt="">
+								<img src="images/l2.jpg" class="img-responsive" alt="">
 								<div class="latest-text">
 									<h4>Shoes</h4>
 								</div>
@@ -488,7 +488,7 @@
 						</div>
 						<div class="col-md-4 latest-grid">
 							<div class="latest-top">
-								<img  src="images/l3.jpg" class="img-responsive"  alt="">
+								<img src="images/l3.jpg" class="img-responsive" alt="">
 								<div class="latest-text">
 									<h4>Women</h4>
 								</div>
@@ -502,7 +502,7 @@
 					<div class="latest-grids">
 						<div class="col-md-4 latest-grid">
 							<div class="latest-top">
-								<img  src="images/l4.jpg" class="img-responsive"  alt="">
+								<img src="images/l4.jpg" class="img-responsive" alt="">
 								<div class="latest-text">
 									<h4>Watch</h4>
 								</div>
@@ -513,7 +513,7 @@
 						</div>
 						<div class="col-md-4 latest-grid">
 							<div class="latest-top">
-								<img  src="images/l5.jpg" class="img-responsive"  alt="">
+								<img src="images/l5.jpg" class="img-responsive" alt="">
 								<div class="latest-text">
 									<h4>Bag</h4>
 								</div>
@@ -524,7 +524,7 @@
 						</div>
 						<div class="col-md-4 latest-grid">
 							<div class="latest-top">
-								<img  src="images/l6.jpg" class="img-responsive"  alt="">
+								<img src="images/l6.jpg" class="img-responsive" alt="">
 								<div class="latest-text">
 									<h4>Cameras</h4>
 								</div>
@@ -543,14 +543,14 @@
 						<div class="arrivals-grids">
 							<div class="col-md-3 arrival-grid simpleCart_shelfItem">
 								<div class="grid-arr">
-									<div  class="grid-arrival">
+									<div class="grid-arrival">
 										<figure>		
 											<a href="single.html">
 												<div class="grid-img">
-													<img  src="images/p28.jpg" class="img-responsive" alt="">
+													<img src="images/p28.jpg" class="img-responsive" alt="">
 												</div>
 												<div class="grid-img">
-													<img  src="images/p27.jpg" class="img-responsive"  alt="">
+													<img src="images/p27.jpg" class="img-responsive" alt="">
 												</div>			
 											</a>		
 										</figure>	
@@ -574,14 +574,14 @@
 							</div>
 							<div class="col-md-3 arrival-grid simpleCart_shelfItem">
 								<div class="grid-arr">
-									<div  class="grid-arrival">
+									<div class="grid-arrival">
 										<figure>		
 											<a href="single.html">
 												<div class="grid-img">
-													<img  src="images/p30.jpg" class="img-responsive" alt="">
+													<img src="images/p30.jpg" class="img-responsive" alt="">
 												</div>
 												<div class="grid-img">
-													<img  src="images/p29.jpg" class="img-responsive"  alt="">
+													<img src="images/p29.jpg" class="img-responsive" alt="">
 												</div>			
 											</a>		
 										</figure>	
@@ -602,14 +602,14 @@
 							</div>
 							<div class="col-md-3 arrival-grid simpleCart_shelfItem">
 								<div class="grid-arr">
-									<div  class="grid-arrival">
+									<div class="grid-arrival">
 										<figure>		
 											<a href="single.html">
 												<div class="grid-img">
-													<img  src="images/s2.jpg" class="img-responsive" alt="">
+													<img src="images/s2.jpg" class="img-responsive" alt="">
 												</div>
 												<div class="grid-img">
-													<img  src="images/s1.jpg" class="img-responsive"  alt="">
+													<img src="images/s1.jpg" class="img-responsive" alt="">
 												</div>			
 											</a>		
 										</figure>	
@@ -630,14 +630,14 @@
 							</div>
 							<div class="col-md-3 arrival-grid simpleCart_shelfItem">
 								<div class="grid-arr">
-									<div  class="grid-arrival">
+									<div class="grid-arrival">
 										<figure>		
 											<a href="single.html">
 												<div class="grid-img">
-													<img  src="images/s4.jpg" class="img-responsive" alt="">
+													<img src="images/s4.jpg" class="img-responsive" alt="">
 												</div>
 												<div class="grid-img">
-													<img  src="images/s3.jpg" class="img-responsive"  alt="">
+													<img src="images/s3.jpg" class="img-responsive" alt="">
 												</div>			
 											</a>		
 										</figure>	
