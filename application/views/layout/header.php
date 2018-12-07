@@ -26,22 +26,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--search jQuery-->
 <script src="js/responsiveslides.min.js"></script>
  <script>
-    $(function () {
-      $("#slider").responsiveSlides({
-      	auto: true,
-      	nav: true,
-      	speed: 500,
-        namespace: "callbacks",
-        pager: true,
-      });
-    });
+  $(function () {
+   $("#slider").responsiveSlides({
+   	auto: true,
+   	nav: true,
+   	speed: 500,
+    namespace: "callbacks",
+    pager: true,
+   });
+  });
  </script>
  <!--mycart-->
 <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
  <!-- cart -->
 <script src="js/simpleCart.min.js"></script>
 <!-- cart -->
-  <!--start-rate-->
+ <!--start-rate-->
 <script src="js/jstarbox.js"></script>
 	<link rel="stylesheet" href="css/jstarbox.css" type="text/css" media="screen" charset="utf-8" />
 		<script type="text/javascript">
@@ -116,7 +116,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Women<b class="caret"></b></a>
 										<ul class="dropdown-menu multi-column columns-3">
 											<div class="row">
-												<div class="col-sm-3  multi-gd-img">
+												<div class="col-sm-3 multi-gd-img">
 													<ul class="multi-column-dropdown">
 														<h6>Submenu1</h6>
 														<li><a href="products.html">Clothing</a></li>
@@ -127,7 +127,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														<li><a href="products.html">Accessories</a></li>
 													</ul>
 												</div>
-												<div class="col-sm-3  multi-gd-img">
+												<div class="col-sm-3 multi-gd-img">
 													<ul class="multi-column-dropdown">
 														<h6>Submenu2</h6>
 														<li><a href="products.html">Sunglasses</a></li>
@@ -138,10 +138,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														<li><a href="products.html">Jewellery</a></li>
 													</ul>
 												</div>
-												<div class="col-sm-3  multi-gd-img">
+												<div class="col-sm-3 multi-gd-img">
 														<a href="products.html"><img src="images/woo.jpg" alt=" "/></a>
 												</div> 
-												<div class="col-sm-3  multi-gd-img">
+												<div class="col-sm-3 multi-gd-img">
 														<a href="products.html"><img src="images/woo1.jpg" alt=" "/></a>
 												</div>
 												<div class="clearfix"></div>
@@ -152,10 +152,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Men <b class="caret"></b></a>
 										<ul class="dropdown-menu multi-column columns-3">
 											<div class="row">
-												<div class="col-sm-3  multi-gd-img">
+												<div class="col-sm-3 multi-gd-img">
 													<!--<ul class="multi-column-dropdown">-->
 														<label>Clothing</label>
-														<a href="products1.html"><img src="images/woo3.jpg" alt=" "/></a>
+														<a href="products1.html"><img src="<?=site_url('images/woo3.jpg');?>" alt=" "/></a>
 														<a class="view-more btn- btn-sm" href="products1.html">Read More</a>
 														<!--<li><a href="products.html">Clothing</a></li>
 														<li><a href="products.html">Wallets</a></li>
@@ -165,10 +165,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														<li><a href="products.html">Accessories</a></li>-->
 													<!--</ul>-->
 												</div>
-												<div class="col-sm-3  multi-gd-img">
+												<div class="col-sm-3 multi-gd-img">
 													<!--<ul class="multi-column-dropdown">-->
 														<label>Sunglasses</label>
-														<a href="products1.html"><img src="images/woo4.jpg" alt=" "/></a>
+														<a href="products1.html"><img src="<?=site_url('images/woo4.jpg');?>" alt=" "/></a>
 														<a class="view-more btn- btn-sm" href="#">Read More</a>
 														<!--<li><a href="products.html">Wallets,Bags</a></li>
 														<li><a href="products.html">Footwear</a></li>
@@ -177,14 +177,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														<li><a href="products.html">Jewellery</a></li>-->
 													<!--</ul>-->
 												</div>
-												<div class="col-sm-3  multi-gd-img">
+												<div class="col-sm-3 multi-gd-img">
 													<label>Sunglasses</label>
-													<a href="products1.html"><img src="images/woo3.jpg" alt=" "/></a>
+													<a href="products1.html"><img src="<?=site_url('images/woo3.jpg');?>" alt=" "/></a>
 													<a class="view-more btn- btn-sm" href="#">Read More</a>
 												</div> 
-												<div class="col-sm-3  multi-gd-img">
+												<div class="col-sm-3 multi-gd-img">
 													<label>Sunglasses</label>
-													<a href="products1.html"><img src="images/woo4.jpg" alt=" "/></a>
+													<a href="products1.html"><img src="<?=site_url('images/woo4.jpg');?>" alt=" "/></a>
 													<a class="view-more btn- btn-sm" href="#">Read More</a>
 												</div>
 												<div class="clearfix"></div>
