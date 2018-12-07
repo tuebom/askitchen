@@ -76,11 +76,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<a href="#"><b>ASKITCHEN</b></a>
 					</div>
 					<div class="top-right">
-					<ul>
-						<li><a href="registered.html">Register</a></li>
-						<li><a href="login.html">Sign In</a></li>
-						<li><a href="checkout.html"><img src="images/bag.png" alt="" /></a></li>
-					</ul>
+						<ul>
+							<li><a href="registered.html">Register</a></li>
+							<li><a href="login.html">Sign In</a></li>
+							<li><a href="checkout.html"><img src="images/bag.png" alt="" /></a></li>
+						</ul>
+					</div>
+					<div class="input-group search">
+						<input type="text" class="form-control" placeholder="Search for...">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button">Go!</button>
+						</span>
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -191,7 +197,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							</nav>
 						</div>
-					<div class="clearfix"></div>
+						<!--<div class="logo-nav-right">
+							<ul class="cd-header-buttons">
+								<li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
+							</ul> <!-- cd-header-buttons --/
+							<div id="cd-search" class="cd-search">
+								<form action="#" method="post">
+									<input name="Search" type="search" placeholder="Search...">
+								</form>
+							</div>	
+						</div>-->
+						<!--<div class="header-right2">
+							<div class="cart box_1">
+								<a href="checkout.html">
+									<h3> <div class="total">
+										<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
+										<img src="images/bag.png" alt="" />
+									</h3>
+								</a>
+								<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+								<div class="clearfix"> </div>
+							</div>	
+						</div>-->
+						<div class="clearfix"> </div>
+					</div>
 				</div>
 			</div>
 		</div>
+		<!--header-->

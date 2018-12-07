@@ -1,5 +1,5 @@
 		<!--banner-->
-		<div class="banner-w3">
+		<!--<div class="banner-w3">
 			<div class="demo-1">            
 				<div id="example1" class="core-slider core-slider__carousel example_1">
 					<div class="core-slider_viewport">
@@ -36,12 +36,12 @@
 
 			</script>
 
-		</div>	
+		</div>-->	
 		<!--banner-->
-			<!--content-->
+		<!--content-->
 		<div class="content">
 			<!--banner-bottom-->
-				<div class="ban-bottom-w3l">
+				<!--<div class="ban-bottom-w3l">
 					<div class="container">
 						<div class="col-md-6 ban-bottom">
 							<div class="ban-top">
@@ -83,7 +83,7 @@
 						</div>
 						<div class="clearfix"></div>
 					</div>
-				</div>
+				</div>-->
 			<!--banner-bottom-->
 			<!--new-arrivals-->
 				<div class="new-arrivals-w3agile">
