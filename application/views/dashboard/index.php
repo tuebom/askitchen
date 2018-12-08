@@ -108,7 +108,7 @@
 										<div class="starbox small ghosting"> </div>
 									</div>
 									<div class="women">
-										<h6><a href="single.html">Sed ut perspiciatis unde</a></h6>
+										<h6><a href="single.html">AB-106R</a></h6>
 										<span class="size">XL / XXL / S </span>
 										<p ><del>$100.00</del><em class="item_price">$70.00</em></p>
 										<a href="#" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>

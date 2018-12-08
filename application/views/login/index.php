@@ -28,8 +28,8 @@
 						</form>
 					</div>
 					<div class="forg">
-						<a href="#" class="forg-left">Forgot Password</a>
-						<a href="registered.html" class="forg-right">Register</a>
+						<a href="<?php echo site_url('forget'); ?>" class="forg-left">Forgot Password</a>
+						<a href="<?php echo site_url('register'); ?>" class="forg-right">Register</a>
 					<div class="clearfix"></div>
 					</div>
 				</div>

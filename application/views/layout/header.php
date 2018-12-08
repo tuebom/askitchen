@@ -12,6 +12,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/font-awesome.css" rel="stylesheet">
+<?php if (current_url() == site_url().'search' || current_url() == site_url().'products'): ?>
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+<?php endif; ?>
 <!--css-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -24,8 +27,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--search jQuery-->
 	<script src="js/main.js"></script>
 <!--search jQuery-->
+
+<?php if (current_url() == site_url().'detail'): ?>
+<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+ <!-- cart -->
+<script src="js/simpleCart.min.js"></script>
+<!-- cart -->
+  <script defer src="js/jquery.flexslider.js"></script>
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<script src="js/imagezoom.js"></script>
+<?php endif; ?>
+<?php if (current_url() == site_url()): ?>
 <script src="js/responsiveslides.min.js"></script>
- <script>
+<?php endif; ?>
+<script>
+<?php if (current_url() == site_url()): ?>
   $(function () {
    $("#slider").responsiveSlides({
    	auto: true,
@@ -35,12 +51,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     pager: true,
    });
   });
- </script>
+<?php endif; ?>
+
+<?php if (current_url() == site_url().'detail'): ?>
+// Can also be used with $(document).ready()
+$(window).load(function() {
+  $('.flexslider').flexslider({
+    animation: "slide",
+    controlNav: "thumbnails"
+  });
+});
+<?php endif; ?>
+</script>
+
+<?php if (current_url() == site_url()): ?>
  <!--mycart-->
 <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
  <!-- cart -->
 <script src="js/simpleCart.min.js"></script>
 <!-- cart -->
+<?php endif; ?>
+
  <!--start-rate-->
 <script src="js/jstarbox.js"></script>
 	<link rel="stylesheet" href="css/jstarbox.css" type="text/css" media="screen" charset="utf-8" />
@@ -66,6 +97,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 		</script>
 <!--//End-rate-->
+
+<?php if (current_url() == site_url().'detail'): ?>
+<link href="css/owl.carousel.css" rel="stylesheet">
+<script src="js/owl.carousel.js"></script>
+	<script>
+		$(document).ready(function() {
+		$("#owl-demo").owlCarousel({
+			items : 1,
+			lazyLoad : true,
+			autoPlay : true,
+			navigation : false,
+			navigationText :  false,
+			pagination : true,
+		});
+		});
+	</script>
+
+<?php endif; ?>
 </head>
 <body>
 	<!--header-->
@@ -77,17 +126,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="top-right">
 						<ul>
-							<li><a href="registered.html">Register</a></li>
-							<li><a href="login.html">Sign In</a></li>
-							<li><a href="checkout.html"><img src="images/bag.png" alt="" /></a></li>
+							<?php if ($admin_link): ?>
+							<li><a href="<?php echo site_url('admin'); ?>">Admin</a></li>
+							<?php endif; ?>
+
+							<?php if ($logout_link): ?>
+							<li><a href="<?php echo site_url('auth/logout/public'); ?>">Logout</a></li>
+							<?php else: ?>
+							<li><a href="<?php echo site_url('register'); ?>">Register</a></li>
+							<li><a href="<?php echo site_url('auth/login'); ?>">Sign In</a></li>
+							<?php endif; ?>
+							<li><a href="<?php echo site_url('checkout'); ?>"><img src="images/bag.png" alt="" /></a></li>
 						</ul>
 					</div>
-					<div class="input-group search">
-						<input type="text" class="form-control" placeholder="Search for...">
-						<span class="input-group-btn">
-							<button class="btn btn-default" type="button">Go!</button>
-						</span>
-					</div>
+					<!-- search form -->
+					<form action="#" method="get" class="sidebar-form">
+						<div class="input-group search">
+							<input type="text" name="q" class="form-control" placeholder="Search for...">
+							<span class="input-group-btn">
+								<button id='search-btn' class="btn btn-default" type="button">Go!</button>
+							</span>
+						</div>
+					</form>
 					<div class="clearfix"></div>
 				</div>
 			</div>

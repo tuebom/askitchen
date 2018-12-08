@@ -99,7 +99,7 @@ class Auth extends MY_Controller {
         {
             redirect('/', 'refresh');
         }
-   }
+    }
 
 
     function logout($src = NULL)
