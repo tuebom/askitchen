@@ -7,6 +7,7 @@ class Home extends Public_Controller {
     {
 		parent::__construct();
 		$this->load->model('golongan_model');
+		// $this->output->enable_profiler(TRUE);
     }
 
 

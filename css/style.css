@@ -160,6 +160,12 @@ ul.multi-column-dropdown h6 {
     white-space: normal;
 	font-weight:500 !important;
 }
+.block-with-text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    // don’t forget that .block-with-text can’t be an inline element
+}
 .dropdown-menu.columns-3 {
     min-width: 700px;
     padding: 30px 30px;

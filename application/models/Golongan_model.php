@@ -25,10 +25,12 @@ class Golongan_model extends CI_Model
     // get sample
     function get_sample($kode)
     {
-        $this->db->select('stock.kdgol2, stock.kdbar, golongan2.nama')
+        // $this->db->query("select skdgol2, s.kdbar, g.nama where s.kdgol2 = g.kdgol2 and s.kdgol2 = '$kode'")
+        $this->db->select('stock.kdgol, stock.kdgol2, stock.kdbar, stock.gambar, golongan2.nama')
             ->from('stock')
             ->join('golongan2', 'stock.kdgol2 = golongan2.kdgol2')
             ->group_by('stock.kdgol2')
+            ->having('stock.kdgol', $kode)
             ->order_by('stock.kdgol2', 'ASC');
         return $this->db->get()->result();
     }

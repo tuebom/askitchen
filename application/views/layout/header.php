@@ -178,31 +178,17 @@ $(window).load(function() {
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $item->nama ?><b class="caret"></b></a>
 										<ul class="dropdown-menu multi-column columns-3">
-											<div class="row">
+											<div>
 												<?php foreach ($this->data['item_'.$item->kdgol] as $detail) { ?>
 												<div class="col-sm-3 multi-gd-img">
-													<div><label><?php echo $detail->nama ?></label></div>
+													<div class="row"><label class="block-with-text"><?php echo $detail->nama ?></label></div>
 													<div>
-														<a href="<?php echo site_url('products/'.$detail->kdgol2); ?>"><img src="<?=site_url('images/woo3.jpg');?>" alt="<?php echo $detail->nama ?>"/></a>
+														<a href="<?php echo site_url('products/'.$detail->kdgol2); ?>"><img src="<?php echo site_url($this->data['products_dir'].'/'.$detail->gambar); ?>" alt="<?php echo $detail->nama ?>"/></a>
 													</div>
+													<div><label><?php echo $detail->kdbar ?></label></div>
 													<a class="view-more btn- btn-sm" href="<?php echo site_url('products/'.$detail->kdgol2); ?>">Read More</a>
 												</div>
 												<?php } ?>
-												<!--<div class="col-sm-3 multi-gd-img">
-													<label>Sunglasses</label>
-													<a href="products1.html"><img src="<?=site_url('images/woo4.jpg');?>" alt=" "/></a>
-													<a class="view-more btn- btn-sm" href="#">Read More</a>
-												</div>
-												<div class="col-sm-3 multi-gd-img">
-													<label>Sunglasses</label>
-													<a href="products1.html"><img src="<?=site_url('images/woo3.jpg');?>" alt=" "/></a>
-													<a class="view-more btn- btn-sm" href="#">Read More</a>
-												</div> 
-												<div class="col-sm-3 multi-gd-img">
-													<label>Sunglasses</label>
-													<a href="products1.html"><img src="<?=site_url('images/woo4.jpg');?>" alt=" "/></a>
-													<a class="view-more btn- btn-sm" href="#">Read More</a>
-												</div>-->
 												<div class="clearfix"></div>
 											</div>
 										</ul>
