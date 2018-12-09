@@ -22,6 +22,17 @@ class Golongan_model extends CI_Model
         return $this->db->get($this->table)->result();
     }
 
+    // get sample
+    function get_sample($kode)
+    {
+        $this->db->select('stock.kdgol2, stock.kdbar, golongan2.nama')
+            ->from('stock')
+            ->join('golongan2', 'stock.kdgol2 = golongan2.kdgol2')
+            ->group_by('stock.kdgol2')
+            ->order_by('stock.kdgol2', 'ASC');
+        return $this->db->get()->result();
+    }
+
     // get data by id
     function get_by_id($id)
     {
