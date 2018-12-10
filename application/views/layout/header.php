@@ -172,8 +172,11 @@ $(window).load(function() {
 												<?php foreach ($this->data['item_'.$item->kdgol] as $detail) { ?>
 												<div class="col-sm-3 multi-gd-img">
 													<div><label class="block-with-text"><?php echo $detail->nama ?></label></div>
-													<div>
-														<a href="<?php echo site_url('products/'.$detail->kdgol2); ?>"><img src="<?php echo site_url($this->data['products_dir'].'/'.$detail->gambar); ?>" alt="<?php echo $detail->nama ?>"/></a>
+													<div class="row">
+														<div class="sample">
+														<!--<a href="<?php echo site_url('products/'.$detail->kdgol2); ?>">-->
+															<img src="<?php echo site_url($this->data['products_dir'].'/'.$detail->gambar); ?>" alt="<?php echo $detail->nama ?>"/><!--</a>-->
+														</div>
 													</div>
 													<div><label class="block-with-text"><?php echo $detail->kdbar ?></label></div>
 													<a class="view-more btn- btn-sm" href="<?php echo site_url('products/'.$detail->kdgol2); ?>">Read More</a>

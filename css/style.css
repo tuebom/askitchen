@@ -39,8 +39,8 @@ body{
 	font-family: 'Open Sans', sans-serif;
 }
 .header-top {
-    background: #003366; //#1565c0;
-	 padding: .7em 0;
+    background: #003366; /*#1565c0;*/
+    padding: .7em 0;
  }
 .top-left {
     float: left; 
@@ -77,7 +77,7 @@ body{
 }
 .heder-bottom {
     padding: 1em 0;
-	background: #003366; //#0d59af;
+	background: #003366; /*#0d59af;*/
 }
 .logo-nav-left{
 	float:left;
@@ -113,6 +113,13 @@ body{
 }
 .logo-nav-left1 ul li.active a.act{
 	color:#fff !important;
+}
+.row > div.sample {
+    width: 130px;
+    height: 250px;
+}
+.row > div.sample img {
+    max-height: 100%;
 }
 .col-sm-3.multi-gd-img {
     margin-top: 35px;
