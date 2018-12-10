@@ -17,6 +17,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
+/*$servername=filter_input(INPUT_SERVER, 'SERVER_NAME');
+$port=filter_input(INPUT_SERVER, 'SERVER_PORT');
+$config['base_url']	= 'http://'.$servername.":".$port.'/askitchen/';*/
 $config['base_url'] = '';
 
 /*
@@ -29,7 +32,7 @@ $config['base_url'] = '';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -207,7 +210,7 @@ $config['directory_trigger'] = 'd';
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 3;
+$config['log_threshold'] = 0;
 
 /*
 |--------------------------------------------------------------------------

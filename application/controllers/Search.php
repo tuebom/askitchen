@@ -7,6 +7,7 @@ class Search extends Public_Controller {
     {
 		parent::__construct();
 		$this->load->model('golongan_model');
+		$this->load->model('stock_model');
 	}
 
 	
@@ -18,9 +19,11 @@ class Search extends Public_Controller {
 		foreach ($this->data['golongan'] as $item) {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
+        $data = $this->get('q');
+        $this->data['products'] = $this->stock_model->get_limit_data(12,0,$data);
 
 		$this->load->view('layout/header', $this->data);
-		$this->load->view('register/index', $this->data);
+		$this->load->view('search/index', $this->data);
 		$this->load->view('layout/footer', $this->data);
 	}
 }

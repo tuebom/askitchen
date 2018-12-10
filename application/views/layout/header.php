@@ -25,23 +25,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href='//fonts.googleapis.com/css?family=Cagliostro' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300' rel='stylesheet' type='text/css'>
 <!--search jQuery-->
-	<script src="js/main.js"></script>
+<script src="js/main.js"></script>
 <!--search jQuery-->
 
-<?php if (current_url() == site_url().'detail'): ?>
-<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
- <!-- cart -->
-<script src="js/simpleCart.min.js"></script>
-<!-- cart -->
-  <script defer src="js/jquery.flexslider.js"></script>
-<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
-<script src="js/imagezoom.js"></script>
-<?php endif; ?>
 <?php if (current_url() == site_url()): ?>
 <script src="js/responsiveslides.min.js"></script>
-<?php endif; ?>
 <script>
-<?php if (current_url() == site_url()): ?>
   $(function () {
    $("#slider").responsiveSlides({
    	auto: true,
@@ -51,28 +40,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     pager: true,
    });
   });
-<?php endif; ?>
-
-<?php if (current_url() == site_url().'detail'): ?>
-// Can also be used with $(document).ready()
-$(window).load(function() {
-  $('.flexslider').flexslider({
-    animation: "slide",
-    controlNav: "thumbnails"
-  });
-});
-<?php endif; ?>
 </script>
-
-<?php if (current_url() == site_url()): ?>
- <!--mycart-->
+<?php endif; ?>
 <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
- <!-- cart -->
+<!-- cart -->
 <script src="js/simpleCart.min.js"></script>
 <!-- cart -->
-<?php endif; ?>
 
- <!--start-rate-->
+<?php if (current_url() == site_url() || current_url() == site_url().'detail'): ?>
+<!--start-rate-->
 <script src="js/jstarbox.js"></script>
 	<link rel="stylesheet" href="css/jstarbox.css" type="text/css" media="screen" charset="utf-8" />
 		<script type="text/javascript">
@@ -97,22 +73,36 @@ $(window).load(function() {
 		});
 		</script>
 <!--//End-rate-->
+<?php endif; ?>
 
 <?php if (current_url() == site_url().'detail'): ?>
+<script defer src="js/jquery.flexslider.js"></script>
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<script src="js/imagezoom.js"></script>
+<script>
+// Can also be used with $(document).ready()
+$(window).load(function() {
+  $('.flexslider').flexslider({
+    animation: "slide",
+    controlNav: "thumbnails"
+  });
+});
+</script>
+
 <link href="css/owl.carousel.css" rel="stylesheet">
 <script src="js/owl.carousel.js"></script>
-	<script>
-		$(document).ready(function() {
-		$("#owl-demo").owlCarousel({
-			items : 1,
-			lazyLoad : true,
-			autoPlay : true,
-			navigation : false,
-			navigationText :  false,
-			pagination : true,
-		});
-		});
-	</script>
+<script>
+	$(document).ready(function() {
+	$("#owl-demo").owlCarousel({
+		items : 1,
+		lazyLoad : true,
+		autoPlay : true,
+		navigation : false,
+		navigationText :  false,
+		pagination : true,
+	});
+	});
+</script>
 
 <?php endif; ?>
 </head>
@@ -122,7 +112,7 @@ $(window).load(function() {
 			<div class="header-top">
 				<div class="container">
 					<div class="top-left">
-						<a href="#"><b>ASKITCHEN</b></a>
+						<a href="<?php echo site_url(); ?>"><b>ASKITCHEN</b></a>
 					</div>
 					<div class="top-right">
 						<ul>
@@ -140,7 +130,7 @@ $(window).load(function() {
 						</ul>
 					</div>
 					<!-- search form -->
-					<form action="#" method="get" class="sidebar-form">
+					<form action="<?php echo site_url('search'); ?>" method="get" class="sidebar-form">
 						<div class="input-group search">
 							<input type="text" name="q" class="form-control" placeholder="Search for...">
 							<span class="input-group-btn">
@@ -181,11 +171,11 @@ $(window).load(function() {
 											<div>
 												<?php foreach ($this->data['item_'.$item->kdgol] as $detail) { ?>
 												<div class="col-sm-3 multi-gd-img">
-													<div class="row"><label class="block-with-text"><?php echo $detail->nama ?></label></div>
+													<div><label class="block-with-text"><?php echo $detail->nama ?></label></div>
 													<div>
 														<a href="<?php echo site_url('products/'.$detail->kdgol2); ?>"><img src="<?php echo site_url($this->data['products_dir'].'/'.$detail->gambar); ?>" alt="<?php echo $detail->nama ?>"/></a>
 													</div>
-													<div><label><?php echo $detail->kdbar ?></label></div>
+													<div><label class="block-with-text"><?php echo $detail->kdbar ?></label></div>
 													<a class="view-more btn- btn-sm" href="<?php echo site_url('products/'.$detail->kdgol2); ?>">Read More</a>
 												</div>
 												<?php } ?>
@@ -203,4 +193,4 @@ $(window).load(function() {
 				</div>
 			</div>
 		</div>
-		<!--header-->
+	<!--header-->

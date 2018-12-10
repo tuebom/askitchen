@@ -114,6 +114,9 @@ body{
 .logo-nav-left1 ul li.active a.act{
 	color:#fff !important;
 }
+.col-sm-3.multi-gd-img {
+    margin-top: 35px;
+}
 .multi-column-dropdown li a {
     color: #999 !important;
 }
@@ -164,7 +167,7 @@ ul.multi-column-dropdown h6 {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    // don’t forget that .block-with-text can’t be an inline element
+    font-size: 11px;
 }
 .dropdown-menu.columns-3 {
     min-width: 700px;
