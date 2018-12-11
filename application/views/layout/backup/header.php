@@ -97,12 +97,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<ul class="nav navbar-nav">
 									<li><a href="register.html">Register</a></li>
 									<li><a href="login.html">Sign In</a></li>
-									<li><a href="checkout.html"><img src="images/bag.png" alt="" /></a></li>
+									<li><a href="checkout.html"><img src="<?php echo site_url('images/bag.png'); ?>" alt="" /></a></li>
 								</ul>
 								<!--<div class="cart box_1">
 									<a href="checkout.html">
 										<h3> <div class="total">
-											<img src="images/bag.png" alt="" />
+											<img src="<?php echo site_url('images/bag.png'); ?>" alt="" />
 										</h3>
 									</a>
 								</div>-->
@@ -114,7 +114,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<a href="checkout.html">
 									<h3> <div class="total">
 										<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
-										<img src="images/bag.png" alt="" />
+										<img src="<?php echo site_url('images/bag.png'); ?>" alt="" />
 									</h3>
 								</a>
 								<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
@@ -160,10 +160,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													</ul>
 												</div>
 												<div class="col-sm-3  multi-gd-img">
-														<a href="products.html"><img src="images/woo.jpg" alt=" "/></a>
+														<a href="products.html"><img src="<?php echo site_url('images/woo.jpg'); ?>" alt=" "/></a>
 												</div> 
 												<div class="col-sm-3  multi-gd-img">
-														<a href="products.html"><img src="images/woo1.jpg" alt=" "/></a>
+														<a href="products.html"><img src="<?php echo site_url('images/woo1.jpg'); ?>" alt=" "/></a>
 												</div>
 												<div class="clearfix"></div>
 											</div>
@@ -196,10 +196,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													</ul>
 												</div>
 												<div class="col-sm-3  multi-gd-img">
-														<a href="products1.html"><img src="images/woo3.jpg" alt=" "/></a>
+														<a href="products1.html"><img src="<?php echo site_url('images/woo3.jpg'); ?>" alt=" "/></a>
 												</div> 
 												<div class="col-sm-3  multi-gd-img">
-														<a href="products1.html"><img src="images/woo4.jpg" alt=" "/></a>
+														<a href="products1.html"><img src="<?php echo site_url('images/woo4.jpg'); ?>" alt=" "/></a>
 												</div>
 												<div class="clearfix"></div>
 											</div>

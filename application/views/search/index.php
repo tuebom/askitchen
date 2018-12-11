@@ -1,7 +1,7 @@
     <!--content-->
         <div class="content">
 				<div class="products-agileinfo">
-                    <h2 class="tittle"><?php echo $this->data['title']; ?></h2>
+                    <h2 class="tittle"><?php (count($this->data['products']) == 0) ? 'Data tidak ditemukan!' : ''  ?></h2>
 					<div class="container">
 						<div class="product-agileinfo-grids w3l">
 							<div class="col-md-3 product-agileinfo-grid">

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends Public_Controller {
+class Detail extends Public_Controller {
 
     public function __construct()
     {
@@ -9,25 +9,25 @@ class Home extends Public_Controller {
 		$this->load->model('golongan_model');
 		$this->load->model('stock_model');
 		// $this->output->enable_profiler(TRUE);
-    }
+	}
 
-
+	
 	public function index()
 	{
-		// $this->load->view('public/home', $this->data);
 		$this->data['golongan'] = $this->golongan_model->get_all();
 
 		foreach ($this->data['golongan'] as $item) {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
+        
+        $kdgol = $this->uri->segment(2);
+        $kode = $this->uri->segment(2);
 		
-		// $this->data['rnd_products'] = $this->stock_model->get_random_products();
-		$this->data['rnd_products'] = $this->stock_model->get_limit_data(6,0);
-		$this->data['rnd_products2'] = $this->stock_model->get_limit_data(6,7);
-		$this->data['rnd_products3'] = $this->stock_model->get_limit_data(6,13);
+		$this->data['product'] = $this->stock_model->get_by_id($kode);
+		$this->data['related'] = $this->stock_model->get_related($this->data['product']->kdgol2, $kode);
 
 		$this->load->view('layout/header', $this->data);
-		$this->load->view('dashboard/index', $this->data);
+		$this->load->view('detail/index', $this->data);
 		$this->load->view('layout/footer', $this->data);
 	}
 }

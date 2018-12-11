@@ -1,7 +1,7 @@
     <!--content-->
         <div class="content">
 				<div class="products-agileinfo">
-                    <h2 class="tittle"><?php echo $this->data['title']; ?></h2>
+                    <h2 class="tittle">Women's Wear</h2>
 					<div class="container">
 						<div class="product-agileinfo-grids w3l">
 							<div class="col-md-3 product-agileinfo-grid">
@@ -202,42 +202,18 @@
 									</ul>
 									<div id="myTabContent" class="tab-content">
 										<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
-											<?php
-												
-												echo '<!-- rec. count: '. count($this->data['products']) . ' -->'; 
-
-												// $baris = intdiv(count($this->data['products']) / 4);
-												// $sisa  = count($this->data['products']) % 4;
-												// if ($sisa > 0) $baris++;
-
-												$index = 0;
-
-												// for ($i = 0; $i < $baris; $i++) {
-												foreach ($this->data['products'] as $item) {
-
-													if ($index == 4) { $index = 0; }
-
-													if ($index == 0) : // buat tab product baru
-
-											?>
 											<div class="product-tab">
-											<?php
-													endif;
-
-													// for ($j = 0; $j < 4; $j++) {
-													if ($index < 4) {
-											?>
-												<div class="col-md-3 product-tab-grid simpleCart_shelfItem">
+												<div class="col-md-4 product-tab-grid simpleCart_shelfItem">
 													<div class="grid-arr">
 														<div  class="grid-arrival">
 															<figure>		
 																<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal1">
 																	<div class="grid-img">
-																		<img src="<?=base_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?php echo $item->kdbar; ?>">
+																		<img  src="<?=base_url('images/p6.jpg');?>" class="img-responsive" alt="">
 																	</div>
-																	<!--<div class="grid-img">
-																		<img src="<?=base_url('images/p5.jpg');?>" class="img-responsive"  alt="">
-																	</div>-->
+																	<div class="grid-img">
+																		<img  src="<?=base_url('images/p5.jpg');?>" class="img-responsive"  alt="">
+																	</div>			
 																</a>		
 															</figure>	
 														</div>
@@ -245,27 +221,14 @@
 															<div class="starbox small ghosting"> </div>
 														</div>
 														<div class="women">
-															<h6><a href="<?php echo site_url('detail/'.$item->kdbar); ?>"><?php echo $item->kdbar; ?></a></h6>
-															<!--<span class="size">XL / XXL / S </span>-->
-															<p ><!--<del><?php echo $item->hjual; ?></del>--><em class="item_price">Rp<?php echo $item->hjual; ?></em></p>
+															<h6><a href="single.html">Sed ut perspiciatis unde</a></h6>
+															<span class="size">XL / XXL / S </span>
+															<p ><del>$100.00</del><em class="item_price">$70.00</em></p>
 															<a href="#" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
 														</div>
 													</div>
 												</div>
-											<?php 
-													$index++;
-												}
-												
-												if ($index == 4) :
-											?>
-												<div class="clearfix"></div>
-											</div>
-											<?php
-												endif;
-
-											}
-											?>
-												<!--<div class="col-md-4 product-tab-grid simpleCart_shelfItem">
+												<div class="col-md-4 product-tab-grid simpleCart_shelfItem">
 													<div class="grid-arr">
 														<div  class="grid-arrival">
 															<figure>		
@@ -296,10 +259,10 @@
 															<figure>		
 																<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal1">
 																	<div class="grid-img">
-																		<img src="<?=base_url('images/p14.jpg');?>" class="img-responsive" alt="">
+																		<img  src="<?=base_url('images/p14.jpg');?>" class="img-responsive" alt="">
 																	</div>
 																	<div class="grid-img">
-																		<img src="<?=base_url('images/p13.jpg');?>" class="img-responsive"  alt="">
+																		<img  src="<?=base_url('images/p13.jpg');?>" class="img-responsive"  alt="">
 																	</div>			
 																</a>		
 															</figure>	
@@ -550,11 +513,11 @@
 													</div>
 												</div>
 												<div class="clearfix"></div>
-											</div>-->
+											</div>
 										</div>
 										<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
 											<div class="product-tab1">
-												<div class="col-md-3 product-tab1-grid">
+												<div class="col-md-4 product-tab1-grid">
 													<div class="grid-arr">
 														<div  class="grid-arrival">
 															<figure>		
@@ -570,7 +533,7 @@
 														</div>
 													</div>
 												</div>
-												<div class="col-md-9 product-tab1-grid1 simpleCart_shelfItem">
+												<div class="col-md-8 product-tab1-grid1 simpleCart_shelfItem">
 													<div class="block">
 														<div class="starbox small ghosting"> </div>
 													</div>
@@ -584,7 +547,7 @@
 												</div>
 												<div class="clearfix"></div>
 											</div>
-											<!--<div class="product-tab1 prod3">
+											<div class="product-tab1 prod3">
 												<div class="col-md-4 product-tab1-grid">
 													<div class="grid-arr">
 														<div  class="grid-arrival">
@@ -709,21 +672,10 @@
 													</div>
 												</div>
 												<div class="clearfix"></div>
-											</div>-->
+											</div>
 											
 										</div>
 									</div>
-								</div>
-								<div class="box-footer" align="center">
-									<ul class="pagination">
-										<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-										<li><a href="#">1</a></li>
-										<li><a href="#">2</a></li>
-										<li><a href="#">3</a></li>
-										<li><a href="#">4</a></li>
-										<li><a href="#">5</a></li>
-										<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-									</ul>
 								</div>
 							</div>
 							<div class="clearfix"> </div>

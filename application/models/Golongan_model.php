@@ -41,6 +41,13 @@ class Golongan_model extends CI_Model
         $this->db->where($this->id, $id);
         return $this->db->get($this->table)->row();
     }
+
+    // get data by sub-id
+    function get_by_subid($id)
+    {
+        $this->db->where('kdgol2', $id);
+        return $this->db->get('golongan2')->row();
+    }
     
     // get total rows
     function total_rows($q = NULL) {

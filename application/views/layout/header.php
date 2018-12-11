@@ -1,35 +1,26 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
 <html>
 <head>
+<?php echo '<!--'.current_url('').'-->'; ?>
 <title>Professional Food Service Supplies | Home :: ASKITCHEN</title>
-<!--css-->
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/font-awesome.css" rel="stylesheet">
-<?php if (current_url() == site_url().'search' || current_url() == site_url().'products'): ?>
-<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
-<?php endif; ?>
-<!--css-->
+<link href="<?=base_url('css/bootstrap.css');?>" rel="stylesheet" type="text/css" media="all"/>
+<link href="<?=base_url('css/style.css');?>" rel="stylesheet" type="text/css" media="all" />
+<link href="<?=base_url('css/font-awesome.css');?>" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="<?=base_url('css/jquery-ui.css');?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="New Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<script src="js/jquery.min.js"></script>
+<script src="<?=base_url('js/jquery.min.js');?>"></script>
 <link href='//fonts.googleapis.com/css?family=Cagliostro' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300' rel='stylesheet' type='text/css'>
 <!--search jQuery-->
-<script src="js/main.js"></script>
+<script src="<?=base_url('js/main.js');?>"></script>
 <!--search jQuery-->
 
 <?php if (current_url() == site_url()): ?>
-<script src="js/responsiveslides.min.js"></script>
+<script src="<?=base_url('js/responsiveslides.min.js');?>"></script>
 <script>
   $(function () {
    $("#slider").responsiveSlides({
@@ -42,15 +33,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   });
 </script>
 <?php endif; ?>
-<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+<script type="text/javascript" src="<?=base_url('js/bootstrap-3.1.1.min.js');?>"></script>
 <!-- cart -->
-<script src="js/simpleCart.min.js"></script>
+<script src="<?=base_url('js/simpleCart.min.js');?>"></script>
 <!-- cart -->
 
 <?php if (current_url() == site_url() || current_url() == site_url().'detail'): ?>
 <!--start-rate-->
-<script src="js/jstarbox.js"></script>
-	<link rel="stylesheet" href="css/jstarbox.css" type="text/css" media="screen" charset="utf-8" />
+<script src="<?=base_url('js/jstarbox.js');?>"></script>
+	<link rel="stylesheet" href="<?=base_url('css/jstarbox.css');?>" type="text/css" media="screen" charset="utf-8" />
 		<script type="text/javascript">
 			jQuery(function() {
 			jQuery('.starbox').each(function() {
@@ -76,9 +67,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <?php endif; ?>
 
 <?php if (current_url() == site_url().'detail'): ?>
-<script defer src="js/jquery.flexslider.js"></script>
-<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
-<script src="js/imagezoom.js"></script>
+<script defer src="<?=base_url('js/jquery.flexslider.js');?>"></script>
+<link rel="stylesheet" href="<?=base_url('css/flexslider.css');?>" type="text/css" media="screen" />
+<script src="<?=base_url('js/imagezoom.js');?>"></script>
 <script>
 // Can also be used with $(document).ready()
 $(window).load(function() {
@@ -89,8 +80,8 @@ $(window).load(function() {
 });
 </script>
 
-<link href="css/owl.carousel.css" rel="stylesheet">
-<script src="js/owl.carousel.js"></script>
+<link href="<?=base_url('css/owl.carousel.css');?>" rel="stylesheet">
+<script src="<?=base_url('js/owl.carousel.js');?>"></script>
 <script>
 	$(document).ready(function() {
 	$("#owl-demo").owlCarousel({
@@ -126,11 +117,11 @@ $(window).load(function() {
 							<li><a href="<?php echo site_url('register'); ?>">Register</a></li>
 							<li><a href="<?php echo site_url('auth/login'); ?>">Sign In</a></li>
 							<?php endif; ?>
-							<li><a href="<?php echo site_url('checkout'); ?>"><img src="images/bag.png" alt="" /></a></li>
+							<li><a href="<?php echo site_url('checkout'); ?>"><img src="<?php echo site_url('images/bag.png'); ?>" alt="" /></a></li>
 						</ul>
 					</div>
 					<!-- search form -->
-					<form action="<?php echo site_url('search'); ?>" method="get" class="sidebar-form">
+					<form action="<?php echo site_url('search'); ?>" method="POST" class="sidebar-form">
 						<div class="input-group search">
 							<input type="text" name="q" class="form-control" placeholder="Search for...">
 							<span class="input-group-btn">
@@ -174,8 +165,8 @@ $(window).load(function() {
 													<div><label class="block-with-text"><?php echo $detail->nama ?></label></div>
 													<div class="row">
 														<div class="sample">
-														<!--<a href="<?php echo site_url('products/'.$detail->kdgol2); ?>">-->
-															<img src="<?php echo site_url($this->data['products_dir'].'/'.$detail->gambar); ?>" alt="<?php echo $detail->nama ?>"/><!--</a>-->
+														<a href="<?php echo site_url('products/'.$detail->kdgol2); ?>">
+															<img src="<?php echo site_url($this->data['products_dir'].'/'.$detail->gambar); ?>" alt="<?php echo $detail->nama ?>"/></a>
 														</div>
 													</div>
 													<div><label class="block-with-text"><?php echo $detail->kdbar ?></label></div>

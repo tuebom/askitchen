@@ -8,21 +8,22 @@ class Products extends Public_Controller {
 		parent::__construct();
 		$this->load->model('golongan_model');
 		$this->load->model('stock_model');
-		$this->output->enable_profiler(TRUE);
+		// $this->output->enable_profiler(TRUE);
 	}
 
 	
 	public function index()
 	{
-		// $this->load->view('public/home', $this->data);
 		$this->data['golongan'] = $this->golongan_model->get_all();
 
 		foreach ($this->data['golongan'] as $item) {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
         
-        $kode = $this->uri->segment(3);
-        $this->data['products'] = $this->stock_model->get_by_category(12, 0, $kode);
+        $kode = $this->uri->segment(2);
+		
+		$this->data['title'] = $this->golongan_model->get_by_subid($kode)->nama;
+		$this->data['products'] = $this->stock_model->get_by_category(12, 0, $kode);
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('products/index', $this->data);
@@ -41,7 +42,8 @@ class Products extends Public_Controller {
         
         $kode = $this->uri->segment(2);
         $brand = $this->uri->segment(3);
-        $this->data['products'] = $this->stock_model->get_by_brand(12, 0, $kode, $brand);
+		
+		$this->data['products'] = $this->stock_model->get_by_brand(12, 0, $kode, $brand);
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('products/index', $this->data);

@@ -23,7 +23,7 @@
 						 <div class="close1"> </div>
 						 <div class="cart-sec simpleCart_shelfItem">
 								<div class="cart-item cyc">
-									 <img src="images/p15.jpg" class="img-responsive" alt="">
+									 <img src="<?php echo site_url('images/p15.jpg'); ?>" class="img-responsive" alt="">
 								</div>
 							   <div class="cart-item-info">
 								<h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
@@ -53,7 +53,7 @@
 						 <div class="close2"> </div>
 						  <div class="cart-sec simpleCart_shelfItem">
 								<div class="cart-item cyc">
-									 <img src="images/s1.jpg" class="img-responsive" alt="">
+									 <img src="<?php echo site_url('images/s1.jpg'); ?>" class="img-responsive" alt="">
 								</div>
 							   <div class="cart-item-info">
 								<h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
@@ -83,7 +83,7 @@
 						 <div class="close3"> </div>
 							<div class="cart-sec simpleCart_shelfItem">
 								<div class="cart-item cyc">
-									 <img src="images/i7.jpg" class="img-responsive" alt="">
+									 <img src="<?php echo site_url('images/i7.jpg'); ?>" class="img-responsive" alt="">
 								</div>
 							   <div class="cart-item-info">
 								<h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
