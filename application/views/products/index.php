@@ -98,8 +98,8 @@
 									 $( "#slider-range" ).slider({
 												range: true,
 												min: 0,
-												max: 9000,
-												values: [ 1000, 7000 ],
+												max: <?= $this->data['price_range']->hmax ?>,
+												values: [ <?= $this->data['price_range']->hmin ?>, <?= $this->data['price_range']->hmax ?> ],
 												slide: function( event, ui ) {  $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
 												}
 									 });
@@ -229,7 +229,7 @@
 											?>
 												<div class="col-md-3 product-tab-grid simpleCart_shelfItem">
 													<div class="grid-arr">
-														<div  class="grid-arrival">
+														<div class="grid-arrival">
 															<figure>		
 																<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal1">
 																	<div class="grid-img">

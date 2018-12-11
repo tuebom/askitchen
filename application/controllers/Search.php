@@ -21,7 +21,9 @@ class Search extends Public_Controller {
 		}
 		
 		$data = $this->input->post('q'); //$this->get('q');
-        $this->data['products'] = $this->stock_model->get_limit_data(12,0,$data);
+
+        $this->data['q'] = $data;
+		$this->data['products'] = $this->stock_model->get_limit_data(12,0,$data);
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('search/index', $this->data);

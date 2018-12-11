@@ -33,7 +33,7 @@ class Stock_model extends CI_Model
     // get data by category
     function get_by_category($limit, $start = 0, $code)
     {
-        $this->db->select('kdbar, nama, format(hjual,0,"id") as hjual, gambar');
+        $this->db->select('kdbar, nama, format(hjual,0,"de") as hjual, gambar');
         $this->db->where('kdgol2', $code);
 	    $this->db->limit($limit, $start);
         return $this->db->get($this->table)->result();
@@ -108,6 +108,14 @@ class Stock_model extends CI_Model
         $this->db->or_like('fitur', $q);
         $this->db->or_like('disc', $q);
 	    $this->db->limit($limit, $start);
+        return $this->db->get($this->table)->result();
+    }
+
+    // get price range
+    function get_price_range($code)
+    {
+        $this->db->select('MIN(hjual) as hmin, MAX(hjual) as hmax');
+        $this->db->where('kdgol2', $code);
         return $this->db->get($this->table)->result();
     }
 

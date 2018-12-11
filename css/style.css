@@ -23,7 +23,7 @@ input[type="button"]{
 h1,h2,h3,h4,h5,h6{
 	padding:0 0;
 	margin:0 0;
-	font-family: 'Cagliostro', sans-serif;
+	font-family: 'Tahoma, Cagliostro', sans-serif;
 }
 p{
 	padding:0 0;
@@ -114,11 +114,11 @@ body{
 .logo-nav-left1 ul li.active a.act{
 	color:#fff !important;
 }
-.row > div.sample {
+.row > div.sample, .grid-arrival > .grid-img {
     width: 130px;
     height: 250px;
 }
-.row > div.sample img {
+.row > div.sample img, .grid-arrival > .grid-img img {
     max-height: 100%;
 }
 .col-sm-3.multi-gd-img {
@@ -1821,6 +1821,7 @@ p.price {
 .recent-left {
     float: left;
     width: 24%;
+    margin-top: 15px;
 }
 .recent-right {
     float: right;
