@@ -100,10 +100,19 @@ $(window).load(function() {
 <body>
 	<!--header-->
 		<div class="header">
+			<div class="header-top-most">
+				<div class="container">
+					<div class="top-left">
+						<a href="#"><img src="<?= site_url('images/askitchen.png'); ?>" alt="ASKITCHEN Logo"></a>
+						<a href="http://www.asovic.co.id/" target="blank"><img src="<?= site_url('images/asovic.png'); ?>" alt="ASOVIC Logo"></a>
+						<a href="http://www.muchef.com/" target="blank"><img src="<?= site_url('images/muchef.png'); ?>" alt="MUCHEF Logo"></a>
+					</div>
+				</div>
+			</div>
 			<div class="header-top">
 				<div class="container">
 					<div class="top-left">
-						<a href="<?php echo site_url(); ?>"><b>ASKITCHEN</b></a>
+						<a href="<?php echo site_url(); ?>"><img src="<?= site_url('images/logo.png'); ?>" alt="ASKITCHEN Logo"></a>
 					</div>
 					<div class="top-right">
 						<ul>
@@ -117,12 +126,25 @@ $(window).load(function() {
 							<li><a href="<?php echo site_url('register'); ?>">Register</a></li>
 							<li><a href="<?php echo site_url('auth/login'); ?>">Sign In</a></li>
 							<?php endif; ?>
-							<li><a href="<?php echo site_url('checkout'); ?>"><img src="<?php echo site_url('images/bag.png'); ?>" alt="" /></a></li>
+							<li><a href="<?php echo site_url('checkout'); ?>"><img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a>
+							&nbsp;<span class="badge badge-primary">5</span></li>
 						</ul>
 					</div>
 					<!-- search form -->
-					<form action="<?php echo site_url('search'); ?>" method="POST" class="sidebar-form">
+					<form action="<?php echo site_url('search'); ?>" method="get" class="sidebar-form">
 						<div class="input-group search">
+							<div class="input-group-btn">
+								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All <span class="caret"></span></button>
+								<ul class="dropdown-menu">
+								<?php
+									foreach ($this->data['golongan'] as $item) { 
+								?>
+									<li><a href="<?php echo site_url('products/'.$item->kdgol); ?>"><?= $item->nama ?></a></li>
+								<?php
+									}
+								?>
+								</ul>
+							</div>
 							<input type="text" name="q" class="form-control" placeholder="Search for...">
 							<span class="input-group-btn">
 								<button id='search-btn' class="btn btn-default" type="button">Go!</button>
@@ -136,7 +158,13 @@ $(window).load(function() {
 				<div class="container">
 					<div class="logo-nav">
 						<!--<div class="logo-nav-left">
-							<h1><a href="index.html">New Shop <span>Shop anywhere</span></a></h1>
+							<div class="location">
+								<ul style="display: inline;">
+									<li><img src="<?= site_url('images/location.png'); ?>" alt="Location"></i>
+									<li><p>Deliver To<BR>INDONESIA</p></li>
+								</ul>
+								<div class="clearfix"> </div>
+							</div>	
 						</div>-->
 						<div class="logo-nav-left1">
 							<nav class="navbar navbar-default">
@@ -150,6 +178,7 @@ $(window).load(function() {
 								</button>
 							</div> 
 							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+								
 								<ul class="nav navbar-nav">
 									<!-- Mega Menu -->
 									<?php 

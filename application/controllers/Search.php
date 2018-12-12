@@ -20,10 +20,11 @@ class Search extends Public_Controller {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
 		
-		$data = $this->input->post('q'); //$this->get('q');
+		$data = $this->input->get('q'); //$this->get('q');
 
         $this->data['q'] = $data;
 		$this->data['products'] = $this->stock_model->get_limit_data(12,0,$data);
+		$this->data['price_range'] = $this->stock_model->get_global_price_range();
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('search/index', $this->data);

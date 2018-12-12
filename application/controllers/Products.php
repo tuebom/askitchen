@@ -22,7 +22,11 @@ class Products extends Public_Controller {
         
         $kode = $this->uri->segment(2);
 		
-		$this->data['title'] = $this->golongan_model->get_by_subid($kode)->nama;
+		if (strlen($kode) == 2) {
+			$this->data['title'] = $this->golongan_model->get_by_id($kode)->nama;
+		} else {
+			$this->data['title'] = $this->golongan_model->get_by_subid($kode)->nama;
+		}
 		$this->data['products'] = $this->stock_model->get_by_category(12, 0, $kode);
 		$this->data['price_range'] = $this->stock_model->get_price_range($kode);
 
