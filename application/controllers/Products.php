@@ -29,6 +29,7 @@ class Products extends Public_Controller {
 		}
 		$this->data['products'] = $this->stock_model->get_by_category(12, 0, $kode);
 		$this->data['price_range'] = $this->stock_model->get_price_range($kode);
+		$this->data['kode'] = $kode;
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('products/index', $this->data);

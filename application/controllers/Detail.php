@@ -20,11 +20,12 @@ class Detail extends Public_Controller {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
         
-        $kdgol = $this->uri->segment(2);
+        // $kdgol = $this->uri->segment(2);
         $kode = $this->uri->segment(2);
 		
 		$this->data['product'] = $this->stock_model->get_by_id($kode);
 		$this->data['related'] = $this->stock_model->get_related($this->data['product']->kdgol2, $kode);
+		$this->data['reviews'] = $this->stock_model->get_reviews($kode);
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('detail/index', $this->data);

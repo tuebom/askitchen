@@ -97,7 +97,8 @@
 								<div class="grid-arr">
 									<div class="grid-arrival">
 										<figure>		
-											<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal1">
+											<!--<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal1">-->
+											<a href="<?php echo site_url('detail/'.$item->kdbar); ?>" class="new-gri">
 												<div class="grid-img">
 													<img src="<?=site_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar?>">
 												</div>

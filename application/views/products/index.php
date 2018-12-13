@@ -156,8 +156,11 @@
 								<div class="brand-w3l">
 									<h3>Brands Filter</h3>
 									<ul>
-										<li><a href="<?php echo site_url('products/GEA'); ?>">GEA</a></li>
-										<li><a href="<?php echo site_url('products/GETRA'); ?>">GETRA</a></li>
+										<li><a href="<?php echo site_url('products/'.$this->data['kode'].'/GEA'); ?>">GEA</a></li>
+										<li><a href="<?php echo site_url('products/'.$this->data['kode'].'/GETRA'); ?>">GETRA</a></li>
+										<li><a href="<?php echo site_url('products/'.$this->data['kode'].'/GEA'); ?>">SANDEN</a></li>
+										<li><a href="<?php echo site_url('products/'.$this->data['kode'].'/GETRA'); ?>">MADIN</a></li>
+										<!--<li><a href="<?php echo site_url('products/GEA'); ?>">OTHER</a></li>-->
 									</ul>
 								</div>
 								<!--<div class="cat-img">
@@ -228,7 +231,7 @@
 													<div class="grid-arr">
 														<div class="grid-arrival">
 															<figure>		
-																<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal1">
+																<a href="<?php echo site_url('detail/'.$item->kdbar); ?>" class="new-gri">
 																	<div class="grid-img">
 																		<img src="<?=base_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar; ?>">
 																	</div>
@@ -242,9 +245,9 @@
 															<div class="starbox small ghosting"> </div>
 														</div>
 														<div class="women">
-															<h6><a href="<?php echo site_url('detail/'.$item->kdbar); ?>"><?php echo $item->kdbar; ?></a></h6>
-															<!--<span class="size">XL / XXL / S </span>-->
-															<p ><!--<del><?php echo $item->hjual; ?></del>--><em class="item_price">Rp<?php echo $item->hjual; ?></em></p>
+															<h6><a href="<?php echo site_url('detail/'.$item->kdbar); ?>"><?= $item->kdbar; ?></a></h6>
+															<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
+															<p ><!--<del><?= $item->hjual; ?></del>--><em class="item_price">Rp<?= $item->hjual; ?></em></p>
 															<a href="#" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
 														</div>
 													</div>
@@ -273,7 +276,7 @@
 													<div class="grid-arr">
 														<div class="grid-arrival">
 															<figure>		
-																<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal1">
+																<a href="<?php echo site_url('detail/'.$item->kdbar); ?>" class="new-gri">
 																	<div class="grid-img">
 																		<img src="<?=base_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar; ?>">
 																	</div>
@@ -291,7 +294,7 @@
 													</div>
 													<div class="women">
 														<h6><a href="<?php echo site_url('detail/'.$item->kdbar); ?>"><?= $item->kdbar; ?></a></h6>
-														<!--<span class="size">XL / XXL / S </span>-->
+														<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
 														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Atqui iste locus est, Piso, tibi etiam atque etiam confirmandus, inquam; Refert tamen, quo modo. Quod autem meum munus dicis non equidem recuso, sed te adiungo socium. </p>
 														<p><!--<del>$100.00</del>--><em class="item_price"><?= $item->hjual; ?></em></p>
 														<a href="#" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>

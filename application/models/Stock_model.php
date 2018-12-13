@@ -25,7 +25,7 @@ class Stock_model extends CI_Model
     // get data by id
     function get_by_id($id)
     {
-        $this->db->select('kdbar, nama, kdgol2, format(hjual,0,"id") as hjual, gambar');
+        $this->db->select('kdbar, nama, kdgol2, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar');
         $this->db->where($this->id, $id);
         return $this->db->get($this->table)->row();
     }
@@ -33,7 +33,7 @@ class Stock_model extends CI_Model
     // get data by category
     function get_by_category($limit, $start = 0, $code)
     {
-        $this->db->select('kdbar, nama, format(hjual,0,"de") as hjual, gambar');
+        $this->db->select('kdbar, nama, format(hjual,0,"de") as hjual, pnj, lbr, tgi, gambar');
         // $this->db->where('kdgol2', $code);
         $this->db->like('kdgol', $code);
         $this->db->or_like('kdgol2', $code);
@@ -53,7 +53,7 @@ class Stock_model extends CI_Model
     // get related product
     function get_related($kode, $kdbar)
     {
-        $this->db->select('kdbar, nama, format(hjual,0,"id") as hjual, gambar')
+        $this->db->select('kdbar, nama, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar')
             ->from('stock')
             ->where('kdgol2', $kode)
             ->where('kdbar !=', $kdbar)
@@ -64,7 +64,7 @@ class Stock_model extends CI_Model
     // get random product
     function get_random_products($kode, $kdbar)
     {
-        $this->db->select('kdbar, nama, format(hjual,0,"id") as hjual, gambar')
+        $this->db->select('kdbar, nama, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar')
             ->from('stock')
             ->where('kdgol2', $kode)
             ->where('kdbar !=', $kdbar)
@@ -94,7 +94,7 @@ class Stock_model extends CI_Model
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL) {
         
-        $this->db->select('kdbar, nama, format(hjual,0,"id") as hjual, gambar');
+        $this->db->select('kdbar, nama, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar');
         $this->db->order_by($this->id, $this->order);
         $this->db->like('kdbar', $q);
         $this->db->or_like('nama', $q);
@@ -126,6 +126,15 @@ class Stock_model extends CI_Model
         $this->db->select('MIN(hjual) as hmin, MAX(hjual) as hmax');
         $this->db->where('kdgol2', $code);
         return $this->db->get($this->table)->result();
+    }
+
+    // get item reviews
+    function get_reviews($code)
+    {
+        $this->db->select('comment');
+        $this->db->order_by('timestamp', 'DESC');
+        $this->db->where('kdbar', $code);
+        return $this->db->get('reviews')->result();
     }
 
     // insert data
