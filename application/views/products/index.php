@@ -248,7 +248,7 @@
 															<h6><a href="<?php echo site_url('detail/'.$item->kdbar); ?>"><?= $item->kdbar; ?></a></h6>
 															<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
 															<p ><!--<del><?= $item->hjual; ?></del>--><em class="item_price">Rp<?= $item->hjual; ?></em></p>
-															<a href="#" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+															<a href="<?php echo site_url('detail/'.$item->kdbar); ?>" data-text="Show Details" class="my-cart-d item_add">Show Details</a>
 														</div>
 													</div>
 												</div>
@@ -297,7 +297,7 @@
 														<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
 														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Atqui iste locus est, Piso, tibi etiam atque etiam confirmandus, inquam; Refert tamen, quo modo. Quod autem meum munus dicis non equidem recuso, sed te adiungo socium. </p>
 														<p><!--<del>$100.00</del>--><em class="item_price"><?= $item->hjual; ?></em></p>
-														<a href="#" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+														<a href="<?php echo site_url('detail/'.$item->kdbar); ?>" data-text="Show Details" class="my-cart-d item_add">Show Details</a>
 													</div>
 												</div>
 												<div class="clearfix"></div>
