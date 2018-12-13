@@ -5,44 +5,22 @@
 					<div class="container">
 						<div class="product-agileinfo-grids w3l">
 							<div class="col-md-3 product-agileinfo-grid">
-								<!--<div class="categories">
-									<h3>Refine By</h3>
+								<div class="categories">
+									<h3>Categories</h3>
 									<ul class="tree-list-pad">
-										<li><input type="checkbox" checked="checked" id="item-0" /><label for="item-0"><span></span>Women's Wear</label>
+										<?php
+											$index = 0;
+											foreach ($this->data['golongan'] as $item) {
+										?>
+										<li><input type="checkbox" id="item-<?=$index?>" /><label for="item-<?=$index?>"><span></span><?= $item->nama ?></label>
 											<ul>
-												<li><input type="checkbox" id="item-0-0" /><label for="item-0-0">Ethnic Wear</label>
-													<ul>
-														<li><a href="products.html">Shirts</a></li>
-														<li><a href="products.html">Caps</a></li>
-														<li><a href="products.html">Shoes</a></li>
-														<li><a href="products.html">Pants</a></li>
-														<li><a href="products.html">SunGlasses</a></li>
-														<li><a href="products.html">Trousers</a></li>
-													</ul>
-												</li>
-												<li><input type="checkbox"  id="item-0-1" /><label for="item-0-1">Party Wear</label>
-													<ul>
-														<li><a href="products.html">Shirts</a></li>
-														<li><a href="products.html">Caps</a></li>
-														<li><a href="products.html">Shoes</a></li>
-														<li><a href="products.html">Pants</a></li>
-														<li><a href="products.html">SunGlasses</a></li>
-														<li><a href="products.html">Trousers</a></li>
-													</ul>
-												</li>
-												<li><input type="checkbox"  id="item-0-2" /><label for="item-0-2">Casual Wear</label>
-													<ul>
-														<li><a href="products.html">Shirts</a></li>
-														<li><a href="products.html">Caps</a></li>
-														<li><a href="products.html">Shoes</a></li>
-														<li><a href="products.html">Pants</a></li>
-														<li><a href="products.html">SunGlasses</a></li>
-														<li><a href="products.html">Trousers</a></li>
-													</ul>
-												</li>
+												<?php foreach ($this->data['item_'.$item->kdgol] as $detail) { ?>
+												<li><input type="checkbox" id="item-<?=$index?>-0" /><a href="<?php echo site_url('products/'.$detail->kdgol2); ?>"><?= $detail->nama?></a></li>
+												<?php } ?>
 											</ul>
 										</li>
-										<li><input type="checkbox" id="item-1" checked="checked" /><label for="item-1">Best Collections</label>
+										<?php $index++; } ?>
+										<!--<li><input type="checkbox" id="item-1" checked="checked" /><label for="item-1">Best Collections</label>
 											<ul>
 												<li><input type="checkbox" checked="checked" id="item-1-0" /><label for="item-1-0">New Arrivals</label>
 													<ul>
@@ -82,9 +60,9 @@
 													</ul>
 												</li>
 											</ul>
-										</li>
+										</li>-->
 									</ul>
-								</div>-->
+								</div>
 								<div class="price">
 									<h3>Price Range</h3>
 									<ul class="dropdown-menu6">
@@ -296,7 +274,7 @@
 														<h6><a href="<?php echo site_url('detail/'.$item->kdbar); ?>"><?= $item->kdbar; ?></a></h6>
 														<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
 														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Atqui iste locus est, Piso, tibi etiam atque etiam confirmandus, inquam; Refert tamen, quo modo. Quod autem meum munus dicis non equidem recuso, sed te adiungo socium. </p>
-														<p><!--<del>$100.00</del>--><em class="item_price"><?= $item->hjual; ?></em></p>
+														<p><!--<del>$100.00</del>--><em class="item_price">Rp<?= $item->hjual; ?></em></p>
 														<a href="<?php echo site_url('detail/'.$item->kdbar); ?>" data-text="Show Details" class="my-cart-d item_add">Show Details</a>
 													</div>
 												</div>
