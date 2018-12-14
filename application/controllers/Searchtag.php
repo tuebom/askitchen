@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Search extends Public_Controller {
+class Searchtag extends Public_Controller {
 
     public function __construct()
     {
@@ -20,10 +20,10 @@ class Search extends Public_Controller {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
 		
-		$data = $this->input->get('q');
+		$tag = $this->input->get('tag');
 
-        $this->data['q'] = $data;
-		$this->data['products'] = $this->stock_model->get_limit_data(12,0,$data);
+        // $this->data['q'] = $tag;
+		$this->data['products'] = $this->stock_model->get_by_food_category(12,0,$tag);
 		$this->data['price_range'] = $this->stock_model->get_global_price_range();
 
 		$this->load->view('layout/header', $this->data);

@@ -25,8 +25,8 @@
 					<div class="core-slider_control-nav"></div>
 				</div>
 			</div>
-			<link href="css/coreSlider.css" rel="stylesheet" type="text/css">
-			<script src="js/coreSlider.js"></script>
+			<link href="<?php echo site_url('css/coreSlider.css'); ?>" rel="stylesheet" type="text/css">
+			<script src="<?php echo site_url('js/coreSlider.js'); ?>"></script>
 			<script>
 			$('#example1').coreSlider({
 			 pauseOnHover: false,

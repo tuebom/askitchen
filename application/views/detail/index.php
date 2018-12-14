@@ -46,6 +46,7 @@
 														<script>
 														$('.value-plus1').on('click', function(){
 															var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)+1;
+															console.log(newVal);
 															divUpd.text(newVal);
 														});
 

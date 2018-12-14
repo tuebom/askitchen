@@ -9,11 +9,11 @@
 <link rel="stylesheet" type="text/css" href="<?=base_url('css/jquery-ui.css');?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="New Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<meta name="keywords" content="Freezer, Cooler, Cooler Showcase, Cooler Dispenser, Ice Maker, Ice Cream, Ice Cream Machine, 
+Refrigerator, Refrigeration, Stainless Steel Refrigeration, Minimarket, Minimarket Refrigeration" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <script src="<?=base_url('js/jquery.min.js');?>"></script>
-<link href='//fonts.googleapis.com/css?family=Cagliostro' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Calibri' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300' rel='stylesheet' type='text/css'>
 <!--search jQuery-->
 <script src="<?=base_url('js/main.js');?>"></script>
@@ -96,8 +96,58 @@ $(window).load(function() {
 </script>
 
 <?php endif; ?>
+<link rel="stylesheet" type="text/css" href="<?=base_url('css/custombox.min.css');?>">
+<script src="<?=base_url('js/custombox.min.js');?>"></script>
+<script src="<?=base_url('js/custombox.legacy.min.js');?>"></script>
+<style>
+	/* modal */
+.demo-modal {
+    background-color: #FFF;
+    box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
+    padding: 24px;
+    width: 50%;
+    position: relative;
+    display: none;
+}
+
+.demo-close {
+    display: block;
+    position: absolute;
+    top: -35px;
+    right: 0;
+    z-index: 10000;
+    outline: none;
+    font-size: 30px;
+    line-height: 30px;
+    transition: transform .3s ease-in-out;
+    color: #FFF;
+}
+</style>
 </head>
 <body>
+	<a href="#" class="float" onclick="theFunction();">
+	<i class="fa fa-question-circle my-float"></i>
+	
+	<script type="text/javascript">
+    function theFunction () {
+		var modal = new Custombox.modal({
+		content: {
+			effect: 'corner',
+			target: '#demo-modal'
+			}
+		});
+
+		// Open
+		modal.open();
+		// return true or false, depending on whether you want to allow the `href` property to follow through or not
+    }
+	</script>
+	</a>
+	<div class="label-container">
+	<div class="label-text">Show Suggestions</div>
+	<i class="fa fa-play label-arrow"></i>
+	</div>
+
 	<!--header-->
 		<div class="header">
 			<div class="header-top-most">
@@ -126,7 +176,7 @@ $(window).load(function() {
 							<li><a href="<?php echo site_url('register'); ?>">Register</a></li>
 							<li><a href="<?php echo site_url('auth/login'); ?>">Sign In</a></li>
 							<?php endif; ?>
-							<li><a href="<?php echo site_url('checkout'); ?>"><img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a>
+							<li><a href="<?php echo site_url('checkout'); ?>">Cart&nbsp;<img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a>
 							&nbsp;<span class="badge badge-primary">5</span></li>
 						</ul>
 					</div>
@@ -183,6 +233,7 @@ $(window).load(function() {
 									<!-- Mega Menu -->
 									<?php 
 										// print_r($this->data);
+										echo "<!-- " . site_url($this->data['products_dir']) . " -->";
 										foreach ($this->data['golongan'] as $item) {
 									?>
 									<li class="dropdown">
@@ -217,3 +268,18 @@ $(window).load(function() {
 			</div>
 		</div>
 	<!--header-->
+	<!--modal-->
+	<div id="demo-modal" class="demo-modal" style="display: none;">
+      <a href="javascript:void(0);" onclick="Custombox.modal.close();" class="demo-close"><i class="fa fa-times"></i></a>
+	  <div class="categories">
+		<h3>Food Categories</h3>
+		<ul class="tree-list-pad">
+			<li><input type="checkbox" id="item-0" /><span></span><a href="<?php echo site_url('searchtag?tag=western'); ?>">Western Food</a></li>
+			<li><input type="checkbox" id="item-1" /><span></span><a href="<?php echo site_url('searchtag?tag=asia'); ?>">Asian Food</a></li>
+			<li><input type="checkbox" id="item-2" /><span></span><a href="<?php echo site_url('searchtag?tag=bbq'); ?>">Barbeque</a></li>
+			<li><input type="checkbox" id="item-3" /><span></span><a href="<?php echo site_url('searchtag?tag=coffee'); ?>">Coffee Shop</a></li>
+			<li><input type="checkbox" id="item-4" /><span></span><a href="<?php echo site_url('searchtag?tag=bar'); ?>">Bar</a></li>
+			<li><input type="checkbox" id="item-5" /><span></span><a href="<?php echo site_url('searchtag?tag=catering'); ?>">Catering</a></li>
+		</ul>
+	  </div>
+	</div>

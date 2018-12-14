@@ -41,6 +41,16 @@ class Stock_model extends CI_Model
         return $this->db->get($this->table)->result();
     }
 
+    // get data by food category
+    function get_by_food_category($limit, $start = 0, $tag)
+    {
+        $this->db->select('kdbar, nama, format(hjual,0,"de") as hjual, pnj, lbr, tgi, gambar');
+        // $this->db->where('kdgol2', $code);
+        $this->db->like('tag', $tag);
+	    $this->db->limit($limit, $start);
+        return $this->db->get($this->table)->result();
+    }
+
     // get data by brand
     function get_by_brand($limit, $start = 0, $code, $brand)
     {
