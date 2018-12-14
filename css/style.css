@@ -119,8 +119,10 @@ body{
 	color:#fff !important;
 }
 .row > div.sample, .grid-arrival > .grid-img {
-    width: 130px;
-    height: 250px;
+    width: 70px;
+    height: 190px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .row > div.sample img, .grid-arrival > .grid-img img {
     max-height: 100%;
