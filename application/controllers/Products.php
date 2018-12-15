@@ -33,9 +33,9 @@ class Products extends Public_Controller {
 		$this->data['kode'] = $kode;
 
         $pcfg = array(
-            'base_url' => $this->links->get_link() . '/halaman/',
-            'per_page' => $per_page,
-            'total_rows' => $this->data->all_data(),
+            'base_url' => base_url(),
+            'per_page' => 12,
+            'total_rows' => $this->stock_model->all_data(),
             'attributes' => array('class' => 'btn btn-default'),
             'full_tag_open' => '<div class="btn-group">',
             'full_tag_close' => '</div>',
