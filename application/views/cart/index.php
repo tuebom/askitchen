@@ -1,7 +1,7 @@
     <!--banner-->
 		<div class="banner1">
 			<div class="container">
-				<h3><a href="index.html">Home</a> / <span>Checkout</span></h3>
+				<h3><a href="<?php echo site_url(); ?>">Home</a> / <span>Checkout</span></h3>
 			</div>
 		</div>
 	<!--banner-->
@@ -10,18 +10,22 @@
 		<div class="content">
 			<div class="cart-items">
 				<div class="container">
-					<h2>My Shopping Bag (3)</h2>
 					<?php
 
 					if(isset($_SESSION["cart_item"])){
-						$total_quantity = 0;
+						$total_qty = 0;
 						$total_price = 0;
 
 						foreach ($_SESSION["cart_item"] as $item){
-							$item_price = $item["quantity"]*$item["price"];
-					
 
+							$item_price  = $item["qty"]*$item["harga"];
+
+							$item_price += $item_price;
+							// count total item
+							$total_qty  += $item["qty"];
+					
 					?>
+					<h2>My Shopping Bag (<?= $total_qty ?>)</h2>
 					<script>$(document).ready(function(c) {
 						$('.close1').on('click', function(c){
 							$('.cart-header').fadeOut('slow', function(c){

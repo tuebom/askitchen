@@ -176,8 +176,8 @@ $(window).load(function() {
 							<li><a href="<?php echo site_url('register'); ?>">Register</a></li>
 							<li><a href="<?php echo site_url('auth/login'); ?>">Sign In</a></li>
 							<?php endif; ?>
-							<li><a href="<?php echo site_url('checkout'); ?>">Cart&nbsp;<img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a>
-							&nbsp;<span class="badge badge-primary">5</span></li>
+							<li><a href="<?php echo site_url('cart'); ?>">Cart&nbsp;<img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a>
+							&nbsp;<span class="badge badge-primary">0</span></li>
 						</ul>
 					</div>
 					<!-- search form -->

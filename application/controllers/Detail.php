@@ -23,7 +23,7 @@ class Detail extends Public_Controller {
         // $kdgol = $this->uri->segment(2);
         $kode = $this->uri->segment(2);
 		
-		$this->data['product'] = $this->stock_model->get_by_id($kode);
+		$this->data['product'] = $this->stock_model->get_by_kodeurl($kode);
 		$this->data['related'] = $this->stock_model->get_related($this->data['product']->kdgol2, $kode);
 		$this->data['reviews'] = $this->stock_model->get_reviews($kode);
 
