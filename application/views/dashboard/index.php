@@ -123,7 +123,7 @@
 				</div>
 			<!--new-arrivals-->
 			<!--accessories-->
-			<div class="accessories-w3l">
+			<!--<div class="accessories-w3l">
 				<div class="container">
 					<h3 class="tittle">10% Discount on</h3>
 					<span>TRENDING PRODUCTS</span>
@@ -132,7 +132,7 @@
 						<a href="#" class="button1"> Quick View</a>
 					</div>
 				</div>
-			</div>
+			</div>-->
 			<!--accessories-->
 			<!--Products-->
 				<div class="product-agile">

@@ -35,7 +35,7 @@ class Products extends Public_Controller {
         $pcfg = array(
             'base_url' => base_url(),
             'per_page' => 12,
-            'total_rows' => $this->stock_model->all_data(),
+            'total_rows' => $this->stock_model->total_rows($kode),
             'attributes' => array('class' => 'btn btn-default'),
             'full_tag_open' => '<div class="btn-group">',
             'full_tag_close' => '</div>',
