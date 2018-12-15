@@ -25,15 +25,15 @@ class Stock_model extends CI_Model
     // get data by id
     function get_by_id($id)
     {
-        $this->db->select('kdbar, nama, kdgol2, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar');
-        $this->db->where($this->id, $id);
+        $this->db->select('kdbar, kdurl, nama, kdgol2, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar');
+        $this->db->where('kdurl', $id); // $this->id
         return $this->db->get($this->table)->row();
     }
 
     // get data by category
     function get_by_category($limit, $start = 0, $code)
     {
-        $this->db->select('kdbar, nama, format(hjual,0,"de") as hjual, pnj, lbr, tgi, gambar');
+        $this->db->select('kdbar, kdurl, nama, format(hjual,0,"de") as hjual, pnj, lbr, tgi, gambar');
         // $this->db->where('kdgol2', $code);
         $this->db->like('kdgol', $code);
         $this->db->or_like('kdgol2', $code);
@@ -44,7 +44,7 @@ class Stock_model extends CI_Model
     // get data by food category
     function get_by_food_category($limit, $start = 0, $tag)
     {
-        $this->db->select('kdbar, nama, format(hjual,0,"de") as hjual, pnj, lbr, tgi, gambar');
+        $this->db->select('kdbar, kdurl, nama, format(hjual,0,"de") as hjual, pnj, lbr, tgi, gambar');
         // $this->db->where('kdgol2', $code);
         $this->db->like('tag', $tag);
 	    $this->db->limit($limit, $start);
@@ -52,9 +52,8 @@ class Stock_model extends CI_Model
     }
 
     // get data by brand
-    function get_by_brand($limit, $start = 0, $code, $brand)
+    function get_by_brand($limit, $start = 0, $brand)
     {
-        $this->db->where($this->kdgol2, $code);
         $this->db->where($this->merk, $brand);
 	    $this->db->limit($limit, $start);
         return $this->db->get($this->table)->row();
@@ -63,7 +62,7 @@ class Stock_model extends CI_Model
     // get related product
     function get_related($kode, $kdbar)
     {
-        $this->db->select('kdbar, nama, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar')
+        $this->db->select('kdbar, kdurl, nama, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar')
             ->from('stock')
             ->where('kdgol2', $kode)
             ->where('kdbar !=', $kdbar)
@@ -74,7 +73,7 @@ class Stock_model extends CI_Model
     // get random product
     function get_random_products($kode, $kdbar)
     {
-        $this->db->select('kdbar, nama, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar')
+        $this->db->select('kdbar, kdurl, nama, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar')
             ->from('stock')
             ->where('kdgol2', $kode)
             ->where('kdbar !=', $kdbar)
@@ -104,7 +103,7 @@ class Stock_model extends CI_Model
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL) {
         
-        $this->db->select('kdbar, nama, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar');
+        $this->db->select('kdbar, kdurl, nama, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar');
         $this->db->order_by($this->id, $this->order);
         $this->db->like('kdbar', $q);
         $this->db->or_like('nama', $q);

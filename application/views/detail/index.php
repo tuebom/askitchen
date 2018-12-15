@@ -128,10 +128,10 @@
 							?>
 							<div class="recent-grids">
 								<div class="recent-left">
-									<a href="<?php echo site_url('detail/'.$item->kdbar); ?>"><img class="img-responsive " src="<?=base_url($this->data['products_dir'].'/'.$item->gambar);?>" alt="<?= $item->kdbar ?>"></a>	
+									<a href="<?php echo site_url('detail/'.$item->kdurl); ?>"><img class="img-responsive " src="<?=base_url($this->data['products_dir'].'/'.$item->gambar);?>" alt="<?= $item->kdbar ?>"></a>	
 								</div>
 								<div class="recent-right">
-									<h6 class="best2"><a href="<?php echo site_url('detail/'.$item->kdbar); ?>"><?= $item->kdbar ?></a></h6>
+									<h6 class="best2"><a href="<?php echo site_url('detail/'.$item->kdurl); ?>"><?= $item->kdbar ?></a></h6>
 									<div class="block">
 										<div class="starbox small ghosting"> </div>
 									</div>

@@ -156,10 +156,10 @@
 								<div class="brand-w3l">
 									<h3>Brands Filter</h3>
 									<ul>
-										<li><a href="<?php echo site_url('products/'.$this->data['kode'].'/GEA'); ?>">GEA</a></li>
-										<li><a href="<?php echo site_url('products/'.$this->data['kode'].'/GETRA'); ?>">GETRA</a></li>
-										<li><a href="<?php echo site_url('products/'.$this->data['kode'].'/GEA'); ?>">SANDEN</a></li>
-										<li><a href="<?php echo site_url('products/'.$this->data['kode'].'/GETRA'); ?>">MADIN</a></li>
+										<li><a href="<?php echo site_url('products/brand/GEA'); ?>">GEA</a></li>
+										<li><a href="<?php echo site_url('products/brand/GETRA'); ?>">GETRA</a></li>
+										<li><a href="<?php echo site_url('products/brand/GEA'); ?>">SANDEN</a></li>
+										<li><a href="<?php echo site_url('products/brand/GETRA'); ?>">MADIN</a></li>
 										<!--<li><a href="<?php echo site_url('products/GEA'); ?>">OTHER</a></li>-->
 									</ul>
 								</div>
@@ -231,7 +231,7 @@
 													<div class="grid-arr">
 														<div class="grid-arrival">
 															<figure>		
-																<a href="<?php echo site_url('detail/'.$item->kdbar); ?>" class="new-gri">
+																<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" class="new-gri">
 																	<div class="grid-img">
 																		<img src="<?=base_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar; ?>">
 																	</div>
@@ -245,10 +245,10 @@
 															<div class="starbox small ghosting"> </div>
 														</div>
 														<div class="women">
-															<h6><a href="<?php echo site_url('detail/'.$item->kdbar); ?>"><?= $item->kdbar; ?></a></h6>
+															<h6><a href="<?php echo site_url('detail/'.$item->kdurl); ?>"><?= $item->kdbar; ?></a></h6>
 															<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
 															<p ><!--<del><?= $item->hjual; ?></del>--><em class="item_price">Rp<?= $item->hjual; ?></em></p>
-															<a href="<?php echo site_url('detail/'.$item->kdbar); ?>" data-text="Show Details" class="my-cart-d item_add">Show Details</a>
+															<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="Show Details" class="my-cart-d item_add">Show Details</a>
 														</div>
 													</div>
 												</div>
@@ -276,7 +276,7 @@
 													<div class="grid-arr">
 														<div class="grid-arrival">
 															<figure>		
-																<a href="<?php echo site_url('detail/'.$item->kdbar); ?>" class="new-gri">
+																<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" class="new-gri">
 																	<div class="grid-img">
 																		<img src="<?=base_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar; ?>">
 																	</div>
@@ -293,11 +293,11 @@
 														<div class="starbox small ghosting"> </div>
 													</div>
 													<div class="women">
-														<h6><a href="<?php echo site_url('detail/'.$item->kdbar); ?>"><?= $item->kdbar; ?></a></h6>
+														<h6><a href="<?php echo site_url('detail/'.$item->kdurl); ?>"><?= $item->kdbar; ?></a></h6>
 														<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
 														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Atqui iste locus est, Piso, tibi etiam atque etiam confirmandus, inquam; Refert tamen, quo modo. Quod autem meum munus dicis non equidem recuso, sed te adiungo socium. </p>
 														<p><!--<del>$100.00</del>--><em class="item_price">Rp<?= $item->hjual; ?></em></p>
-														<a href="<?php echo site_url('detail/'.$item->kdbar); ?>" data-text="Show Details" class="my-cart-d item_add">Show Details</a>
+														<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="Show Details" class="my-cart-d item_add">Show Details</a>
 													</div>
 												</div>
 												<div class="clearfix"></div>

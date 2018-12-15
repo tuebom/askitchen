@@ -590,12 +590,12 @@ h2.tittle {
     margin-top: 2em;
 }
 .grid-arr {
-    border: 1px solid #E2E2E2;
+    background: #e2e2e2; /*#E2E2E2*/
     border: 5px solid #ffffff;
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-    padding: 0em;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+    padding: 1.0em;
     margin-top: 25px; /***/
 }
 .grid-arr .grid-arrival figure {
@@ -615,8 +615,8 @@ h2.tittle {
   z-index: 1;
 }
 .grid-arr .grid-arrival figure > a .grid-img {
-  width: 130px;
-  height: 200px;
+  width: 110px;
+  height: 180px;
   margin-left: auto;
   margin-right: auto;
   /*width: 100%;*/

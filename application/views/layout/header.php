@@ -154,8 +154,8 @@ $(window).load(function() {
 				<div class="container">
 					<div class="top-left">
 						<a href="#"><img src="<?= site_url('images/askitchen.png'); ?>" alt="ASKITCHEN Logo"></a>
-						<a href="http://www.asovic.co.id/" target="blank"><img src="<?= site_url('images/asovic.png'); ?>" alt="ASOVIC Logo"></a>
-						<a href="http://www.muchef.com/" target="blank"><img src="<?= site_url('images/muchef.png'); ?>" alt="MUCHEF Logo"></a>
+						<a href="http://www.asovic.co.id/" target="_blank"><img src="<?= site_url('images/asovic.png'); ?>" alt="ASOVIC Logo"></a>
+						<a href="http://www.muchef.com/" target="_blank"><img src="<?= site_url('images/muchef.png'); ?>" alt="MUCHEF Logo"></a>
 					</div>
 				</div>
 			</div>
@@ -274,12 +274,12 @@ $(window).load(function() {
 	  <div class="categories">
 		<h3>Food Categories</h3>
 		<ul class="tree-list-pad">
-			<li><input type="checkbox" id="item-0" /><span></span><a href="<?php echo site_url('searchtag?tag=western'); ?>">Western Food</a></li>
-			<li><input type="checkbox" id="item-1" /><span></span><a href="<?php echo site_url('searchtag?tag=asia'); ?>">Asian Food</a></li>
-			<li><input type="checkbox" id="item-2" /><span></span><a href="<?php echo site_url('searchtag?tag=bbq'); ?>">Barbeque</a></li>
-			<li><input type="checkbox" id="item-3" /><span></span><a href="<?php echo site_url('searchtag?tag=coffee'); ?>">Coffee Shop</a></li>
-			<li><input type="checkbox" id="item-4" /><span></span><a href="<?php echo site_url('searchtag?tag=bar'); ?>">Bar</a></li>
-			<li><input type="checkbox" id="item-5" /><span></span><a href="<?php echo site_url('searchtag?tag=catering'); ?>">Catering</a></li>
+			<li><input type="checkbox" id="item-00" /><span></span><a href="<?php echo site_url('searchtag?tag=western'); ?>">Western Food</a></li>
+			<li><input type="checkbox" id="item-01" /><span></span><a href="<?php echo site_url('searchtag?tag=asia'); ?>">Asian Food</a></li>
+			<li><input type="checkbox" id="item-02" /><span></span><a href="<?php echo site_url('searchtag?tag=bbq'); ?>">Barbeque</a></li>
+			<li><input type="checkbox" id="item-03" /><span></span><a href="<?php echo site_url('searchtag?tag=coffee'); ?>">Coffee Shop</a></li>
+			<li><input type="checkbox" id="item-04" /><span></span><a href="<?php echo site_url('searchtag?tag=bar'); ?>">Bar</a></li>
+			<li><input type="checkbox" id="item-05" /><span></span><a href="<?php echo site_url('searchtag?tag=catering'); ?>">Catering</a></li>
 		</ul>
 	  </div>
 	</div>

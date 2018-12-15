@@ -1,5 +1,5 @@
 		<!--banner-->
-		<!--<div class="banner-w3">
+		<div class="banner-w3">
 			<div class="demo-1">      
 				<div id="example1" class="core-slider core-slider__carousel example_1">
 					<div class="core-slider_viewport">
@@ -13,10 +13,7 @@
 							<div class="core-slider_item">
 								 <img src="<?php echo site_url('images/b3.jpg'); ?>" class="img-responsive" alt="">
 							</div>
-							<div class="core-slider_item">
-								 <img src="<?php echo site_url('images/b4.jpg'); ?>" class="img-responsive" alt="">
-							</div>
-						 </div>
+	</div>
 					</div>
 					<div class="core-slider_nav">
 						<div class="core-slider_arrow core-slider_arrow__right"></div>
@@ -36,7 +33,7 @@
 
 			</script>
 
-		</div>-->	
+		</div>
 		<!--banner-->
 		<!--content-->
 		<div class="content">
@@ -98,7 +95,7 @@
 									<div class="grid-arrival">
 										<figure>		
 											<!--<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal1">-->
-											<a href="<?php echo site_url('detail/'.$item->kdbar); ?>" class="new-gri">
+											<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" class="new-gri">
 												<div class="grid-img">
 													<img src="<?=site_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar?>">
 												</div>
@@ -112,10 +109,10 @@
 										<div class="starbox small ghosting"> </div>
 									</div>
 									<div class="women">
-										<h6><a href="<?php echo site_url('detail/'.$item->kdbar); ?>"><?= $item->kdbar?></a></h6>
+										<h6><a href="<?php echo site_url('detail/'.$item->kdurl); ?>"><?= $item->kdbar?></a></h6>
 										<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
 										<p><!--<del>$100.00</del>--><em class="item_price">Rp<?= $item->hjual?></em></p>
-										<a href="<?php echo site_url('detail/'.$item->kdbar); ?>" data-text="Show Details" class="my-cart-d item_add">Show Details</a>
+										<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="Show Details" class="my-cart-d item_add">Show Details</a>
 									</div>
 								</div>
 							</div>
@@ -153,7 +150,7 @@
 												<div class="grid-arr">
 													<div class="grid-arrival">
 														<figure>		
-															<a href="<?php echo site_url('detail/'.$item->kdbar); ?>">
+															<a href="<?php echo site_url('detail/'.$item->kdurl); ?>">
 																<div class="grid-img">
 																	<img src="<?=site_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar ?>">
 																</div>
@@ -167,10 +164,10 @@
 														<div class="starbox small ghosting"> </div>
 													</div>
 													<div class="women">
-														<h6><a href="<?php echo site_url('detail/'.$item->kdbar); ?>"><?= $item->kdbar ?></a></h6>
+														<h6><a href="<?php echo site_url('detail/'.$item->kdurl); ?>"><?= $item->kdbar ?></a></h6>
 														<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
 														<p><!--<del>$100.00</del>--><em class="item_price">Rp<?= $item->hjual ?></em></p>
-														<a href="<?php echo site_url('detail/'.$item->kdbar); ?>" data-text="Show Details" class="my-cart-d item_add">Show Details</a>
+														<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="Show Details" class="my-cart-d item_add">Show Details</a>
 													</div>
 												</div>
 											</div>
@@ -187,7 +184,7 @@
 												<div class="grid-arr">
 													<div class="grid-arrival">
 														<figure>		
-															<a href="<?php echo site_url('detail/'.$item->kdbar); ?>">
+															<a href="<?php echo site_url('detail/'.$item->kdurl); ?>">
 																<div class="grid-img">
 																	<img src="<?=site_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar ?>">
 																</div>
@@ -201,10 +198,10 @@
 														<div class="starbox small ghosting"> </div>
 													</div>
 													<div class="women">
-														<h6><a href="<?php echo site_url('detail/'.$item->kdbar); ?>"><?= $item->kdbar ?></a></h6>
+														<h6><a href="<?php echo site_url('detail/'.$item->kdurl); ?>"><?= $item->kdbar ?></a></h6>
 														<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
 														<p><!--<del>$100.00</del>--><em class="item_price">Rp<?= $item->hjual ?></em></p>
-														<a href="<?php echo site_url('detail/'.$item->kdbar); ?>" data-text="Show Details" class="my-cart-d item_add">Show Details</a>
+														<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="Show Details" class="my-cart-d item_add">Show Details</a>
 													</div>
 												</div>
 											</div>

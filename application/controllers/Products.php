@@ -46,10 +46,9 @@ class Products extends Public_Controller {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
         
-        $kode = $this->uri->segment(2);
         $brand = $this->uri->segment(3);
 		
-		$this->data['products'] = $this->stock_model->get_by_brand(12, 0, $kode, $brand);
+		$this->data['products'] = $this->stock_model->get_by_brand(12, 0, $brand);
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('products/index', $this->data);
