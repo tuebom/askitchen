@@ -6,6 +6,7 @@ class Products extends Public_Controller {
     public function __construct()
     {
 		parent::__construct();
+		$this->load->library('pagination');
 		$this->load->model('golongan_model');
 		$this->load->model('stock_model');
 		// $this->output->enable_profiler(TRUE);
@@ -30,6 +31,21 @@ class Products extends Public_Controller {
 		$this->data['products'] = $this->stock_model->get_by_category(12, 0, $kode);
 		$this->data['price_range'] = $this->stock_model->get_price_range($kode);
 		$this->data['kode'] = $kode;
+
+        $pcfg = array(
+            'base_url' => $this->links->get_link() . '/halaman/',
+            'per_page' => $per_page,
+            'total_rows' => $this->data->all_data(),
+            'attributes' => array('class' => 'btn btn-default'),
+            'full_tag_open' => '<div class="btn-group">',
+            'full_tag_close' => '</div>',
+            'cur_tag_open' => '<button type="button" class="btn btn-danger">',
+            'cur_tag_close' => '</button>',
+            'first_link' => 'Awal',
+            'last_link' => 'Akhir',
+        );
+        
+        $this->pagination->initialize($pcfg);
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('products/index', $this->data);
