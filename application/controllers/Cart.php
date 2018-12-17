@@ -132,8 +132,8 @@ class Cart extends Public_Controller {
                                 $_SESSION["cart_item"][$k]["qty"] = 0;
                             }
                             $_SESSION["cart_item"][$k]["qty"] += $qty;*/
-                            unset($_SESSION['cart_items'][$k]);
-                            die('item found! '. count($_SESSION["cart_item"]));
+                            unset($_SESSION['cart_item'][$k]);
+                            // die('item found! '. count($_SESSION["cart_item"]));
                         }
                     }
                 } /*else {
