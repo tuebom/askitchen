@@ -3595,6 +3595,10 @@ table.timetable_sub {
     letter-spacing: 1px;
     font-weight: normal;
 }
+td.invert-image {
+    width: 40%;
+    height: 180px;
+}
 .timetable_sub td {
     border: 1px solid #CDCDCD;
 }
@@ -3605,13 +3609,14 @@ table.timetable_sub {
     color: #212121;
 }
 td.invert-image a img {
-    width: 30%;
+    width: auto;
+    max-height: 100%;
     margin: 0 auto;
 }
-.rem {
+.rem, .rem1 {
     position: relative;
 }
-.close1, .close2, .close3 {
+.close {
     background: url(../images/close_1.png) no-repeat 0px 0px;
     cursor: pointer;
     width: 28px;

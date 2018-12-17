@@ -111,7 +111,7 @@ class Cart extends Public_Controller {
             // $this->db->where('kdbar', $kode);
             // $detail = $this->db->get('stock')->row();
                 
-            // $qty = $this->input->post('qty');
+            $qty = $this->input->post('qty');
             
             // $itemArray = array( $kode => array( 'kdbar' => $detail->kdbar,
             //                                     'nama'  => $detail->nama,
@@ -133,6 +133,7 @@ class Cart extends Public_Controller {
                             }
                             $_SESSION["cart_item"][$k]["qty"] += $qty;*/
                             unset($_SESSION['cart_items'][$k]);
+                            die('item found! '. count($_SESSION["cart_item"]));
                         }
                     }
                 } /*else {
@@ -147,8 +148,10 @@ class Cart extends Public_Controller {
 
         $_SESSION["totqty"] -= $qty;
 
-		$this->load->view('layout/header', $this->data);
-		$this->load->view('cart/index', $this->data);
-		$this->load->view('layout/footer', $this->data);
+        header("location: ".base_url().'cart');
+
+		// $this->load->view('layout/header', $this->data);
+		// $this->load->view('cart/index', $this->data);
+		// $this->load->view('layout/footer', $this->data);
     }
 }
