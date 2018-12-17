@@ -17,114 +17,99 @@
 						$total_price = 0;
 
 					?>
-					<h2>My Shopping Bag (<?= $_SESSION["totqty"] ?>)</h2>
-					<?php
-
-						foreach ($_SESSION["cart_item"] as $item){
-
-							// die(print_r($item));
-							// echo '<!-- '. print_r($item) . ' -->';
-							
-							$item_price  = (float)$item["qty"]*$item["harga"];
-
-							$item_price += $item_price;
-							// count total item
-							$total_qty  += $item["qty"];
-
-							// $_SESSION["totqty"] = $total_qty;
+					<h2>My Shopping Cart (<?= $_SESSION["totqty"] ?>)</h2>
 					
-					?>
-					<script>$(document).ready(function(c) {
-						$('.close1').on('click', function(c){
-							$('.cart-header').fadeOut('slow', function(c){
-								$('.cart-header').remove();
-							});
-							});	  
-						});
-					</script>
-					<div class="cart-header">
-						<div class="close1"> </div>
-						<div class="cart-sec simpleCart_shelfItem">
-								<div class="cart-item cyc">
-									 <img src="<?= base_url($this->data['products_dir'].'/'.$item["gambar"]); ?>" class="img-responsive" alt="">
-								</div>
-							    <div class="cart-item-info">
-									<h3><a href="#"><?= $item["nama"]; ?></a><span>Pickup time:</span></h3>
-									<ul class="qty">
-										<li><p>Min. order value:</p></li>
-										<li><p>FREE delivery</p></li>
-									</ul>
-									<!--<div class="delivery">
-										<p>Service Charges : $10.00</p>
-										<span>Delivered in 1-1:30 hours</span>
-										<div class="clearfix"></div>
-									</div>-->
-							   	</div>
-							   <div class="clearfix"></div>
-													
-						</div>
+					<div class="table-responsive">
+						<table class="timetable_sub">
+							<thead>
+								<tr>
+									<th>SL No.</th>
+									<th>Product</th>
+									<th>Quantity</th>
+									<th>Product Name</th>
+									<th>Price</th>
+									<th>Remove</th>
+								</tr>
+							</thead>
+							<tbody>
+							<?php
+
+								$index = 0;
+
+								foreach ($_SESSION["cart_item"] as $item){
+
+									// die(print_r($item));
+									// echo '<!-- '. print_r($item) . ' -->';
+									
+									$item_price  = (float)$item["qty"]*$item["harga"];
+
+									$item_price += $item_price;
+									// count total item
+									$total_qty  += $item["qty"];
+
+									$index++;
+
+							?>
+								<tr class="rem1">
+									<form id="formRem" action="<?= site_url('cart/remove'); ?>" method="post">
+									<input type="hidden" name="kode" value="<?= $item["kdbar"] ?>">
+									<input type="hidden" name="qty" value="<?= $item["qty"] ?>">
+									</form>
+
+									<td class="invert"><?= $index ?></td>
+									<td class="invert-image">
+										<a href="#">
+											<img src="<?= base_url($this->data['products_dir'].'/'.$item["gambar"]); ?>" alt="<?= $item["kdbar"] ?>" class="img-responsive">
+										</a>
+									</td>
+									<td class="invert">
+										<div class="quantity">
+											<div class="quantity-select">
+												<div class="entry value-minus">&nbsp;</div>
+												<div class="entry value">
+													<span><?= $item["qty"]; ?></span>
+												</div>
+												<div class="entry value-plus active">&nbsp;</div>
+											</div>
+										</div>
+									</td>
+									<td class="invert"><?= $item["nama"]; ?></td>
+									<td class="invert">Rp<?= $item["harga"]; ?></td>
+									<td class="invert">
+										<div class="rem">
+											<div class="close1"> </div>
+										</div>
+									</td>
+								</tr>
+								<!--quantity-->
+								<script>
+									$('.value-plus').on('click', function () {
+										var divUpd = $(this).parent().find('.value'),
+											newVal = parseInt(divUpd.text(), 10) + 1;
+										divUpd.text(newVal);
+									});
+
+									$('.value-minus').on('click', function () {
+										var divUpd = $(this).parent().find('.value'),
+											newVal = parseInt(divUpd.text(), 10) - 1;
+										if (newVal >= 1) divUpd.text(newVal);
+									});
+								</script>
+								<!--quantity-->
+								<script>
+									$(document).ready(function (c) {
+										$('.close1').on('click', function (c) {
+											$('.rem1').fadeOut('slow', function (c) {
+												$('.rem1').remove();
+											});
+										});
+									});
+								</script>
+							<?php } /* end foreach*/ } /* end if */ ?>
+							</tbody>
+						</table>
 					</div>
-					<?php } /* end foreach*/ } /* end if */ ?>
-					 <!--<script>$(document).ready(function(c) {
-							$('.close2').on('click', function(c){
-									$('.cart-header2').fadeOut('slow', function(c){
-								$('.cart-header2').remove();
-							});
-							});	  
-							});
-					 </script>
-					<div class="cart-header2">
-						 <div class="close2"> </div>
-						  <div class="cart-sec simpleCart_shelfItem">
-								<div class="cart-item cyc">
-									 <img src="<?php echo site_url('images/s1.jpg'); ?>" class="img-responsive" alt="">
-								</div>
-							   <div class="cart-item-info">
-								<h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
-								<ul class="qty">
-									<li><p>Min. order value:</p></li>
-									<li><p>FREE delivery</p></li>
-								</ul>
-									 <div class="delivery">
-									 <p>Service Charges : $10.00</p>
-									 <span>Delivered in 1-1:30 hours</span>
-									 <div class="clearfix"></div>
-								</div>	
-							   </div>
-							   <div class="clearfix"></div>
-													
-						  </div>
-					  </div>
-					  <script>$(document).ready(function(c) {
-							$('.close3').on('click', function(c){
-									$('.cart-header3').fadeOut('slow', function(c){
-								$('.cart-header3').remove();
-							});
-							});	  
-							});
-					 </script>
-					<div class="cart-header3">
-						 <div class="close3"> </div>
-							<div class="cart-sec simpleCart_shelfItem">
-								<div class="cart-item cyc">
-									 <img src="<?php echo site_url('images/i7.jpg'); ?>" class="img-responsive" alt="">
-								</div>
-							   <div class="cart-item-info">
-								<h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
-								<ul class="qty">
-									<li><p>Min. order value:</p></li>
-									<li><p>FREE delivery</p></li>
-								</ul>
-									 <div class="delivery">
-									 <p>Service Charges : $10.00</p>
-									 <span>Delivered in 1-1:30 hours</span>
-									 <div class="clearfix"></div>
-								</div>	
-							   </div>
-							   <div class="clearfix"></div>
-							</div>
-					</div>-->		
 				</div>
 			</div>
 		</div>
-	<!-- checkout -->	
+	<!-- checkout -->
