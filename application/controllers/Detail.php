@@ -8,6 +8,7 @@ class Detail extends Public_Controller {
 		parent::__construct();
 		$this->load->model('golongan_model');
 		$this->load->model('stock_model');
+		unset($_SESSION["cart_item"]);
 		// $this->output->enable_profiler(TRUE);
 	}
 

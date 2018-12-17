@@ -29,8 +29,11 @@ class Cart extends Public_Controller {
 
         if ($kode != '') {
             
-            $detail = $this->stock_model->get_by_id($kode);
-            
+            // $detail = $this->stock_model->get_by_id($kode);
+            $this->db->select('kdbar, kdurl, nama, hjual, gambar');
+            $this->db->where('kdbar', $kode);
+            $detail = $this->db->get('stock')->row();
+                
             $qty = $this->input->post('qty');
             
             $itemArray = array( $kode => array( 'kdbar' => $detail->kdbar,
@@ -38,7 +41,8 @@ class Cart extends Public_Controller {
                                                 'qty'   => $qty,
                                                 'harga' => $detail->hjual,
                                                 'gambar'=> $detail->gambar));
-		
+
+
             if(!empty($_SESSION["cart_item"])) {
 
                 if(in_array($kode, array_keys($_SESSION["cart_item"]))) {

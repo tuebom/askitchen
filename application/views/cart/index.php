@@ -18,7 +18,9 @@
 
 						foreach ($_SESSION["cart_item"] as $item){
 
-							$item_price  = $item["qty"]*$item["harga"];
+							// die(print_r($item));
+							
+							$item_price  = (float)$item["qty"]*$item["harga"];
 
 							$item_price += $item_price;
 							// count total item
@@ -38,19 +40,19 @@
 						<div class="close1"> </div>
 						<div class="cart-sec simpleCart_shelfItem">
 								<div class="cart-item cyc">
-									 <img src="<?php echo $item["image"]; ?>" class="img-responsive" alt="">
+									 <img src="<?= base_url($this->data['products_dir'].'/'.$item["gambar"]); ?>" class="img-responsive" alt="">
 								</div>
 							    <div class="cart-item-info">
-									<h3><a href="#"> Lorem Ipsum is not simply </a><span>Pickup time:</span></h3>
+									<h3><a href="#"><?= $item["nama"]; ?></a><span>Pickup time:</span></h3>
 									<ul class="qty">
 										<li><p>Min. order value:</p></li>
 										<li><p>FREE delivery</p></li>
 									</ul>
-									<div class="delivery">
+									<!--<div class="delivery">
 										<p>Service Charges : $10.00</p>
 										<span>Delivered in 1-1:30 hours</span>
 										<div class="clearfix"></div>
-									</div>	
+									</div>-->
 							   	</div>
 							   <div class="clearfix"></div>
 													

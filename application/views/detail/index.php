@@ -25,7 +25,7 @@
 								</div>
 								<div class="single-right simpleCart_shelfItem">
 									
-									<form id="" action="<?php echo site_url('cart'); ?>" method="post">
+									<form id="formAdd" action="<?php echo site_url('cart'); ?>" method="post">
 									<input type="hidden" name="kode" value="<?= $this->data['product']->kdbar ?>">
 									<input type="hidden" name="qty" value="1">
 									
@@ -62,7 +62,7 @@
 											</script>
 									</div>-->
 									<div class="women">
-										<a href="javascript:{}" onclick="document.getElementById('my_form').submit(); return false;" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+										<a href="javascript:{}" onclick="document.getElementById('formAdd').submit(); return false;" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
 									</div>
 									<div class="social-icon">
 										<h6>Share:</h6>
