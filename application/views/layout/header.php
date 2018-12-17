@@ -125,6 +125,8 @@ $(window).load(function() {
 </style>
 </head>
 <body>
+
+	<?php if (current_url() !== site_url().'cart/add'): ?>
 	<a href="#" class="float" onclick="theFunction();">
 	<i class="fa fa-question-circle my-float"></i>
 	
@@ -147,6 +149,7 @@ $(window).load(function() {
 	<div class="label-text">Show Suggestions</div>
 	<i class="fa fa-play label-arrow"></i>
 	</div>
+	<?php endif; ?>
 
 	<!--header-->
 		<div class="header">
@@ -177,7 +180,7 @@ $(window).load(function() {
 							<li><a href="<?php echo site_url('auth/login'); ?>">Sign In</a></li>
 							<?php endif; ?>
 							<li><a href="<?php echo site_url('cart'); ?>">Cart&nbsp;<img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a>
-							&nbsp;<span class="badge badge-primary">0</span></li>
+							&nbsp;<span class="badge badge-primary"><?= $_SESSION["totqty"] ?></span></li><??>
 						</ul>
 					</div>
 					<!-- search form -->

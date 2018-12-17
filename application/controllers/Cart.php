@@ -24,7 +24,26 @@ class Cart extends Public_Controller {
 		foreach ($this->data['golongan'] as $item) {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
         }
-        
+
+		$this->load->view('layout/header', $this->data);
+		$this->load->view('cart/index', $this->data);
+		$this->load->view('layout/footer', $this->data);
+	}
+
+	public function add()
+	{
+        // $logged_in = $this->session->userdata('logged_in');
+        // if(!$logged_in){
+        //     header("location: ".base_url());
+        // }
+
+        // $this->load->view('public/home', $this->data);
+		$this->data['golongan'] = $this->golongan_model->get_all();
+
+		foreach ($this->data['golongan'] as $item) {
+			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
+        }
+
         $kode = $this->input->post('kode');
 
         if ($kode != '') {
@@ -55,6 +74,7 @@ class Cart extends Public_Controller {
                                 $_SESSION["cart_item"][$k]["qty"] = 0;
                             }
                             $_SESSION["cart_item"][$k]["qty"] += $qty;
+                            // $_SESSION["totqty"] += $qty;
                         }
                     }
                 } else {
@@ -62,12 +82,16 @@ class Cart extends Public_Controller {
                 }
             } else {
                 $_SESSION["cart_item"] = $itemArray;
+                // $_SESSION["totqty"] = $qty;
             }
     
         }
 
+        $_SESSION["totqty"] += $qty;
+        // $this->data['totqty'] = 
+        
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('cart/index', $this->data);
 		$this->load->view('layout/footer', $this->data);
-	}
+    }
 }

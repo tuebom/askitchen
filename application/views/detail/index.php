@@ -25,7 +25,7 @@
 								</div>
 								<div class="single-right simpleCart_shelfItem">
 									
-									<form id="formAdd" action="<?php echo site_url('cart'); ?>" method="post">
+									<form id="formAdd" action="<?php echo site_url('cart/add'); ?>" method="post">
 									<input type="hidden" name="kode" value="<?= $this->data['product']->kdbar ?>">
 									<input type="hidden" name="qty" value="1">
 									

@@ -16,18 +16,24 @@
 						$total_qty = 0;
 						$total_price = 0;
 
+					?>
+					<h2>My Shopping Bag (<?= $_SESSION["totqty"] ?>)</h2>
+					<?php
+
 						foreach ($_SESSION["cart_item"] as $item){
 
 							// die(print_r($item));
+							// echo '<!-- '. print_r($item) . ' -->';
 							
 							$item_price  = (float)$item["qty"]*$item["harga"];
 
 							$item_price += $item_price;
 							// count total item
 							$total_qty  += $item["qty"];
+
+							// $_SESSION["totqty"] = $total_qty;
 					
 					?>
-					<h2>My Shopping Bag (<?= $total_qty ?>)</h2>
 					<script>$(document).ready(function(c) {
 						$('.close1').on('click', function(c){
 							$('.cart-header').fadeOut('slow', function(c){
