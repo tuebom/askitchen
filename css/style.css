@@ -3587,3 +3587,8 @@ a.float:hover + div.label-container{
   visibility: visible;
   opacity: 1;
 }
+
+/* pagination */
+.box-footer {
+  margin-top: 25px;
+}

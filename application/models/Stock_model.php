@@ -26,7 +26,15 @@ class Stock_model extends CI_Model
     function get_by_id($id)
     {
         $this->db->select('kdbar, kdurl, nama, kdgol2, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar');
-        $this->db->where('kdurl', $id); // $this->id
+        $this->db->where('kdbar', $id);
+        return $this->db->get($this->table)->row();
+    }
+
+    // get data by kodeurl
+    function get_by_kodeurl($id)
+    {
+        $this->db->select('kdbar, kdurl, nama, kdgol2, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar');
+        $this->db->where('kdurl', $id);
         return $this->db->get($this->table)->row();
     }
 

@@ -85,7 +85,7 @@
 			<!--new-arrivals-->
 				<div class="new-arrivals-w3agile">
 					<div class="container">
-						<h2 class="tittle">New Arrivals</h2>
+						<h3 class="tittle1">New Arrivals</h3>
 						<div class="arrivals-grids">
 							<?php
 								foreach ($this->data['rnd_products'] as $item) {
@@ -137,7 +137,7 @@
 			<!--Products-->
 				<div class="product-agile">
 					<div class="container">
-						<h3 class="tittle1"> New Products</h3>
+						<h3 class="tittle1">New Products</h3>
 						<div class="slider">
 							<div class="callbacks_container">
 								<ul class="rslides" id="slider">
