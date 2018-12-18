@@ -47,16 +47,17 @@ class Cart extends Public_Controller {
         if ($kode != '') {
             
             // $detail = $this->stock_model->get_by_id($kode);
-            $this->db->select('kdbar, kdurl, nama, hjual, gambar');
+            $this->db->select('kdbar, kdurl, nama, hjual, format(hjual,0,"id") as hjualf, gambar');
             $this->db->where('kdbar', $kode);
             $detail = $this->db->get('stock')->row();
                 
             $qty = $this->input->post('qty');
             
-            $itemArray = array( $kode => array( 'kdbar' => $detail->kdbar,
+            $itemArray = array( $kode => array( 'kdbar' => $detail->kdbar, 'kdurl' => $detail->kdurl,
                                                 'nama'  => $detail->nama,
                                                 'qty'   => $qty,
                                                 'harga' => $detail->hjual,
+                                                'hargaf' => $detail->hjualf, // harga dgn pemisah ribuan
                                                 'gambar'=> $detail->gambar));
 
 
@@ -75,7 +76,7 @@ class Cart extends Public_Controller {
                         }
                     }
                 } else {
-                    $_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
+                    $_SESSION["cart_item"] = array_merge($_SESSION["cart_item"], $itemArray);
                 }
             } else {
                 $_SESSION["cart_item"] = $itemArray;
@@ -84,6 +85,7 @@ class Cart extends Public_Controller {
         }
 
         $_SESSION["totqty"] += $qty;
+        // die(print_r($_SESSION["cart_item"]));
         
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('cart/index', $this->data);
