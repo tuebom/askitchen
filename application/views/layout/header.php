@@ -198,7 +198,7 @@ $(window).load(function() {
 								?>
 								</ul>
 							</div>
-							<input type="text" name="q" class="form-control" placeholder="Search for...">
+							<input type="text" name="q" class="form-control" placeholder="Search for..." value="">
 							<span class="input-group-btn">
 								<button id='search-btn' class="btn btn-default" type="button">Go!</button>
 							</span>
