@@ -1027,6 +1027,10 @@ h3.tittle1 {
     background: #941204; //#1565c0;
     padding: 5em 0;
 }
+.footer-bawah {
+    background: #941204; //#1565c0;
+    padding: 1em 0;
+}
 .footer-grid h4 {
     font-size: 2em;
     color: #fff;
@@ -1100,7 +1104,7 @@ h3.tittle1 {
 .logo-bawah{
     width: 80px;
     height: 32px;
-    
+    display: inline-block;
 }
 img.img-footer{
     vertical-align: middle;
@@ -2693,6 +2697,11 @@ h3.tittle1,h3.tittle {
 .footer-grid {
     float: left;
     width: 25%;
+	padding: 0 3px;
+}
+.footer-grid-bawah {
+    float: center;
+    width: 100%;
 	padding: 0 3px;
 }
 .product-agileinfo-grid {

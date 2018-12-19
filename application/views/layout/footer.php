@@ -20,11 +20,11 @@
 										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a href="#">(0361) 4727857</a></li>
 										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a href="#">(0361) 4727855</a></li>
 									</ul>
-								</div>
+								</div>  
 								<div class="col-md-3 footer-grid">
 									<h4>Branch Office</h4>
 									<ul>
-										<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a href="#">Jl. Sungai Saddang Lama<br>Komplek Ruko Latanete Plaza<br>Blok B No. 11, Makassar - Indonesia</a></li>
+										<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a href="">Jl. Sungai Sadang Lama<br>Komplek Ruko Latanete Plaza<br>Blok B No. 11, Makassar - Indonesia</a></li>
 										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a href="#">0851 0511 5557</a></li>
 										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a href="#">0851 0813 3577</a></li>
 										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a href="#">(0411) 822 4090</a></li>
@@ -43,42 +43,39 @@
 										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a href="#">1 599-033-5036</a></li>
 										<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:example@mail.com"> example@mail.com</a></li> -->
 									</ul>
-									<div class="col-md-3 footer-grid">
+									<!-- <div class="col-md-3 footer-grid">
 									<h4>Our Groups </h4>
 									<ul>
 									<div class="logo-bawah">
-										<li><a href="http://www.askitchen.com/" target="_blank"><img class="img-footer" src="<?= site_url('images/askitchen_btm.png'); ?>" alt="ASkitchen Logo"></a></li>
-									
-									
+										<li><a href="http://www.askitchen.com/" target="_blank"><img class="img-footer" src="<?= site_url('images/askitchen_btm.png'); ?>" alt="ASkitchen Logo"></a></li>																		
 										<li><a href="http://www.asovic.co.id/" target="_blank"><img class="img-footer-2" src="<?= site_url('images/asovic_btm.png'); ?>" alt="ASovic Logo"></a></li>
-									
 										<li><a href="http://www.muchef.com/" target="_blank"><img class="img-footer-2" src="<?= site_url('images/muchef_btm.png'); ?>" alt="Muchef Logo"></li>
 									</div>
 									</ul>
-								</div>
+								</div> -->
 							<div class="clearfix"> </div>
 							</div>
 							
 						</div>
 					</div>
 					<!---footer--->
-					<!-- <div class="footer-w3l">
+					<div class="footer-bawah">
 						<div class="container">
-							<div class="footer-grids">
-						<div class="col-md-3 footer-grid">
-									<h4>Our Groups :</h4>
+							<div class="footer-grid">
+							<!-- <div class="col-md-3 footer-grid"> -->
+								
+								<h4>Our Groups : </h4>
+								
 									<ul>
-									<div class="logo-bawah">
+										<div class="logo-bawah">
 										<li><a href="http://www.askitchen.com/" target="_blank"><img class="img-footer" src="<?= site_url('images/askitchen_btm.png'); ?>" alt="ASkitchen Logo"></a></li>
-									</div>
-									<div class="logo-bawah">
 										<li><a href="http://www.asovic.co.id/" target="_blank"><img class="img-footer-2" src="<?= site_url('images/asovic_btm.png'); ?>" alt="ASovic Logo"></a></li>
-									</div>
-									<div class="logo-bawah">
-										<li><a href="http://www.muchef.com/" target="_blank"><img class="img-footer-2" src="<?= site_url('images/muchef_btm.png'); ?>" alt="Muchef Logo"></li>
-									</div>
+										<li><a href="http://www.muchef.com/" target="_blank"><img class="img-footer-2" src="<?= site_url('images/muchef_btm.png'); ?>" alt="Muchef Logo"></a></li>
+										</div>
 									</ul>
-								</div> -->
+								</div>
+							</div>
+							
 							<!-- <div class="copy-left">
 								<p>&copy; 2016 New Shop . All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
 							</div>
@@ -94,12 +91,16 @@
 								<p>&copy; 2016 New Shop . All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
 							</div>
 							<div class="copy-right"> -->
-								<img src="<?php echo site_url('images/card.png'); ?>" alt=""/>
+								<!-- <img src="<?php echo site_url('images/card.png'); ?>" alt=""/> -->
 							</div>
 							<div class="clearfix"></div>
 						</div>
 					</div>
 				<!--copy-->
+<<<<<<< HEAD
+=======
+			</div>
+>>>>>>> 648d71f475e1ede976c4deebea306eaa0af3cf35
 
 </body>
 </html>

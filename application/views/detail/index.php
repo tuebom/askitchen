@@ -69,8 +69,8 @@
 										<h6>Share:</h6>
 										<a href="#"><i class="icon"></i></a>
 										<a href="#"><i class="icon1"></i></a>
-										<a href="#"><i class="icon2"></i></a>
-										<a href="#"><i class="icon3"></i></a>
+										<!-- <a href="#"><i class="icon2"></i></a>
+										<a href="#"><i class="icon3"></i></a> -->
 									</div>
 									<div class="tab-wl3">
 										<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">

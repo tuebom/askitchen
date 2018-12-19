@@ -86,36 +86,50 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4">    
+                    <div class="col-md-4">
                         <h2>Your Order</h2>
                         <table class="table table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Order Summary</th>
-                                    <th></th>
+                                    <th>Product</th>
+                                    <th class="text-right">Total</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                    $item_price = 0;
+                                    $total_price = 0;
+                                    foreach ($_SESSION["cart_item"] as $item) {
+
+                                        $item_price  = (float)$item["qty"]*$item["harga"];
+                                        $total_price += $item_price;
+                                    ?>
                                 <tr>
-                                    <td>Subtotal</td>
-                                    <td>0</td>
+                                    <td><?= $item["nama"]; ?></td>
+                                    <td class="text-right">Rp<?= number_format($item_price, 0, '.', ',') ?></td>
                                 </tr>
-                                <tr>
-                                    <td>Shipping</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td>Tax</td>
-                                    <td>0</td>
-                                </tr>
+                                <?php
+                                    }
+                                ?>
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td>Order Summary</td>
-                                    <td>0</td>
+                                    <td><b>Subtotal</b></td>
+                                    <td class="text-right">Rp<?= number_format($total_price, 0, '.', ',') ?></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Shipping</b></td>
+                                    <td class="text-right">0</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Total</b></td>
+                                    <td class="text-right">Rp<?= number_format($total_price, 0, '.', ',') ?></td>
                                 </tr>
                             </tfoot>
                         </table>
+
+                        <div class="col-sm-6"><a href="<?php echo site_url('cart'); ?>">Back</a></div>
+                        <div class="col-sm-6"><a href="<?php echo site_url('submit'); ?>">Submit Order</a></div>
                     </div>
                     </form>
 				</div>
