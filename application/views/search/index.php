@@ -154,13 +154,16 @@
 								</div>-->
 								<div class="brand-w3l">
 									<h3>Brands Filter</h3>
-									<?php echo '<!-- '. $this->data['q'] . ' -->'?>
+									<?php if ($this->data['q']) {
+										$q = '&q='.$this->data['q'];
+									}
+									?>
 									<ul>
-										<li><a href="<?php echo site_url('search?b=GEA'); ?>">GEA</a></li>
-										<li><a href="<?php echo site_url('search?b=GETRA'); ?>">GETRA</a></li>
-										<li><a href="<?php echo site_url('search?b=SANDEN'); ?>">SANDEN</a></li>
-										<li><a href="<?php echo site_url('search?b=MADIN'); ?>">MADIN</a></li>
-										<!--<li><a href="<?php echo site_url('search?b=OTHER'); ?>">OTHER</a></li>-->
+										<li><a href="<?php echo site_url('search?b=GEA'.$q); ?>">GEA</a></li>
+										<li><a href="<?php echo site_url('search?b=GETRA'.$q); ?>">GETRA</a></li>
+										<li><a href="<?php echo site_url('search?b=SANDEN'.$q); ?>">SANDEN</a></li>
+										<li><a href="<?php echo site_url('search?b=MADIN'.$q); ?>">MADIN</a></li>
+										<!--<li><a href="<?php echo site_url('search?b=OTHER'.$q); ?>">OTHER</a></li>-->
 									</ul>
 								</div>
 								<!--<div class="cat-img">

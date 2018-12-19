@@ -141,11 +141,11 @@ class Stock_model extends CI_Model
             $this->db->where('merk', $b);
         }
         if ($q) {
-            $this->db->like('kdbar', $q);
+            $this->db->like('(kdbar', $q);
             $this->db->or_like('nama', $q);
             $this->db->or_like('pnj', $q);
             $this->db->or_like('lbr', $q);
-            $this->db->or_like('tgi', $q);
+            $this->db->or_like('tgi)', $q);
         }
         $this->db->order_by($this->id, $this->order);
 	    $this->db->limit($limit, $start);
