@@ -1024,13 +1024,14 @@ h3.tittle1 {
     color: #fff;
 }
 .footer-w3l {
-    background: #0d59af; //#1565c0;
+    background: #941204; //#1565c0;
     padding: 5em 0;
 }
 .footer-grid h4 {
     font-size: 2em;
     color: #fff;
     margin-bottom: .5em;
+    margin-top: 10px;
 }
 .footer-grid p {
     font-size: .96em;
@@ -1096,13 +1097,29 @@ h3.tittle1 {
 .copy-section a {
 	margin: 0 0.3em
 }
+.logo-bawah{
+    width: 80px;
+    height: 32px;
+    
+}
+img.img-footer{
+    vertical-align: middle;
+    width: 100%;
+    height:50%;
+  }
+  img.img-footer-2{
+    vertical-align: middle;
+    width: 50%;
+    height:50%;
+    margin-bottom: 10px;
+  }
 .social-icon, .tab-wl3 {
     margin-top: 1.8em;
 }
 .social-icon a i {
-    width: 32px;
-    height: 32px;
-    background:#F19E1F url(../images/img-sprite.png) no-repeat 0px 0px;
+    width: 35px;
+    height: 35px;
+    background:rgb(0, 0, 0) url(../images/img-sprite2.png) no-repeat 0px 0px;
     display: inline-block;
 	margin:0 0.2em;
 	transition: 0.5s all;
@@ -1113,7 +1130,7 @@ h3.tittle1 {
 	    border-radius: 16px;
 }
 .social-icon i.icon:hover {
-  background: #AF1D0D   url(../images/img-sprite.png) no-repeat 0px 0px;
+  background: rgb(12, 12, 12)   url(../images/img-sprite2.png) no-repeat 0px 0px;
       border-radius: 0px;
 	      transform: rotate(25deg);
 }
@@ -1121,18 +1138,18 @@ h3.tittle1 {
     background-position: 0px 0px;
 }
 .social-icon i.icon1 {
-    background-position: -32px 0px;
+    background-position: -131px 0px;
 }
 .social-icon i.icon1:hover {
-  background: #AF1D0D   url(../images/img-sprite.png) no-repeat -32px 0px;
+  background: rgb(12, 12, 12)  url(../images/img-sprite2.png) no-repeat -131px 0px;
       border-radius: 0px;
 	      transform: rotate(25deg);
 }
 .social-icon i.icon2 {
-    background-position: -64px 0px;
+    background-position: -128px 0px;
 }
 .social-icon i.icon2:hover {
-  background: #AF1D0D   url(../images/img-sprite.png) no-repeat -64px 0px;
+  background: #AF1D0D   url(../images/img-sprite2.png) no-repeat -64px 0px;
       border-radius: 0px;
 	      transform: rotate(25deg);
 }
