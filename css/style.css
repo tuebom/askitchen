@@ -3655,6 +3655,7 @@ td.invert-image a img {
     letter-spacing: 1px;
     display: inline-block;
     float: right;
+    margin-right: 30px;
 }
 .checkout-right-basket2 a {
     padding: 12px 25px;
