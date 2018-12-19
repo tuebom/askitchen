@@ -126,7 +126,7 @@ $(window).load(function() {
 </head>
 <body>
 
-	<?php if (current_url() !== site_url().'cart/add'): ?>
+	<?php if (current_url() !== site_url().'cart/add' && current_url() !== site_url().'checkout'): ?>
 	<a href="#" class="float" onclick="theFunction();">
 	<i class="fa fa-question-circle my-float"></i>
 	
@@ -286,3 +286,4 @@ $(window).load(function() {
 		</ul>
 	  </div>
 	</div>
+	<!--modal-->

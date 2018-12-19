@@ -88,6 +88,34 @@
 
                     <div class="col-md-4">    
                         <h2>Your Order</h2>
+                        <table class="table table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Order Summary</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Subtotal</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>Shipping</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>Tax</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td>Order Summary</td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
                     </form>
 				</div>

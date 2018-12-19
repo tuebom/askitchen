@@ -34,8 +34,8 @@
 								<tr>
 									<th>&nbsp;No.&nbsp;</th>
 									<th>Product</th>
-									<th>Quantity</th>
 									<th>Product Name</th>
+									<th>Quantity</th>
 									<th>Price</th>
 									<th>Remove</th>
 								</tr>

@@ -8,6 +8,7 @@ class Cart extends Public_Controller {
 		parent::__construct();
         $this->load->model('golongan_model');
         $this->load->model('stock_model');
+
     }
 
 
@@ -109,18 +110,8 @@ class Cart extends Public_Controller {
 
         if ($kode != '') {
             
-            // $this->db->select('kdbar, kdurl, nama, hjual, gambar');
-            // $this->db->where('kdbar', $kode);
-            // $detail = $this->db->get('stock')->row();
-                
             $qty = $this->input->post('qty');
             
-            // $itemArray = array( $kode => array( 'kdbar' => $detail->kdbar,
-            //                                     'nama'  => $detail->nama,
-            //                                     'qty'   => $qty,
-            //                                     'harga' => $detail->hjual,
-            //                                     'gambar'=> $detail->gambar));
-
 
             if(!empty($_SESSION["cart_item"])) {
 
@@ -130,21 +121,12 @@ class Cart extends Public_Controller {
                             
                         if($kode == $k) {
                                 
-                            /*if(empty($_SESSION["cart_item"][$k]["qty"])) {
-                                $_SESSION["cart_item"][$k]["qty"] = 0;
-                            }
-                            $_SESSION["cart_item"][$k]["qty"] += $qty;*/
                             unset($_SESSION['cart_item'][$k]);
-                            // die('item found! '. count($_SESSION["cart_item"]));
                         }
                     }
-                } /*else {
-                    $_SESSION["cart_item"] = array_merge($_SESSION["cart_item"],$itemArray);
-                }*/
+                }
 
-            } /*else {
-                $_SESSION["cart_item"] = $itemArray;
-            }*/
+            }
     
         }
 
