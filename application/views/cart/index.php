@@ -82,7 +82,7 @@
 										</div>
 									</td>
 								</tr>
-							<?php } /* end foreach*/ ?>
+							<?php } /* end foreach***/ ?>
 							</tbody>
 							<tfoot>
 								<tr>
