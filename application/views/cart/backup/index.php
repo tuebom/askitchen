@@ -15,19 +15,12 @@
 					if(isset($_SESSION["cart_item"])){
 						
 						$total_qty = 0;
-						$item_price = 0;
 						$total_price = 0;
 
-						if (count($_SESSION["cart_item"]) == 0):
+						if ((int)$_SESSION["cart_item"] > 0):
 					?>
-					<h2>Cart is empty</h2>
-					<?php else: ?>
 					<h2>My Shopping Cart (<?= $_SESSION["totqty"] ?>)</h2>
-					<?php endif;
 					
-					if (count($_SESSION["cart_item"]) > 0):
-
-					?>
 					<div class="table-responsive">
 						<table class="timetable_sub">
 							<thead>
@@ -41,14 +34,16 @@
 								</tr>
 							</thead>
 							<tbody>
-					<?php
+					<?php else: ?>
+					<h2>Cart is empty</h2>
+					<?php endif;
 
 								$index = 0;
 
 								foreach ($_SESSION["cart_item"] as $item){
 
-									$item_price  = (float)$item["qty"]*$item["harga"];
-									$total_price += $item_price;
+									// $item_price  = (float)$item["qty"]*$item["harga"];
+									// $item_price += $item_price;
 									
 									// count total item
 									$total_qty  += $item["qty"];
@@ -56,8 +51,8 @@
 									$index++;
 
 							?>
-								<tr class="rem">
-									<form class="formRem" action="<?= site_url('cart/remove'); ?>" method="post">
+								<tr class="rem<?= $index ?>">
+									<form id="formRem<?= $index ?>" action="<?= site_url('cart/remove'); ?>" method="post">
 									<input type="hidden" name="kode" value="<?= $item["kdbar"] ?>">
 									<input type="hidden" name="qty" value="<?= $item["qty"] ?>">
 									<input type="hidden" name="harga" value="<?= $item["harga"] ?>">
@@ -69,41 +64,49 @@
 											<img src="<?= site_url($this->data['products_dir'].'/'.$item["gambar"]); ?>" alt="<?= $item["kdbar"] ?>" class="img-responsive">
 										</a>
 									</td>
-									<td class="invert"><?= $item["nama"]; ?></td>
 									<td class="invert">
 										<div class="quantity">
 											<span><?= $item["qty"]; ?></span>
 										</div>
 									</td>
-									<td class="invert">Rp<?= number_format($item_price, 0, '.', ',') ?></td>
+									<td class="invert"><?= $item["nama"]; ?></td>
+									<td class="invert">Rp<?= $item["hargaf"]; ?></td>
 									<td class="invert">
 										<div class="rem">
-											<div class="close"> </div>
+											<div class="close<?= $index ?>"> </div>
 										</div>
 									</td>
 								</tr>
-							<?php } /* end foreach*/ ?>
+								<script>
+									$(document).ready(function (c) {
+										$('.close<?= $index ?>').on('click', function (c) {
+											/*$('.rem<?= $index ?>').fadeOut('slow', function (c) {
+												$('.rem<?= $index ?>').remove();
+											});*/
+											formRem<?= $index ?>.submit();
+										});
+									});
+								</script>
+							<?php } /* end foreach*/ } /* end if */ ?>
 							</tbody>
-							<tfoot>
-								<tr>
-									<td colspan="3" style="text-align: right"><b>Total</b></td>
-									<td><?= $total_qty ?></td>
-									<td>Rp<?= number_format($total_price, 0, '.', ',') ?></td>
-									<td></td>
-								</tr>
-							</tfoot>
 						</table>
-					<?php  endif; } /* end if */ ?>
 					</div>
 				</div>
 			</div>
 		</div>
 	<!-- checkout -->
+	<!--quantity-->
 	<script>
-		$(document).ready(function (c) {
-			$('.close').on('click', function (c) {
-				$(this).parents(".rem").find('.formRem')[0].submit();
-			});
+		$('.value-plus').on('click', function () {
+			var divUpd = $(this).parent().find('.value'),
+				newVal = parseInt(divUpd.text(), 10) + 1;
+			divUpd.text(newVal);
+		});
+
+		$('.value-minus').on('click', function () {
+			var divUpd = $(this).parent().find('.value'),
+				newVal = parseInt(divUpd.text(), 10) - 1;
+			if (newVal >= 1) divUpd.text(newVal);
 		});
 	</script>
-	
+	<!--quantity-->

@@ -109,23 +109,45 @@ class Stock_model extends CI_Model
     }
 
     // get data with limit and search
-    function get_limit_data($limit, $start = 0, $q = NULL) {
+    // function get_limit_data($limit, $start = 0, $q = NULL) {
+        
+    //     $this->db->select('kdbar, kdurl, nama, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar');
+    //     $this->db->order_by($this->id, $this->order);
+    //     $this->db->like('kdbar', $q);
+    //     $this->db->or_like('nama', $q);
+    //     $this->db->or_like('kdgol', $q);
+    //     $this->db->or_like('kdgol2', $q);
+    //     $this->db->or_like('pnj', $q);
+    //     $this->db->or_like('lbr', $q);
+    //     $this->db->or_like('tgi', $q);
+    //     $this->db->or_like('listrik', $q);
+    //     $this->db->or_like('kapasitas', $q);
+    //     $this->db->or_like('gas', $q);
+    //     $this->db->or_like('berat', $q);
+    //     $this->db->or_like('fitur', $q);
+    //     $this->db->or_like('disc', $q);
+	//     $this->db->limit($limit, $start);
+    //     return $this->db->get($this->table)->result();
+    // }
+
+    function get_limit_data($limit, $start = 0, $q = NULL, $b = NULL, $p1 = 0, $p2 = 0) {
         
         $this->db->select('kdbar, kdurl, nama, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar');
+        if ($p1 > 0) {
+            $this->db->where('hjual >=', $p1);
+            $this->db->where('hjual <=', $p2);
+        }
+        if ($b) {
+            $this->db->where('merk', $b);
+        }
+        if ($q) {
+            $this->db->like('kdbar', $q);
+            $this->db->or_like('nama', $q);
+            $this->db->or_like('pnj', $q);
+            $this->db->or_like('lbr', $q);
+            $this->db->or_like('tgi', $q);
+        }
         $this->db->order_by($this->id, $this->order);
-        $this->db->like('kdbar', $q);
-        $this->db->or_like('nama', $q);
-        $this->db->or_like('kdgol', $q);
-        $this->db->or_like('kdgol2', $q);
-        $this->db->or_like('pnj', $q);
-        $this->db->or_like('lbr', $q);
-        $this->db->or_like('tgi', $q);
-        $this->db->or_like('listrik', $q);
-        $this->db->or_like('kapasitas', $q);
-        $this->db->or_like('gas', $q);
-        $this->db->or_like('berat', $q);
-        $this->db->or_like('fitur', $q);
-        $this->db->or_like('disc', $q);
 	    $this->db->limit($limit, $start);
         return $this->db->get($this->table)->result();
     }

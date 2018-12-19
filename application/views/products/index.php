@@ -1,7 +1,7 @@
     <!--content-->
         <div class="content">
 				<div class="products-agileinfo">
-                    <h2 class="tittle"><?php echo $this->data['title']; ?></h2>
+                    <h3 class="tittle1"><?php echo $this->data['title']; ?></h3>
 					<div class="container">
 						<div class="product-agileinfo-grids w3l">
 							<div class="col-md-3 product-agileinfo-grid">
@@ -136,9 +136,9 @@
 									<ul>
 										<li><a href="<?php echo site_url('products/'.$this->data['kode'].'/GEA'); ?>">GEA</a></li>
 										<li><a href="<?php echo site_url('products/'.$this->data['kode'].'/GETRA'); ?>">GETRA</a></li>
-										<li><a href="<?php echo site_url('products/'.$this->data['kode'].'/GEA'); ?>">SANDEN</a></li>
-										<li><a href="<?php echo site_url('products/'.$this->data['kode'].'/GETRA'); ?>">MADIN</a></li>
-										<!--<li><a href="<?php echo site_url('products/GEA'); ?>">OTHER</a></li>-->
+										<li><a href="<?php echo site_url('products/'.$this->data['kode'].'/SANDEN'); ?>">SANDEN</a></li>
+										<li><a href="<?php echo site_url('products/'.$this->data['kode'].'/MADIN'); ?>">MADIN</a></li>
+										<!--<li><a href="<?php echo site_url('products/OTHER'); ?>">OTHER</a></li>-->
 									</ul>
 								</div>
 								<!--<div class="cat-img">

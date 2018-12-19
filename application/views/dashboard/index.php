@@ -13,7 +13,7 @@
 							<div class="core-slider_item">
 								 <img src="<?php echo site_url('images/b3.jpg'); ?>" class="img-responsive" alt="">
 							</div>
-	</div>
+						</div>
 					</div>
 					<div class="core-slider_nav">
 						<div class="core-slider_arrow core-slider_arrow__right"></div>

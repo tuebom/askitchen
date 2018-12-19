@@ -8,6 +8,8 @@ class Home extends Public_Controller {
 		parent::__construct();
 		$this->load->model('golongan_model');
 		$this->load->model('stock_model');
+		// unset($_SESSION["cart_item"]);
+		// unset($_SESSION["totqty"]);
 		// $this->output->enable_profiler(TRUE);
     }
 
@@ -20,6 +22,11 @@ class Home extends Public_Controller {
 		foreach ($this->data['golongan'] as $item) {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
+		
+		if(!isset($_SESSION["totqty"])) {
+			$_SESSION["totqty"] = 0;
+		}
+		// $this->session->set_userdata('totqty', '0');
 		
 		// $this->data['rnd_products'] = $this->stock_model->get_random_products();
 		$this->data['rnd_products'] = $this->stock_model->get_limit_data(6,0);

@@ -1,7 +1,7 @@
     <!--content-->
         <div class="content">
 				<div class="products-agileinfo">
-                    <h2 class="tittle"><?php (count($this->data['products']) == 0) ? 'Data tidak ditemukan!' : ''  ?></h2>
+                    <h3 class="tittle1"><?php (count($this->data['products']) == 0) ? 'Data tidak ditemukan!' : ''  ?></h3>
 					<div class="container">
 						<div class="product-agileinfo-grids w3l">
 							<div class="col-md-3 product-agileinfo-grid">
@@ -96,12 +96,11 @@
 									<script type='text/javascript'>//<![CDATA[ 
 									$(window).load(function(){
 									 $( "#slider-range" ).slider({
-												range: true,
-												min: 0,
-												max: <?php echo $this->data['price_range'][0]->hmax ?>,
-												values: [ <?php echo $this->data['price_range'][0]->hmin ?>, <?php echo $this->data['price_range'][0]->hmax ?> ],
-												slide: function( event, ui ) {  $( "#amount" ).val( "Rp" + ui.values[ 0 ] + " - Rp" + ui.values[ 1 ] );
-												}
+										range: true,
+										min: 0,
+										max: <?php echo $this->data['price_range'][0]->hmax ?>,
+										values: [ <?php echo $this->data['price_range'][0]->hmin ?>, <?php echo $this->data['price_range'][0]->hmax ?> ],
+										slide: function( event, ui ) {  $( "#amount" ).val( "Rp" + ui.values[ 0 ] + " - Rp" + ui.values[ 1 ] ); }
 									 });
 									$( "#amount" ).val( "Rp" + $( "#slider-range" ).slider( "values", 0 ) + " - Rp" + $( "#slider-range" ).slider( "values", 1 ) );
 
@@ -155,12 +154,13 @@
 								</div>-->
 								<div class="brand-w3l">
 									<h3>Brands Filter</h3>
+									<?php echo '<!-- '. $this->data['q'] . ' -->'?>
 									<ul>
-										<li><a href="<?php echo site_url('products/brand/GEA'); ?>">GEA</a></li>
-										<li><a href="<?php echo site_url('products/brand/GETRA'); ?>">GETRA</a></li>
-										<li><a href="<?php echo site_url('products/brand/GEA'); ?>">SANDEN</a></li>
-										<li><a href="<?php echo site_url('products/brand/GETRA'); ?>">MADIN</a></li>
-										<!--<li><a href="<?php echo site_url('products/GEA'); ?>">OTHER</a></li>-->
+										<li><a href="<?php echo site_url('search?b=GEA'); ?>">GEA</a></li>
+										<li><a href="<?php echo site_url('search?b=GETRA'); ?>">GETRA</a></li>
+										<li><a href="<?php echo site_url('search?b=SANDEN'); ?>">SANDEN</a></li>
+										<li><a href="<?php echo site_url('search?b=MADIN'); ?>">MADIN</a></li>
+										<!--<li><a href="<?php echo site_url('search?b=OTHER'); ?>">OTHER</a></li>-->
 									</ul>
 								</div>
 								<!--<div class="cat-img">

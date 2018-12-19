@@ -2302,7 +2302,7 @@ h3.account-text{
 	font-size:0.65em;
 	font-weight:400;
 } 
-.close1,.close2{
+/*.close1,.close2,.close3,.close4,.close5,.close6,.close7,.close8,.close9,.close10 {
   background: url('../images/close_1.png') no-repeat 0px 0px;
   cursor: pointer;
   width: 28px;
@@ -2314,20 +2314,7 @@ h3.account-text{
   -moz-transition: color 0.2s ease-in-out;
   -o-transition: color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out;
-}
-.close3 {
-  background: url('../images/close_1.png') no-repeat 0px 0px;
-  cursor: pointer;
-  width: 28px;
-  height: 28px;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  -webkit-transition: color 0.2s ease-in-out;
-  -moz-transition: color 0.2s ease-in-out;
-  -o-transition: color 0.2s ease-in-out;
-  transition: color 0.2s ease-in-out;
-}
+}*/
 .cart-header {  
   position: relative;  
 }
@@ -3592,3 +3579,58 @@ a.float:hover + div.label-container{
 .box-footer {
   margin-top: 25px;
 }
+
+/* cart */
+.table-responsive {
+    min-height: .01%;
+    overflow-x: auto;
+}
+table.timetable_sub {
+    width: 100%;
+    margin: 0 auto;
+}
+.timetable_sub th {
+    background: #000;
+    color: #fff;
+    font-size: 16px;
+    border-right: 1px solid #ded2d2;
+    text-align: center;
+    padding: 12px 0;
+    letter-spacing: 1px;
+    font-weight: normal;
+}
+td.invert-image {
+    width: 40%;
+    height: 180px;
+}
+.timetable_sub td {
+    border: 1px solid #CDCDCD;
+}
+.timetable_sub td {
+    text-align: center;
+    padding: 7px;
+    font-size: 14px;
+    color: #212121;
+}
+td.invert-image a img {
+    width: auto;
+    max-height: 100%;
+    margin: 0 auto;
+}
+.rem {
+    position: relative;
+}
+.close {
+    background: url('../images/close_1.png') no-repeat 0px 0px;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    right: 25px;
+    top: -13px;
+    -webkit-transition: color 0.2s ease-in-out;
+    -moz-transition: color 0.2s ease-in-out;
+    -o-transition: color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out;
+}
+  

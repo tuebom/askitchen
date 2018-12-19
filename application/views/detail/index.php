@@ -25,9 +25,9 @@
 								</div>
 								<div class="single-right simpleCart_shelfItem">
 									
-									<form id="formAdd" action="<?php echo site_url('cart'); ?>" method="post">
+									<form id="formAdd" action="<?= site_url('cart/add'); ?>" method="post">
 									<input type="hidden" name="kode" value="<?= $this->data['product']->kdbar ?>">
-									<input type="hidden" name="qty" value="1">
+									<input type="hidden" id="qty" name="qty" value="1">
 									
 									<h4><?= $this->data['product']->nama . ' ('. $this->data['product']->kdbar .')' ?></h4>
 									<div class="block">
@@ -39,28 +39,29 @@
 									<!--<div class="description">
 										<p><span>Fitur: </span> In cursus faucibus tortor eu vestibulum. Ut eget turpis ac justo porta varius. Donec vel felis ante, ac vehicula ipsum. Quisque sed diam metus. Quisque eget leo sit amet erat varius rutrum vitae dapibus lectus. Vivamus et sapien ante. Suspendisse potenti. Fusce in tellus est, ac consequat.</p>
 									</div>-->
-									<!--<div class="color-quality">
+									<div class="color-quality">
 										<h6>Quantity:</h6>
 											<div class="quantity"> 
 												<div class="quantity-select">                           
-													<div class="entry value-minus1">&nbsp;</div>
-													<div class="entry value1"><span>1</span></div>
-													<div class="entry value-plus1 active">&nbsp;</div>
+													<div class="entry value-minus">&nbsp;</div>
+													<div class="entry value"><span>1</span></div>
+													<div class="entry value-plus active">&nbsp;</div>
 												</div>
 											</div>
 											<script>
-											$('.value-plus1').on('click', function(){
-												var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)+1;
-												console.log(newVal);
+											$('.value-plus').on('click', function(){
+												var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
 												divUpd.text(newVal);
+												$(this).parents("#formAdd").find('#qty')[0].value = divUpd.text();
 											});
 
-											$('.value-minus1').on('click', function(){
-												var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)-1;
+											$('.value-minus').on('click', function(){
+												var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
 												if(newVal>=1) divUpd.text(newVal);
+												$(this).parents("#formAdd").find('#qty')[0].value = divUpd.text();
 											});
 											</script>
-									</div>-->
+									</div>
 									<div class="women">
 										<a href="javascript:{}" onclick="document.getElementById('formAdd').submit(); return false;" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
 									</div>
