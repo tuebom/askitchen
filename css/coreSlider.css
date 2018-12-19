@@ -123,6 +123,6 @@
   margin: 0 auto;
 }
 
-.core-slider__carousel .core-slider_arrow__left { left: 70px; }
+.core-slider__carousel .core-slider_arrow__left { left: 70px; display: none; }
 
-.core-slider__carousel .core-slider_arrow__right { right: 70px; }
+.core-slider__carousel .core-slider_arrow__right { right: 70px; display: none; }

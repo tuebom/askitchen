@@ -29,9 +29,9 @@ class Home extends Public_Controller {
 		// $this->session->set_userdata('totqty', '0');
 		
 		// $this->data['rnd_products'] = $this->stock_model->get_random_products();
-		$this->data['rnd_products'] = $this->stock_model->get_limit_data(6,0);
-		$this->data['rnd_products2'] = $this->stock_model->get_limit_data(6,7);
-		$this->data['rnd_products3'] = $this->stock_model->get_limit_data(6,13);
+		$this->data['rnd_products'] = $this->stock_model->get_limit_data(4,0);
+		$this->data['rnd_products2'] = $this->stock_model->get_limit_data(4,7);
+		$this->data['rnd_products3'] = $this->stock_model->get_limit_data(4,13);
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('dashboard/index', $this->data);

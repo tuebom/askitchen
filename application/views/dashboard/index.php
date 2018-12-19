@@ -90,7 +90,7 @@
 							<?php
 								foreach ($this->data['rnd_products'] as $item) {
 							?>
-							<div class="col-md-2 arrival-grid simpleCart_shelfItem">
+							<div class="col-md-3 arrival-grid simpleCart_shelfItem">
 								<div class="grid-arr">
 									<div class="grid-arrival">
 										<figure>		
@@ -112,7 +112,7 @@
 										<h6><a href="<?php echo site_url('detail/'.$item->kdurl); ?>"><?= $item->kdbar?></a></h6>
 										<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
 										<p><!--<del>$100.00</del>--><em class="item_price">Rp<?= $item->hjual?></em></p>
-										<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="Show Details" class="my-cart-d item_add">Show Details</a>
+										<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="See Details" class="my-cart-d item_add">See Details</a>
 									</div>
 								</div>
 							</div>
@@ -146,7 +146,7 @@
 											<?php
 												foreach ($this->data['rnd_products2'] as $item) {
 											?>
-											<div class="col-md-2 cap-left simpleCart_shelfItem">
+											<div class="col-md-3 cap-left simpleCart_shelfItem">
 												<div class="grid-arr">
 													<div class="grid-arrival">
 														<figure>		
@@ -167,7 +167,7 @@
 														<h6><a href="<?php echo site_url('detail/'.$item->kdurl); ?>"><?= $item->kdbar ?></a></h6>
 														<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
 														<p><!--<del>$100.00</del>--><em class="item_price">Rp<?= $item->hjual ?></em></p>
-														<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="Show Details" class="my-cart-d item_add">Show Details</a>
+														<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="See Details" class="my-cart-d item_add">See Details</a>
 													</div>
 												</div>
 											</div>
@@ -180,7 +180,7 @@
 											<?php
 												foreach ($this->data['rnd_products3'] as $item) {
 											?>
-											<div class="col-md-2 cap-left simpleCart_shelfItem">
+											<div class="col-md-3 cap-left simpleCart_shelfItem">
 												<div class="grid-arr">
 													<div class="grid-arrival">
 														<figure>		
@@ -201,7 +201,7 @@
 														<h6><a href="<?php echo site_url('detail/'.$item->kdurl); ?>"><?= $item->kdbar ?></a></h6>
 														<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
 														<p><!--<del>$100.00</del>--><em class="item_price">Rp<?= $item->hjual ?></em></p>
-														<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="Show Details" class="my-cart-d item_add">Show Details</a>
+														<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="See Details" class="my-cart-d item_add">See Details</a>
 													</div>
 												</div>
 											</div>

@@ -591,12 +591,13 @@ h2.tittle {
 }
 .grid-arr {
     background: #e2e2e2; /*#E2E2E2*/
-    border: 5px solid #ffffff;
+    /*border: 5px solid #ffffff;*/
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
     padding: 1.0em;
     margin-top: 25px; /***/
+    border-radius: 10px;
 }
 .grid-arr .grid-arrival figure {
   position: relative;
@@ -616,7 +617,7 @@ h2.tittle {
 }
 .grid-arr .grid-arrival figure > a .grid-img {
   width: 110px;
-  height: 180px;
+  height: 90px;
   margin-left: auto;
   margin-right: auto;
   /*width: 100%;*/
@@ -779,14 +780,13 @@ a.my-cart-b, a.my-cart-d {
 }
 /* show detail */
 .my-cart-d {
-    background: orangered;
+    background: #941204;
     text-decoration: none;
     color: #fff;
     font-size: 0.8em;
     border: 1px solid #F19E1F;
     padding: 0.5em 1em;
     outline: none;
-    background: orangered;
     border-radius: 50px;
 }
 /* Sweep To Bottom */

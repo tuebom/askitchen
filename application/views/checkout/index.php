@@ -10,7 +10,10 @@
 		<div class="content">
 			<div class="cart-items">
 				<div class="container">
-                    <form action="#" method="post">
+                    <form action="<?= site_url('submit'); ?>" method="post">
+                    <input type="hidden" name="total" value="">
+                    <input type="hidden" name="shipping" value="">
+
                     <div class="col-md-8">    
                         <h2>Billing Details</h2>
                         <div class="row">
@@ -115,15 +118,15 @@
                             <tfoot>
                                 <tr>
                                     <td><b>Subtotal</b></td>
-                                    <td class="text-right">Rp<?= number_format($total_price, 0, '.', ',') ?></td>
+                                    <td class="text-right"><b>Rp<?= number_format($total_price, 0, '.', ',') ?></b></td>
                                 </tr>
                                 <tr>
                                     <td><b>Shipping</b></td>
-                                    <td class="text-right">0</td>
+                                    <td class="text-right"><b>0</b></td>
                                 </tr>
                                 <tr>
                                     <td><b>Total</b></td>
-                                    <td class="text-right">Rp<?= number_format($total_price, 0, '.', ',') ?></td>
+                                    <td class="text-right"><b>Rp<?= number_format($total_price, 0, '.', ',') ?></b></td>
                                 </tr>
                             </tfoot>
                         </table>
