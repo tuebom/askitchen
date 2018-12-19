@@ -128,8 +128,8 @@
                             </tfoot>
                         </table>
 
-                        <div class="col-sm-6"><a href="<?php echo site_url('cart'); ?>">Back</a></div>
-                        <div class="col-sm-6"><a href="<?php echo site_url('submit'); ?>">Submit Order</a></div>
+                        <div class="col-sm-6 checkout-right-basket2"><a class="checkout-right-basket2" href="<?php echo site_url('cart'); ?>">Back</a></div>
+                        <div class="col-sm-6 checkout-right-basket2"><a class="checkout-right-basket2" href="<?php echo site_url('submit'); ?>">Submit Order</a></div>
                     </div>
                     </form>
 				</div>

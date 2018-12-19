@@ -3654,4 +3654,14 @@ td.invert-image a img {
     text-decoration: none;
     letter-spacing: 1px;
     display: inline-block;
+    float: right;
+}
+.checkout-right-basket2 a {
+    padding: 12px 25px;
+    color: #fff;
+    font-size: 12px;
+    background: #06C; /*#000;*/
+    text-decoration: none;
+    letter-spacing: 1px;
+    display: inline-block;
 }
