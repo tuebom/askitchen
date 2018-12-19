@@ -132,20 +132,16 @@ class Stock_model extends CI_Model
 
     function get_limit_data($limit, $start = 0, $q = NULL, $b = NULL, $p1 = 0, $p2 = 0) {
         
-        $this->db->select('kdbar, kdurl, nama, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar');
+        $this->db->select('kdbar, kdurl, nama, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar')
+            ->group_start()
+            ->or_like(['kdbar'=> $q, 'nama'=> $q, 'pnj'=> $q, 'lbr'=> $q, 'tgi'=> $q])
+            ->group_end();
         if ($p1 > 0) {
             $this->db->where('hjual >=', $p1);
             $this->db->where('hjual <=', $p2);
         }
         if ($b) {
             $this->db->where('merk', $b);
-        }
-        if ($q) {
-            $this->db->like('(kdbar', $q);
-            $this->db->or_like('nama', $q);
-            $this->db->or_like('pnj', $q);
-            $this->db->or_like('lbr', $q);
-            $this->db->or_like('tgi)', $q);
         }
         $this->db->order_by($this->id, $this->order);
 	    $this->db->limit($limit, $start);

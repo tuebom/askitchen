@@ -1,7 +1,7 @@
     <!--banner-->
 		<div class="banner1">
 			<div class="container">
-				<h3><a href="<?php echo site_url(); ?>">Home</a> / <span>Checkout</span></h3>
+				<h3><a href="<?php echo site_url(); ?>">Home</a> / <span>Cart</span></h3>
 			</div>
 		</div>
 	<!--banner-->
@@ -32,7 +32,7 @@
 						<table class="timetable_sub">
 							<thead>
 								<tr>
-									<th>SL No.</th>
+									<th>&nbsp;No.&nbsp;</th>
 									<th>Product</th>
 									<th>Quantity</th>
 									<th>Product Name</th>
@@ -95,15 +95,19 @@
 						</table>
 					<?php  endif; } /* end if */ ?>
 					</div>
+					<?php if (isset($_SESSION["cart_item"])): ?>
+					<div class="checkout-right-basket">
+						<a href="<?php echo site_url('checkout'); ?>">Make a Payment</a>
+					</div>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
 	<!-- checkout -->
-	<script>
-		$(document).ready(function (c) {
-			$('.close').on('click', function (c) {
-				$(this).parents(".rem").find('.formRem')[0].submit();
+		<script>
+			$(document).ready(function (c) {
+				$('.close').on('click', function (c) {
+					$(this).parents(".rem").find('.formRem')[0].submit();
+				});
 			});
-		});
-	</script>
-	
+		</script>

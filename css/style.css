@@ -3626,7 +3626,7 @@ td.invert-image a img {
     width: 28px;
     height: 28px;
     position: absolute;
-    right: 25px;
+    right: 15px;
     top: -13px;
     -webkit-transition: color 0.2s ease-in-out;
     -moz-transition: color 0.2s ease-in-out;
@@ -3634,3 +3634,15 @@ td.invert-image a img {
     transition: color 0.2s ease-in-out;
 }
   
+.checkout-right-basket {
+    margin-top: 20px;
+}
+.checkout-right-basket a {
+    padding: 12px 25px;
+    color: #fff;
+    font-size: 16px;
+    background: #06C; /*#000;*/
+    text-decoration: none;
+    letter-spacing: 1px;
+    display: inline-block;
+}
