@@ -112,7 +112,7 @@
                             <tfoot>
                                 <tr>
                                     <td>Order Summary</td>
-                                    <td></td>
+                                    <td>0</td>
                                 </tr>
                             </tfoot>
                         </table>
