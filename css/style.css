@@ -102,18 +102,24 @@ body{
 }
 .logo-nav-left1 {
     float: left;
-    margin-left: 2em;
+    margin-left: 1em;
 }
 .logo-nav-left1 ul li a{
-	font-size:.95em;
+	font-size:.75em;
     color: #fff;
     text-decoration: none;
     font-family: 'Open Sans', sans-serif;
     text-transform: capitalize;
-	font-weight: 600;
+	font-weight: 500;
 }
 .navbar-default .navbar-nav > li > a {
     color: #fff;
+}
+@media (min-width: 768px) {
+    .navbar-nav > li > a {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
 }
 .logo-nav-left1 ul li.active a.act{
 	color:#fff !important;
@@ -584,7 +590,12 @@ h2.tittle {
 .new-arrivals-w3agile {
     padding: 5em 0;
     background: #F9F8F8;
-	text-align:center;
+	text-align: center;
+}
+.tab-wl3 {
+    padding: 5em 0;
+    background: #F9F8F8;
+	text-align: justify;
 }
 .arrivals-grids {
     margin-top: 2em;
@@ -659,10 +670,13 @@ h2.tittle {
     color: #1565C0;
     text-decoration: none;
 }
+div.women {
+    height: 110px;
+}
 .women p {
     font-size: 1.2em;
     color: #999;
-    margin: 0.5em 0;/**/
+    margin: 0.5em 0;
 }
 em.item_price {
     font-style: normal;
@@ -672,6 +686,9 @@ em.item_price {
 span.size {
     color: #000000;
     font-weight: 600;
+}
+span.detail {
+    margin-top: 15px !important;
 }
 /*--cart--*/
 a:focus {
@@ -848,12 +865,11 @@ a.my-cart-b, a.my-cart-d {
     border: 2px solid #1565C0;
     outline: none !important;
 }
-.my-cart-d:hover, .my-cart-d:focus, .my-cart-d:active {
+/*.my-cart-d:hover, .my-cart-d:focus, .my-cart-d:active {
 	color: white;
-    /*background: none;*/
-    border: 2px solid #1565C0;
     outline: none !important;
-}
+    font-size: 0.8em;
+}*/
 .my-cart-b:hover:before, .my-cart-b:focus:before, .my-cart-b:active:before {
   -webkit-transform: scaleY(1);
   transform: scaleY(1);
@@ -972,6 +988,11 @@ ul.callbacks_tabs.callbacks1_tabs {
 h3.tittle1 {
     text-align: center;
     font-size: 3em;
+    color: #1565C0;
+}
+h4.tittle1 {
+    text-align: center;
+    font-size: 2em;
     color: #1565C0;
 }
 .caption {
@@ -1117,8 +1138,8 @@ img.img-footer{
     margin-left: auto;
     margin-top: 20px;
     /* text-align: center; */
-  }
-  img.img-footer-2{
+}
+img.img-footer-2{
     /* vertical-align: middle; */
     width: 70px;
     height: 32px;
@@ -1127,14 +1148,14 @@ img.img-footer{
     margin-right: 10px;
     margin-top: 20px;
     /* text-align: center; */
-  }
+}
 img.img-header{
     vertical-align: middle;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     height: 30px;
- }
-.social-icon, .tab-wl3 {
+}
+.social-icon {
     margin-top: 1.8em;
 }
 .social-icon a i {
@@ -1858,7 +1879,7 @@ h2.typoh2{
 }
 .single-left {
     float: left;
-    width: 48%;
+    width: 30%;
     margin-right: 2%;
 }
 .single-right {
@@ -3626,7 +3647,7 @@ table.timetable_sub {
 }
 td.invert-image {
     width: 40%;
-    height: 180px;
+    height: 90px;
 }
 .timetable_sub td {
     border: 1px solid #CDCDCD;
@@ -3687,3 +3708,8 @@ td.invert-image a img {
     margin-left: 0px;    
   }
 .hr { width:100%; height:1px; background: #fff }
+
+a:hover, a:focus {
+    color: #fff;
+    text-decoration: none;
+}

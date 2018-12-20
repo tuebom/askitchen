@@ -1,7 +1,7 @@
     <!--content-->
         <div class="content">
 				<div class="products-agileinfo">
-                    <h3 class="tittle1"><?php echo $this->data['title']; ?></h3>
+                    <h4 class="tittle1"><?php echo $this->data['title']; ?></h4>
 					<div class="container">
 						<div class="product-agileinfo-grids w3l">
 							<div class="col-md-3 product-agileinfo-grid">
@@ -141,9 +141,6 @@
 										<!--<li><a href="<?php echo site_url('products/OTHER'); ?>">OTHER</a></li>-->
 									</ul>
 								</div>
-								<!--<div class="cat-img">
-									<img class="img-responsive " src="<?=base_url('images/45.jpg');?>" alt="">
-								</div>-->
 							</div>
 							<div class="col-md-9 product-agileinfon-grid1 w3l">
 								<!--<div class="product-agileinfon-top">
@@ -223,10 +220,10 @@
 															<div class="starbox small ghosting"> </div>
 														</div>
 														<div class="women">
-															<p ><!--<del><?= $item->hjual; ?></del>--><em class="item_price">Rp<?= $item->hjual; ?></em></p>
+															<p ><em class="item_price">Rp<?= $item->hjual; ?></em></p>
 															<span class="size"><?= $item->kdbar; ?></span>
 															<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
-															<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="See Details" class="my-cart-d item_add">See Details</a>
+															<span class="detail"><a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="See Details" class="my-cart-d item_add">See Details</a></span>
 														</div>
 													</div>
 												</div>

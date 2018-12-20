@@ -101,11 +101,22 @@ $(window).load(function() {
 <script src="<?=base_url('js/custombox.legacy.min.js');?>"></script>
 <style>
 	/* modal */
+@media screen {
+	.demo-modal {
+		width: 450px;
+	}
+}
+
+@media (max-width: 640px) {
+	.demo-modal {
+		width: 90%;
+	}
+}
+
 .demo-modal {
-    background-color: #FFF;
+    background-color: #941204;
     box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
     padding: 24px;
-    width: 50%;
     position: relative;
 	display: none;
 	border-radius: 20px;
@@ -113,15 +124,49 @@ $(window).load(function() {
 
 .demo-close {
     display: block;
-    position: absolute;
-    top: -35px;
-    right: 0;
+	position: absolute;
+	background: #941204;
+	padding: 0.75em 0.75em;
+	border-radius: 50px;
+    top: -25px;
+    right: -15px;
     z-index: 10000;
     outline: none;
-    font-size: 30px;
+    font-size: 20px;
     line-height: 30px;
-    transition: transform .3s ease-in-out;
+    /*transition: transform .3s ease-in-out;*/
     color: #FFF;
+}
+div.hello-body {
+	padding: 5em 0;
+	height: 400px;
+}
+h4.hello-tittle {
+	color: #fff;
+	padding: 0.5em 0;
+}
+.hello-menu {
+    background: #941204;
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.8em;
+    border: 1px solid #FFF;
+    padding: 0.5em 2em;
+    outline: none;
+	border-radius: 50px;
+	display: inline-block;
+	white-space: nowrap;
+	width: 100%;
+	text-align: center;
+}
+@media (max-width: 640px) {
+	.hello-menu {
+		width: 90%;
+	}
+}
+
+div.hello-bar {
+    height: 40px;
 }
 </style>
 </head>
@@ -186,13 +231,13 @@ $(window).load(function() {
 						</ul>
 					</div>
 					<!-- search form -->
-					<form action="<?php echo site_url('search'); ?>" method="get" class="sidebar-form">
+					<form id="frmSearch" action="<?php echo site_url('search'); ?>" method="get" class="sidebar-form">
 						<div class="input-group search">
 							<div class="input-group-btn">
 								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All <span class="caret"></span></button>
 								<ul class="dropdown-menu">
 								<?php
-									foreach ($this->data['golongan'] as $item) { 
+									foreach ($this->data['golongan'] as $item) {
 								?>
 									<li><a href="<?php echo site_url('products/'.$item->kdgol); ?>"><?= $item->nama ?></a></li>
 								<?php
@@ -202,6 +247,8 @@ $(window).load(function() {
 							</div>
 							<input type="text" name="q" class="form-control" placeholder="Search for..." value="">
 							<span class="input-group-btn">
+								<!--<a href="javascript:void(0);" onclick="frmSearch.submit();">
+								<img src="<?= site_url('images/search.png'); ?>"></a>-->
 								<button id='search-btn' class="btn btn-default" type="button">Go!</button>
 							</span>
 						</div>
@@ -212,15 +259,6 @@ $(window).load(function() {
 			<div class="heder-bottom">
 				<div class="container">
 					<div class="logo-nav">
-						<!--<div class="logo-nav-left">
-							<div class="location">
-								<ul style="display: inline;">
-									<li><img src="<?= site_url('images/location.png'); ?>" alt="Location"></i>
-									<li><p>Deliver To<BR>INDONESIA</p></li>
-								</ul>
-								<div class="clearfix"> </div>
-							</div>	
-						</div>-->
 						<div class="logo-nav-left1">
 							<nav class="navbar navbar-default">
 							<!-- Brand and toggle get grouped for better mobile display -->
@@ -235,10 +273,16 @@ $(window).load(function() {
 							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 								
 								<ul class="nav navbar-nav">
+									<li><a href="#">
+										<div style="display: inline-block; vertical-align: middle;"><img src="<?= site_url('images/location.png'); ?>" alt="location"/></div>
+										<div style="display: inline-block; vertical-align: middle;">Deliver To<br>INDONESIA</div>
+										<!--<ul><li>Deliver To</li><li>Indonesia</li></ul></span></a>-->
+									</li>
 									<!-- Mega Menu -->
 									<?php 
 										// print_r($this->data);
 										echo "<!-- " . site_url($this->data['products_dir']) . " -->";
+										$index = 0;
 										foreach ($this->data['golongan'] as $item) {
 									?>
 									<li class="dropdown">
@@ -262,7 +306,12 @@ $(window).load(function() {
 											</div>
 										</ul>
 									</li>
-									<?php } ?>
+									<?php 
+											$index++;
+											if ($index == 5) break;
+										}
+									?>
+									<li><a href="#">%BB</a></li>
 								</ul>
 							</div>
 							</nav>
@@ -276,16 +325,40 @@ $(window).load(function() {
 	<!--modal-->
 	<div id="demo-modal" class="demo-modal" style="display: none;">
       <a href="javascript:void(0);" onclick="Custombox.modal.close();" class="demo-close"><i class="fa fa-times"></i></a>
-	  <div class="categories">
-		<h3>Food Categories</h3>
-		<ul class="tree-list-pad">
-			<li><input type="checkbox" id="item-00" /><span></span><a href="<?php echo site_url('searchtag?tag=western'); ?>">Western Food</a></li>
-			<li><input type="checkbox" id="item-01" /><span></span><a href="<?php echo site_url('searchtag?tag=asia'); ?>">Asian Food</a></li>
-			<li><input type="checkbox" id="item-02" /><span></span><a href="<?php echo site_url('searchtag?tag=bbq'); ?>">Barbeque</a></li>
-			<li><input type="checkbox" id="item-03" /><span></span><a href="<?php echo site_url('searchtag?tag=coffee'); ?>">Coffee Shop</a></li>
-			<li><input type="checkbox" id="item-04" /><span></span><a href="<?php echo site_url('searchtag?tag=bar'); ?>">Bar</a></li>
-			<li><input type="checkbox" id="item-05" /><span></span><a href="<?php echo site_url('searchtag?tag=catering'); ?>">Catering</a></li>
-		</ul>
+	  <div class="hello-body">
+	    <h3 class="tittle text-center">hello,</h3>
+	  	<h4 class="hello-tittle text-center">What is your restaurant type:</h4>
+		<div class="hello-bar">
+			<div class="col-sm-6 col-xs-12">
+				<span class="detail"><a class="hello-menu" href="<?php echo site_url('searchtag?tag=asia'); ?>">Chinese/Asian Food</a></span>
+			</div>
+			<div class="col-sm-6 col-xs-12">
+				<span class="detail"><a class="hello-menu" href="<?php echo site_url('searchtag?tag=western'); ?>">Western Food</a></span>
+			</div>
+		</div>
+			
+		<div class="hello-bar">
+			<div class="col-sm-6 col-xs-12">
+				<span class="detail"><a class="hello-menu" href="<?php echo site_url('searchtag?tag=asia'); ?>">Bakery &amp; Pastry</a></span>
+			</div>
+			<div class="col-sm-6 col-xs-12">
+				<span class="detail"><a class="hello-menu" href="<?php echo site_url('searchtag?tag=western'); ?>">Indonesian Food</a></span>
+			</div>
+		</div>
+
+		<div class="hello-bar">
+			<div class="col-sm-6 col-xs-12">
+				<span class="detail"><a class="hello-menu" href="<?php echo site_url('searchtag?tag=bbq'); ?>">BBQ/Outdoor</a></span>
+			</div>
+			<div class="col-sm-6 col-xs-12">
+				<span class="detail"><a class="hello-menu" href="<?php echo site_url('searchtag?tag=coffee'); ?>">Coffee Shop</a></span>
+			</div>
+		</div>
+		<div class="hello-bar">
+			<div class="col-sm-6 col-xs-12">
+				<span class="detail"><a class="hello-menu" href="<?php echo site_url('searchtag?tag=bar'); ?>">Bar</a></span>
+			</div>
+		</div>
 	  </div>
 	</div>
 	<!--modal-->
