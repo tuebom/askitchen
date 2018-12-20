@@ -200,12 +200,13 @@ div.hello-bar {
 	<!--header-->
 		<div class="header">
 			<div class="header-top-most">
-				<div class="container">
+				<div class="container2">
 					<div class="top-left">
-						<a href="#"><img src="<?= site_url('images/askitchen.png'); ?>" alt="ASKITCHEN Logo"></a>
-						<a href="http://www.asovic.co.id/" target="_blank"><img src="<?= site_url('images/asovic.png'); ?>" alt="ASOVIC Logo"></a>
-						<a href="http://www.muchef.com/" target="_blank"><img src="<?= site_url('images/muchef.png'); ?>" alt="MUCHEF Logo"></a>
+						<a href="#"><img class="img-header" src="<?= site_url('images/askitchen.png'); ?>" alt="ASKITCHEN Logo" hspace="1" /></a>
+						<a href="http://www.asovic.co.id/" target="_blank"><img class="img-header" src="<?= site_url('images/asovic.jpg'); ?>" alt="ASOVIC Logo" hspace="1" /></a>
+						<a href="http://www.muchef.com/" target="_blank"><img class="img-header" src="<?= site_url('images/muchef.jpg'); ?>" alt="MUCHEF Logo" hspace="1" /></a>
 					</div>
+					<div class="clearfix"></div>
 				</div>
 			</div>
 			<div class="header-top">

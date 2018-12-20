@@ -15,19 +15,19 @@
 								<div class="col-md-3 footer-grid">
 									<h4>Main Office</h4>
 									<ul>
-										<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a href="#">Jl. Dewi Sri 189, Kuta - Bali, Indonesia</a></li>
-										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a href="#">0851 0662 2255</a></li>
-										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a href="#">(0361) 4727857</a></li>
-										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a href="#">(0361) 4727855</a></li>
+										<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a>Jl. Dewi Sri 189, Kuta - Bali, Indonesia</a></li>
+										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>0851 0662 2255</a></li>
+										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>(0361) 4727857</a></li>
+										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>(0361) 4727855</a></li>
 									</ul>
 								</div>  
 								<div class="col-md-3 footer-grid">
 									<h4>Branch Office</h4>
 									<ul>
-										<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a href="">Jl. Sungai Sadang Lama<br>Komplek Ruko Latanete Plaza<br>Blok B No. 11, Makassar - Indonesia</a></li>
-										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a href="#">0851 0511 5557</a></li>
-										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a href="#">0851 0813 3577</a></li>
-										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a href="#">(0411) 822 4090</a></li>
+										<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a>Jl. Sungai Sadang Lama<br>Komplek Ruko Latanete Plaza<br>Blok B No. 11, Makassar - Indonesia</a></li>
+										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>0851 0511 5557</a></li>
+										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>0851 0813 3577</a></li>
+										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>(0411) 822 4090</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3 footer-grid foot">
@@ -60,18 +60,17 @@
 					</div>
 					<!---footer--->
 					<div class="footer-bawah">
+					<div class="hr"></div>
 						<div class="container">
-							<div class="footer-grid">
+							<div class="footer-grid-bawah">
 							<!-- <div class="col-md-3 footer-grid"> -->
-								
-								<h4>Our Groups : </h4>
-								
-									<ul>
-										<div class="logo-bawah">
-										<li><a href="http://www.askitchen.com/" target="_blank"><img class="img-footer" src="<?= site_url('images/askitchen_btm.png'); ?>" alt="ASkitchen Logo"></a></li>
-										<li><a href="http://www.asovic.co.id/" target="_blank"><img class="img-footer-2" src="<?= site_url('images/asovic_btm.png'); ?>" alt="ASovic Logo"></a></li>
-										<li><a href="http://www.muchef.com/" target="_blank"><img class="img-footer-2" src="<?= site_url('images/muchef_btm.png'); ?>" alt="Muchef Logo"></a></li>
-										</div>
+								<ul>
+										<!-- <div class="logo-bawah"> -->
+										
+										<a href="http://www.askitchen.com/" target="_blank"><img class="img-footer" src="<?= site_url('images/askitchen_btm.png'); ?>" alt="ASkitchen Logo" hspace="5" /></a>
+										<a href="http://www.asovic.co.id/" target="_blank"><img class="img-footer-2" src="<?= site_url('images/asovic_btm.png'); ?>" alt="ASovic Logo" hspace="5" /></a>
+										<a href="http://www.muchef.com/" target="_blank"><img class="img-footer-2" src="<?= site_url('images/muchef_btm.png'); ?>" alt="Muchef Logo" hspace="5" /></a>
+										<!-- </div> -->
 									</ul>
 								</div>
 							</div>
@@ -97,10 +96,6 @@
 						</div>
 					</div>
 				<!--copy-->
-<<<<<<< HEAD
-=======
-			</div>
->>>>>>> 648d71f475e1ede976c4deebea306eaa0af3cf35
 
 </body>
 </html>
