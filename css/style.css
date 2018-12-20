@@ -603,7 +603,7 @@ h2.tittle {
   position: relative;
   display: block;
   overflow: hidden;
-  margin: 0 0 20px 0;
+  margin: 0 0 10px 0;
   width: 100%;
 }
 .grid-arr .grid-arrival figure:hover .grid-img + .grid-img{
@@ -630,7 +630,7 @@ h2.tittle {
 .grid-arr .grid-arrival figure > a .grid-img img {
   /*width: 100%;*/
   max-height: 100%;
-  margin-top: 15px;
+  margin-top: 5px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -660,14 +660,14 @@ h2.tittle {
     text-decoration: none;
 }
 .women p {
-    font-size: 1em;
+    font-size: 1.2em;
     color: #999;
-    margin: 0.9em 0;
+    margin: 0.5em 0;
 }
 em.item_price {
     font-style: normal;
     color: #000;
-    font-weight: 600;
+    font-weight: 500;
 }
 span.size {
     color: #000000;
@@ -774,7 +774,7 @@ a.my-cart-b, a.my-cart-d {
     text-decoration: none;
     color: #1565C0;
     font-size: 1em;
-    border: 2px solid #F19E1F;
+    border: 1px solid #F19E1F;
     padding: 0.5em 1em;
     outline: none;
 }
@@ -784,8 +784,8 @@ a.my-cart-b, a.my-cart-d {
     text-decoration: none;
     color: #fff;
     font-size: 0.8em;
-    border: 1px solid #F19E1F;
-    padding: 0.5em 1em;
+    /*border: 1px solid #F19E1F;*/
+    padding: 0.75em 2.5em;
     outline: none;
     border-radius: 50px;
 }
@@ -893,7 +893,7 @@ a.button1 {
 .rslides {
   position: relative;
   list-style: none;
-  overflow: hidden;
+  /*overflow: hidden;*/
   width: 100%;
   padding: 0;
   margin: 0;
@@ -1878,8 +1878,8 @@ p.price {
 }
 .women span {
     font-size: 0.8em;
-    color: #000;
-    margin: 1em 0;
+    color: #941204;
+    margin: 0.2em 0;
     display: block;
 }
 .single-grid1 h3 {

@@ -107,7 +107,8 @@ $(window).load(function() {
     padding: 24px;
     width: 50%;
     position: relative;
-    display: none;
+	display: none;
+	border-radius: 20px;
 }
 
 .demo-close {
