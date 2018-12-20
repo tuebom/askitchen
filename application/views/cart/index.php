@@ -95,7 +95,7 @@
 						</table>
 					<?php  endif; } /* end if */ ?>
 					</div>
-					<?php if (isset($_SESSION["cart_item"])): ?>
+					<?php if (count($_SESSION["cart_item"]) > 0): ?>
 					<div class="checkout-right-basket">
 						<a href="<?php echo site_url('checkout'); ?>">Make a Payment</a>
 					</div>

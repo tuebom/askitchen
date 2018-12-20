@@ -141,9 +141,6 @@
 										<!--<li><a href="<?php echo site_url('products/OTHER'); ?>">OTHER</a></li>-->
 									</ul>
 								</div>
-								<!--<div class="cat-img">
-									<img class="img-responsive " src="<?=base_url('images/45.jpg');?>" alt="">
-								</div>-->
 							</div>
 							<div class="col-md-9 product-agileinfon-grid1 w3l">
 								<!--<div class="product-agileinfon-top">
