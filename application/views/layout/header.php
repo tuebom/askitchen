@@ -19,6 +19,8 @@ Refrigerator, Refrigeration, Stainless Steel Refrigeration, Minimarket, Minimark
 <script src="<?=base_url('js/main.js');?>"></script>
 <!--search jQuery-->
 
+
+
 <?php if (current_url() == site_url()): ?>
 <script src="<?=base_url('js/responsiveslides.min.js');?>"></script>
 <script>
@@ -77,6 +79,7 @@ $(window).load(function() {
     animation: "slide",
     controlNav: "thumbnails"
   });
+
 });
 </script>
 
@@ -180,8 +183,10 @@ div.hello-bar {
     function theFunction () {
 		var modal = new Custombox.modal({
 		content: {
-			effect: 'corner',
-			target: '#demo-modal'
+			effect: 'newspaper',
+			target: '#demo-modal',
+			speedIn: 1000,
+			speedOut: 1000,
 			}
 		});
 
@@ -287,7 +292,11 @@ div.hello-bar {
 									?>
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $item->nama ?><b class="caret"></b></a>
-										<ul class="dropdown-menu multi-column columns-3">
+										<?php if($index == 4){ ?>
+										<ul class="dropdown-menu multi-column columns-3 pull-right">
+											<?php }else{ ?>
+												<ul class="dropdown-menu multi-column columns-3">
+											<?php } ?>
 											<div>
 												<?php foreach ($this->data['item_'.$item->kdgol] as $detail) { ?>
 												<div class="col-sm-3 multi-gd-img">
