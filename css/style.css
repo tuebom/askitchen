@@ -203,6 +203,9 @@ ul.multi-column-dropdown h6 {
     background: none;
 	color:#fff !important;
 }
+.nav > li > a > img {
+    width: 12px;
+}
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
     color: #fff;
 }
@@ -3706,7 +3709,7 @@ td.invert-image a img {
 .container2 {
     padding-left: 0px;
     margin-left: 0px;    
-  }
+}
 .hr { width:100%; height:1px; background: #fff }
 
 a:hover, a:focus {
