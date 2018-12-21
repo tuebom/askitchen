@@ -19,6 +19,11 @@ $lang['menu_search'] = 'Search';
 /* * */$lang['menu_main_navigation']            = 'Main Navigation';
 /* ****** */$lang['menu_dashboard']             = 'Dashboard';
 
+/* ****** */$lang['menu_general']               = 'General';
+/* ****** */$lang['menu_inventory']             = 'Inventory';
+/* ****** */$lang['menu_linkedproducts']        = 'Linked Products';
+/* ****** */$lang['menu_shipping']              = 'Shipping';
+
 
 /* * */$lang['menu_administration']             = 'Administration';
 /* ****** */$lang['menu_users']                 = 'Users';

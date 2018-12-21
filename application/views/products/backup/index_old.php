@@ -1,7 +1,7 @@
     <!--content-->
         <div class="content">
 				<div class="products-agileinfo">
-                    <h4 class="tittle1"><?php echo $this->data['title']; ?></h4>
+                    <h3 class="tittle1"><?php echo $this->data['title']; ?></h3>
 					<div class="container">
 						<div class="product-agileinfo-grids w3l">
 							<div class="col-md-3 product-agileinfo-grid">
@@ -220,10 +220,10 @@
 															<div class="starbox small ghosting"> </div>
 														</div>
 														<div class="women">
-															<p ><em class="item_price">Rp<?= $item->hjual; ?></em></p>
-															<span class="size"><?= $item->kdbar; ?></span>
+															<h6><a href="<?php echo site_url('detail/'.$item->kdurl); ?>"><?= $item->kdbar; ?></a></h6>
 															<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
-															<span class="detail"><a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="See Details" class="my-cart-d item_add">See Details</a></span>
+															<p ><!--<del><?= $item->hjual; ?></del>--><em class="item_price">Rp<?= $item->hjual; ?></em></p>
+															<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="See Details" class="my-cart-d item_add">See Details</a>
 														</div>
 													</div>
 												</div>

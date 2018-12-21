@@ -34,8 +34,10 @@ class Products extends Public_Controller {
 		
 		if (strlen($kode) == 2) {
 			$this->data['title'] = $this->golongan_model->get_by_id($kode)->nama;
+			$this->data['kdgol'] = $kode;
 		} else {
 			$this->data['title'] = $this->golongan_model->get_by_subid($kode)->nama;
+			$this->data['kdgol'] = substr($kode,0,2);
 		}
 		
 		$this->data['products'] = $this->stock_model->get_by_category(12, $offset, $kode);

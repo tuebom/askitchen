@@ -7,6 +7,7 @@ class Checkout extends Public_Controller {
     {
 		parent::__construct();
 		$this->load->model('golongan_model');
+		$this->load->model('provinsi_model');
     }
 
 
@@ -18,6 +19,7 @@ class Checkout extends Public_Controller {
 		foreach ($this->data['golongan'] as $item) {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
+		$this->data['provinsi'] = $this->provinsi_model->get_all();
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('checkout/index', $this->data);
