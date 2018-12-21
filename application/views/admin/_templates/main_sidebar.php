@@ -44,6 +44,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <i class="fa fa-dashboard"></i> <span><?php echo lang('menu_dashboard'); ?></span>
                             </a>
                         </li>
+                        <li class="<?=active_link_controller('general')?>">
+                            <a href="<?php echo site_url('admin/general'); ?>">
+                                <i class="fa fa-user"></i> <span><?php echo lang('menu_general'); ?></span>
+                            </a>
+                        </li>
+                        <li class="<?=active_link_controller('inventory')?>">
+                            <a href="<?php echo site_url('admin/inventory'); ?>">
+                                <i class="fa fa-user"></i> <span><?php echo lang('menu_inventory'); ?></span>
+                            </a>
+                        </li>
+                        <li class="<?=active_link_controller('linkedproducts')?>">
+                            <a href="<?php echo site_url('admin/linkedproducts'); ?>">
+                                <i class="fa fa-user"></i> <span><?php echo lang('menu_linkedproducts'); ?></span>
+                            </a>
+                        </li>
+                        <li class="<?=active_link_controller('shipping')?>">
+                            <a href="<?php echo site_url('admin/shipping'); ?>">
+                                <i class="fa fa-user"></i> <span><?php echo lang('menu_shipping'); ?></span>
+                            </a>
+                        </li>
 
 
                         <li class="header text-uppercase"><?php echo lang('menu_administration'); ?></li>

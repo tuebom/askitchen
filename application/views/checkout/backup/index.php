@@ -49,27 +49,6 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">    
-                                <div class="key"><i class="fa fa-" aria-hidden="true"></i>
-                                <select placeholder="Province" name="province">
-                                <?php
-                                    // die(print_r($this->data['provinsi']));
-                                    foreach ($this->data['provinsi'] as $itemx) {
-                                ?>
-                                <option value="<?= $itemx->id ?>"><?= $itemx->name ?></option>
-                                <?php } ?>
-                                </select>
-                                <div class="clearfix"></div></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">    
-                                <div class="key"><i class="fa fa-city" aria-hidden="true"></i>
-                                <input type="text" placeholder="City" name="city" required>
-                                <div class="clearfix"></div></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">    
                                 <div class="key"><i class="fa fa-map-marker" aria-hidden="true"></i>
                                 <input type="text" placeholder="Address 1" name="address1" required>
                                 <div class="clearfix"></div></div>
@@ -84,6 +63,18 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">    
+                                <div class="key"><i class="fa fa-city" aria-hidden="true"></i>
+                                <input type="text" placeholder="City" name="city" required>
+                                <div class="clearfix"></div></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">    
+                                <div class="key"><i class="fa fa-" aria-hidden="true"></i>
+                                <input type="text" placeholder="State/Province" name="province">
+                                <div class="clearfix"></div></div>
+                            </div>
+                            <div class="col-sm-6">    
                                 <div class="key"><i class="fa fa-" aria-hidden="true"></i>
                                 <input type="text" placeholder="Zip" name="zip">
                                 <div class="clearfix"></div></div>

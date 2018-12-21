@@ -309,7 +309,7 @@ div.hello-bar {
 										foreach ($this->data['golongan'] as $item) {
 									?>
 									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $item->nama ?><b class="caret"></b></a>
+										<a href="<?php echo site_url('products/'.$item->kdgol); ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $item->nama ?><b class="caret"></b></a>
 										<?php if($index == 4){ ?>
 										<ul class="dropdown-menu multi-column columns-3 pull-right">
 											<?php }else{ ?>
