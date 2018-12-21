@@ -1,26 +1,48 @@
     <!--content-->
         <div class="content">
 				<div class="products-agileinfo">
-                    <h4 class="tittle1"><?php echo $this->data['title']; ?></h4>
+                    <h4 class="tittle1"><?php (count($this->data['products']) == 0) ? 'Data tidak ditemukan!' : ''  ?></h4>
 					<div class="container">
 						<div class="product-agileinfo-grids w3l">
 							<div class="col-md-3 product-agileinfo-grid">
-								<div class="categories">
-									<h3>Categories</h3>
+								<!--<div class="categories">
+									<h3>Refine By</h3>
 									<ul class="tree-list-pad">
-										<?php
-											$index = 0;
-											foreach ($this->data['golongan'] as $item) {
-										?>
-										<li><input type="checkbox" id="item-<?=$index?>" /><label for="item-<?=$index?>"><span></span><?= $item->nama ?></label>
+										<li><input type="checkbox" checked="checked" id="item-0" /><label for="item-0"><span></span>Women's Wear</label>
 											<ul>
-												<?php foreach ($this->data['item_'.$item->kdgol] as $detail) { ?>
-												<li><input type="checkbox" id="item-<?=$index?>-0" /><a href="<?php echo site_url('products/'.$detail->kdgol2); ?>"><?= $detail->nama?></a></li>
-												<?php } ?>
+												<li><input type="checkbox" id="item-0-0" /><label for="item-0-0">Ethnic Wear</label>
+													<ul>
+														<li><a href="products.html">Shirts</a></li>
+														<li><a href="products.html">Caps</a></li>
+														<li><a href="products.html">Shoes</a></li>
+														<li><a href="products.html">Pants</a></li>
+														<li><a href="products.html">SunGlasses</a></li>
+														<li><a href="products.html">Trousers</a></li>
+													</ul>
+												</li>
+												<li><input type="checkbox"  id="item-0-1" /><label for="item-0-1">Party Wear</label>
+													<ul>
+														<li><a href="products.html">Shirts</a></li>
+														<li><a href="products.html">Caps</a></li>
+														<li><a href="products.html">Shoes</a></li>
+														<li><a href="products.html">Pants</a></li>
+														<li><a href="products.html">SunGlasses</a></li>
+														<li><a href="products.html">Trousers</a></li>
+													</ul>
+												</li>
+												<li><input type="checkbox"  id="item-0-2" /><label for="item-0-2">Casual Wear</label>
+													<ul>
+														<li><a href="products.html">Shirts</a></li>
+														<li><a href="products.html">Caps</a></li>
+														<li><a href="products.html">Shoes</a></li>
+														<li><a href="products.html">Pants</a></li>
+														<li><a href="products.html">SunGlasses</a></li>
+														<li><a href="products.html">Trousers</a></li>
+													</ul>
+												</li>
 											</ul>
 										</li>
-										<?php $index++; } ?>
-										<!--<li><input type="checkbox" id="item-1" checked="checked" /><label for="item-1">Best Collections</label>
+										<li><input type="checkbox" id="item-1" checked="checked" /><label for="item-1">Best Collections</label>
 											<ul>
 												<li><input type="checkbox" checked="checked" id="item-1-0" /><label for="item-1-0">New Arrivals</label>
 													<ul>
@@ -60,9 +82,9 @@
 													</ul>
 												</li>
 											</ul>
-										</li>-->
+										</li>
 									</ul>
-								</div>
+								</div>-->
 								<div class="price">
 									<h3>Price Range</h3>
 									<ul class="dropdown-menu6">
@@ -74,12 +96,11 @@
 									<script type='text/javascript'>//<![CDATA[ 
 									$(window).load(function(){
 									 $( "#slider-range" ).slider({
-												range: true,
-												min: 0,
-												max: <?php echo $this->data['price_range'][0]->hmax ?>,
-												values: [ <?php echo $this->data['price_range'][0]->hmin ?>, <?php echo $this->data['price_range'][0]->hmax ?> ],
-												slide: function( event, ui ) {  $( "#amount" ).val( "Rp" + ui.values[ 0 ] + " - Rp" + ui.values[ 1 ] );
-												}
+										range: true,
+										min: 0,
+										max: <?php echo $this->data['price_range'][0]->hmax ?>,
+										values: [ <?php echo $this->data['price_range'][0]->hmin ?>, <?php echo $this->data['price_range'][0]->hmax ?> ],
+										slide: function( event, ui ) {  $( "#amount" ).val( "Rp" + ui.values[ 0 ] + " - Rp" + ui.values[ 1 ] ); }
 									 });
 									$( "#amount" ).val( "Rp" + $( "#slider-range" ).slider( "values", 0 ) + " - Rp" + $( "#slider-range" ).slider( "values", 1 ) );
 
@@ -133,12 +154,16 @@
 								</div>-->
 								<div class="brand-w3l">
 									<h3>Brands Filter</h3>
+									<?php if ($this->data['q']) {
+										$q = '&q='.$this->data['q'];
+									}
+									?>
 									<ul>
-										<li><a href="<?php echo site_url('products/'.$this->data['kode'].'/GEA'); ?>">GEA</a></li>
-										<li><a href="<?php echo site_url('products/'.$this->data['kode'].'/GETRA'); ?>">GETRA</a></li>
-										<li><a href="<?php echo site_url('products/'.$this->data['kode'].'/SANDEN'); ?>">SANDEN</a></li>
-										<li><a href="<?php echo site_url('products/'.$this->data['kode'].'/MADIN'); ?>">MADIN</a></li>
-										<!--<li><a href="<?php echo site_url('products/OTHER'); ?>">OTHER</a></li>-->
+										<li><a href="<?php echo site_url('search?b=GEA'.$q); ?>">GEA</a></li>
+										<li><a href="<?php echo site_url('search?b=GETRA'.$q); ?>">GETRA</a></li>
+										<li><a href="<?php echo site_url('search?b=SANDEN'.$q); ?>">SANDEN</a></li>
+										<li><a href="<?php echo site_url('search?b=MADIN'.$q); ?>">MADIN</a></li>
+										<!--<li><a href="<?php echo site_url('search?b=OTHER'.$q); ?>">OTHER</a></li>-->
 									</ul>
 								</div>
 							</div>
