@@ -2214,7 +2214,8 @@ p.quote {
 	padding: 3em ;
 }
 
-.key  input[type="text"] ,.key  input[type="password"]{
+.key  input[type="text"] ,.key  input[type="password"],
+.key select{
     width: 85%;
     padding: 10px 10px;
     font-size: 1em;

@@ -53,9 +53,9 @@
                                 <select placeholder="Province" name="province">
                                 <?php
                                     // die(print_r($this->data['provinsi']));
-                                    foreach ($this->data['provinsi'] as $prov) {
+                                    foreach ($this->data['provinsi'] as $itemx) {
                                 ?>
-                                <option value="<?= $prov['id'] ?>"><? $prov['nama'] ?></option>
+                                <option value="<?= $itemx->id ?>"><?= $itemx->name ?></option>
                                 <?php } ?>
                                 </select>
                                 <div class="clearfix"></div></div>
