@@ -129,7 +129,7 @@ $(window).load(function() {
     display: block;
 	position: absolute;
 	background: #941204;
-	padding: 0.75em 0.75em;
+	padding: 0.5em 0.85em;
 	border-radius: 50px;
     top: -25px;
     right: -15px;
@@ -171,7 +171,9 @@ h4.hello-tittle {
 div.hello-bar {
     height: 40px;
 }
+
 </style>
+
 </head>
 <body>
 
@@ -180,20 +182,35 @@ div.hello-bar {
 	<i class="fa fa-question-circle my-float"></i>
 	
 	<script type="text/javascript">
-    function theFunction () {
-		var modal = new Custombox.modal({
+	var modal = new Custombox.modal({
 		content: {
-			effect: 'newspaper',
+			effect: 'fadein',
 			target: '#demo-modal',
-			speedIn: 1000,
-			speedOut: 1000,
+			speedIn: 300,
+			speedOut: 600,
 			}
 		});
+
+    function theFunction () {
+		// var modal = new Custombox.modal({
+		// content: {
+		// 	effect: 'fadein',
+		// 	target: '#demo-modal',
+		// 	speedIn: 300,
+		// 	speedOut: 600,
+		// 	}
+		// });
 
 		// Open
 		modal.open();
 		// return true or false, depending on whether you want to allow the `href` property to follow through or not
     }
+	
+    $(window).load(function(){
+      
+	  modal.open();
+  });
+  
 	</script>
 	</a>
 	<div class="label-container">
@@ -254,6 +271,7 @@ div.hello-bar {
 							<span class="input-group-btn">
 								<!--<a href="javascript:void(0);" onclick="frmSearch.submit();">
 								<img src="<?= site_url('images/search.png'); ?>"></a>-->
+								
 								<button id='search-btn' class="btn btn-default" type="button">Go!</button>
 							</span>
 						</div>
@@ -371,3 +389,4 @@ div.hello-bar {
 	  </div>
 	</div>
 	<!--modal-->
+	
