@@ -1,7 +1,9 @@
     <!--content-->
         <div class="content">
 				<div class="products-agileinfo">
-                    <h4 class="tittle1"><?php (count($this->data['products']) == 0) ? 'Data tidak ditemukan!' : ''  ?></h4>
+					<?php if(count($this->data['products']) == 0): ?>
+					<h6 class="tittle1">Data tidak ditemukan!</h6>
+					<?php endif;?>
 					<div class="container">
 						<div class="product-agileinfo-grids w3l">
 							<div class="col-md-3 product-agileinfo-grid">
@@ -38,6 +40,7 @@
 										<li><a href="<?php echo site_url('search?p1=1000000&p2=5000000'); ?>">Rp1.000.000 to Rp5.000.000</a></li>
 										<li><a href="<?php echo site_url('search?p1=5000000&p2=10000000'); ?>">Rp5.000.000 to Rp10.000.000</a></li>
 										<li><a href="<?php echo site_url('search?p1=10000000'); ?>">Rp10.000.000 Above</a></li>
+										<li><input name="pf" type="number" class="pricef">&nbsp;-&nbsp;<input name="pt" type="number" class="pricef"><a href="<?php echo site_url('search?p1=10000000'); ?>" class="btn-go">GO</a></li>
 									</ul>
 									 
 								</div>
@@ -58,11 +61,13 @@
 							</div>
 							<div class="col-md-9 product-agileinfon-grid1 w3l">
 								<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+									<?php if (count($this->data['products']) > 0): ?>
 									<ul id="myTab" class="nav1 nav1-tabs left-tab" role="tablist">
 										<ul id="myTab" class="nav nav-tabs left-tab" role="tablist">
 									<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"><img src="<?=base_url('images/menu1.png');?>"></a></li>
 									<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile"><img src="<?=base_url('images/menu.png');?>"></a></li>
 									</ul>
+									<?php endif; ?>
 									<div id="myTabContent" class="tab-content">
 										<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
 											<?php

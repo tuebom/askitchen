@@ -12,7 +12,9 @@
 				<div class="container">
 					<?php
 
-					if(isset($_SESSION["cart_item"])){
+					if(!isset($_SESSION["cart_item"])) { ?>
+					<h2>Cart is empty</h2>
+					<?php } else {
 						
 						$total_qty = 0;
 						$item_price = 0;
@@ -95,11 +97,13 @@
 						</table>
 					<?php  endif; } /* end if */ ?>
 					</div>
-					<?php if (count($_SESSION["cart_item"]) > 0): ?>
+					<?php if(isset($_SESSION["cart_item"])):
+						if (count($_SESSION["cart_item"]) > 0) {
+					?>
 					<div class="checkout-right-basket">
 						<a href="<?php echo site_url('checkout'); ?>">Make a Payment</a>
 					</div>
-					<?php endif; ?>
+					<?php } endif; ?>
 				</div>
 			</div>
 		</div>
