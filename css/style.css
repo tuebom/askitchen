@@ -23,7 +23,7 @@ input[type="button"]{
 h1,h2,h3,h4,h5,h6{
 	padding:0 0;
 	margin:0 0;
-	font-family: 'Calibri, Cagliostro', sans-serif;
+	font-family: Calibri, sans-serif;
 }
 p{
 	padding:0 0;
@@ -36,7 +36,7 @@ ul{
 body{
 	padding:0 0;
 	margin:0 0; 
-	font-family: 'Open Sans', sans-serif;
+	font-family: Calibri, 'Open Sans', sans-serif;
 }
 .header-top-most {
     background: #ffffff;
@@ -58,7 +58,7 @@ body{
     text-transform: capitalize;
 	text-decoration: none;
 	font-weight: 600;
-	font-family: 'Open Sans', sans-serif;
+	font-family: Calibri, 'Open Sans', sans-serif;
 }
 .top-right ul li {
     display: inline-block;
@@ -70,7 +70,7 @@ body{
     color:#fff;
     text-decoration: none;
 	font-weight: 600;
-	font-family: 'Open Sans', sans-serif;
+	font-family: Calibri, 'Open Sans', sans-serif;
 }
 .top-right ul li.text a {
 	color:#fff;
@@ -108,7 +108,7 @@ body{
 	font-size:.75em;
     color: #fff;
     text-decoration: none;
-    font-family: 'Open Sans', sans-serif;
+    font-family: Calibri, 'Open Sans', sans-serif;
     text-transform: capitalize;
 	font-weight: 500;
 }
@@ -139,6 +139,11 @@ body{
 }
 .multi-column-dropdown li a {
     color: #999 !important;
+}
+@media (max-width: 384px) {
+    a.view-more {
+        white-space: nowrap;
+    }
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     background-color: transparent;
@@ -591,6 +596,21 @@ h2.tittle {
     font-size: 3em;
     color: #1565C0;
 }
+.hot-w3agile {
+    padding: 5em 0;
+    background: #F9F8F8;
+    text-align: center;
+}
+.img-hot {
+    /*display: block;*/
+    max-width: 50%;
+    height: auto;    
+}
+label.hot {
+    position: absolute;
+    left: 35px;
+    top: 25px;
+}
 .new-arrivals-w3agile {
     padding: 5em 0;
     background: #F9F8F8;
@@ -604,6 +624,17 @@ h2.tittle {
 .arrivals-grids {
     margin-top: 2em;
 }
+.grid-arr-hot {
+    /*background: #e2e2e2;*/
+    border: 1px solid #e2e2e2;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    /*padding: 1.0em;*/
+    /*margin-top: 25px;*/
+    border-radius: 5px;
+    height: 275px;
+}
 .grid-arr {
     background: #e2e2e2; /*#E2E2E2*/
     /*border: 5px solid #ffffff;*/
@@ -613,7 +644,7 @@ h2.tittle {
     padding: 1.0em;
     margin-top: 25px; /***/
     border-radius: 10px;
-    height: 225px;
+    height: 245px;
 }
 .grid-arr .grid-arrival figure {
   position: relative;
@@ -1000,6 +1031,9 @@ h4.tittle1 {
     text-align: center;
     font-size: 2em;
     color: rgb(10, 10, 10);
+}
+h6.tittle1 {
+    text-align: center;
 }
 .caption {
     margin-top: 4em;
@@ -1395,7 +1429,7 @@ img.img-header{
     border-radius: 3px;
     margin: 2px 2px 2px 0.5em;
     font-size: 1em;
-    font-family: 'Calibri', 'Open Sans', sans-serif;
+    font-family: Calibri, 'Open Sans', sans-serif;
     font-weight: 500;
     color: #333;
 }
@@ -1558,7 +1592,15 @@ span.amount{
 	color:#ffffff;
 	font-size:16px;
 }
-
+input.pricef {
+    width: 60px;
+}
+a.btn-go {
+    padding: 0.25em;
+    background: #941204;
+    border-radius: 5px;
+    color: #fff !important;
+}
 .price ul,
 .price li
 {
@@ -3164,6 +3206,11 @@ p.price {
     width: 100%;
 	margin-top:2em;
 }
+@media (max-width: 384px) {
+    ul#myTab.nav.nav-tabs.left-tab {
+        display: none;
+    }
+}
 .nav-tabs {
     margin-bottom: 1em;
 }
@@ -3614,6 +3661,7 @@ h3.tittle1, h3.tittle {
 }
 
 .label-text{
+    z-index: -1;
 	color:#FFF;
 	background:rgba(51,51,51,0.5);
 	display:table-cell;
@@ -3700,6 +3748,12 @@ td.invert-image a img {
     width: auto;
     max-height: 100%;
     margin: 0 auto;
+    transition: transform .5s;
+}
+td.invert-image a img:hover {
+    -ms-transform: scale(2); /* IE 9 */
+    -webkit-transform: scale(2); /* Safari 3-8 */
+    transform: scale(2); 
 }
 .rem {
     position: relative;

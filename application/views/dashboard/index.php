@@ -82,6 +82,54 @@
 					</div>
 				</div>-->
 			<!--banner-bottom-->
+
+			<!--hot-products-->
+			<div class="hot-w3agile">
+					<div class="container">
+						<!--<h4 class="tittle1">New Arrivals</h4>-->
+						<div class="arrivals-grids">
+							<div class="col-md-4 arrival-grid simpleCart_shelfItem">
+								<div class="grid-arr-hot">
+									<label class="hot">Hot Products</label>
+											<a href="<?php echo site_url(); ?>" class="new-gri">
+												<img src="<?=site_url('images/s12.jpg');?>" class="img-hot" alt="">
+											</a>		
+								</div>
+							</div>
+							<div class="col-md-4 arrival-grid simpleCart_shelfItem">
+								<div class="grid-arr-hot">
+									<label class="hot">Promotions</label>
+									<div class="grid-arrival">
+										<figure>		
+											<a href="<?php echo site_url(); ?>" class="new-gri">
+												<div class="grid-img">
+													<img src="<?=site_url('images/s12.jpg');?>" class="img-hot" alt="">
+												</div>
+											</a>		
+										</figure>	
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4 arrival-grid simpleCart_shelfItem">
+								<div class="grid-arr-hot">
+									<label class="hot">Best Seller</label>
+									<div class="grid-arrival">
+										<figure>		
+											<a href="<?php echo site_url(); ?>" class="new-gri">
+												<div class="grid-img">
+													<img src="<?=site_url('images/s12.jpg');?>" class="img-hot" alt="">
+												</div>
+											</a>		
+										</figure>	
+									</div>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+			<!--hot-products-->
+
 			<!--new-arrivals-->
 				<div class="new-arrivals-w3agile">
 					<div class="container">

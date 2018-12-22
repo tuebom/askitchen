@@ -24,9 +24,13 @@ class Home extends Public_Controller {
 		}
 		
 		if(!isset($_SESSION["totqty"])) {
-			$_SESSION["totqty"] = 0;
+			// $_SESSION["totqty"] = 0;
+			// $new_data = array(
+			// 	'totqty' => 0,
+			// 	'cart_item' => array());
+			$this->session->set_userdata('totqty', 0);
+			$this->session->set_userdata('cart_item', array());
 		}
-		// $this->session->set_userdata('totqty', '0');
 		
 		// $this->data['rnd_products'] = $this->stock_model->get_random_products();
 		$this->data['rnd_products'] = $this->stock_model->get_limit_data(4,0);

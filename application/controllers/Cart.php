@@ -5,10 +5,10 @@ class Cart extends Public_Controller {
 
     public function __construct()
     {
-		parent::__construct();
+        parent::__construct();
+        $this->load->library('session');
         $this->load->model('golongan_model');
         $this->load->model('stock_model');
-
     }
 
 

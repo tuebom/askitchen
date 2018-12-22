@@ -86,14 +86,14 @@ $(window).load(function() {
 <script src="<?=base_url('js/owl.carousel.js');?>"></script>
 <script>
 	$(document).ready(function() {
-	$("#owl-demo").owlCarousel({
-		items : 1,
-		lazyLoad : true,
-		autoPlay : true,
-		navigation : false,
-		navigationText :  false,
-		pagination : true,
-	});
+		$("#owl-demo").owlCarousel({
+			items : 1,
+			lazyLoad : true,
+			autoPlay : true,
+			navigation : false,
+			navigationText :  false,
+			pagination : true,
+		});
 	});
 </script>
 
@@ -180,7 +180,11 @@ div.hello-bar {
 	<a href="#" class="float" onclick="theFunction();">
 	<i class="fa fa-question-circle my-float"></i>
 	
+	<?php
+	  $sTmp = (current_url() == site_url())? "true;" : "false;";
+	?>
 	<script type="text/javascript">
+	var bShowDlg = <?php echo $sTmp; ?>
 	var modal = new Custombox.modal({
 		content: {
 			
@@ -188,8 +192,8 @@ div.hello-bar {
 			target: '#demo-modal',
 			speedIn: 300,
 			speedOut: 600,
-			}
-		});
+		}
+	});
 
     function theFunction () {
 		// var modal = new Custombox.modal({
@@ -207,9 +211,8 @@ div.hello-bar {
     }
 	
     $(window).load(function(){
-      
-	  modal.open();
-  });
+    //   if (bShowDlg) modal.open();
+	});
   
 	</script>
 	</a>

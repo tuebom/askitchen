@@ -52,7 +52,6 @@
                                 <div class="key"><i class="fa fa-" aria-hidden="true"></i>
                                 <select placeholder="Province" name="province">
                                 <?php
-                                    // die(print_r($this->data['provinsi']));
                                     foreach ($this->data['provinsi'] as $itemx) {
                                 ?>
                                 <option value="<?= $itemx->id ?>"><?= $itemx->name ?></option>
@@ -148,3 +147,4 @@
 			</div>
 		</div>
 	<!-- content -->
+    <script src="<?=base_url('js/checkout.js');?>"></script>

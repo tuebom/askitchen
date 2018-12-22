@@ -9,6 +9,7 @@ class Searchtag extends Public_Controller {
 		$this->load->library('pagination');
 		$this->load->model('golongan_model');
 		$this->load->model('stock_model');
+		// $this->output->enable_profiler(TRUE);
 	}
 
 	
@@ -23,7 +24,7 @@ class Searchtag extends Public_Controller {
 		
 		$tag = $this->input->get('tag');
 
-        // $this->data['q'] = $tag;
+        $this->data['q'] = '';
 		$this->data['products'] = $this->stock_model->get_by_food_category(12,0,$tag);
 		$this->data['price_range'] = $this->stock_model->get_global_price_range();
 
