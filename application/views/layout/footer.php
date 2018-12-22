@@ -24,7 +24,7 @@
 								<div class="col-md-3 footer-grid">
 									<h4>Branch Office</h4>
 									<ul>
-										<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a>Jl. Sungai Sadang Lama<br>Komplek Ruko Latanete Plaza<br>Blok B No. 11, Makassar - Indonesia</a></li>
+										<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a>Jl. Sungai Sadang Lama<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspKomplek Ruko Latanete Plaza<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspBlok B No. 11, Makassar - Indonesia</a></li>
 										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>0851 0511 5557</a></li>
 										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>0851 0813 3577</a></li>
 										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>(0411) 822 4090</a></li>
