@@ -617,7 +617,7 @@ label.hot {
 	text-align: center;
 }
 .tab-wl3 {
-    padding: 5em 0;
+    padding: 2em 0;
     background: #F9F8F8;
 	text-align: justify;
 }
@@ -826,9 +826,9 @@ a.my-cart-b, a.my-cart-d {
 .my-cart-b {
     background: none;
     text-decoration: none;
-    color: #941204;
+    color: #333333;
     font-size: 1em;
-    border: 1px solid #F19E1F;
+    border: 1px solid #333333;
     padding: 0.5em 1em;
     outline: none;
 }
@@ -1199,8 +1199,8 @@ img.img-header{
     margin-top: 1.8em;
 }
 .social-icon a i {
-    width: 35px;
-    height: 35px;
+    width: 32px;
+    height: 33px;
     background:rgb(0, 0, 0) url(../images/img-sprite2.png) no-repeat 0px 0px;
     display: inline-block;
 	margin:0 0.2em;
@@ -3810,4 +3810,27 @@ a:hover, a:focus {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     background-color: #d6cfcf;
+}
+.btn-default-go{
+    color: #333;
+    background-color: #de0b0b;
+    border-color: transparent;
+    width: 45px;
+    height: 34px;
+}
+.btn-default{
+    color: rgb(2, 2, 2);
+    background-color: #838383;
+    border-color: transparent;
+}
+img.img-go{
+    /* vertical-align: middle; */
+    /* width: 100%;
+    height:50%; */
+    width: auto;
+    height: 22px;
+    /* margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px; */
+    /* text-align: center; */
 }

@@ -20,7 +20,6 @@ Refrigerator, Refrigeration, Stainless Steel Refrigeration, Minimarket, Minimark
 <!--search jQuery-->
 
 
-
 <?php if (current_url() == site_url()): ?>
 <script src="<?=base_url('js/responsiveslides.min.js');?>"></script>
 <script>
@@ -188,6 +187,7 @@ div.hello-bar {
 	var bShowDlg = <?php echo $sTmp; ?>
 	var modal = new Custombox.modal({
 		content: {
+			
 			effect: 'fadein',
 			target: '#demo-modal',
 			speedIn: 300,
@@ -275,7 +275,7 @@ div.hello-bar {
 								<!--<a href="javascript:void(0);" onclick="frmSearch.submit();">
 								<img src="<?= site_url('images/search.png'); ?>"></a>-->
 								
-								<button id='search-btn' class="btn btn-default" type="button">Go!</button>
+								<button id='search-btn' class="btn btn-default-go" type="button"><img class="img-go" src="<?= site_url('images/search.png'); ?>"></button>
 							</span>
 						</div>
 					</form>
