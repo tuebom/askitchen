@@ -275,13 +275,15 @@ div.hello-bar {
 								<!--<a href="javascript:void(0);" onclick="frmSearch.submit();">
 								<img src="<?= site_url('images/search.png'); ?>"></a>-->
 								
-								<button id='search-btn' class="btn btn-default-go" type="button"><img class="img-go" src="<?= site_url('images/search.png'); ?>"></button>
+								<button id='search-btn' class="btn btn-default-go" type="button" onclick="frmSearch.submit();"><img class="img-go" src="<?= site_url('images/search.png'); ?>"></button>
 							</span>
 						</div>
 					</form>
 					<div class="clearfix"></div>
 				</div>
 			</div>
+			<!--<script type="text/javascript">
+			</script>-->
 			<div class="heder-bottom">
 				<div class="container">
 					<div class="logo-nav">
