@@ -20,13 +20,13 @@
                             <div class="col-sm-6">    
                                 <div class="form-group">
                                     <label for="firstname">First Name</label>
-                                    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter first name">
+                                    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter first name" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">    
                                 <div class="form-group">
                                     <label for="lastname">Last Name</label>
-                                    <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter last name">
+                                    <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter last name" required>
                                 </div>
                             </div>
                         </div>
@@ -83,26 +83,34 @@
                                 </div>
                             </div>
                             <div class="col-sm-6">    
-                                <label for="zip">Post Code</label>
-                                <input type="text" class="form-control" id="zip" name="zip" placeholder="Enter post code">
+                                <div class="form-group">
+                                    <label for="zip">Post Code</label>
+                                    <input type="text" class="form-control" id="zip" name="zip" placeholder="Enter post code">
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">    
-                                <label for="address1">Address 1</label>
-                                <input type="text" class="form-control" id="address1" name="address1" placeholder="Enter address 1">
+                                <div class="form-group">
+                                    <label for="address1">Address 1</label>
+                                    <input type="text" class="form-control" id="address1" name="address1" placeholder="Enter address 1" required>
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">    
-                                <label for="address2">Address 2</label>
-                                <input type="text" class="form-control" id="address2" name="address2" placeholder="Enter address 2">
+                                <div class="form-group">
+                                    <label for="address2">Address 2</label>
+                                    <input type="text" class="form-control" id="address2" name="address2" placeholder="Enter address 2">
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">    
-                                <label for="note">Order Notes</label>
-                                <input type="text" class="form-control" id="note" name="note" placeholder="Enter order notes">
+                                <div class="form-group">
+                                    <label for="note">Order Notes</label>
+                                    <input type="text" class="form-control" id="note" name="note" placeholder="Enter order notes">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -124,7 +132,7 @@
 
                                         $item_price  = (float)$item["qty"]*$item["harga"];
                                         $total_price += $item_price;
-                                    ?>
+                                ?>
                                 <tr>
                                     <td><?= $item["nama"]; ?></td>
                                     <td class="text-right">Rp<?= number_format($item_price, 0, '.', ',') ?></td>

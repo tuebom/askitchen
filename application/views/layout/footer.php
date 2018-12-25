@@ -104,6 +104,7 @@
 				$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
 				});
 				</script>
-
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.ui.min.js'></script>
 </body>
 </html>

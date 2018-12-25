@@ -95,11 +95,6 @@ $(window).load(function() {
 			navigationText :  false,
 			pagination : true,
 		});
-
-		/*$('.modal').on("shown.bs.modal",function(l){
-			$(".modal-dialog").velocity("callout.bounce");
-			console.log('event called');
-		});*/
 	});
 </script>
 
@@ -125,8 +120,8 @@ $(window).load(function() {
     background-color: #941204;
     box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
     padding: 24px;
-    /*position: relative;
-	display: none;*/
+    position: relative;
+	display: none;
 	border-radius: 20px;
 }
 
@@ -157,7 +152,7 @@ h4.hello-tittle {
     background: #941204;
     text-decoration: none;
     color: #fff;
-    font-size: 0.9em;
+    font-size: 0.8em;
     border: 1px solid #FFF;
     padding: 0.5em 2em;
     outline: none;
@@ -183,7 +178,7 @@ div.hello-bar {
 <body>
 
 	<?php if (current_url() !== site_url().'cart/add' && current_url() !== site_url().'checkout'): ?>
-	<a href="#demo-modal" class="float" data-toggle="modal">
+	<a href="#" class="float" data-toggle="modal">
 	<i class="fa fa-question-circle my-float"></i>
 	
 	<?php
@@ -191,15 +186,15 @@ div.hello-bar {
 	?>
 	<script type="text/javascript">
 	var bShowDlg = <?php echo $sTmp; ?>
-	// var modal = new Custombox.modal({
-	// 	content: {
+	var modal = new Custombox.modal({
+		content: {
 			
-	// 		effect: 'fadein',
-	// 		target: '#demo-modal',
-	// 		speedIn: 300,
-	// 		speedOut: 600,
-	// 	}
-	// });
+			effect: 'fadein',
+			target: '#demo-modal',
+			speedIn: 300,
+			speedOut: 600,
+		}
+	});
 
     function theFunction () {
 		// var modal = new Custombox.modal({
@@ -219,7 +214,7 @@ div.hello-bar {
     $(window).load(function(){
     //   if (bShowDlg) modal.open();
 	});
-	
+  
 	</script>
 	</a>
 	<div class="label-container">
@@ -227,14 +222,6 @@ div.hello-bar {
 	<i class="fa fa-play label-arrow"></i>
 	</div>
 	<?php endif; ?>
-
-	<script>
-	$(document).ready(function() {
-		$('.modal').on("shown.bs.modal",function(l){
-			$("#demo-modal").velocity("callout.bounce");
-		});
-	});
-	</script>
 
 	<!--header-->
 		<div class="header">
@@ -368,8 +355,7 @@ div.hello-bar {
 	<!--header-->
 
 	<!--modal-->
-	<div id="demo-modal" class="modal" data-easein="bounce" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog demo-modal">
+	<div id="demo-modal" class="modal" data-easein="bounce"  tabindex="-1" role="dialog" aria-hidden="true">
       <a href="javascript:void(0);" data-dismiss="modal" aria-hidden="true" class="demo-close"><i class="fa fa-times"></i></a>
 	  <div class="hello-body">
 	    <h3 class="tittle text-center">hello,</h3>
@@ -406,7 +392,6 @@ div.hello-bar {
 			</div>
 		</div>
 	  </div>
-	</div>
 	</div>
 	<!--modal-->
 	

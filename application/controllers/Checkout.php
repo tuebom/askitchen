@@ -10,6 +10,7 @@ class Checkout extends Public_Controller {
 		$this->load->model('provinsi_model');
 		$this->load->model('kabupaten_model');
 		$this->load->model('kecamatan_model');
+		$this->load->model('member_model');
 		// $this->output->enable_profiler(TRUE);
     }
 
@@ -22,6 +23,15 @@ class Checkout extends Public_Controller {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
 		$this->data['provinsi'] = $this->provinsi_model->get_all();
+		
+		if ( $this->ion_auth->logged_in())
+        {
+			// redirect('auth/login', 'refresh');
+			// ambil data kode member
+			$mbrid = $this->session->userdata('mbrid');
+			// siapkan data member
+			$this->data['anggota'] = $this->member_model->get_by_id($mbrid);
+        }
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('checkout/index', $this->data);
