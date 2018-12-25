@@ -9,7 +9,7 @@ class Products extends Public_Controller {
 		$this->load->library('pagination');
 		$this->load->model('golongan_model');
 		$this->load->model('stock_model');
-		$this->output->enable_profiler(TRUE);
+		// $this->output->enable_profiler(TRUE);
 	}
 
 	

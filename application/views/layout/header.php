@@ -1,12 +1,14 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<?php echo '<!--'.current_url('').'-->'; ?>
 <title>Professional Food Service Supplies | Home :: ASKITCHEN</title>
 <link href="<?=base_url('css/bootstrap.css');?>" rel="stylesheet" type="text/css" media="all"/>
 <link href="<?=base_url('css/style.css');?>" rel="stylesheet" type="text/css" media="all" />
 <link href="<?=base_url('css/font-awesome.css');?>" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<?=base_url('css/jquery-ui.css');?>">
+<?php if (current_url() == site_url().'checkout'): ?>
+<link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/adminlte/css/adminlte.min.css'); ?>">
+<?php endif; ?>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Freezer, Cooler, Cooler Showcase, Cooler Dispenser, Ice Maker, Ice Cream, Ice Cream Machine, 
@@ -18,7 +20,6 @@ Refrigerator, Refrigeration, Stainless Steel Refrigeration, Minimarket, Minimark
 <!--search jQuery-->
 <script src="<?=base_url('js/main.js');?>"></script>
 <!--search jQuery-->
-
 
 <?php if (current_url() == site_url()): ?>
 <script src="<?=base_url('js/responsiveslides.min.js');?>"></script>
@@ -282,8 +283,7 @@ div.hello-bar {
 					<div class="clearfix"></div>
 				</div>
 			</div>
-			<!--<script type="text/javascript">
-			</script>-->
+
 			<div class="heder-bottom">
 				<div class="container">
 					<div class="logo-nav">
@@ -309,7 +309,6 @@ div.hello-bar {
 									<!-- Mega Menu -->
 									<?php 
 										// print_r($this->data);
-										echo "<!-- " . site_url($this->data['products_dir']) . " -->";
 										$index = 0;
 										foreach ($this->data['golongan'] as $item) {
 									?>
