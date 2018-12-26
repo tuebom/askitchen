@@ -90,20 +90,52 @@ class Stock_model extends CI_Model
     }
     
     // get total rows
-    function total_rows($q = NULL) {
-        $this->db->like('kdbar', $q);
-        $this->db->or_like('nama', $q);
-        $this->db->or_like('kdgol', $q);
-        $this->db->or_like('kdgol2', $q);
-        $this->db->or_like('pnj', $q);
-        $this->db->or_like('lbr', $q);
-        $this->db->or_like('tgi', $q);
-        $this->db->or_like('listrik', $q);
-        $this->db->or_like('kapasitas', $q);
-        $this->db->or_like('gas', $q);
-        $this->db->or_like('berat', $q);
-        $this->db->or_like('fitur', $q);
-        $this->db->or_like('disc', $q);
+    // function total_rows($q = NULL) {
+    //     $this->db->like('kdbar', $q);
+    //     $this->db->or_like('nama', $q);
+    //     $this->db->or_like('kdgol', $q);
+    //     $this->db->or_like('kdgol2', $q);
+    //     $this->db->or_like('pnj', $q);
+    //     $this->db->or_like('lbr', $q);
+    //     $this->db->or_like('tgi', $q);
+    //     $this->db->or_like('listrik', $q);
+    //     $this->db->or_like('kapasitas', $q);
+    //     $this->db->or_like('gas', $q);
+    //     $this->db->or_like('berat', $q);
+    //     $this->db->or_like('fitur', $q);
+    //     $this->db->or_like('disc', $q);
+    //     $this->db->from($this->table);
+    //     return $this->db->count_all_results();
+    // }
+    
+    // get total rows
+    function total_rows($q = NULL, $b = NULL, $p1 = 0, $p2 = 0) {
+        
+        if ($q) {
+            $qry->group_start()
+            ->or_like(['kdbar'=> $q, 'nama'=> $q, 'kdgol'=> $q, 'kdgol2'=> $q, 'pnj'=> $q, 'lbr'=> $q, 'tgi'=> $q])
+            ->group_end();
+        }
+        
+        // with price condition
+        if ($p2) {
+            if ($p2 > 0) {
+                // $this->db->where('hjual between '.$p1.' and '.$p2);
+                $this->db->where('hjual >=', $p1);
+                $this->db->where('hjual <=', $p2);
+            } else {
+                $this->db->where('hjual between > '.$p1);
+            }
+        }
+
+        // with brand condition
+        if ($b) {
+            if ($b !== 'OTHER') {
+                $this->db->where('merk', $b);
+            } else {
+                $this->db->where('merk not in (select name from brands)');
+            }
+        }
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }
@@ -165,19 +197,19 @@ class Stock_model extends CI_Model
     }
 
     // get global price range
-    function get_global_price_range()
-    {
-        $this->db->select('MIN(hjual) as hmin, MAX(hjual) as hmax');
-        return $this->db->get($this->table)->result();
-    }
+    // function get_global_price_range()
+    // {
+    //     $this->db->select('MIN(hjual) as hmin, MAX(hjual) as hmax');
+    //     return $this->db->get($this->table)->result();
+    // }
 
     // get price range by category
-    function get_price_range($code)
-    {
-        $this->db->select('MIN(hjual) as hmin, MAX(hjual) as hmax');
-        $this->db->where('kdgol2', $code);
-        return $this->db->get($this->table)->result();
-    }
+    // function get_price_range($code)
+    // {
+    //     $this->db->select('MIN(hjual) as hmin, MAX(hjual) as hmax');
+    //     $this->db->where('kdgol2', $code);
+    //     return $this->db->get($this->table)->result();
+    // }
 
     // get item reviews
     function get_reviews($code)

@@ -26,7 +26,7 @@ class Searchtag extends Public_Controller {
 
         $this->data['q'] = '';
 		$this->data['products'] = $this->stock_model->get_by_food_category(12,0,$tag);
-		$this->data['price_range'] = $this->stock_model->get_global_price_range();
+		// $this->data['price_range'] = $this->stock_model->get_global_price_range();
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('search/index', $this->data);

@@ -41,7 +41,7 @@ class Products extends Public_Controller {
 		}
 		
 		$this->data['products'] = $this->stock_model->get_by_category(12, $offset, $kode);
-		$this->data['price_range'] = $this->stock_model->get_price_range($kode);
+		// $this->data['price_range'] = $this->stock_model->get_price_range($kode);
 		$this->data['kode'] = $kode;
 
         // $pcfg = array(
