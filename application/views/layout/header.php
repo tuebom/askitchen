@@ -2,13 +2,12 @@
 <html>
 <head>
 <title>Professional Food Service Supplies | Home :: ASKITCHEN</title>
-<link href="<?=base_url('css/bootstrap.css');?>" rel="stylesheet" type="text/css" media="all"/>
+<link href="<?=base_url('css/bootstrap.min.css');?>" rel="stylesheet" type="text/css" media="all"/>
 <link href="<?=base_url('css/style.css');?>" rel="stylesheet" type="text/css" media="all" />
 <link href="<?=base_url('css/font-awesome.css');?>" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="<?=base_url('css/jquery-ui.css');?>">
-<?php if (current_url() == site_url().'checkout'): ?>
-<link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/adminlte/css/adminlte.min.css'); ?>">
-<?php endif; ?>
+<link rel="stylesheet" type="text/css" href="<?= base_url('css/jquery-ui.css');?>">
+<link rel="stylesheet" type="text/css" href="<?= base_url($frameworks_dir . '/adminlte/css/adminlte.min.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?= base_url($frameworks_dir . '/adminlte/plugins/iCheck/flat/blue.css'); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Freezer, Cooler, Cooler Showcase, Cooler Dispenser, Ice Maker, Ice Cream, Ice Cream Machine, 
@@ -104,24 +103,21 @@ $(window).load(function() {
 </script>
 
 <?php endif; ?>
-<link rel="stylesheet" type="text/css" href="<?=base_url('css/custombox.min.css');?>">
-<script src="<?=base_url('js/custombox.min.js');?>"></script>
-<script src="<?=base_url('js/custombox.legacy.min.js');?>"></script>
 <style>
 	/* modal */
 @media screen {
-	.demo-modal {
+	.menu-modal {
 		width: 450px;
 	}
 }
 
 @media (max-width: 640px) {
-	.demo-modal {
+	.menu-modal {
 		width: 90%;
 	}
 }
 
-.demo-modal {
+.menu-modal {
     background-color: #941204;
     box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
     padding: 24px;
@@ -130,7 +126,7 @@ $(window).load(function() {
 	border-radius: 20px;
 }
 
-.demo-close {
+.menu-close {
     display: block;
 	position: absolute;
 	background: #941204;
@@ -177,51 +173,61 @@ div.hello-bar {
     height: 40px;
 }
 
+.panel-login {
+	border-color: #ccc;
+	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+}
+.panel-login>.panel-heading {
+	color: #00415d;
+	background-color: #fff;
+	border-color: #fff;
+	text-align:center;
+}
+.panel-login>.panel-heading a{
+	text-decoration: none;
+	color: #666;
+	font-weight: bold;
+	font-size: 15px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+.panel-login>.panel-heading a.active{
+	color: #029f5b;
+	font-size: 18px;
+}
+.panel-login>.panel-heading hr{
+	margin-top: 10px;
+	margin-bottom: 0px;
+	clear: both;
+	border: 0;
+	height: 1px;
+	background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+	background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+}
+
 </style>
 
 </head>
 <body>
 
 	<?php if (current_url() !== site_url().'cart/add' && current_url() !== site_url().'checkout'): ?>
-	<a href="#demo-modal" class="float" data-toggle="modal">
-	<i class="fa fa-question-circle my-float"></i>
-	
+	<a href="#menu-modal" class="float" data-toggle="modal"><i class="fa fa-question-circle my-float"></i></a>
 	<?php
 	  $sTmp = (current_url() == site_url())? "true;" : "false;";
 	?>
 	<script type="text/javascript">
 	var bShowDlg = <?php echo $sTmp; ?>
-	// var modal = new Custombox.modal({
-	// 	content: {
-			
-	// 		effect: 'fadein',
-	// 		target: '#demo-modal',
-	// 		speedIn: 300,
-	// 		speedOut: 600,
-	// 	}
-	// });
 
-    function theFunction () {
-		// var modal = new Custombox.modal({
-		// content: {
-		// 	effect: 'fadein',
-		// 	target: '#demo-modal',
-		// 	speedIn: 300,
-		// 	speedOut: 600,
-		// 	}
-		// });
-
-		// Open
-		modal.open();
-		// return true or false, depending on whether you want to allow the `href` property to follow through or not
-    }
-	
     $(window).load(function(){
     //   if (bShowDlg) modal.open();
 	});
 	
 	</script>
-	</a>
 	<div class="label-container">
 	<div class="label-text">Show Suggestions</div>
 	<i class="fa fa-play label-arrow"></i>
@@ -231,7 +237,22 @@ div.hello-bar {
 	<script>
 	$(document).ready(function() {
 		$('.modal').on("shown.bs.modal",function(l){
-			$("#demo-modal").velocity("callout.bounce");
+			$("#menu-modal").velocity("callout.bounce");
+		});
+	
+	    $('#login-form-link').click(function(e) {
+			$("#login-form").delay(100).fadeIn(100);
+			$("#register-form").fadeOut(100);
+			$('#register-form-link').removeClass('active');
+			$(this).addClass('active');
+			e.preventDefault();
+		});
+		$('#register-form-link').click(function(e) {
+			$("#register-form").delay(100).fadeIn(100);
+			$("#login-form").fadeOut(100);
+			$('#login-form-link').removeClass('active');
+			$(this).addClass('active');
+			e.preventDefault();
 		});
 	});
 	</script>
@@ -258,12 +279,11 @@ div.hello-bar {
 							<?php if ($admin_link): ?>
 							<li><a href="<?php echo site_url('admin'); ?>">Admin</a></li>
 							<?php endif; ?>
-
 							<?php if ($logout_link): ?>
 							<li><a href="<?php echo site_url('auth/logout/public'); ?>">Logout</a></li>
 							<?php else: ?>
-							<li><a href="<?php echo site_url('register'); ?>">Register</a></li>
-							<li><a href="<?php echo site_url('auth/login'); ?>">Sign In</a></li>
+							<!--<li><a href="<?php echo site_url('register'); ?>">Register</a></li>-->
+							<li><a href="javascript:void(0);" data-toggle="modal" data-target="#loginModal">Sign In</a></li>
 							<?php endif; ?>
 							<li><a href="<?php echo site_url('cart'); ?>">Cart&nbsp;<img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a>
 							&nbsp;<span class="badge badge-primary"><?= $_SESSION["totqty"] ?></span></li>
@@ -317,7 +337,6 @@ div.hello-bar {
 									<li><a href="#">
 										<div style="display: inline-block; vertical-align: middle;"><img src="<?= site_url('images/location.png'); ?>" alt="location"/></div>
 										<div style="display: inline-block; vertical-align: middle;">Deliver To<br>INDONESIA</div>
-										<!--<ul><li>Deliver To</li><li>Indonesia</li></ul></span></a>-->
 									</li>
 									<!-- Mega Menu -->
 									<?php 
@@ -368,9 +387,9 @@ div.hello-bar {
 	<!--header-->
 
 	<!--modal-->
-	<div id="demo-modal" class="modal" data-easein="bounce" tabindex="-1" role="dialog" aria-hidden="true">
-	<div class="modal-dialog demo-modal">
-      <a href="javascript:void(0);" data-dismiss="modal" aria-hidden="true" class="demo-close"><i class="fa fa-times"></i></a>
+	<div id="menu-modal" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog menu-modal">
+      <a href="javascript:void(0);" data-dismiss="modal" aria-hidden="true" class="menu-close"><i class="fa fa-times"></i></a>
 	  <div class="hello-body">
 	    <h3 class="tittle text-center">hello,</h3>
 	  	<h4 class="hello-tittle text-center">What is your restaurant type:</h4>
@@ -409,4 +428,112 @@ div.hello-bar {
 	</div>
 	</div>
 	<!--modal-->
-	
+
+	<!--modal-->
+	<div id="loginModal" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<!--<div class="container">
+				<div class="row">-->
+					<div class="col-md-6 col-md-offset-3">
+						<div class="panel panel-login">
+							<div class="panel-heading">
+								<div class="row">
+									<div class="col-xs-6">
+										<a href="#" class="active" id="login-form-link">Login</a>
+									</div>
+									<div class="col-xs-6">
+										<a href="#" id="register-form-link">Register</a>
+									</div>
+								</div>
+								<hr>
+							</div>
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-lg-12">
+										<form id="login-form" action="https://phpoll.com/login/process" method="post" role="form" style="display: block;">
+											<div class="form-group has-feedback">
+												<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+												<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+											</div>
+											<div class="form-group has-feedback">
+												<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+												<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+											</div>
+											<div class="social-auth-links text-center">
+											<p>- OR -</p>
+											<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
+											<a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
+											</div>
+											<!--<div class="form-group text-center">
+												<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+												<label for="remember"> Remember Me</label>
+											</div>
+											<div class="form-group">
+												<div class="row">
+													<div class="col-sm-6 col-sm-offset-3">
+														<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+													</div>
+												</div>
+											</div>-->
+											<div class="form-group">
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="text-center">
+															<a href="https://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</form>
+										<form id="register-form" action="https://phpoll.com/register/process" method="post" role="form" style="display: none;">
+											<div class="form-group">
+												<input type="text" name="firstname" id="firstname" tabindex="1" class="form-control" placeholder="First Name" value="">
+											</div>
+											<div class="form-group">
+												<input type="text" name="lastname" id="lastname" tabindex="1" class="form-control" placeholder="Last Name" value="">
+											</div>
+											<div class="form-group has-feedback">
+												<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="User Name" value="">
+												<span class="glyphicon glyphicon-user form-control-feedback"></span>
+											</div>
+											<div class="form-group has-feedback">
+												<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+												<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+											</div>
+											<div class="form-group has-feedback">
+												<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+												<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+											</div>
+											<div class="form-group has-feedback">
+												<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+											</div>
+											<div class="row">
+												<div class="col-xs-8">    
+												<div class="checkbox icheck">
+													<label class="">
+													<div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> I agree to the <a href="#">terms</a> and <a href="#">privacy policy</a>
+													</label>
+												</div>                        
+												</div><!-- /.col -->
+												<div class="col-xs-4">
+												<button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+												</div><!-- /.col -->
+											</div>
+											<!--<div class="form-group">
+												<div class="row">
+													<div class="col-sm-6 col-sm-offset-3">
+														<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+													</div>
+												</div>
+											</div>-->
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				<!--</div>
+			</div>-->
+		</div>
+	</div>
+	<!--modal-->

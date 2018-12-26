@@ -42,13 +42,13 @@
                             <div class="col-sm-6">    
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="text" class="form-control" id="email" name="email" placeholder="Enter email">
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="Enter email address">
                                 </div>
                             </div>
                             <div class="col-sm-6">    
                                 <div class="form-group">
                                     <label for="phone">Phone</label>
-                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone">
+                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone number">
                                 </div>
                             </div>
                         </div>
