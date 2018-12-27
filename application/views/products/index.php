@@ -175,9 +175,6 @@
 																	<div class="grid-img">
 																		<img src="<?=base_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar; ?>">
 																	</div>
-																	<!--<div class="grid-img">
-																		<img src="<?=base_url('images/p5.jpg');?>" class="img-responsive"  alt="">
-																	</div>-->
 																</a>		
 															</figure>	
 														</div>
@@ -191,7 +188,7 @@
 														<h6><a href="<?php echo site_url('detail/'.$item->kdurl); ?>"><?= $item->kdbar; ?></a></h6>
 														<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
 														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Atqui iste locus est, Piso, tibi etiam atque etiam confirmandus, inquam; Refert tamen, quo modo. Quod autem meum munus dicis non equidem recuso, sed te adiungo socium. </p>
-														<p><!--<del>$100.00</del>--><em class="item_price">Rp<?= $item->hjual; ?></em></p>
+														<p><em class="item_price">Rp<?= $item->hjual; ?></em></p>
 														<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="See Details" class="my-cart-d item_add">See Details</a>
 													</div>
 												</div>
@@ -203,7 +200,7 @@
 									</div>
 								</div>
 								<div class="box-footer" align="center">
-									<?php echo $this->pagination->create_links(); ?>
+									<?php echo $this->data['pagination']; ?>
 								</div>
 							</div>
 							<div class="clearfix"> </div>

@@ -10,4 +10,6 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['database_name'] = 'Nome';
+$lang['footer_copyright']           = 'Copyright';
+$lang['footer_all_rights_reserved'] = 'All rights reserved';
+$lang['footer_version']             = 'version';
