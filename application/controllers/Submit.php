@@ -27,7 +27,7 @@ class Submit extends Public_Controller {
 
         $this->data['q'] = $q; //data
 		$this->data['products'] = $this->stock_model->get_limit_data(12,0,$q,$b,$p1,$p2);
-		$this->data['price_range'] = $this->stock_model->get_global_price_range();
+		// $this->data['price_range'] = $this->stock_model->get_global_price_range();
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('search/index', $this->data);

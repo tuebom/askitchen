@@ -18,63 +18,89 @@
                         <h2>Billing Details</h2>
                         <div class="row">
                             <div class="col-sm-6">    
-                                <div class="key"><i class="fa fa-user" aria-hidden="true"></i>
-                                <input type="text" placeholder="First Name" name="firstname" required>
-                                <div class="clearfix"></div></div>
+                                <div class="form-group">
+                                    <label for="firstname">First Name</label>
+                                    <input type="text" class="form-control" name="firstname" placeholder="Enter first name">
+                                </div>
                             </div>
                             <div class="col-sm-6">    
-                                <div class="key"><i class="fa fa-user" aria-hidden="true"></i>
-                                <input type="text" placeholder="Last Name" name="lastname" required>
-                                <div class="clearfix"></div></div>
+                                <div class="form-group">
+                                    <label for="lastname">Last Name</label>
+                                    <input type="text" class="form-control" name="lastname" placeholder="Enter last name">
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">    
-                                <div class="key"><i class="fa fa-building" aria-hidden="true"></i>
-                                <input type="text" placeholder="Company" name="company">
-                                <div class="clearfix"></div></div>
+                                <div class="form-group">
+                                    <label for="company">Company</label>
+                                    <input type="text" class="form-control" name="company" placeholder="Enter company name">
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">    
-                                <div class="key"><i class="fa fa-envelope" aria-hidden="true"></i>
-                                <input type="text" placeholder="Email" name="email">
-                                <div class="clearfix"></div></div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control" name="email" placeholder="Enter email">
+                                </div>
                             </div>
                             <div class="col-sm-6">    
-                                <div class="key"><i class="fa fa-phone" aria-hidden="true"></i>
-                                <input type="text" placeholder="Phone" name="phone">
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="text" class="form-control" name="phone" placeholder="Enter phone">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">    
+                                <div class="form-group">
+                                    <label>Province</label>
+                                    <select id="province" name="province" class="form-control">
+                                        <option value="" selected>-</option>
+                                        <?php
+                                            foreach ($this->data['provinsi'] as $itemx) {
+                                        ?>
+                                        <option value="<?= $itemx->id ?>"><?= $itemx->name ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">    
+                                <div class="form-group">
+                                    <label>Regency</label>
+                                    <select id="regency" name="regency" class="form-control">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">    
+                                <div class="form-group">
+                                    <label>District</label>
+                                    <select id="district" name="district" class="form-control">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">    
+                                <div class="key"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <input type="text" placeholder="Enter address 1" name="address1" required>
                                 <div class="clearfix"></div></div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">    
                                 <div class="key"><i class="fa fa-map-marker" aria-hidden="true"></i>
-                                <input type="text" placeholder="Address 1" name="address1" required>
+                                <input type="text" placeholder="Enter address 2" name="address2">
                                 <div class="clearfix"></div></div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">    
-                                <div class="key"><i class="fa fa-map-marker" aria-hidden="true"></i>
-                                <input type="text" placeholder="Address 2" name="address2">
-                                <div class="clearfix"></div></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">    
-                                <div class="key"><i class="fa fa-city" aria-hidden="true"></i>
-                                <input type="text" placeholder="City" name="city" required>
-                                <div class="clearfix"></div></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">    
-                                <div class="key"><i class="fa fa-" aria-hidden="true"></i>
-                                <input type="text" placeholder="State/Province" name="province">
-                                <div class="clearfix"></div></div>
-                            </div>
-                            <div class="col-sm-6">    
                                 <div class="key"><i class="fa fa-" aria-hidden="true"></i>
                                 <input type="text" placeholder="Zip" name="zip">
                                 <div class="clearfix"></div></div>
@@ -139,3 +165,55 @@
 			</div>
 		</div>
 	<!-- content -->
+	<script type="text/javascript">
+    $(document).ready(function() {
+        
+        $('#province').change(function(){
+            $.ajax({
+                type: "POST",
+                url: "<?php echo site_url();?>checkout/regencies/"+$(this).val(),
+                // dataType: "json",
+                // data: {"id":$(this).val()},
+                success:function(json){
+                    var data = json.data,
+                        firstid = data[0].id;
+
+                    $('#regency').html('');
+                    for (var i = 0; i < data.length; i++) {
+                        $('#regency').append('<option value="'+data[i].id+'">'+data[i].name+'</option>')
+                    }
+
+                    $.ajax({
+                        type: "POST",
+                        url: "<?php echo site_url();?>checkout/districts/"+firstid,
+                        // dataType: "json",
+                        // data: {"id":$(this).val()},
+                        success:function(json){
+                            var data = json.data;
+                            $('#district').html('');
+                            for (var i = 0; i < data.length; i++) {
+                                $('#district').append('<option value="'+data[i].id+'">'+data[i].name+'</option>')
+                            }
+                        },
+                    });
+                },
+            });
+        });
+        
+        $('#regency').change(function(){
+            $.ajax({
+                type: "POST",
+                url: "<?php echo site_url();?>checkout/districts/"+$(this).val(),
+                // dataType: "json",
+                // data: {"id":$(this).val()},
+                success:function(json){
+                    var data = json.data;
+                    $('#district').html('');
+                    for (var i = 0; i < data.length; i++) {
+                        $('#district').append('<option value="'+data[i].id+'">'+data[i].name+'</option>')
+                    }
+                },
+            });
+        });
+    });
+	</script>

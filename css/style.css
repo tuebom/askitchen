@@ -766,7 +766,10 @@ label.hot {
 .grid-arr .grid-arrival figure > a .grid-img + .grid-img img {
   max-width: none;
 }
-
+/*.col-md-9*/
+.product-tab1-grid1 {
+    margin-top: 25px;
+}
 .grid-product {
     width: 70%;
     margin: 0 auto;
@@ -1179,7 +1182,7 @@ h6.tittle1 {
     line-height: 1.8em;
 }
 .footer-grid ul li a {
-    font-size: .75em;
+    font-size: .9em;
     color: #eee;
     line-height: 2em;
 	text-decoration:none;
