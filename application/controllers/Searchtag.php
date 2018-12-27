@@ -34,7 +34,7 @@ class Searchtag extends Public_Controller {
 			$offset = 0;
 		}
 		
-		$total = $this->stock_model->total_rows($q,$b,$p1,$p2);
+		$total = $this->stock_model->total_rows($q); //,$b,$p1,$p2
 		$url   = current_url() . '?tag='.$tag.'&p=';
 		
 		$this->data['pagination'] = $this->paging($total, $page, $url);
