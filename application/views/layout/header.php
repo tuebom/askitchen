@@ -323,22 +323,6 @@ div.hello-bar {
 													<a class="view-more btn- btn-sm" href="<?php echo site_url('products/'.$detail->kdgol2); ?>">Read More</a>
 												</div>
 												<?php } ?>
-												<div class="top-right">
-						<ul>
-							<?php if ($admin_link): ?>
-							<li><a href="<?php echo site_url('admin'); ?>">Admin</a></li>
-							<?php endif; ?>
-
-							<?php if ($logout_link): ?>
-							<li><a href="<?php echo site_url('auth/logout/public'); ?>">Logout</a></li>
-							<?php else: ?>
-							<li><a href="<?php echo site_url('register'); ?>">Register</a></li>
-							<li><a href="<?php echo site_url('auth/login'); ?>">Sign In</a></li>
-							<?php endif; ?>
-							<li><a href="<?php echo site_url('cart'); ?>">Cart&nbsp;<img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a>
-							&nbsp;<span class="badge badge-primary"><?= $_SESSION["totqty"] ?></span></li>
-						</ul>
-												<div class="clearfix"></div>
 											</div>
 										</ul>
 									</li>
@@ -432,11 +416,25 @@ div.hello-bar {
 												<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
 												<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 											</div>
-											<div class="social-auth-links text-center">
-											<p>- OR -</p>
-											<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
-											<a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
+											<div class="row">
+												<div class="col-xs-8">
+												<div class="checkbox icheck">
+													<label class="hover">
+														<?php echo form_checkbox('remember', '1', FALSE, 'id="remember"'); ?><?php echo lang('auth_remember_me'); ?>
+													</label>
+												</div>
+												</div>
+												<!-- /.col -->
+												<div class="col-xs-4">
+												<button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+												</div>
+												<!-- /.col -->
 											</div>
+											<!--<div class="social-auth-links text-center">
+												<p>- OR -</p>
+												<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
+												<a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
+											</div>-->
 											<!--<div class="form-group text-center">
 												<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
 												<label for="remember"> Remember Me</label>
@@ -448,20 +446,6 @@ div.hello-bar {
 													</div>
 												</div>
 											</div>-->
-											<div class="row">
-												<div class="col-xs-8">
-												<div class="checkbox icheck">
-													<label class="hover">
-													<div class="icheckbox_square-blue hover" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Remember Me
-													</label>
-												</div>
-												</div>
-												<!-- /.col -->
-												<div class="col-xs-4">
-												<button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-												</div>
-												<!-- /.col -->
-											</div>
 											<div class="form-group">
 												<div class="row">
 													<div class="col-lg-12">
@@ -497,14 +481,14 @@ div.hello-bar {
 											</div>
 											<div class="row">
 												<div class="col-xs-8">    
-												<div class="checkbox icheck">
-													<label class="">
-													<div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> I agree to the <a href="#">terms</a> and <a href="#">privacy policy</a>
-													</label>
-												</div>                        
+													<div class="checkbox icheck">
+														<label>
+															<div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> I agree to the <a href="#">terms</a> and <a href="#">privacy policy</a>
+														</label>
+													</div>                        
 												</div><!-- /.col -->
 												<div class="col-xs-4">
-												<button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+													<button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
 												</div><!-- /.col -->
 											</div>
 											<!--<div class="form-group">
@@ -514,13 +498,13 @@ div.hello-bar {
 													</div>
 												</div>
 											</div>-->
-											<div class="social-auth-links text-center">
+											<!--<div class="social-auth-links text-center">
 												<p>- OR -</p>
 												<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using
 													Facebook</a>
 												<a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign up using
 													Google+</a>
-											</div>
+											</div>-->
 										</form>
 									</div>
 								</div>

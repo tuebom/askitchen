@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
             <header class="main-header">
                 <a href="<?php echo site_url('admin/dashboard'); ?>" class="logo">
-                    <span class="logo-mini"><b>A</b><?php echo $title_mini; ?></span>
+                    <span class="logo-mini"><b></b><?php echo $title_mini; ?></span>
                     <span class="logo-lg"><b>Admin</b><?php echo $title_lg; ?></span>
                 </a>
 

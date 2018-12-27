@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config['title']      = 'ASKITCHEN';
-$config['title_mini'] = 'ASK';
+$config['title_mini'] = 'ASKITCHEN ';
 $config['title_lg']   = '';
 
 

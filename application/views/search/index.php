@@ -175,7 +175,7 @@
 									</div>
 								</div>
 								<div class="box-footer" align="center">
-									<?php echo $this->pagination->create_links(); ?>
+									<?php echo $this->data['pagination']; ?>
 								</div>
 							</div>
 							<div class="clearfix"> </div>

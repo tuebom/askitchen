@@ -6,6 +6,10 @@ class Home extends Public_Controller {
     public function __construct()
     {
 		parent::__construct();
+
+		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
+		$this->lang->load('auth');
+
 		$this->load->model('golongan_model');
 		$this->load->model('stock_model');
 		// unset($_SESSION["cart_item"]);
@@ -24,10 +28,6 @@ class Home extends Public_Controller {
 		}
 		
 		if(!isset($_SESSION["totqty"])) {
-			// $_SESSION["totqty"] = 0;
-			// $new_data = array(
-			// 	'totqty' => 0,
-			// 	'cart_item' => array());
 			$this->session->set_userdata('totqty', 0);
 			$this->session->set_userdata('cart_item', array());
 		}
