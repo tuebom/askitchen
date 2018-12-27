@@ -365,6 +365,21 @@ div.hello-bar {
 													<a class="view-more btn- btn-sm" href="<?php echo site_url('products/'.$detail->kdgol2); ?>">Read More</a>
 												</div>
 												<?php } ?>
+												<div class="top-right">
+						<ul>
+							<?php if ($admin_link): ?>
+							<li><a href="<?php echo site_url('admin'); ?>">Admin</a></li>
+							<?php endif; ?>
+
+							<?php if ($logout_link): ?>
+							<li><a href="<?php echo site_url('auth/logout/public'); ?>">Logout</a></li>
+							<?php else: ?>
+							<li><a href="<?php echo site_url('register'); ?>">Register</a></li>
+							<li><a href="<?php echo site_url('auth/login'); ?>">Sign In</a></li>
+							<?php endif; ?>
+							<li><a href="<?php echo site_url('cart'); ?>">Cart&nbsp;<img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a>
+							&nbsp;<span class="badge badge-primary"><?= $_SESSION["totqty"] ?></span></li>
+						</ul>
 												<div class="clearfix"></div>
 											</div>
 										</ul>
