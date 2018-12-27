@@ -94,11 +94,6 @@ $(window).load(function() {
 			navigationText :  false,
 			pagination : true,
 		});
-
-		/*$('.modal').on("shown.bs.modal",function(l){
-			$(".modal-dialog").velocity("callout.bounce");
-			console.log('event called');
-		});*/
 	});
 </script>
 
@@ -171,43 +166,6 @@ h4.hello-tittle {
 
 div.hello-bar {
     height: 40px;
-}
-
-.panel-login {
-	border-color: #ccc;
-	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
-	-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
-	box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
-}
-.panel-login>.panel-heading {
-	color: #00415d;
-	background-color: #fff;
-	border-color: #fff;
-	text-align:center;
-}
-.panel-login>.panel-heading a{
-	text-decoration: none;
-	color: #666;
-	font-weight: bold;
-	font-size: 15px;
-	-webkit-transition: all 0.1s linear;
-	-moz-transition: all 0.1s linear;
-	transition: all 0.1s linear;
-}
-.panel-login>.panel-heading a.active{
-	color: #029f5b;
-	font-size: 18px;
-}
-.panel-login>.panel-heading hr{
-	margin-top: 10px;
-	margin-bottom: 0px;
-	clear: both;
-	border: 0;
-	height: 1px;
-	background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
-	background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
-	background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
-	background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
 }
 
 </style>
@@ -336,7 +294,7 @@ div.hello-bar {
 								<ul class="nav navbar-nav">
 									<li><a href="#">
 										<div style="display: inline-block; vertical-align: middle;"><img src="<?= site_url('images/location.png'); ?>" alt="location"/></div>
-										<div style="display: inline-block; vertical-align: middle;">Deliver To<br>INDONESIA</div>
+										<div style="display: inline-block; vertical-align: middle;">Deliver To<br>INDONESIA</div></a>
 									</li>
 									<!-- Mega Menu -->
 									<?php 
@@ -450,7 +408,7 @@ div.hello-bar {
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-lg-12">
-										<form id="login-form" action="https://phpoll.com/login/process" method="post" role="form" style="display: block;">
+										<form id="login-form" action="<?= site_url('login') ?>" method="post" role="form" style="display: block;">
 											<div class="form-group has-feedback">
 												<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
 												<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -462,7 +420,7 @@ div.hello-bar {
 											<div class="social-auth-links text-center">
 											<p>- OR -</p>
 											<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
-											<a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
+											<a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
 											</div>
 											<!--<div class="form-group text-center">
 												<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
@@ -475,37 +433,52 @@ div.hello-bar {
 													</div>
 												</div>
 											</div>-->
+											<div class="row">
+												<div class="col-xs-8">
+												<div class="checkbox icheck">
+													<label class="hover">
+													<div class="icheckbox_square-blue hover" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Remember Me
+													</label>
+												</div>
+												</div>
+												<!-- /.col -->
+												<div class="col-xs-4">
+												<button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+												</div>
+												<!-- /.col -->
+											</div>
 											<div class="form-group">
 												<div class="row">
 													<div class="col-lg-12">
 														<div class="text-center">
-															<a href="https://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
+															<a href="<?= site_url('recover') ?>" tabindex="5" class="forgot-password">Forgot Password?</a>
 														</div>
 													</div>
 												</div>
 											</div>
 										</form>
-										<form id="register-form" action="https://phpoll.com/register/process" method="post" role="form" style="display: none;">
+										<form id="register-form" action="<?= site_url('register') ?>" method="post" role="form" style="display: none;">
 											<div class="form-group">
 												<input type="text" name="firstname" id="firstname" tabindex="1" class="form-control" placeholder="First Name" value="">
 											</div>
 											<div class="form-group">
-												<input type="text" name="lastname" id="lastname" tabindex="1" class="form-control" placeholder="Last Name" value="">
+												<input type="text" name="lastname" id="lastname" tabindex="2" class="form-control" placeholder="Last Name" value="">
 											</div>
 											<div class="form-group has-feedback">
-												<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="User Name" value="">
+												<input type="text" name="username" id="username" tabindex="3" class="form-control" placeholder="User Name" value="">
 												<span class="glyphicon glyphicon-user form-control-feedback"></span>
 											</div>
 											<div class="form-group has-feedback">
-												<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+												<input type="email" name="email" id="email" tabindex="4" class="form-control" placeholder="Email Address" value="">
 												<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 											</div>
 											<div class="form-group has-feedback">
-												<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+												<input type="password" name="password" id="password" tabindex="5" class="form-control" placeholder="Password">
 												<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 											</div>
 											<div class="form-group has-feedback">
-												<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+												<input type="password" name="confirm-password" id="confirm-password" tabindex="6" class="form-control" placeholder="Confirm Password">
+												<span class="glyphicon glyphicon-log-in form-control-feedback"></span>
 											</div>
 											<div class="row">
 												<div class="col-xs-8">    
@@ -526,6 +499,13 @@ div.hello-bar {
 													</div>
 												</div>
 											</div>-->
+											<div class="social-auth-links text-center">
+												<p>- OR -</p>
+												<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using
+													Facebook</a>
+												<a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign up using
+													Google+</a>
+											</div>
 										</form>
 									</div>
 								</div>
