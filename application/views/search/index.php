@@ -46,9 +46,11 @@
 								</div>
 								<div class="brand-w3l">
 									<label class="title">Brand</label>
-									<?php if ($this->data['q']) {
-										$q = '&q='.$this->data['q'];
-									}
+									<?php
+									
+										if ($this->data['q']) { // sertakan query pencarian sebelumnya
+											$q = '&q='.$this->data['q'];
+										}
 									?>
 									<ul>
 										<li><a href="<?php echo site_url('search?b=GEA'.$q); ?>">GEA</a></li>
