@@ -40,8 +40,39 @@
 										<li><a href="<?php echo site_url('search?p1=1000000&p2=5000000'); ?>">Rp1.000.000 to Rp5.000.000</a></li>
 										<li><a href="<?php echo site_url('search?p1=5000000&p2=10000000'); ?>">Rp5.000.000 to Rp10.000.000</a></li>
 										<li><a href="<?php echo site_url('search?p1=10000000'); ?>">Rp10.000.000 Above</a></li>
-										<li><input name="pf" type="text" class="pricef">&nbsp;-&nbsp;<input name="pt" type="text" class="pricef"><a href="<?php echo site_url('search?p1=10000000'); ?>" class="btn-go">GO</a></li>
+										<li><input id="pf" type="text" class="pricef" onkeypress="return isNumber(event)">&nbsp;-&nbsp;
+										<input id="pt" type="text" class="pricef" onkeypress="return isNumber(event)">
+										<a id="btnGo" href="<?php echo site_url('search'); ?>" class="btn-go">GO</a></li>
 									</ul>
+									
+									<script type="text/javascript">
+									// $(window).load(function(){
+										
+										function isNumber(evt) {
+											evt = (evt) ? evt : window.event;
+											var charCode = (evt.which) ? evt.which : evt.keyCode;
+											if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+												return false;
+											}
+											return true;
+										}
+										
+										var theUrl = <?php echo '"'.site_url().'search?q='.$this->data['kode'].'"' ?>;
+
+										$('#btnGo').click(function(event) {
+											event.preventDefault();
+											var p1 = document.getElementById('pf').value;
+											var p2 = document.getElementById('pt').value;
+											if (p1 == '' || p2 == '') {
+												return false;
+											}
+											var newUri = theUrl + '&p1='+p1+'&p2='+p2; //$(this).attr('href') + stringToSend;
+											$(this).attr("href", newUri);
+											window.location.href = $(this).attr('href');
+										});
+									// })
+									
+									</script>
 									 
 								</div>
 								<div class="brand-w3l">
@@ -157,7 +188,7 @@
 														<h6><a href="<?php echo site_url('detail/'.$item->kdurl); ?>"><?= $item->kdbar; ?></a></h6>
 														<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
 														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Atqui iste locus est, Piso, tibi etiam atque etiam confirmandus, inquam; Refert tamen, quo modo. Quod autem meum munus dicis non equidem recuso, sed te adiungo socium. </p>
-														<p><!--<del>$100.00</del>--><em class="item_price">Rp<?= $item->hjual; ?></em></p>
+														<p><em class="item_price">Rp<?= $item->hjual; ?></em></p>
 														<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="See Details" class="my-cart-d item_add">See Details</a>
 													</div>
 												</div>

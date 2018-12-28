@@ -1,24 +1,52 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="<?php echo $lang; ?>">
 <head>
-<title>Professional Food Service Supplies | Home :: ASKITCHEN</title>
-<link href="<?=base_url('css/bootstrap.min.css');?>" rel="stylesheet" type="text/css" media="all"/>
-<link href="<?=base_url('css/style.css');?>" rel="stylesheet" type="text/css" media="all" />
-<link href="<?=base_url('css/font-awesome.css');?>" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="<?= base_url('css/jquery-ui.css');?>">
-<link rel="stylesheet" type="text/css" href="<?= base_url($frameworks_dir . '/adminlte/css/adminlte.min.css'); ?>">
-<link rel="stylesheet" type="text/css" href="<?= base_url($frameworks_dir . '/adminlte/plugins/iCheck/flat/blue.css'); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Freezer, Cooler, Cooler Showcase, Cooler Dispenser, Ice Maker, Ice Cream, Ice Cream Machine, 
-Refrigerator, Refrigeration, Stainless Steel Refrigeration, Minimarket, Minimarket Refrigeration" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<script src="<?=base_url('js/jquery.min.js');?>"></script>
-<link href='//fonts.googleapis.com/css?family=Calibri' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300' rel='stylesheet' type='text/css'>
-<!--search jQuery-->
-<script src="<?=base_url('js/main.js');?>"></script>
-<!--search jQuery-->
+	<meta charset="<?php echo $charset; ?>">
+	<title>Professional Food Service Supplies | Home :: ASKITCHEN</title>
+<?php if ($mobile === FALSE): ?>
+	<!--[if IE 8]>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<![endif]-->
+<?php else: ?>
+	<meta name="HandheldFriendly" content="true">
+<?php endif; ?>
+<?php if ($mobile == TRUE && $mobile_ie == TRUE): ?>
+	<meta http-equiv="cleartype" content="on">
+<?php endif; ?>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="google" content="notranslate">
+	<meta name="robots" content="noindex, nofollow">
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Freezer, Cooler, Cooler Showcase, Cooler Dispenser, Ice Maker, Ice Cream, Ice Cream Machine, 
+	Refrigerator, Refrigeration, Stainless Steel Refrigeration, Minimarket, Minimarket Refrigeration" />
+<?php if ($mobile == TRUE && $ios == TRUE): ?>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-title" content="<?php echo $title; ?>">
+<?php endif; ?>
+<?php if ($mobile == TRUE && $android == TRUE): ?>
+	<meta name="mobile-web-app-capable" content="yes">
+<?php endif; ?>
+	<link rel="icon" href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAzUExURQAAAMQVG8QVG8QVG8QVG8MUGcQWHMQWHMQWHMQVGsQVG8QWHMMVG8QVG8QVGsMUGcQWHBiWaGEAAAAQdFJOUwAlilPupF/5xQsYM7racUEuThiQAAAA5klEQVQ4y+WTWXLEMAhE0YJAO/c/bYxkbM3kBsn7cqm7cLewAf4fxeX9kI1PvWIfeuSGN8ZpcY0kBoDJkYw4Xj0jiciAynLQXoOPepDAq88m9PDoY+mSchPpI6TNfDKEvkcmx3K+2Ji3vg3eGTbAPcHUQL0Z6PYFoWrcaRtO/Cq4gnPQnqk0+VVzFYgh46qZ+OE6Ry2gOg0ovAzg6s3kZahagDDDGp7O3TU17FCtgBnKTGGj0TzsAg7MkH00NNkE1ftcE1m+a9IV4UoQ071O7VKQ3mVj0UuO9lVUJp+herzxIf+Vf+UH6HQR34ampwcAAAAASUVORK5CYII=">
+	<link rel="stylesheet" type="text/css" href='//fonts.googleapis.com/css?family=Calibri'>
+	<link rel="stylesheet" type="text/css" href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300'>
+	
+	<link rel="stylesheet" type="text/css" href="<?=base_url('css/bootstrap.min.css');?>" media="all"/>
+	<!--<link rel="stylesheet" type="text/css" href="<?=base_url('css/font-awesome.css');?>">-->
+	<link rel="stylesheet" type="text/css" href="<?=base_url('css/style.css');?>" media="all"/>
+	<!--<link rel="stylesheet" type="text/css" href="<?=base_url('css/jquery-ui.css');?>">-->
+	
+	<!--<link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/bootstrap/css/bootstrap.min.css'); ?>">-->
+    <link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/font-awesome/css/font-awesome.min.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/adminlte/css/adminlte.min.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/adminlte/plugins/iCheck/flat/blue.css'); ?>">
+
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<script src="<?=base_url('js/jquery.min.js');?>"></script>
+	<!--search jQuery-->
+	<script src="<?=base_url('js/main.js');?>"></script>
+	<!--search jQuery-->
 
 <?php if (current_url() == site_url()): ?>
 <script src="<?=base_url('js/responsiveslides.min.js');?>"></script>
@@ -169,7 +197,12 @@ div.hello-bar {
 }
 
 </style>
-
+<?php if ($mobile === FALSE): ?>
+	<!--[if lt IE 9]>
+		<script src="<?php echo base_url($plugins_dir . '/html5shiv/html5shiv.min.js'); ?>"></script>
+		<script src="<?php echo base_url($plugins_dir . '/respond/respond.min.js'); ?>"></script>
+	<![endif]-->
+<?php endif; ?>
 </head>
 <body>
 
@@ -420,7 +453,7 @@ div.hello-bar {
 												<div class="col-xs-8">
 												<div class="checkbox icheck">
 													<label class="hover">
-														<?php echo form_checkbox('remember', '1', FALSE, 'id="remember"'); ?><?php echo lang('auth_remember_me'); ?>
+													<div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
 													</label>
 												</div>
 												</div>

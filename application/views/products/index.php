@@ -41,9 +41,9 @@
 										<li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&p1=1000000&p2=5000000'); ?>">Rp1.000.000 to Rp5.000.000</a></li>
 										<li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&p1=5000000&p2=10000000'); ?>">Rp5.000.000 to Rp10.000.000</a></li>
 										<li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&p1=10000000'); ?>">Rp10.000.000 Above</a></li>
-										<li><input name="pf" type="text" class="pricef" onblur="updateURL()" onkeypress="return isNumber(event)">&nbsp;-&nbsp;
-										<input name="pt" type="text" class="pricef" onblur="updateURL()" onkeypress="return isNumber(event)">
-										<a id="btnGo" href="<?php echo site_url('search?p1=10000000'); ?>" class="btn-go">GO</a></li>
+										<li><input id="pf" type="text" class="pricef" onkeypress="return isNumber(event)">&nbsp;-&nbsp;
+										<input id="pt" type="text" class="pricef" onkeypress="return isNumber(event)">
+										<a id="btnGo" href="<?php echo site_url('search'); ?>" class="btn-go">GO</a></li>
 									</ul>
 									
 									<script type="text/javascript">
@@ -60,19 +60,17 @@
 										
 										var theUrl = <?php echo '"'.site_url().'search?q='.$this->data['kode'].'"' ?>;
 
-										function updateURL() {
-											var el = document.getElementById('btnGo');
+										$('#btnGo').click(function(event) {
+											event.preventDefault();
 											var p1 = document.getElementById('pf').value;
-											console.log(p1);
 											var p2 = document.getElementById('pt').value;
-											console.log(p2);
-											el.setAttribute('href', theUrl + 'p1='+p1+'&p2='+p2);
-											console.log(theUrl + 'p1='+p1+'&p2='+p2)
-										}
-										
-										function setFilter () {
-											// return true or false, depending on whether you want to allow the `href` property to follow through or not
-										}
+											if (p1 == '' || p2 == '') {
+												return false;
+											}
+											var newUri = theUrl + '&p1='+p1+'&p2='+p2; //$(this).attr('href') + stringToSend;
+											$(this).attr("href", newUri);
+											window.location.href = $(this).attr('href');
+										});
 									// })
 									
 									</script>
