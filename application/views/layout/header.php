@@ -214,15 +214,16 @@ div.hello-bar {
 		});
 	});
 	</script>
+	
 
 	<!--header-->
 		<div class="header">
 			<div class="header-top-most">
 				<div class="container2">
 					<div class="top-left">
-						<a href="#"><img class="img-header" src="<?= site_url('images/askitchen.png'); ?>" alt="ASKITCHEN Logo" hspace="1" /></a>
-						<a href="http://www.asovic.co.id/" target="_blank"><img class="img-header" src="<?= site_url('images/asovic.jpg'); ?>" alt="ASOVIC Logo" hspace="1" /></a>
-						<a href="http://www.muchef.com/" target="_blank"><img class="img-header" src="<?= site_url('images/muchef.jpg'); ?>" alt="MUCHEF Logo" hspace="1" /></a>
+						<a href="#"><img class="img-header" src="<?= site_url('images/askitchen.png'); ?>" alt="ASKITCHEN Logo" hspace="3" /></a>
+						<a href="http://www.asovic.co.id/" target="_blank"><img class="img-header" src="<?= site_url('images/asovic.jpg'); ?>" alt="ASOVIC Logo" hspace="3" /></a>
+						<a href="http://www.muchef.com/" target="_blank"><img class="img-header" src="<?= site_url('images/muchef.jpg'); ?>" alt="MUCHEF Logo" hspace="3" /></a>
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -342,7 +343,7 @@ div.hello-bar {
 			</div>
 		</div>
 	<!--header-->
-
+	
 	<!--modal-->
 	<div id="menu-modal" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog menu-modal">
@@ -515,4 +516,23 @@ div.hello-bar {
 			</div>-->
 		</div>
 	</div>
+	<script>
+	
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("myBtn").style.display = "block";
+  } else {
+    document.getElementById("myBtn").style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
 	<!--modal-->
