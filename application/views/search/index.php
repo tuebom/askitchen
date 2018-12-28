@@ -40,7 +40,7 @@
 										<li><a href="<?php echo site_url('search?p1=1000000&p2=5000000'); ?>">Rp1.000.000 to Rp5.000.000</a></li>
 										<li><a href="<?php echo site_url('search?p1=5000000&p2=10000000'); ?>">Rp5.000.000 to Rp10.000.000</a></li>
 										<li><a href="<?php echo site_url('search?p1=10000000'); ?>">Rp10.000.000 Above</a></li>
-										<li><input name="pf" type="number" class="pricef">&nbsp;-&nbsp;<input name="pt" type="number" class="pricef"><a href="<?php echo site_url('search?p1=10000000'); ?>" class="btn-go">GO</a></li>
+										<li><input name="pf" type="text" class="pricef">&nbsp;-&nbsp;<input name="pt" type="text" class="pricef"><a href="<?php echo site_url('search?p1=10000000'); ?>" class="btn-go">GO</a></li>
 									</ul>
 									 
 								</div>
@@ -102,9 +102,6 @@
 																	<div class="grid-img">
 																		<img src="<?=base_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar; ?>">
 																	</div>
-																	<!--<div class="grid-img">
-																		<img src="<?=base_url('images/p5.jpg');?>" class="img-responsive"  alt="">
-																	</div>-->
 																</a>		
 															</figure>	
 														</div>
@@ -147,9 +144,6 @@
 																	<div class="grid-img">
 																		<img src="<?=base_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar; ?>">
 																	</div>
-																	<!--<div class="grid-img">
-																		<img src="<?=base_url('images/p5.jpg');?>" class="img-responsive"  alt="">
-																	</div>-->
 																</a>		
 															</figure>	
 														</div>

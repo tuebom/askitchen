@@ -256,7 +256,7 @@ div.hello-bar {
 								<?php
 									foreach ($this->data['golongan'] as $item) {
 								?>
-									<li><a href="<?php echo site_url('products/'.$item->kdgol); ?>"><?= $item->nama ?></a></li>
+									<li><a href="<?php echo site_url('categories/'.$item->kdgol); ?>"><?= $item->nama ?></a></li>
 								<?php
 									}
 								?>
@@ -349,7 +349,7 @@ div.hello-bar {
       <a href="javascript:void(0);" data-dismiss="modal" aria-hidden="true" class="menu-close"><i class="fa fa-times"></i></a>
 	  <div class="hello-body">
 	    <h3 class="tittle text-center">hello,</h3>
-	  	<h4 class="hello-tittle text-center">What is your restaurant type:</h4>
+	  	<h4 class="hello-tittle text-center">Choose your restaurant type..</h4>
 		<div class="hello-bar">
 			<div class="col-sm-6 col-xs-12">
 				<span class="detail"><a class="hello-menu" href="<?php echo site_url('searchtag?tag=asia'); ?>">Chinese/Asian Food</a></span>
@@ -464,15 +464,11 @@ div.hello-bar {
 												<input type="text" name="lastname" id="lastname" tabindex="2" class="form-control" placeholder="Last Name" value="">
 											</div>
 											<div class="form-group has-feedback">
-												<input type="text" name="username" id="username" tabindex="3" class="form-control" placeholder="User Name" value="">
-												<span class="glyphicon glyphicon-user form-control-feedback"></span>
-											</div>
-											<div class="form-group has-feedback">
-												<input type="email" name="email" id="email" tabindex="4" class="form-control" placeholder="Email Address" value="">
+												<input type="email" name="email" id="email2" tabindex="3" class="form-control" placeholder="Email Address" value="">
 												<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 											</div>
 											<div class="form-group has-feedback">
-												<input type="password" name="password" id="password" tabindex="5" class="form-control" placeholder="Password">
+												<input type="password" name="password" id="password2" tabindex="4" class="form-control" placeholder="Password">
 												<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 											</div>
 											<div class="form-group has-feedback">
@@ -483,7 +479,7 @@ div.hello-bar {
 												<div class="col-xs-8">    
 													<div class="checkbox icheck">
 														<label>
-															<div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> I agree to the <a href="#">terms</a> and <a href="#">privacy policy</a>
+															<div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> I agree to the <a href="<?=site_url('term-of-use');?>">terms</a> and <a href="<?=site_url('privacy-policy');?>">privacy policy</a>
 														</label>
 													</div>                        
 												</div><!-- /.col -->

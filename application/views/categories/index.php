@@ -91,26 +91,19 @@
 							</div>
 							<div class="col-md-9 product-agileinfon-grid1 w3l">
 								<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-									<?php if (count($this->data['products']) > 0): ?>
-									<ul id="myTab" class="nav1 nav1-tabs left-tab" role="tablist">
-										<ul id="myTab" class="nav nav-tabs left-tab" role="tablist">
-									<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"><img src="<?=base_url('images/menu1.png');?>"></a></li>
-									<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile"><img src="<?=base_url('images/menu.png');?>"></a></li>
-									</ul>
-									<?php endif; ?>
 									<div id="myTabContent" class="tab-content">
 										<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
 											<?php
 												
-												echo '<!-- rec. count: '. count($this->data['products']) . ' -->'; 
+												echo '<!-- rec. count: '. count($this->data['item_'.$this->data['kdgol']]) . ' -->'; 
 
 												$index = 0;
 												$icount = 0;
 												$iloop = 1;
 
-												foreach ($this->data['products'] as $item) {
+												foreach ($this->data['item_'.$this->data['kdgol']] as $item) {
 
-													if ($index == 4) { $index = 0; }
+													if ($index == 3) $index = 0;
 
 													if ($index == 0) { // buat tab product baru
 
@@ -120,15 +113,15 @@
 											<?php
 													}
 
-													if ($index < 4) {
+													if ($index < 3) {
 											?>
-												<div class="col-md-3 product-tab-grid simpleCart_shelfItem">
-													<div class="grid-arr">
+												<div class="col-md-4 product-tab-grid simpleCart_shelfItem">
+													<div class="grid-arr-cat">
 														<div class="grid-arrival">
 															<figure>		
-																<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" class="new-gri">
+																<a href="<?= site_url('products/'.$item->kdgol2); ?>" class="new-gri">
 																	<div class="grid-img">
-																		<img src="<?=base_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar; ?>">
+																		<img src="<?=site_url('images/categories/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->gambar; ?>">
 																	</div>
 																</a>		
 															</figure>	
@@ -136,12 +129,11 @@
 														<div class="block">
 															<div class="starbox small ghosting"> </div>
 														</div>
-														<div class="women">
+														<!--<div class="women">
 															<p ><em class="item_price">Rp<?= $item->hjual; ?></em></p>
 															<span class="size"><?= $item->kdbar; ?></span>
-															<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
 															<span class="detail"><a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="See Details" class="my-cart-d item_add">See Details</a></span>
-														</div>
+														</div>-->
 													</div>
 												</div>
 											<?php 
@@ -149,7 +141,7 @@
 													$icount++;
 												}
 												
-												if ($index == 4 || $icount == count($this->data['products'])) :
+												if ($index == 3 || $icount == count($this->data['item_'.$this->data['kdgol']])) :
 													$iloop++;
 											?>
 												<div class="clearfix"></div>
@@ -159,45 +151,7 @@
 											}
 											?>
 										</div>
-										<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
-											<?php
-												foreach ($this->data['products'] as $item) {
-											?>
-											<div class="product-tab1">
-												<div class="col-md-3 product-tab1-grid">
-													<div class="grid-arr">
-														<div class="grid-arrival">
-															<figure>		
-																<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" class="new-gri">
-																	<div class="grid-img">
-																		<img src="<?=base_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar; ?>">
-																	</div>
-																</a>		
-															</figure>	
-														</div>
-													</div>
-												</div>
-												<div class="col-md-9 product-tab1-grid1 simpleCart_shelfItem">
-													<div class="block">
-														<div class="starbox small ghosting"> </div>
-													</div>
-													<div class="women">
-														<h6><a href="<?php echo site_url('detail/'.$item->kdurl); ?>"><?= $item->kdbar; ?></a></h6>
-														<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
-														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Atqui iste locus est, Piso, tibi etiam atque etiam confirmandus, inquam; Refert tamen, quo modo. Quod autem meum munus dicis non equidem recuso, sed te adiungo socium. </p>
-														<p><em class="item_price">Rp<?= $item->hjual; ?></em></p>
-														<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="See Details" class="my-cart-d item_add">See Details</a>
-													</div>
-												</div>
-												<div class="clearfix"></div>
-											</div>
-											<?php } ?>
-											
-										</div>
 									</div>
-								</div>
-								<div class="box-footer" align="center">
-									<?php echo $this->data['pagination']; ?>
 								</div>
 							</div>
 							<div class="clearfix"> </div>

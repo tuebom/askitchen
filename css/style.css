@@ -708,9 +708,40 @@ label.hot {
     border-radius: 10px;
     height: 275px;
 }
+.grid-arr-cat {
+    background: #cccccc; /*#E2E2E2*/
+    /*border: 1px solid #777;*/
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+    padding: 1.0em;
+    margin-top: 10px; /***/
+    border-radius: 10px;
+    height: 245px;
+}
+.grid-arr-cat .grid-arrival figure > a .grid-img {
+    width: 90%;
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    /*width: 100%;*/
+    line-height: 0;
+    will-change: right;
+    -moz-transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+.grid-arr-cat .grid-arrival figure > a .grid-img img {
+    /*width: 100%;*/
+    max-height: 100%;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
 .grid-arr {
     background: #cccccc; /*#E2E2E2*/
-    border: 1px solid #777;
+    /*border: 1px solid #777;*/
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
@@ -3813,7 +3844,7 @@ table.timetable_sub {
     font-weight: normal;
 }
 td.invert-image {
-    width: 40%;
+    width: 20%;
     height: 90px;
 }
 .timetable_sub td {
