@@ -1,18 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Search extends Public_Controller {
+class Categories extends Public_Controller {
 
     public function __construct()
     {
 		parent::__construct();
-		$this->load->library('pagination');
+		// $this->load->library('pagination');
 		$this->load->model('golongan_model');
 		$this->load->model('stock_model');
 		// $this->output->enable_profiler(TRUE);
 	}
 
-	
 	public function index()
 	{
 		$this->data['golongan'] = $this->golongan_model->get_all();
@@ -20,14 +19,18 @@ class Search extends Public_Controller {
 		foreach ($this->data['golongan'] as $item) {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
+        
+        $kode = $this->uri->segment(2);
 		
-		$q  = $this->input->get('q');
-		$b  = $this->input->get('b');
-		$p1 = $this->input->get('p1');
-		$p2 = $this->input->get('p2');
+		if (strlen($kode) == 2) {
+			$this->data['title'] = $this->golongan_model->get_by_id($kode)->nama;
+			$this->data['kdgol'] = $kode;
+		} else {
+			$this->data['title'] = $this->golongan_model->get_by_subid($kode)->nama;
+			$this->data['kdgol'] = substr($kode,0,2);
+		}
 
-
-		if ($this->input->get('p')) {
+		/*if ($this->input->get('p')) {
 			$page   = $this->input->get('p');
 			$offset = ((int)$page-1)*12;
 		} else {
@@ -35,51 +38,22 @@ class Search extends Public_Controller {
 			$offset = 0;
 		}
 		
-		$total = $this->stock_model->total_rows($q,$b,$p1,$p2);
+		$total = $this->stock_model->total_rows($kode);
+		$url   = current_url() . '?p=';*/
 		
-		$cond = '';
-		// filter pencarian
-		if ($q) $cond .= 'q='.$q;
-
-		// filter merk
-		if ($b) {
-			if ($cond !== '') {
-				$cond .= '&b='.$b;
-			} else {
-				$cond .= 'b='.$b;
-			}
-		}
-
-		// filter harga
-		if ($p1) {
-			if ($cond !== '') {
-				$cond .= '&p1='.$p1;
-			} else {
-				$cond .= 'p1='.$p1;
-			}
-		}
-		if ($p2) {
-			if ($cond !== '') {
-				$cond .= '&p2='.$p2;
-			} else {
-				$cond .= 'p2='.$p2;
-			}
-		}
-
-		$url   = current_url().'?'.$cond.'&p=';
+		// $this->data['categories'] = $this->golongan_model->get_sample($item->kdgol);
 		
-		$this->data['pagination'] = $this->paging($total, $page, $url);
-
-		$this->data['q'] = $q; //data
-		$this->data['products'] = $this->stock_model->get_limit_data(12,$offset,$q,$b,$p1,$p2);
+		$this->data['kode'] = $kode;
+		
+		// $this->data['pagination'] = $this->paging($total, $page, $url);
 
 		$this->load->view('layout/header', $this->data);
-		$this->load->view('search/index', $this->data);
+		$this->load->view('categories/index', $this->data);
 		$this->load->view('layout/footer', $this->data);
 	}
 	
 	
-	public function paging($total,$curr_page,$url){
+	/*public function paging($total,$curr_page,$url){
     
 		$page = '';
 		$total_page = ceil($total/12);
@@ -108,5 +82,5 @@ class Search extends Public_Controller {
 		}
 			
 		return $page;
-	}
+	}*/
 }

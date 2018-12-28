@@ -35,8 +35,10 @@
 							<thead>
 								<tr>
 									<th>&nbsp;No.&nbsp;</th>
+									<th>Product Code</th>
 									<th>Product</th>
 									<th>Product Name</th>
+									<th>Product Size</th>
 									<th>Quantity</th>
 									<th>Price</th>
 									<th>Remove</th>
@@ -66,12 +68,14 @@
 									</form>
 
 									<td class="invert"><?= $index ?></td>
+									<td class="invert"><?= $item["kdbar"] ?></td>
 									<td class="invert-image">
 										<a href="<?= site_url('detail/'.$item["kdurl"]) ?>">
 											<img src="<?= site_url($this->data['products_dir'].'/'.$item["gambar"]); ?>" alt="<?= $item["kdbar"] ?>" class="img-responsive">
 										</a>
 									</td>
 									<td class="invert"><?= $item["nama"]; ?></td>
+									<td class="invert"><?= $item["pnj"]; ?> cm x<br><?= $item["lbr"]; ?> cm x<br><?= $item["tgi"]; ?> cm</td>
 									<td class="invert">
 										<div class="quantity">
 											<span><?= $item["qty"]; ?></span>
@@ -88,7 +92,7 @@
 							</tbody>
 							<tfoot>
 								<tr>
-									<td colspan="3" style="text-align: right"><b>Total</b></td>
+									<td colspan="5" style="text-align: right"><b>Total</b></td>
 									<td><?= $total_qty ?></td>
 									<td>Rp<?= number_format($total_price, 0, '.', ',') ?></td>
 									<td></td>

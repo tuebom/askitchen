@@ -40,7 +40,7 @@ class Searchtag extends Public_Controller {
 		$this->data['pagination'] = $this->paging($total, $page, $url);
 
         $this->data['q'] = '';
-		$this->data['products'] = $this->stock_model->get_by_food_category(12,0,$tag);
+		$this->data['products'] = $this->stock_model->get_by_food_category(12,$offset,$tag);
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('search/index', $this->data);
