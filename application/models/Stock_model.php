@@ -124,9 +124,9 @@ class Stock_model extends CI_Model
                 // $this->db->where('hjual between '.$p1.' and '.$p2);
                 $this->db->where('hjual >=', $p1);
                 $this->db->where('hjual <=', $p2);
-            } else {
-                $this->db->where('hjual between > '.$p1);
             }
+        } elseif ($p1) {
+            $this->db->where('hjual > '.$p1);
         }
 
         // with brand condition
@@ -179,9 +179,9 @@ class Stock_model extends CI_Model
                 // $this->db->where('hjual between '.$p1.' and '.$p2);
                 $this->db->where('hjual >=', $p1);
                 $this->db->where('hjual <=', $p2);
-            } else {
-                $this->db->where('hjual between > '.$p1);
             }
+        } elseif ($p1) {
+            $this->db->where('hjual > '.$p1);
         }
 
         // with brand condition
@@ -192,25 +192,15 @@ class Stock_model extends CI_Model
                 $this->db->where('merk not in (select name from brands)');
             }
         }
-        $this->db->order_by($this->id, $this->order);
+
+        if ($p1) {
+            $this->db->order_by('hjual', $this->order);
+        } else {
+            $this->db->order_by($this->id, $this->order);
+        }
 	    $this->db->limit($limit, $start);
         return $this->db->get($this->table)->result();
     }
-
-    // get global price range
-    // function get_global_price_range()
-    // {
-    //     $this->db->select('MIN(hjual) as hmin, MAX(hjual) as hmax');
-    //     return $this->db->get($this->table)->result();
-    // }
-
-    // get price range by category
-    // function get_price_range($code)
-    // {
-    //     $this->db->select('MIN(hjual) as hmin, MAX(hjual) as hmax');
-    //     $this->db->where('kdgol2', $code);
-    //     return $this->db->get($this->table)->result();
-    // }
 
     // get item reviews
     function get_reviews($code)

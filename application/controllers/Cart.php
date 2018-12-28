@@ -48,7 +48,7 @@ class Cart extends Public_Controller {
         if ($kode != '') {
             
             // $detail = $this->stock_model->get_by_id($kode);
-            $this->db->select('kdbar, kdurl, nama, hjual, format(hjual,0,"id") as hjualf, gambar');
+            $this->db->select('kdbar, kdurl, nama, hjual, format(hjual,0,"id") as hjualf, gambar, pnj, lbr, tgi');
             $this->db->where('kdbar', $kode);
             $detail = $this->db->get('stock')->row();
                 
@@ -58,8 +58,12 @@ class Cart extends Public_Controller {
                                                 'nama'  => $detail->nama,
                                                 'qty'   => $qty,
                                                 'harga' => $detail->hjual,
-                                                'hargaf' => $detail->hjualf, // harga dgn pemisah ribuan
-                                                'gambar'=> $detail->gambar));
+                                                'hargaf'=> $detail->hjualf, // harga dgn pemisah ribuan
+                                                'gambar'=> $detail->gambar,
+                                                'pnj'   => $detail->pnj,
+                                                'lbr'   => $detail->lbr,
+                                                'tgi'   => $detail->tgi
+                                            ));
 
 
             if(!empty($_SESSION["cart_item"])) {

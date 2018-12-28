@@ -1,24 +1,52 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="<?php echo $lang; ?>">
 <head>
-<title>Professional Food Service Supplies | Home :: ASKITCHEN</title>
-<link href="<?=base_url('css/bootstrap.min.css');?>" rel="stylesheet" type="text/css" media="all"/>
-<link href="<?=base_url('css/style.css');?>" rel="stylesheet" type="text/css" media="all" />
-<link href="<?=base_url('css/font-awesome.css');?>" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="<?= base_url('css/jquery-ui.css');?>">
-<link rel="stylesheet" type="text/css" href="<?= base_url($frameworks_dir . '/adminlte/css/adminlte.min.css'); ?>">
-<link rel="stylesheet" type="text/css" href="<?= base_url($frameworks_dir . '/adminlte/plugins/iCheck/flat/blue.css'); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Freezer, Cooler, Cooler Showcase, Cooler Dispenser, Ice Maker, Ice Cream, Ice Cream Machine, 
-Refrigerator, Refrigeration, Stainless Steel Refrigeration, Minimarket, Minimarket Refrigeration" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<script src="<?=base_url('js/jquery.min.js');?>"></script>
-<link href='//fonts.googleapis.com/css?family=Calibri' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300' rel='stylesheet' type='text/css'>
-<!--search jQuery-->
-<script src="<?=base_url('js/main.js');?>"></script>
-<!--search jQuery-->
+	<meta charset="<?php echo $charset; ?>">
+	<title>Professional Food Service Supplies | Home :: ASKITCHEN</title>
+<?php if ($mobile === FALSE): ?>
+	<!--[if IE 8]>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<![endif]-->
+<?php else: ?>
+	<meta name="HandheldFriendly" content="true">
+<?php endif; ?>
+<?php if ($mobile == TRUE && $mobile_ie == TRUE): ?>
+	<meta http-equiv="cleartype" content="on">
+<?php endif; ?>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="google" content="notranslate">
+	<meta name="robots" content="noindex, nofollow">
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Freezer, Cooler, Cooler Showcase, Cooler Dispenser, Ice Maker, Ice Cream, Ice Cream Machine, 
+	Refrigerator, Refrigeration, Stainless Steel Refrigeration, Minimarket, Minimarket Refrigeration" />
+<?php if ($mobile == TRUE && $ios == TRUE): ?>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-title" content="<?php echo $title; ?>">
+<?php endif; ?>
+<?php if ($mobile == TRUE && $android == TRUE): ?>
+	<meta name="mobile-web-app-capable" content="yes">
+<?php endif; ?>
+	<link rel="icon" href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAzUExURQAAAMQVG8QVG8QVG8QVG8MUGcQWHMQWHMQWHMQVGsQVG8QWHMMVG8QVG8QVGsMUGcQWHBiWaGEAAAAQdFJOUwAlilPupF/5xQsYM7racUEuThiQAAAA5klEQVQ4y+WTWXLEMAhE0YJAO/c/bYxkbM3kBsn7cqm7cLewAf4fxeX9kI1PvWIfeuSGN8ZpcY0kBoDJkYw4Xj0jiciAynLQXoOPepDAq88m9PDoY+mSchPpI6TNfDKEvkcmx3K+2Ji3vg3eGTbAPcHUQL0Z6PYFoWrcaRtO/Cq4gnPQnqk0+VVzFYgh46qZ+OE6Ry2gOg0ovAzg6s3kZahagDDDGp7O3TU17FCtgBnKTGGj0TzsAg7MkH00NNkE1ftcE1m+a9IV4UoQ071O7VKQ3mVj0UuO9lVUJp+herzxIf+Vf+UH6HQR34ampwcAAAAASUVORK5CYII=">
+	<link rel="stylesheet" type="text/css" href='//fonts.googleapis.com/css?family=Calibri'>
+	<link rel="stylesheet" type="text/css" href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300'>
+	
+	<link rel="stylesheet" type="text/css" href="<?=base_url('css/bootstrap.min.css');?>" media="all"/>
+	<!--<link rel="stylesheet" type="text/css" href="<?=base_url('css/font-awesome.css');?>">-->
+	<link rel="stylesheet" type="text/css" href="<?=base_url('css/style.css');?>" media="all"/>
+	<!--<link rel="stylesheet" type="text/css" href="<?=base_url('css/jquery-ui.css');?>">-->
+	
+	<!--<link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/bootstrap/css/bootstrap.min.css'); ?>">-->
+    <link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/font-awesome/css/font-awesome.min.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/adminlte/css/adminlte.min.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/adminlte/plugins/iCheck/flat/blue.css'); ?>">
+
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<script src="<?=base_url('js/jquery.min.js');?>"></script>
+	<!--search jQuery-->
+	<script src="<?=base_url('js/main.js');?>"></script>
+	<!--search jQuery-->
 
 <?php if (current_url() == site_url()): ?>
 <script src="<?=base_url('js/responsiveslides.min.js');?>"></script>
@@ -169,7 +197,12 @@ div.hello-bar {
 }
 
 </style>
-
+<?php if ($mobile === FALSE): ?>
+	<!--[if lt IE 9]>
+		<script src="<?php echo base_url($plugins_dir . '/html5shiv/html5shiv.min.js'); ?>"></script>
+		<script src="<?php echo base_url($plugins_dir . '/respond/respond.min.js'); ?>"></script>
+	<![endif]-->
+<?php endif; ?>
 </head>
 <body>
 
@@ -257,7 +290,7 @@ div.hello-bar {
 								<?php
 									foreach ($this->data['golongan'] as $item) {
 								?>
-									<li><a href="<?php echo site_url('products/'.$item->kdgol); ?>"><?= $item->nama ?></a></li>
+									<li><a href="<?php echo site_url('categories/'.$item->kdgol); ?>"><?= $item->nama ?></a></li>
 								<?php
 									}
 								?>
@@ -350,7 +383,7 @@ div.hello-bar {
       <a href="javascript:void(0);" data-dismiss="modal" aria-hidden="true" class="menu-close"><i class="fa fa-times"></i></a>
 	  <div class="hello-body">
 	    <h3 class="tittle text-center">hello,</h3>
-	  	<h4 class="hello-tittle text-center">What is your restaurant type:</h4>
+	  	<h4 class="hello-tittle text-center">Choose your restaurant type..</h4>
 		<div class="hello-bar">
 			<div class="col-sm-6 col-xs-12">
 				<span class="detail"><a class="hello-menu" href="<?php echo site_url('searchtag?tag=asia'); ?>">Chinese/Asian Food</a></span>
@@ -421,7 +454,7 @@ div.hello-bar {
 												<div class="col-xs-8">
 												<div class="checkbox icheck">
 													<label class="hover">
-														<?php echo form_checkbox('remember', '1', FALSE, 'id="remember"'); ?><?php echo lang('auth_remember_me'); ?>
+													<div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
 													</label>
 												</div>
 												</div>
@@ -465,15 +498,11 @@ div.hello-bar {
 												<input type="text" name="lastname" id="lastname" tabindex="2" class="form-control" placeholder="Last Name" value="">
 											</div>
 											<div class="form-group has-feedback">
-												<input type="text" name="username" id="username" tabindex="3" class="form-control" placeholder="User Name" value="">
-												<span class="glyphicon glyphicon-user form-control-feedback"></span>
-											</div>
-											<div class="form-group has-feedback">
-												<input type="email" name="email" id="email" tabindex="4" class="form-control" placeholder="Email Address" value="">
+												<input type="email" name="email" id="email2" tabindex="3" class="form-control" placeholder="Email Address" value="">
 												<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 											</div>
 											<div class="form-group has-feedback">
-												<input type="password" name="password" id="password" tabindex="5" class="form-control" placeholder="Password">
+												<input type="password" name="password" id="password2" tabindex="4" class="form-control" placeholder="Password">
 												<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 											</div>
 											<div class="form-group has-feedback">
@@ -484,7 +513,7 @@ div.hello-bar {
 												<div class="col-xs-8">    
 													<div class="checkbox icheck">
 														<label>
-															<div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> I agree to the <a href="#">terms</a> and <a href="#">privacy policy</a>
+															<div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> I agree to the <a href="<?=site_url('term-of-use');?>">terms</a> and <a href="<?=site_url('privacy-policy');?>">privacy policy</a>
 														</label>
 													</div>                        
 												</div><!-- /.col -->

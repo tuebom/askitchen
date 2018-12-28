@@ -34,13 +34,13 @@ class Searchtag extends Public_Controller {
 			$offset = 0;
 		}
 		
-		$total = $this->stock_model->total_rows($q,$b,$p1,$p2);
+		$total = $this->stock_model->total_rows($q); //,$b,$p1,$p2
 		$url   = current_url() . '?tag='.$tag.'&p=';
 		
 		$this->data['pagination'] = $this->paging($total, $page, $url);
 
         $this->data['q'] = '';
-		$this->data['products'] = $this->stock_model->get_by_food_category(12,0,$tag);
+		$this->data['products'] = $this->stock_model->get_by_food_category(12,$offset,$tag);
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('search/index', $this->data);
