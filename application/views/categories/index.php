@@ -134,7 +134,7 @@
 															<figure>		
 																<a href="<?= site_url('products/'.$item->kdgol2); ?>" class="new-gri">
 																	<div class="grid-img">
-																		<img src="<?=site_url('images/categories/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->gambar; ?>">
+																		<img src="<?=site_url('images/categories/'.$item->gbr);?>" class="img-responsive" alt="<?= $item->gbr; ?>">
 																	</div>
 																</a>		
 															</figure>	
