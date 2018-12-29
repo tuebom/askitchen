@@ -693,12 +693,21 @@ label.hot {
     background:white;
 	text-align: center;
 }
+.related-w3agile {
+    padding: 1em 0;
+    background:white;
+    text-align: center;
+    font-size: 12px;
+}
 .tab-wl3 {
     padding: 2em 0;
     background: #F9F8F8;
 	text-align: justify;
 }
 .arrivals-grids {
+    margin-top: 2em;
+}
+.related-grids {
     margin-top: 2em;
 }
 .grid-arr-hot {
@@ -777,9 +786,21 @@ label.hot {
     -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
     padding: 1.0em;
+    margin-top: 12px; /***/
+    border-radius: 10px;
+    height: 230px;
+    background: #e2e2e2;
+}
+.grid-rel {
+    background: #e2e2e2; /*#E2E2E2*/
+    /* border: 1px solid #777; */
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    padding: 1.0em;
     margin-top: 10px; /***/
     border-radius: 10px;
-    height: 245px;
+    height: 180px;
 }
 .grid-arr .grid-arrival figure {
   position: relative;
@@ -797,6 +818,12 @@ label.hot {
   width: 100%;
   z-index: 1;
 }
+.grid-rel .grid-related figure > a {
+    display: block;
+    float: left;
+    width: 100%;
+    z-index: 1;
+  }
 .grid-arr .grid-arrival figure > a .grid-img {
   width: 110px;
   height: 90px;
@@ -809,6 +836,18 @@ label.hot {
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
 }
+.grid-rel .grid-related figure > a .grid-img {
+    width: 100px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    /*width: 100%;*/
+    line-height: 0;
+    will-change: right;
+    -moz-transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
 .grid-arr .grid-arrival figure > a .grid-img img {
   /*width: 100%;*/
   max-height: 100%;
@@ -816,6 +855,13 @@ label.hot {
   margin-left: auto;
   margin-right: auto;
 }
+.grid-rel .grid-related figure > a .grid-img img {
+    /*width: 100%;*/
+    max-height: 100%;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 .grid-arr .grid-arrival figure > a .grid-img + .grid-img {
   position: absolute;
   top: 0;
@@ -871,6 +917,9 @@ a:focus {
     outline-offset: -2px;
 }
 .grid-arrival {
+    position: relative;
+}
+.grid-related {
     position: relative;
 }
 .ribben {
@@ -1506,10 +1555,10 @@ img.img-header{
     width: 40px;
 	height:40px;
     padding: 8px 0px;
-    color: #A9A9A9;
+    color: black;
     line-height: 24px;
     border: 1px solid #E5E5E5;
-    background-color: #E5E5E5;
+    background-color: #a9a9a9;
     text-align: center;
     display: inline-block;
 	margin-right: 3px;
@@ -2094,11 +2143,11 @@ h2.typoh2{
 }
 .single-left {
     float: left;
-    width: 30%;
+    width: 40%;
     margin-right: 2%;
 }
 .single-right {
-    float: left;
+    float: right;
     width: 50%;
 }
 .single-grid h4 {
@@ -4043,4 +4092,22 @@ div.col-md-3.product-tab-grid.simpleCart_shelfItem {
   
   #myBtn:hover {
     background-color: transparent;
+  }
+  div.col-md-3.related-grid.simpleCart_shelfItem{
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 15%;
+  }
+  img.img-responsive2{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+  }
+  div.col-md-3.product-agileinfo-grid{
+    /* border-right: 3px solid black;  */
+    height: 400px;
+    overflow: auto; 
   }
