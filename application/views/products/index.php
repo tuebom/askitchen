@@ -67,7 +67,7 @@
 											if (p1 == '' || p2 == '') {
 												return false;
 											}
-											var newUri = theUrl + '&p1='+p1+'&p2='+p2; //$(this).attr('href') + stringToSend;
+											var newUri = theUrl + '&p1='+p1+'&p2='+p2;
 											$(this).attr("href", newUri);
 											window.location.href = $(this).attr('href');
 										});
@@ -108,7 +108,7 @@
 
 												foreach ($this->data['products'] as $item) {
 
-													if ($index == 4) { $index = 0; }
+													if ($index == 4) $index = 0;
 
 													if ($index == 0) { // buat tab product baru
 
@@ -172,6 +172,12 @@
 																	</div>
 																</a>		
 															</figure>	
+														</div>
+														<div class="women">
+															<p ><em class="item_price">Rp<?= $item->hjual; ?></em></p>
+															<span class="size"><?= $item->kdbar; ?></span>
+															<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
+															<!--<span class="detail"><a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="See Details" class="my-cart-d item_add">See Details</a></span>-->
 														</div>
 													</div>
 												</div>

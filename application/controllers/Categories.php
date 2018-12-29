@@ -32,7 +32,7 @@ class Categories extends Public_Controller {
 
 		/*if ($this->input->get('p')) {
 			$page   = $this->input->get('p');
-			$offset = ((int)$page-1)*12;
+			$offset = ((int)$page-1)*8;
 		} else {
 			$page   = 1;
 			$offset = 0;
