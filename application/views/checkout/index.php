@@ -10,7 +10,7 @@
 		<div class="content">
 			<div class="cart-items">
 				<div class="container">
-                    <form action="<?= site_url('submit'); ?>" method="post">
+                    <form id="frmSubmit" action="<?= site_url('submit'); ?>" method="post">
                     <input type="hidden" name="total" value="">
                     <input type="hidden" name="shipping" value="">
 
@@ -158,7 +158,7 @@
                         </table>
 
                         <div class="col-sm-6 checkout-right-basket2"><a class="checkout-right-basket2" href="<?php echo site_url('cart'); ?>">Back</a></div>
-                        <div class="col-sm-6 checkout-right-basket2"><a class="checkout-right-basket2" href="<?php echo site_url('submit'); ?>">Submit Order</a></div>
+                        <div class="col-sm-6 checkout-right-basket2"><a class="checkout-right-basket2" href="javascript:{}" onclick="document.getElementById('frmSubmit').submit(); return false;">Submit Order</a></div>
                     </div>
                     </form>
 				</div>

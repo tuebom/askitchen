@@ -97,7 +97,7 @@
 
 												foreach ($this->data['products'] as $item) {
 
-													if ($index == 4) { $index = 0; }
+													if ($index == 4) $index = 0;
 
 													if ($index == 0) { // buat tab product baru
 

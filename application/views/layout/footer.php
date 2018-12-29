@@ -65,14 +65,13 @@
 							<div class="footer-grid-bawah">
 							<!-- <div class="col-md-3 footer-grid"> -->
 								<ul>
-										<!-- <div class="logo-bawah"> -->
-										
-										<a href="http://www.askitchen.com/" target="_blank"><img class="img-footer" src="<?= site_url('images/askitchen_btm.png'); ?>" alt="ASkitchen Logo" hspace="5" /></a>
-										<a href="http://www.asovic.co.id/" target="_blank"><img class="img-footer-2" src="<?= site_url('images/asovic_btm.png'); ?>" alt="ASovic Logo" hspace="5" /></a>
-										<a href="http://www.muchef.com/" target="_blank"><img class="img-footer-2" src="<?= site_url('images/muchef_btm.png'); ?>" alt="Muchef Logo" hspace="5" /></a>
-										<!-- </div> -->
-									</ul>
-								</div>
+									<!-- <div class="logo-bawah"> -->
+									
+									<a href="http://www.askitchen.com/" target="_blank"><img class="img-footer" src="<?= site_url('images/askitchen_btm.png'); ?>" alt="ASkitchen Logo" hspace="5" /></a>
+									<a href="http://www.asovic.co.id/" target="_blank"><img class="img-footer-2" src="<?= site_url('images/asovic_btm.png'); ?>" alt="ASovic Logo" hspace="5" /></a>
+									<a href="http://www.muchef.com/" target="_blank"><img class="img-footer-2" src="<?= site_url('images/muchef_btm.png'); ?>" alt="Muchef Logo" hspace="5" /></a>
+									<!-- </div> -->
+								</ul>
 							</div>
 							
 							<!-- <div class="copy-left">
@@ -82,7 +81,7 @@
 							<div class="clearfix"></div>
 							</div>
 						</div>
-		</div>
+					</div>
 					<!--copy-->
 					<div class="copy-section">
 						<div class="container">
@@ -97,24 +96,60 @@
 					</div>
 				<!--copy-->
 
-				<script>
-				$('ul.nav li.dropdown').hover(function() {
-				$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
-				}, function() {
-				$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
-				});
-				</script>
+	<script>
+		$('ul.nav li.dropdown').hover(function() {
+			$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+		}, function() {
+			$(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+		});
+
+		$('.grid-arr-cat').hover(function() {
+			$(this).find('div.opacity-container').css("visibility", "visible");
+		}, function() {
+			$(this).find('div.opacity-container').css("visibility", "hidden");
+		});
+	</script>
+
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.ui.min.js'></script>
+	
+	<!-- <script src="<?php echo base_url($frameworks_dir . '/jquery/jquery.min.js'); ?>"></script> -->
+	<script src="<?php echo base_url($frameworks_dir . '/bootstrap/js/bootstrap.min.js'); ?>"></script>
 	<script src="<?php echo base_url($plugins_dir . '/icheck/js/icheck.min.js'); ?>"></script>
 	<script>
-		// $(function(){
-		// 	$('input').iCheck({
-		// 		checkboxClass: 'icheckbox_square-blue',
-		// 		radioClass: 'iradio_square-blue',
-		// 		increaseArea: '20%'
-		// 	});
-		// });
+		$(function(){
+			$('input').iCheck({
+				checkboxClass: 'icheckbox_square-blue',
+				radioClass: 'iradio_square-blue',
+				increaseArea: '20%'
+			});
+		
+			$('#login-form').on('submit', function(e) {
+				e.preventDefault();
+				var data = $("#login-form").serialize();
+				console.log(data);
+			});
+
+			<?php
+				$sUrl = site_url('users/add');
+			?>
+			$('#register-form').on('submit', function(e) {
+				e.preventDefault();
+				// var data = $("#register-form").serialize();
+				var data = $(this).serialize();
+				console.log(data);
+				$.ajax({
+					type: "POST", 
+					url: "<?php echo site_url('admin/users/add'); ?>",
+					data: data,
+					success: function(response) { 
+						// $('#modal-div').html(response).modal();
+						// console.log(response);
+						// alert(response);
+					}
+				});
+			});
+		});
 	</script>
 	<button onclick="topFunction()" id="myBtn" title="Go to top"><img src="http://localhost/askitchen/images/top.png" width="40" height="40" /></button>
 </body>

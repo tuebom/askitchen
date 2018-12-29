@@ -140,9 +140,11 @@
 															</figure>	
 														</div>
 														<div class="article-title"><?=$item->nama?></div>
-														<div class="description opacity-container">
-															<div class="article-title">Nullam vitae dolor et felis pulvinar laoreet nec quis augue</div>
-														</div>
+														<a href="<?= site_url('products/'.$item->kdgol2); ?>" class="new-gri">
+															<div class="opacity-container">
+																<div class="article-title"><?=$item->info?></div>
+															</div>
+														</a>
 													</div>
 												</div>
 											<?php 

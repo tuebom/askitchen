@@ -29,7 +29,7 @@ class Search extends Public_Controller {
 
 		if ($this->input->get('p')) {
 			$page   = $this->input->get('p');
-			$offset = ((int)$page-1)*12;
+			$offset = ((int)$page-1)*8;
 		} else {
 			$page   = 1;
 			$offset = 0;
@@ -71,7 +71,7 @@ class Search extends Public_Controller {
 		$this->data['pagination'] = $this->paging($total, $page, $url);
 
 		$this->data['q'] = $q; //data
-		$this->data['products'] = $this->stock_model->get_limit_data(12,$offset,$q,$b,$p1,$p2);
+		$this->data['products'] = $this->stock_model->get_limit_data(8,$offset,$q,$b,$p1,$p2);
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('search/index', $this->data);
@@ -82,9 +82,9 @@ class Search extends Public_Controller {
 	public function paging($total,$curr_page,$url){
     
 		$page = '';
-		$total_page = ceil($total/12);
+		$total_page = ceil($total/8);
 		
-		if($total > 12) { // hasil bagi atau jumlah halaman lebih dari satu
+		if($total > 8) { // hasil bagi atau jumlah halaman lebih dari satu
 		
 		   $page = '<ul class="pagination no-print">';
 			
