@@ -98,7 +98,7 @@
 									<ul id="myTab" class="nav1 nav1-tabs left-tab" role="tablist">
 										<ul id="myTab" class="nav nav-tabs left-tab" role="tablist">
 									<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"><img src="<?=base_url('images/menu1.png');?>"></a></li>
-									<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile"><img src="<?=base_url('images/menu.png');?>"></a></li>
+									<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile"><img src="<?=base_url('images/menu3.png');?>"></a></li>
 									</ul>
 									<?php endif; ?>
 									<div id="myTabContent" class="tab-content">

@@ -7,7 +7,7 @@
 					<div class="single-grids">
 						<div clas="single-top">
 							<div class="single-left">
-								<div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive"> </div>
+								<div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive2"> </div>
 								<!--<div class="flexslider">
 									<ul class="slides">
 										<li data-thumb="<?=base_url('images/si.jpg');?>">
@@ -335,7 +335,8 @@
 				if (count($this->data['related']) > 0) :
 			?>
 			<!--new-arrivals-->
-			<div class="new-arrivals-w3agile">
+			<!-- <div class="new-arrivals-w3agile">
+				<div class="new-arrivals-w3agile">
 				<div class="container">
 					<h3 class="tittle1">Related Products</h3>
 					<div class="arrivals-grids">
@@ -365,8 +366,41 @@
 						<div class="clearfix"></div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 			<!--new-arrivals-->
+			<div class="related-w3agile">
+				<div class="container">
+					<h3 class="tittle1">Related Products</h3>
+					<div class="related-grids">
+						<?php
+							for($i=0; $i<6;$i++)
+							// ($this->data['related'][i] as $item) 
+							{
+						?>
+						<div class="col-md-3 related-grid simpleCart_shelfItem">
+							<div class="grid-rel">
+								<div class="grid-related">
+									<figure>		
+										<a href="<?php echo site_url('detail/'.$this->data['related'][$i]->kdurl); ?>" class="new-gri">
+											<div class="grid-img">
+												<img src="<?=site_url($this->data['products_dir'].'/'.$this->data['related'][$i]->gambar);?>" class="img-responsive" alt="<?= $item->kdbar?>">
+											</div>
+										</a>		
+									</figure>	
+								</div>
+								<div class="women">
+									<p ><em class="item_price">Rp<?= $item->hjual; ?></em></p>
+									<span class="size"><?= $item->kdbar; ?></span>
+									<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
+									<span class="detail"><a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="See Details" class="my-cart-d item_add">See Details</a></span>
+								</div>
+							</div>
+						</div>
+						<?php } ?>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
 			<?php
 				endif;
 			?>
