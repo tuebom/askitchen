@@ -284,7 +284,7 @@ div.hello-bar {
 							<div style="display: inline-block; vertical-align: middle; color:#fff;">Deliver To<br>INDONESIA</div></a>
 						</div>
 					</div>
-					<div class="top-left2">
+					<div class="top-left">
 						<!-- search form -->
 						<form id="frmSearch" action="<?php echo site_url('search'); ?>" method="get" class="sidebar-form">
 							<div class="input-group search">
@@ -310,52 +310,48 @@ div.hello-bar {
 							</div>
 						</form>
 						
-						<nav class="navbar navbar-default" id="nav1">
-							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">						<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-								<ul class="nav navbar-nav">
-									<!-- <li><a href="#">
-										<div style="display: inline-block; vertical-align: middle;"><img src="<?= site_url('images/location.png'); ?>" alt="location"/></div>
-										<div style="display: inline-block; vertical-align: middle;">Deliver To<br>INDONESIA</div></a>
-									</li> -->
-									<!-- Mega Menu -->
-									<?php 
-										$index = 0;
+						<ul class="nav navbar-nav">
+							<!-- <li><a href="#">
+								<div style="display: inline-block; vertical-align: middle;"><img src="<?= site_url('images/location.png'); ?>" alt="location"/></div>
+								<div style="display: inline-block; vertical-align: middle;">Deliver To<br>INDONESIA</div></a>
+							</li> -->
+							<!-- Mega Menu -->
+							<?php 
+								$index = 0;
 
-										foreach ($this->data['golongan'] as $item) {
-									?>
-									<li class="dropdown">
-										<a href="<?php echo site_url('products/'.$item->kdgol); ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $item->nama ?><b class="caret"></b></a>
-										<?php if($index == 4){ ?>
-										<ul class="dropdown-menu multi-column columns-3 pull-right">
-											<?php } else { ?>
-												<ul class="dropdown-menu multi-column columns-3">
-											<?php } ?>
-											<div>
-												<?php foreach ($this->data['item_'.$item->kdgol] as $detail) { ?>
-												<div class="col-sm-3 multi-gd-img">
-													<div><label class="block-with-text"><?php echo $detail->nama ?></label></div>
-													<div class="row">
-														<div class="sample">
-														<a href="<?php echo site_url('products/'.$detail->kdgol2); ?>">
-															<img src="<?php echo site_url($this->data['products_dir'].'/'.$detail->gambar); ?>" alt="<?php echo $detail->nama ?>"/></a>
-														</div>
-													</div>
-													<div><label class="block-with-text"><?php echo $detail->kdbar ?></label></div>
-													<a class="view-more btn- btn-sm" href="<?php echo site_url('products/'.$detail->kdgol2); ?>">Read More</a>
+								foreach ($this->data['golongan'] as $item) {
+							?>
+							<li class="dropdown">
+								<a href="<?php echo site_url('products/'.$item->kdgol); ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $item->nama ?><b class="caret"></b></a>
+								<?php if($index == 4){ ?>
+								<ul class="dropdown-menu multi-column columns-3 pull-right">
+									<?php } else { ?>
+										<ul class="dropdown-menu multi-column columns-3">
+									<?php } ?>
+									<div>
+										<?php foreach ($this->data['item_'.$item->kdgol] as $detail) { ?>
+										<div class="col-sm-3 multi-gd-img">
+											<div><label class="block-with-text"><?php echo $detail->nama ?></label></div>
+											<div class="row">
+												<div class="sample">
+												<a href="<?php echo site_url('products/'.$detail->kdgol2); ?>">
+													<img src="<?php echo site_url($this->data['products_dir'].'/'.$detail->gambar); ?>" alt="<?php echo $detail->nama ?>"/></a>
 												</div>
-												<?php } ?>
 											</div>
-										</ul>
-									</li>
-									<?php 
-											$index++;
-											// if ($index == 5) break;
-										}
-									?>
-									<!--<li><a href="#">%BB</a></li>-->
+											<div><label class="block-with-text"><?php echo $detail->kdbar ?></label></div>
+											<a class="view-more btn- btn-sm" href="<?php echo site_url('products/'.$detail->kdgol2); ?>">Read More</a>
+										</div>
+										<?php } ?>
+									</div>
 								</ul>
-							</div>
-						</nav>
+							</li>
+							<?php 
+									$index++;
+									// if ($index == 5) break;
+								}
+							?>
+							<!--<li><a href="#">%BB</a></li>-->
+						</ul>
 					</div>
 					<div class="top-right">
 						<ul>
@@ -369,7 +365,7 @@ div.hello-bar {
 							<!--<li><a href="javascript:void(0);" data-toggle="modal" data-target="#loginModal">Sign In</a></li>-->
 							<?php endif; ?>
 							<li><a href="<?php echo site_url('cart'); ?>">Cart&nbsp;<img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a>
-							&nbsp;<span class="badge badge-primary"><?php if($this->session->userdata('totqty')): echo $this->session->userdata('totqty'); else: echo '0'; endif; ?></span></li>
+							&nbsp;<span class="badge badge-primary"><?= $_SESSION["totqty"] ?></span></li>
 						</ul>
 					</div>
 					<div class="clearfix"></div>
@@ -380,7 +376,7 @@ div.hello-bar {
 				<div class="container">
 					<div class="logo-nav">
 						<div class="logo-nav-left1">
-							<nav class="navbar navbar-default" id="nav2">
+							<nav class="navbar navbar-default">
 							<!-- Brand and toggle get grouped for better mobile display -->
 							<div class="navbar-header nav_2">
 								<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
@@ -390,7 +386,7 @@ div.hello-bar {
 									<span class="icon-bar"></span>
 								</button>
 							</div> 
-							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs2">
+							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 								
 								<ul class="nav navbar-nav">
 									<!-- <li><a href="#">
