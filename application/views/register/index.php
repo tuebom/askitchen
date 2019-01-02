@@ -6,10 +6,10 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-6">
-								<a href="#" class="active" id="login-form-link">Login</a>
+								<a href="#" id="login-form-link">Login</a>
 							</div>
 							<div class="col-xs-6">
-								<a href="#" id="register-form-link">Register</a>
+								<a href="#" class="active" id="register-form-link">Register</a>
 							</div>
 						</div>
 						<hr>
@@ -17,7 +17,7 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="login-form" action="<?= site_url('login') ?>" method="post" role="form" style="display: block;">
+								<form id="login-form" action="<?= site_url('login') ?>" method="post" role="form" style="display: none;">
 									<div class="form-group has-feedback">
 										<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
 										<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -55,7 +55,8 @@
 										</div>
 									</div>
 								</form>
-								<form id="register-form" action="<?= site_url('register') ?>" method="post" role="form" style="display: none;">
+								<form id="register-form" action="<?= site_url('register') ?>" method="post" role="form" style="display: block;">
+									<?php echo $message;?>
 									<div class="form-group">
 										<input type="text" name="firstname" id="firstname" tabindex="1" class="form-control" placeholder="First Name" value="">
 									</div>
