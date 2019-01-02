@@ -33,12 +33,12 @@
 	<link rel="stylesheet" type="text/css" href='//fonts.googleapis.com/css?family=Calibri'>
 	<link rel="stylesheet" type="text/css" href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300'>
 	
-	<!-- <link rel="stylesheet" type="text/css" href="<?=base_url('css/bootstrap.min.css');?>" media="all"/> -->
-	<!--<link rel="stylesheet" type="text/css" href="<?=base_url('css/font-awesome.css');?>">-->
+	<link rel="stylesheet" type="text/css" href="<?=base_url('css/bootstrap.min.css');?>" media="all"/>
+	<link rel="stylesheet" type="text/css" href="<?=base_url('css/font-awesome.css');?>">
 	<!--<link rel="stylesheet" type="text/css" href="<?=base_url('css/jquery-ui.css');?>">-->
 	
-	<link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/bootstrap/css/bootstrap.min.css'); ?>">
-    <link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/font-awesome/css/font-awesome.min.css'); ?>">
+	<!-- <link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/bootstrap/css/bootstrap.min.css'); ?>"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/font-awesome/css/font-awesome.min.css'); ?>"> -->
 	<link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/adminlte/css/adminlte.min.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/adminlte/plugins/iCheck/flat/blue.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?=base_url('css/style.css');?>" media="all"/>

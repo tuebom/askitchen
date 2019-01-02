@@ -123,32 +123,6 @@
 			// 	radioClass: 'iradio_square-blue',
 			// 	increaseArea: '20%'
 			// });
-		
-			$('#login-form').on('submit', function(e) {
-				e.preventDefault();
-				var data = $("#login-form").serialize();
-				console.log(data);
-			});
-
-			<?php
-				$sUrl = site_url('users/add');
-			?>
-			$('#register-form').on('submit', function(e) {
-				e.preventDefault();
-				// var data = $("#register-form").serialize();
-				var data = $(this).serialize();
-				console.log(data);
-				$.ajax({
-					type: "POST", 
-					url: "<?php echo site_url('admin/users/add'); ?>",
-					data: data,
-					success: function(response) { 
-						// $('#modal-div').html(response).modal();
-						// console.log(response);
-						// alert(response);
-					}
-				});
-			});
 		});
 	</script>
 	<button onclick="topFunction()" id="myBtn" title="Go to top"><img src="http://localhost/askitchen/images/top.png" width="40" height="40" /></button>
