@@ -203,13 +203,13 @@ class Stock_model extends CI_Model
     }
 
     // get item reviews
-    function get_reviews($code)
-    {
-        $this->db->select('comment');
-        $this->db->order_by('timestamp', 'DESC');
-        $this->db->where('kdbar', $code);
-        return $this->db->get('reviews')->result();
-    }
+    // function get_reviews($code)
+    // {
+    //     $this->db->select('comment');
+    //     $this->db->order_by('timestamp', 'DESC');
+    //     $this->db->where('kdbar', $code);
+    //     return $this->db->get('reviews')->result();
+    // }
 
     // insert data
     function insert($data)

@@ -9,19 +9,19 @@
 							<div clas="single-top">
 								<div class="single-left">
 									<div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive"> </div>
-									<!--<div class="flexslider">
+									<div class="flexslider">
 										<ul class="slides">
 											<li data-thumb="<?=base_url('images/si.jpg');?>">
-												<div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$item->gambar);?>" data-imagezoom="true" class="img-responsive"> </div>
+												<div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive"> </div>
 											</li>
 											<li data-thumb="<?=base_url('images/si1.jpg');?>">
-												 <div class="thumb-image"> <img src="<?=base_url('images/si1.jpg');?>" data-imagezoom="true" class="img-responsive"> </div>
+												 <div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive"> </div>
 											</li>
 											<li data-thumb="<?=base_url('images/si2.jpg');?>">
-											   <div class="thumb-image"> <img src="<?=base_url('images/si2.jpg');?>" data-imagezoom="true" class="img-responsive"> </div>
+											   <div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive"> </div>
 											</li> 
 										 </ul>
-									</div>-->
+									</div>
 								</div>
 								<div class="single-right simpleCart_shelfItem">
 									
