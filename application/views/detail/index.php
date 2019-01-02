@@ -7,20 +7,20 @@
 					<div class="single-grids">
 						<div clas="single-top">
 							<div class="single-left">
-								<div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive2"> </div>
-								<!--<div class="flexslider">
+								<!-- <div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive2"> </div> -->
+								<div class="flexslider">
 									<ul class="slides">
-										<li data-thumb="<?=base_url('images/si.jpg');?>">
-											<div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$item->gambar);?>" data-imagezoom="true" class="img-responsive"> </div>
+										<li data-thumb="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>">
+											<div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive"> </div>
 										</li>
-										<li data-thumb="<?=base_url('images/si1.jpg');?>">
-												<div class="thumb-image"> <img src="<?=base_url('images/si1.jpg');?>" data-imagezoom="true" class="img-responsive"> </div>
+										<li data-thumb="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>">
+												<div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive"> </div>
 										</li>
-										<li data-thumb="<?=base_url('images/si2.jpg');?>">
-											<div class="thumb-image"> <img src="<?=base_url('images/si2.jpg');?>" data-imagezoom="true" class="img-responsive"> </div>
+										<li data-thumb="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>">
+											<div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive"> </div>
 										</li> 
-										</ul>
-								</div>-->
+									</ul>
+								</div>
 							</div>
 							<div class="single-right simpleCart_shelfItem">
 								
@@ -331,21 +331,81 @@
 				</div>
 			</div>
 			<!--single-->
+			<!--reviews-->
+			<div class="reviews">
+				<div class="container">
+					<h3 class="tittle1">Reviews</h3>
+					<div class="col-md-6">
+						<div class="related-grids">
+							<div class="reviews-top">
+								<?php
+									foreach ($this->data['reviews'] as $item) {
+								?>
+								<div class="comment">
+									<div class="reviews-left">
+										<img src="<?=site_url('images/user.jpg');?>" alt=" " class="img-responsive">
+									</div>
+									<div class="reviews-right">
+										<ul>
+											<li><a href="#"><?=$item->name?></a> <!--<?=date_format($item->timestamp, "j D Y")?>--></li>
+											<li><a href="#"><i class="glyphicon glyphicon-share" aria-hidden="true"></i>Reply</a></li>
+										</ul>
+										<p><?=$item->comment?></p>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+								<?php }
+									if($this->data['totreviews'] > 3): ?>
+								<input type="button" value="Read All Reviews">
+								<?php endif; ?>
+							</div>
+							<div class="reviews-bottom">
+								<h4>Add Reviews</h4>
+								<p>Your email address will not be published. Required fields are marked *</p>
+								<p>Your Rating</p>
+								<!-- <div class="block">
+									<div class="starbox small ghosting"><div class="positioner" style=""><div class="stars"><div class="ghost" style="width: 0px; display: none;"></div><div class="colorbar" style="width: 42.5px;"></div><div class="star_holder"><div class="star star-0"></div><div class="star star-1"></div><div class="star star-2"></div><div class="star star-3"></div><div class="star star-4"></div></div></div></div></div>
+								</div> -->
+								<form action="<?=current_url().'?action=comment';?>" method="post">
+									<input type="hidden" name="kdbar" value="<?= $this->data['product']->kdbar ?>">
+									<input type="hidden" name="url" value="<?= current_url() ?>">
+									<label>Your Review </label>
+									<textarea type="text" name="comment" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required>Message...</textarea>
+									<div class="row">
+										<div class="col-md-6 row-grid">
+											<label>Name</label>
+											<input type="text" value="Name" name="name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required>
+										</div>
+										<div class="col-md-6 row-grid">
+											<label>Email</label>
+											<input type="email" value="Email" name="email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required>
+										</div>
+										<div class="clearfix"></div>
+									</div>
+									<input type="submit" value="Send">
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--reviews-->
 			<?php
 				if (count($this->data['related']) > 0) :
 			?>
-			<!--new-arrivals-->
-			<!-- <div class="new-arrivals-w3agile">
-				<div class="new-arrivals-w3agile">
+			<!--related-products-->
+			<div class="related-w3agile">
 				<div class="container">
 					<h3 class="tittle1">Related Products</h3>
-					<div class="arrivals-grids">
+					<div class="related-grids">
 						<?php
+							// for($i=0; $i<6;$i++) $this->data['related'][$i]
+							$index = 0;
 							foreach ($this->data['related'] as $item) {
 						?>
-						<div class="col-md-3 arrival-grid simpleCart_shelfItem">
-							<div class="grid-arr">
-								<div class="grid-arrival">
+						<div class="col-md-3 related-grid simpleCart_shelfItem">
+							<div class="grid-rel">
+								<div class="grid-related">
 									<figure>		
 										<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" class="new-gri">
 											<div class="grid-img">
@@ -362,45 +422,15 @@
 								</div>
 							</div>
 						</div>
-						<?php } ?>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-			</div> -->
-			<!--new-arrivals-->
-			<div class="related-w3agile">
-				<div class="container">
-					<h3 class="tittle1">Related Products</h3>
-					<div class="related-grids">
-						<?php
-							for($i=0; $i<6;$i++)
-							// ($this->data['related'][i] as $item) 
-							{
-						?>
-						<div class="col-md-3 related-grid simpleCart_shelfItem">
-							<div class="grid-rel">
-								<div class="grid-related">
-									<figure>		
-										<a href="<?php echo site_url('detail/'.$this->data['related'][$i]->kdurl); ?>" class="new-gri">
-											<div class="grid-img">
-												<img src="<?=site_url($this->data['products_dir'].'/'.$this->data['related'][$i]->gambar);?>" class="img-responsive" alt="<?= $item->kdbar?>">
-											</div>
-										</a>		
-									</figure>	
-								</div>
-								<div class="women">
-									<p ><em class="item_price">Rp<?= $item->hjual; ?></em></p>
-									<span class="size"><?= $item->kdbar; ?></span>
-									<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
-									<span class="detail"><a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="See Details" class="my-cart-d item_add">See Details</a></span>
-								</div>
-							</div>
-						</div>
-						<?php } ?>
+						<?php 
+							$index++;
+							if ($index == 6) break;
+							} ?>
 						<div class="clearfix"></div>
 					</div>
 				</div>
 			</div>
+			<!--related-products-->
 			<?php
 				endif;
 			?>

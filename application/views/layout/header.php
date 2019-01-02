@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="<?php echo $lang; ?>">
 <head>
+	<?php echo '<!-- '.current_url(). ' -->'; ?>
 	<meta charset="<?php echo $charset; ?>">
 	<title>Professional Food Service Supplies | Home :: ASKITCHEN</title>
 <?php if ($mobile === FALSE): ?>
@@ -95,7 +96,6 @@
 <!--//End-rate-->
 <?php endif; ?>
 
-<?php if (current_url() == site_url().'detail'): ?>
 <script defer src="<?=base_url('js/jquery.flexslider.js');?>"></script>
 <link rel="stylesheet" href="<?=base_url('css/flexslider.css');?>" type="text/css" media="screen" />
 <script src="<?=base_url('js/imagezoom.js');?>"></script>
@@ -125,7 +125,6 @@ $(window).load(function() {
 	});
 </script>
 
-<?php endif; ?>
 <style>
 	/* modal */
 @media screen {
