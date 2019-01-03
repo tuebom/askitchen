@@ -279,7 +279,7 @@ div.hello-bar {
 							<a href="<?php echo site_url(); ?>"><img src="<?= site_url('images/logo.png'); ?>" alt="ASKITCHEN Logo"></a>
 						</div>
 						<div class="location">
-							<div style="display: inline-block; vertical-align: middle;"><img src="<?= site_url('images/location.png'); ?>" alt="location"/></div>
+							<div style="display: inline-block; vertical-align: middle; padding:5px;"><img src="<?= site_url('images/locationnew.png'); ?>" alt="location"/></div>
 							<div style="display: inline-block; vertical-align: middle; color:#fff;">Deliver To<br>INDONESIA</div></a>
 						</div>
 					</div>
@@ -324,7 +324,7 @@ div.hello-bar {
 									?>
 									<li class="dropdown">
 										<a href="<?php echo site_url('products/'.$item->kdgol); ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $item->nama ?><b class="caret"></b></a>
-										<?php if($index == 4){ ?>
+										<?php if($index >=4){ ?>
 										<ul class="dropdown-menu multi-column columns-3 pull-right">
 											<?php } else { ?>
 												<ul class="dropdown-menu multi-column columns-3">

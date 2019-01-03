@@ -1054,6 +1054,7 @@ a.view-more{
     padding: 2px 10px !important;
     line-height: 20px !important;
     display: inline-block !important;
+    color: white;
 }
 a.view-more:hover {
     color:#fff;
