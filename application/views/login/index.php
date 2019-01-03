@@ -18,12 +18,13 @@
 						<div class="row">
 							<div class="col-lg-12">
 								<form id="login-form" action="<?= site_url('login') ?>" method="post" role="form" style="display: block;">
+									<?php if (isset($this->data['message_login'])) echo $this->data['message_login'];?>
 									<div class="form-group has-feedback">
-										<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+										<input type="text" name="identity" id="email" tabindex="1" class="form-control" placeholder="<?php echo lang('auth_your_email') ?>" value="">
 										<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 									</div>
 									<div class="form-group has-feedback">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="<?php echo lang('auth_your_password') ?>">
 										<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 									</div>
 									<div class="row">
@@ -56,6 +57,7 @@
 									</div>
 								</form>
 								<form id="register-form" action="<?= site_url('register') ?>" method="post" role="form" style="display: none;">
+									<?php if (isset($this->data['message_register'])) echo $this->data['message_register'];?>
 									<div class="form-group">
 										<input type="text" name="firstname" id="firstname" tabindex="1" class="form-control" placeholder="First Name" value="">
 									</div>

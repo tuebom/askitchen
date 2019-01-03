@@ -382,6 +382,16 @@
 										</div>
 										<div class="clearfix"></div>
 									</div>
+									<div class="row">
+										<div class="col-md-6 row-grid">
+											<img class="captcha" src="<?=site_url($this->data['assets_dir'].'/captcha/captcha.php')?>">
+										</div>
+										<div class="col-md-6 row-grid">
+											<label>Captcha</label>
+											<input type="text" name="captcha" required>
+										</div>
+										<div class="clearfix"></div>
+									</div>
 									<input type="submit" value="Send">
 								</form>
 							</div>

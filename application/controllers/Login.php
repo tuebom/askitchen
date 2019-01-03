@@ -6,8 +6,13 @@ class Login extends Public_Controller {
     public function __construct()
     {
 		parent::__construct();
+        $this->lang->load('admin/users');
+        $this->lang->load('auth');
+        
 		$this->load->model('golongan_model');
 		$this->load->model('member_model');
+        
+        // $this->output->enable_profiler(TRUE);
 	}
 
 	public function index()
@@ -17,19 +22,12 @@ class Login extends Public_Controller {
 		foreach ($this->data['golongan'] as $item) {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
-
-		$this->load->view('layout/header', $this->data);
-		$this->load->view('login/index', $this->data);
-		$this->load->view('layout/footer', $this->data);
-	}
-	
-	function login()
-	{
+        
         if ( ! $this->ion_auth->logged_in())
         {
 
             /* Valid form */
-            $this->form_validation->set_rules('identity', 'Identity', 'required');
+            $this->form_validation->set_rules('identity', 'Email', 'required');
             $this->form_validation->set_rules('password', 'Password', 'required');
 
             if ($this->form_validation->run() == TRUE)
@@ -46,21 +44,22 @@ class Login extends Public_Controller {
                     else
                     {
                         /* Data */
-                        $this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+                        $this->data['message_login'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 
                         /* Load Template */
                         $this->template->auth_render('auth/choice', $this->data);
+                        return;
                     }
                 }
                 else
                 {
                     $this->session->set_flashdata('message', $this->ion_auth->errors());
-				    redirect('auth/login', 'refresh');
+				    redirect('login', 'refresh');
                 }
             }
             else
             {
-                $this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+                $this->data['message_login'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 
                 $this->data['identity'] = array(
                     'name'        => 'identity',
@@ -79,8 +78,12 @@ class Login extends Public_Controller {
                 );
 
                 /* Load Template */
-                $this->template->auth_render('auth/login', $this->data);
+                // $this->template->auth_render('auth/login', $this->data);
             }
+
+            $this->load->view('layout/header', $this->data);
+            $this->load->view('login/index', $this->data);
+            $this->load->view('layout/footer', $this->data);
         }
         else
         {

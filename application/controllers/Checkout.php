@@ -6,6 +6,8 @@ class Checkout extends Public_Controller {
     public function __construct()
     {
 		parent::__construct();
+        $this->lang->load('checkout');
+		
 		$this->load->model('golongan_model');
 		$this->load->model('provinsi_model');
 		$this->load->model('kabupaten_model');
@@ -28,9 +30,10 @@ class Checkout extends Public_Controller {
         {
 			// redirect('auth/login', 'refresh');
 			// ambil data kode member
-			$mbrid = $this->session->userdata('mbrid');
+			$user  = $this->ion_auth->user()->row();
+			//$mbrid = $this->session->userdata('mbrid');
 			// siapkan data member
-			$this->data['anggota'] = $this->member_model->get_by_id($mbrid);
+			$this->data['anggota'] = $user; //$this->member_model->get_by_id($user->id);
         }
 
 		$this->load->view('layout/header', $this->data);
