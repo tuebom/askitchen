@@ -35,12 +35,12 @@
 	
 	<link rel="stylesheet" type="text/css" href="<?=base_url('css/bootstrap.min.css');?>" media="all"/>
 	<link rel="stylesheet" type="text/css" href="<?=base_url('css/font-awesome.css');?>">
-	<!--<link rel="stylesheet" type="text/css" href="<?=base_url('css/jquery-ui.css');?>">-->
+	<link rel="stylesheet" type="text/css" href="<?=base_url('css/jquery-ui.css');?>">
 	
-	<!-- <link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/bootstrap/css/bootstrap.min.css'); ?>"> -->
-    <!-- <link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/font-awesome/css/font-awesome.min.css'); ?>"> -->
+	<link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/bootstrap/css/bootstrap.min.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/font-awesome/css/font-awesome.min.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/adminlte/css/adminlte.min.css'); ?>">
-	<link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/adminlte/plugins/iCheck/flat/blue.css'); ?>">
+	<!-- <link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/adminlte/plugins/iCheck/flat/blue.css'); ?>"> -->
 	<link rel="stylesheet" type="text/css" href="<?=base_url('css/style.css');?>" media="all"/>
 
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -364,7 +364,8 @@ div.hello-bar {
 							<?php if ($logout_link): ?>
 							<li><a href="<?php echo site_url('auth/logout/public'); ?>">Logout</a></li>
 							<?php else: ?>
-							<li><a href="<?php echo site_url('register'); ?>">Sign In</a></li>
+							<li><a href="<?php echo site_url('register'); ?>">Register</a></li>
+							<li><a href="<?php echo site_url('login'); ?>">Sign In</a></li>
 							<!--<li><a href="javascript:void(0);" data-toggle="modal" data-target="#loginModal">Sign In</a></li>-->
 							<?php endif; ?>
 							<li><a href="<?php echo site_url('cart'); ?>">Cart&nbsp;<img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a>

@@ -15,47 +15,47 @@
                     <input type="hidden" name="shipping" value="">
 
                     <div class="col-md-8">    
-                        <h2>Billing Details</h2>
+                        <h2><?= lang('checkout_billing_details') ?></h2>
                         <div class="row">
                             <div class="col-sm-6">    
                                 <div class="form-group">
-                                    <label for="firstname">First Name</label>
-                                    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter first name" required>
+                                    <label for="firstname"><?= lang('checkout_first_name') ?></label>
+                                    <input type="text" class="form-control" id="first_name" name="first_name" value="<?=($this->data['anggota']->first_name)? $this->data['anggota']->first_name : '';?>" placeholder="Enter first name" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">    
                                 <div class="form-group">
-                                    <label for="lastname">Last Name</label>
-                                    <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter last name" required>
+                                    <label for="lastname"><?= lang('checkout_last_name') ?></label>
+                                    <input type="text" class="form-control" id="last_name" name="last_name" value="<?=($this->data['anggota']->last_name)? $this->data['anggota']->last_name : '';?>" placeholder="Enter last name" required>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">    
                                 <div class="form-group">
-                                    <label for="company">Company</label>
-                                    <input type="text" class="form-control" id="company" name="company" placeholder="Enter company name">
+                                    <label for="company"><?= lang('checkout_company') ?></label>
+                                    <input type="text" class="form-control" id="company" name="company" value="<?=($this->data['anggota']->company)? $this->data['anggota']->company : '';?>" placeholder="Enter company name">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">    
                                 <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="text" class="form-control" id="email" name="email" placeholder="Enter email address">
+                                    <label for="email"><?= lang('checkout_email') ?></label>
+                                    <input type="text" class="form-control" id="email" name="email" value="<?=($this->data['anggota']->email)? $this->data['anggota']->email : '';?>" placeholder="Enter email address">
                                 </div>
                             </div>
                             <div class="col-sm-6">    
                                 <div class="form-group">
-                                    <label for="phone">Phone</label>
-                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone number">
+                                    <label for="phone"><?= lang('checkout_phone') ?></label>
+                                    <input type="text" class="form-control" id="phone" name="phone" value="<?=($this->data['anggota']->phone)? $this->data['anggota']->phone : '';?>" placeholder="Enter phone number">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">    
                                 <div class="form-group">
-                                    <label for="province">Province</label>
+                                    <label for="province"><?= lang('checkout_province') ?></label>
                                     <select id="province" name="province" class="form-control">
                                         <option value="" selected>-</option>
                                         <?php
@@ -68,7 +68,7 @@
                             </div>
                             <div class="col-sm-6">    
                                 <div class="form-group">
-                                    <label for="regency">Regency</label>
+                                    <label for="regency"><?= lang('checkout_regency') ?></label>
                                     <select id="regency" name="regency" class="form-control">
                                     </select>
                                 </div>
@@ -77,38 +77,38 @@
                         <div class="row">
                             <div class="col-sm-6">    
                                 <div class="form-group">
-                                    <label for="district">District</label>
+                                    <label for="district"><?= lang('checkout_district') ?></label>
                                     <select id="district" name="district" class="form-control">
                                     </select>
                                 </div>
                             </div>
                             <div class="col-sm-6">    
                                 <div class="form-group">
-                                    <label for="zip">Post Code</label>
-                                    <input type="text" class="form-control" id="zip" name="zip" placeholder="Enter post code">
+                                    <label for="zip"><?= lang('checkout_post_code') ?></label>
+                                    <input type="text" class="form-control" id="post_code" name="post_code" placeholder="Enter post code">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">    
                                 <div class="form-group">
-                                    <label for="address1">Address 1</label>
-                                    <input type="text" class="form-control" id="address1" name="address1" placeholder="Enter address 1" required>
+                                    <label for="address1"><?= lang('checkout_address1') ?></label>
+                                    <input type="text" class="form-control" id="address1" name="address1" value="<?=($this->data['anggota']->address1)? $this->data['anggota']->address1 : '';?>" placeholder="Enter address 1" required>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">    
                                 <div class="form-group">
-                                    <label for="address2">Address 2</label>
-                                    <input type="text" class="form-control" id="address2" name="address2" placeholder="Enter address 2">
+                                    <label for="address2"><?= lang('checkout_address2') ?></label>
+                                    <input type="text" class="form-control" id="address2" name="address2" value="<?=($this->data['anggota']->address2)? $this->data['anggota']->address2 : '';?>" placeholder="Enter address 2">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">    
                                 <div class="form-group">
-                                    <label for="note">Order Notes</label>
+                                    <label for="note"><?= lang('checkout_order_notes') ?></label>
                                     <input type="text" class="form-control" id="note" name="note" placeholder="Enter order notes">
                                 </div>
                             </div>
@@ -204,8 +204,6 @@
             $.ajax({
                 type: "POST",
                 url: "<?php echo site_url();?>checkout/districts/"+$(this).val(),
-                // dataType: "json",
-                // data: {"id":$(this).val()},
                 success:function(json){
                     var data = json.data;
                     $('#district').html('');

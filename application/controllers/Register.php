@@ -6,10 +6,15 @@ class Register extends Public_Controller {
     public function __construct()
     {
 		parent::__construct();
-		$this->load->model('golongan_model');
+
+        /* Load :: Common */
+        $this->lang->load('admin/users');
+        $this->lang->load('auth');
+        
+        $this->load->model('golongan_model');
         $this->load->model('member_model');
 
-        $this->lang->load('auth');
+		// $this->output->enable_profiler(TRUE);
 	}
 
 	public function index()
@@ -23,6 +28,7 @@ class Register extends Public_Controller {
         $fn = $this->input->post('first_name');
 
         if ($fn) {
+
             /* Variables */
             $tables = $this->config->item('tables', 'ion_auth');
             
@@ -30,8 +36,10 @@ class Register extends Public_Controller {
             $this->form_validation->set_rules('first_name', 'lang:users_firstname', 'required');
             $this->form_validation->set_rules('last_name', 'lang:users_lastname', 'required');
             $this->form_validation->set_rules('email', 'lang:users_email', 'required|valid_email|is_unique['.$tables['users'].'.email]');
+            
             // $this->form_validation->set_rules('phone', 'lang:users_phone', 'required');
             // $this->form_validation->set_rules('company', 'lang:users_company', 'required');
+            
             $this->form_validation->set_rules('password', 'lang:users_password', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
             $this->form_validation->set_rules('password_confirm', 'lang:users_password_confirm', 'required');
 
@@ -47,20 +55,16 @@ class Register extends Public_Controller {
                     // 'company'    => $this->input->post('company'),
                     // 'phone'      => $this->input->post('phone'),
                 );
-            } /*else {
+            }
 
-                die(print('gagal!'));
-            }*/
-
-            if ($this->form_validation->run() == TRUE && $this->ion_auth->register($username, $password, $email, $additional_data))
+            if ($this->form_validation->run() == TRUE && $this->ion_auth->register($username, $password, $email, $additional_data)) //
             {
                 $this->session->set_flashdata('message', $this->ion_auth->messages());
-                // redirect('login', 'refresh');
-                die(print('sukses!'));
+                redirect('login', 'refresh');
             }
             else
             {
-                $this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
+                $this->data['message_register'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
 
                 $this->data['first_name'] = array(
                     'name'  => 'first_name',
@@ -115,19 +119,10 @@ class Register extends Public_Controller {
 
                 /* Load Template */
                 // $this->template->admin_render('admin/users/create', $this->data);
-                // redirect('/', 'refresh');
-                // return $this->output
-                // ->set_content_type('application/json')
-                // ->set_status_header(403)
-                // ->set_output(json_encode(array(
-                //         'data' => $this->$data
-                // )));
-                // $this->_render_page('auth/login', $this->data);
-                die(print($this->data['message']));
             }
         }
 
-		$this->load->view('layout/header', $this->data);
+        $this->load->view('layout/header', $this->data);
 		$this->load->view('register/index', $this->data);
 		$this->load->view('layout/footer', $this->data);
 	}

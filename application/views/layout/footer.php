@@ -114,8 +114,8 @@
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.ui.min.js'></script>
 	
 	<!-- <script src="<?php echo base_url($frameworks_dir . '/jquery/jquery.min.js'); ?>"></script> -->
-	<script src="<?php echo base_url($frameworks_dir . '/bootstrap/js/bootstrap.min.js'); ?>"></script>
-	<script src="<?php echo base_url($plugins_dir . '/icheck/js/icheck.min.js'); ?>"></script>
+	<!-- <script src="<?php echo base_url($frameworks_dir . '/bootstrap/js/bootstrap.min.js'); ?>"></script> -->
+	<!-- <script src="<?php echo base_url($plugins_dir . '/icheck/js/icheck.min.js'); ?>"></script> -->
 	<script>
 		$(function(){
 			// $('input').iCheck({

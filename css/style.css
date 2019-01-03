@@ -124,7 +124,7 @@ body{
         align-items: center;
     }
     .top-left2 {
-        padding: 0em 4em;
+        padding: 0em 1.5em;
     }
 }
 @media (min-width: 1024px) {
@@ -210,7 +210,7 @@ body{
     padding: 0;
 }
 .content {
-    min-height: 425px;
+    min-height: 500px;
 }
 ul.multi-column-dropdown h6 {
     font-size: 1.4em;
@@ -1437,6 +1437,9 @@ img.img-header{
     border-top-right-radius: 10px;
     height: 30px;
 }
+img.captcha {
+    margin-top: 1.25em;
+}
 .social-icon {
     margin-top: 1.8em;
 }
@@ -2368,7 +2371,8 @@ p.quote {
     border: 1px solid #D2D2D2;
     /* font-size: 15px;
     color: #FDA30E; */
-	width:100%;
+    width:100%;
+    margin-bottom: 1em;
 }
 .reviews-bottom textarea {
     width: 100% !important;

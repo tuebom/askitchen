@@ -6,6 +6,7 @@ class Detail extends Public_Controller {
     public function __construct()
     {
 		parent::__construct();
+
 		$this->load->model('golongan_model');
 		$this->load->model('stock_model');
 		$this->load->model('reviews_model');
@@ -16,6 +17,8 @@ class Detail extends Public_Controller {
 	
 	public function index()
 	{
+		// $this->load->config('common/dp_config');
+
 		$this->data['golongan'] = $this->golongan_model->get_all();
 
 		foreach ($this->data['golongan'] as $item) {
@@ -51,5 +54,22 @@ class Detail extends Public_Controller {
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('detail/index', $this->data);
 		$this->load->view('layout/footer', $this->data);
+	}
+
+	
+	public function captcha()
+	{
+		header("Content-type: image/png");
+
+		$captcha_image = imagecreatefrompng("<?=site_url('images/captcha.png')?>");
+		$captcha_font = imageloadfont("<?=site_url('images/font.gdf')?>");
+		$captcha_text = substr(md5(uniqid('')),-6,6);
+		
+		$this->session->set_userdata('captcha', $captcha_text);
+		
+		$captcha_color = imagecolorallocate($captcha_image,0,0,0);
+		imagestring($captcha_image,$captcha_font,15,5,$captcha_text,$captcha_color);
+		imagepng($captcha_image);
+		imagedestroy($captcha_image);
 	}
 }

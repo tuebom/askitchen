@@ -17,7 +17,8 @@ class Auth extends MY_Controller {
 	{
         if ( ! $this->ion_auth->logged_in())
         {
-            redirect('auth/login', 'refresh');
+            // redirect('auth/login', 'refresh');
+            redirect('login', 'refresh');
         }
         else
         {
@@ -110,7 +111,8 @@ class Auth extends MY_Controller {
 
         if ($src == 'admin')
         {
-            redirect('auth/login', 'refresh');
+            // redirect('auth/login', 'refresh');
+            redirect('login', 'refresh');
         }
         else
         {
