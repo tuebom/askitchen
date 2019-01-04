@@ -11,8 +11,6 @@
 			<div class="cart-items">
 				<div class="container">
                     <form id="frmSubmit" action="<?= site_url('submit'); ?>" method="post">
-                    <input type="hidden" name="total" value="">
-                    <input type="hidden" name="shipping" value="">
 
                     <div class="col-md-8">    
                         <h2><?= lang('checkout_billing_details') ?></h2>
@@ -20,13 +18,13 @@
                             <div class="col-sm-6">    
                                 <div class="form-group">
                                     <label for="firstname"><?= lang('checkout_first_name') ?></label>
-                                    <input type="text" class="form-control" id="first_name" name="first_name" value="<?=($this->data['anggota']->first_name)? $this->data['anggota']->first_name : '';?>" placeholder="Enter first name" required>
+                                    <input type="text" class="form-control" id="first_name" name="first_name" value="<?=isset($this->data['anggota']->first_name) ? $this->data['anggota']->first_name : '';?>" placeholder="Enter first name" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">    
                                 <div class="form-group">
                                     <label for="lastname"><?= lang('checkout_last_name') ?></label>
-                                    <input type="text" class="form-control" id="last_name" name="last_name" value="<?=($this->data['anggota']->last_name)? $this->data['anggota']->last_name : '';?>" placeholder="Enter last name" required>
+                                    <input type="text" class="form-control" id="last_name" name="last_name" value="<?=isset($this->data['anggota']->last_name)? $this->data['anggota']->last_name : '';?>" placeholder="Enter last name" required>
                                 </div>
                             </div>
                         </div>
@@ -34,7 +32,7 @@
                             <div class="col-sm-12">    
                                 <div class="form-group">
                                     <label for="company"><?= lang('checkout_company') ?></label>
-                                    <input type="text" class="form-control" id="company" name="company" value="<?=($this->data['anggota']->company)? $this->data['anggota']->company : '';?>" placeholder="Enter company name">
+                                    <input type="text" class="form-control" id="company" name="company" value="<?=isset($this->data['anggota']->company)? $this->data['anggota']->company : '';?>" placeholder="Enter company name">
                                 </div>
                             </div>
                         </div>
@@ -42,13 +40,13 @@
                             <div class="col-sm-6">    
                                 <div class="form-group">
                                     <label for="email"><?= lang('checkout_email') ?></label>
-                                    <input type="text" class="form-control" id="email" name="email" value="<?=($this->data['anggota']->email)? $this->data['anggota']->email : '';?>" placeholder="Enter email address">
+                                    <input type="text" class="form-control" id="email" name="email" value="<?=isset($this->data['anggota']->email)? $this->data['anggota']->email : '';?>" placeholder="Enter email address">
                                 </div>
                             </div>
                             <div class="col-sm-6">    
                                 <div class="form-group">
                                     <label for="phone"><?= lang('checkout_phone') ?></label>
-                                    <input type="text" class="form-control" id="phone" name="phone" value="<?=($this->data['anggota']->phone)? $this->data['anggota']->phone : '';?>" placeholder="Enter phone number">
+                                    <input type="text" class="form-control" id="phone" name="phone" value="<?=isset($this->data['anggota']->phone)? $this->data['anggota']->phone : '';?>" placeholder="Enter phone number">
                                 </div>
                             </div>
                         </div>
@@ -93,7 +91,7 @@
                             <div class="col-sm-12">    
                                 <div class="form-group">
                                     <label for="address1"><?= lang('checkout_address1') ?></label>
-                                    <input type="text" class="form-control" id="address1" name="address1" value="<?=($this->data['anggota']->address1)? $this->data['anggota']->address1 : '';?>" placeholder="Enter address 1" required>
+                                    <input type="text" class="form-control" id="address1" name="address1" value="<?=isset($this->data['anggota']->address1)? $this->data['anggota']->address1 : '';?>" placeholder="Enter address 1" required>
                                 </div>
                             </div>
                         </div>
@@ -101,7 +99,7 @@
                             <div class="col-sm-12">    
                                 <div class="form-group">
                                     <label for="address2"><?= lang('checkout_address2') ?></label>
-                                    <input type="text" class="form-control" id="address2" name="address2" value="<?=($this->data['anggota']->address2)? $this->data['anggota']->address2 : '';?>" placeholder="Enter address 2">
+                                    <input type="text" class="form-control" id="address2" name="address2" value="<?=isset($this->data['anggota']->address2)? $this->data['anggota']->address2 : '';?>" placeholder="Enter address 2">
                                 </div>
                             </div>
                         </div>
@@ -160,6 +158,8 @@
                         <div class="col-sm-6 checkout-right-basket2"><a class="checkout-right-basket2" href="<?php echo site_url('cart'); ?>">Back</a></div>
                         <div class="col-sm-6 checkout-right-basket2"><a class="checkout-right-basket2" href="javascript:{}" onclick="document.getElementById('frmSubmit').submit(); return false;">Submit Order</a></div>
                     </div>
+                    <input type="hidden" name="total" value="<?=$total_price?>">
+                    <input type="hidden" name="shipping" value="">
                     </form>
 				</div>
 			</div>

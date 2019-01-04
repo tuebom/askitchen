@@ -49,20 +49,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <i class="fa fa-user"></i> <span><?php echo lang('menu_general'); ?></span>
                             </a>
                         </li>
-                        <li class="<?=active_link_controller('inventory')?>">
-                            <a href="<?php echo site_url('admin/inventory'); ?>">
-                                <i class="fa fa-user"></i> <span><?php echo lang('menu_inventory'); ?></span>
+                        <li class="treeview <?=active_link_controller('products')?>">
+                            <a href="#">
+                                <i class="fa fa-cogs"></i>
+                                <span><?php echo lang('menu_products'); ?></span>
+                                <i class="fa fa-angle-left pull-right"></i>
                             </a>
-                        </li>
-                        <li class="<?=active_link_controller('linkedproducts')?>">
-                            <a href="<?php echo site_url('admin/linkedproducts'); ?>">
-                                <i class="fa fa-user"></i> <span><?php echo lang('menu_linkedproducts'); ?></span>
-                            </a>
-                        </li>
-                        <li class="<?=active_link_controller('shipping')?>">
-                            <a href="<?php echo site_url('admin/shipping'); ?>">
-                                <i class="fa fa-user"></i> <span><?php echo lang('menu_shipping'); ?></span>
-                            </a>
+                            <ul class="treeview-menu">
+                                <!-- <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('admin/prefs/interfaces/admin'); ?>"><?php echo lang('menu_interfaces'); ?></a></li> -->
+                                <li class="<?=active_link_controller('inventory')?>">
+                                    <a href="<?php echo site_url('admin/inventory'); ?>">
+                                        <i class="fa fa-user"></i> <span><?php echo lang('menu_inventory'); ?></span>
+                                    </a>
+                                </li>
+                                <li class="<?=active_link_controller('shipping')?>">
+                                    <a href="<?php echo site_url('admin/shipping'); ?>">
+                                        <i class="fa fa-user"></i> <span><?php echo lang('menu_shipping'); ?></span>
+                                    </a>
+                                </li>
+                                <li class="<?=active_link_controller('linkedproducts')?>">
+                                    <a href="<?php echo site_url('admin/linkedproducts'); ?>">
+                                        <i class="fa fa-user"></i> <span><?php echo lang('menu_linkedproducts'); ?></span>
+                                    </a>
+                                </li>
+                                <li class="<?=active_link_controller('attributes')?>">
+                                    <a href="<?php echo site_url('admin/attributes'); ?>">
+                                        <i class="fa fa-user"></i> <span><?php echo lang('menu_attributes'); ?></span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
 
 

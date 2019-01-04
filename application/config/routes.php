@@ -64,4 +64,3 @@ $route['detail/(:any)/(:any)'] = 'detail/index/$1';
 
 $route['admin'] = 'admin/dashboard';
 $route['admin/prefs/interfaces/(:any)'] = 'admin/prefs/interfaces/$1';
-
