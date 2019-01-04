@@ -370,15 +370,15 @@
 									<input type="hidden" name="kdbar" value="<?= $this->data['product']->kdbar ?>">
 									<input type="hidden" name="url" value="<?= current_url() ?>">
 									<label>Your Review </label>
-									<textarea type="text" name="comment" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required>Message...</textarea>
+									<textarea type="text" name="comment" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required><?=isset($this->data['comment']) ? $this->data['comment'] : 'Message...';?></textarea>
 									<div class="row">
 										<div class="col-md-6 row-grid">
 											<label>Name</label>
-											<input type="text" value="Name" name="name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required>
+											<input type="text" value="<?=isset($this->data['name']) ? $this->data['name'] : 'Name';?>" name="name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required>
 										</div>
 										<div class="col-md-6 row-grid">
 											<label>Email</label>
-											<input type="email" value="Email" name="email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required>
+											<input type="email" value="<?=isset($this->data['email']) ? $this->data['email'] : 'Email';?>" name="email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required>
 										</div>
 										<div class="clearfix"></div>
 									</div>
@@ -392,7 +392,14 @@
 										</div>
 										<div class="clearfix"></div>
 									</div>
-									<input type="submit" value="Send">
+									<div class="row">
+										<div class="col-md-3 col-xs-4 row-grid">
+											<input id="btnSend" type="submit" value="Send">
+										</div>
+										<div class="col-md-9 col-xs-8 row-grid">
+											<label class="message"><?=isset($this->data['message']) ? $this->data['message'] : '';?></label>
+										</div>
+									</div>
 								</form>
 							</div>
 						</div>

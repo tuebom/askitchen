@@ -24,7 +24,7 @@
 <?php if ($mobile == TRUE && $ios == TRUE): ?>
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<meta name="apple-mobile-web-app-title" content="<?php echo $title; ?>">
+	<meta name="apple-mobile-web-app-title" content="Professional Food Service Supplies | Home :: ASKITCHEN">
 <?php endif; ?>
 <?php if ($mobile == TRUE && $android == TRUE): ?>
 	<meta name="mobile-web-app-capable" content="yes">
@@ -42,6 +42,9 @@
 	<link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/adminlte/css/adminlte.min.css'); ?>">
 	<!-- <link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/adminlte/plugins/iCheck/flat/blue.css'); ?>"> -->
 	<link rel="stylesheet" type="text/css" href="<?=base_url('css/style.css');?>" media="all"/>
+	
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<script src="<?=base_url('js/jquery.min.js');?>"></script>
@@ -155,8 +158,6 @@ $(window).load(function() {
     background-color: #941204;
     box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
     padding: 24px;
-    /*position: relative;
-	display: none;*/
 	border-radius: 20px;
 }
 
@@ -172,7 +173,6 @@ $(window).load(function() {
     outline: none;
     font-size: 20px;
     line-height: 30px;
-    /*transition: transform .3s ease-in-out;*/
     color: #FFF;
 }
 /* div.hello-body {
@@ -242,6 +242,12 @@ div.hello-bar {
 			$("#menu-modal").velocity("callout.bounce");
 		});
 	
+	    $('#img-logo').hover(function(){
+			$(this).attr('src','images/askitchen2.png');
+		},function(){
+			$(this).attr('src','images/askitchen.png');
+		});
+
 	    $('#login-form-link').click(function(e) {
 			$("#login-form").delay(100).fadeIn(100);
 			$("#register-form").fadeOut(100);
@@ -265,7 +271,7 @@ div.hello-bar {
 			<div class="header-top-most">
 				<div class="container2">
 					<div class="top-left">
-						<a href="#"><img class="img-header" src="<?= site_url('images/askitchen.png'); ?>" alt="ASKITCHEN Logo" hspace="3" /></a>
+						<a href="#"><img id="img-logo" class="img-header" src="<?= site_url('images/askitchen.png'); ?>" alt="ASKITCHEN Logo" hspace="3" /></a>
 						<a href="http://www.asovic.co.id/" target="_blank"><img class="img-header" src="<?= site_url('images/asovic.jpg'); ?>" alt="ASOVIC Logo" hspace="3" /></a>
 						<a href="http://www.muchef.com/" target="_blank"><img class="img-header" src="<?= site_url('images/muchef.jpg'); ?>" alt="MUCHEF Logo" hspace="3" /></a>
 					</div>
@@ -279,8 +285,8 @@ div.hello-bar {
 							<a href="<?php echo site_url(); ?>"><img src="<?= site_url('images/logo.png'); ?>" alt="ASKITCHEN Logo"></a>
 						</div>
 						<div class="location">
-							<div style="display: inline-block; vertical-align: middle; padding:5px;"><img src="<?= site_url('images/locationnew.png'); ?>" alt="location"/></div>
-							<div style="display: inline-block; vertical-align: middle; color:#fff;">Deliver To<br>INDONESIA</div></a>
+							<img src="<?= site_url('images/location.png'); ?>" alt="location"/>
+							<span style="display: inline-block; vertical-align: middle; color:#fff;">Deliver To<br>INDONESIA</span></a>
 						</div>
 					</div>
 					<div class="top-left2">
@@ -310,12 +316,9 @@ div.hello-bar {
 						</form>
 						
 						<nav class="navbar navbar-default" id="nav1">
-							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">						<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 								<ul class="nav navbar-nav">
-									<!-- <li><a href="#">
-										<div style="display: inline-block; vertical-align: middle;"><img src="<?= site_url('images/location.png'); ?>" alt="location"/></div>
-										<div style="display: inline-block; vertical-align: middle;">Deliver To<br>INDONESIA</div></a>
-									</li> -->
+
 									<!-- Mega Menu -->
 									<?php 
 										$index = 0;
@@ -383,7 +386,7 @@ div.hello-bar {
 							<nav class="navbar navbar-default" id="nav2">
 							<!-- Brand and toggle get grouped for better mobile display -->
 							<div class="navbar-header nav_2">
-								<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+								<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs2">
 									<span class="sr-only">Toggle navigation</span>
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
@@ -393,10 +396,11 @@ div.hello-bar {
 							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs2">
 								
 								<ul class="nav navbar-nav">
-									<!-- <li><a href="#">
+									<!--<li><a href="#">
 										<div style="display: inline-block; vertical-align: middle;"><img src="<?= site_url('images/location.png'); ?>" alt="location"/></div>
 										<div style="display: inline-block; vertical-align: middle;">Deliver To<br>INDONESIA</div></a>
-									</li> -->
+									</li>-->
+
 									<!-- Mega Menu -->
 									<?php 
 										$index = 0;
@@ -514,4 +518,8 @@ div.hello-bar {
 		document.body.scrollTop = 0;
 		document.documentElement.scrollTop = 0;
 	}
+
+	<?php if($this->session->flashdata('message')){  ?>
+    toastr.error("<?php echo $this->session->flashdata('message'); ?>");
+	<?php } ?>
 </script>

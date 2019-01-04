@@ -28,12 +28,8 @@ class Checkout extends Public_Controller {
 		
 		if ( $this->ion_auth->logged_in())
         {
-			// redirect('auth/login', 'refresh');
-			// ambil data kode member
-			$user  = $this->ion_auth->user()->row();
-			//$mbrid = $this->session->userdata('mbrid');
 			// siapkan data member
-			$this->data['anggota'] = $user; //$this->member_model->get_by_id($user->id);
+			$this->data['anggota'] = $this->ion_auth->user()->row();
         }
 
 		$this->load->view('layout/header', $this->data);

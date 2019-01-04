@@ -20,7 +20,7 @@
 								<form id="login-form" action="<?= site_url('login') ?>" method="post" role="form" style="display: block;">
 									<?php if (isset($this->data['message_login'])) echo $this->data['message_login'];?>
 									<div class="form-group has-feedback">
-										<input type="text" name="identity" id="email" tabindex="1" class="form-control" placeholder="<?php echo lang('auth_your_email') ?>" value="">
+										<input type="text" name="identity" id="email" tabindex="1" class="form-control" placeholder="<?php echo lang('auth_your_email') ?>" value="<?=isset($this->data['identity']) ? $this->data['identity']['value'] : '';?>">
 										<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 									</div>
 									<div class="form-group has-feedback">
@@ -59,21 +59,21 @@
 								<form id="register-form" action="<?= site_url('register') ?>" method="post" role="form" style="display: none;">
 									<?php if (isset($this->data['message_register'])) echo $this->data['message_register'];?>
 									<div class="form-group">
-										<input type="text" name="firstname" id="firstname" tabindex="1" class="form-control" placeholder="First Name" value="">
+										<input type="text" name="first_name" id="first_name" tabindex="1" class="form-control" placeholder="<?php echo lang('users_firstname') ?>" value="">
 									</div>
 									<div class="form-group">
-										<input type="text" name="lastname" id="lastname" tabindex="2" class="form-control" placeholder="Last Name" value="">
+										<input type="text" name="last_name" id="last_name" tabindex="2" class="form-control" placeholder="<?php echo lang('users_lastname') ?>" value="">
 									</div>
 									<div class="form-group has-feedback">
-										<input type="email" name="email" id="email2" tabindex="3" class="form-control" placeholder="Email Address" value="">
+										<input type="email" name="email" id="email2" tabindex="3" class="form-control" placeholder="<?php echo lang('users_email') ?>" value="">
 										<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 									</div>
 									<div class="form-group has-feedback">
-										<input type="password" name="password" id="password2" tabindex="4" class="form-control" placeholder="Password">
+										<input type="password" name="password" id="password2" tabindex="4" class="form-control" placeholder="<?php echo lang('users_password') ?>">
 										<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 									</div>
 									<div class="form-group has-feedback">
-										<input type="password" name="confirm-password" id="confirm-password" tabindex="6" class="form-control" placeholder="Confirm Password">
+										<input type="password" name="password_confirm" id="password_confirm" tabindex="6" class="form-control" placeholder="<?php echo lang('users_password_confirm') ?>">
 										<span class="glyphicon glyphicon-log-in form-control-feedback"></span>
 									</div>
 									<div class="row">
