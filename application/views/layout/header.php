@@ -214,6 +214,7 @@ div.hello-bar {
 		<script src="<?php echo base_url($plugins_dir . '/respond/respond.min.js'); ?>"></script>
 	<![endif]-->
 <?php endif; ?>
+<script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5c2f0a6a04c7730011f604db&product=sticky-share-buttons' async='async'></script>
 </head>
 <body>
 
