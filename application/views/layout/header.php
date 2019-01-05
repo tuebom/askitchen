@@ -519,12 +519,12 @@ div.hello-bar {
 		document.body.scrollTop = 0;
 		document.documentElement.scrollTop = 0;
 	}
-<<<<<<< HEAD
+
 
 	<?php if($this->session->flashdata('message')){  ?>
     toastr.error("<?php echo $this->session->flashdata('message'); ?>");
 	<?php } ?>
+
+ 
 </script>
-=======
-</script>
->>>>>>> ask2
+
