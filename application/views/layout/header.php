@@ -43,9 +43,6 @@
 	<!-- <link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/adminlte/plugins/iCheck/flat/blue.css'); ?>"> -->
 	<link rel="stylesheet" type="text/css" href="<?=base_url('css/style.css');?>" media="all"/>
 	
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<script src="<?=base_url('js/jquery.min.js');?>"></script>
 	<!--search jQuery-->
@@ -71,7 +68,6 @@
 <script src="<?=base_url('js/simpleCart.min.js');?>"></script>
 <!-- cart -->
 
-<?php if (current_url() == site_url() || current_url() == site_url().'detail'): ?>
 <!--start-rate-->
 <script src="<?=base_url('js/jstarbox.js');?>"></script>
 	<link rel="stylesheet" href="<?=base_url('css/jstarbox.css');?>" type="text/css" media="screen" charset="utf-8" />
@@ -80,7 +76,7 @@
 			jQuery('.starbox').each(function() {
 				var starbox = jQuery(this);
 					starbox.starbox({
-					average: starbox.attr('data-start-value'),
+					average: 0, //starbox.attr('data-start-value'),
 					changeable: starbox.hasClass('unchangeable') ? false : starbox.hasClass('clickonce') ? 'once' : true,
 					ghosting: starbox.hasClass('ghosting'),
 					autoUpdateAverage: starbox.hasClass('autoupdate'),
@@ -91,13 +87,12 @@
 					var val = Math.random();
 					starbox.next().text(' '+val);
 					return val;
-					} 
+					}
 				})
 			});
 		});
 		</script>
 <!--//End-rate-->
-<?php endif; ?>
 
 <script defer src="<?=base_url('js/jquery.flexslider.js');?>"></script>
 <link rel="stylesheet" href="<?=base_url('css/flexslider.css');?>" type="text/css" media="screen" />
@@ -205,6 +200,64 @@ h4.hello-tittle {
 
 div.hello-bar {
     height: 40px;
+}
+
+.control {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  /* font-size: 18px; */
+}
+.control input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.control:hover input, .control__indicator,
+.control input:focus, .control__indicator {
+  background: #ccc;
+}
+.control input:checked, .control__indicator {
+  background: #2aa1c0;
+}
+.control:hover input:not([disabled]):checked, .control__indicator,
+.control input:checked:focus, .control__indicator {
+  background: #0e647d;
+}
+.control input:disabled, .control__indicator {
+  background: #e6e6e6;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.control__indicator {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background: #e6e6e6;
+}
+.control__indicator:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+.control input:checked, .control__indicator:after {
+  display: block;
+}
+.control--checkbox .control__indicator:after {
+  left: 8px;
+  top: 4px;
+  width: 3px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.control--checkbox input:disabled, .control__indicator:after {
+  border-color: #7b7b7b;
 }
 
 </style>

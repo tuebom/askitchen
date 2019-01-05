@@ -2463,6 +2463,9 @@ label.message {
     label.message {
         margin-top: 2px;
     }
+    .reviews-top input[type="button"] {
+        width: 50%;
+    }
     .reviews-bottom input[type="submit"] {
         width: 100%;
     }
@@ -2470,6 +2473,20 @@ label.message {
 @media (min-width: 768px) {
     label.message {
         margin-top: 12px;
+    }
+    .reviews-top input[type="button"] {
+        width: 20%;
+    }
+    .reviews-bottom input[type="submit"] {
+        width: 80%;
+    }
+}
+@media (min-width: 1024px) {
+    label.message {
+        margin-top: 12px;
+    }
+    .reviews-top input[type="button"] {
+        width: 30%;
     }
     .reviews-bottom input[type="submit"] {
         width: 80%;
@@ -4081,6 +4098,12 @@ td.invert-image {
     font-size: 14px;
     color: #212121;
 }
+.timetable_sub td.price {
+    text-align: right;
+    padding: 7px;
+    font-size: 14px;
+    color: #212121;
+}
 td.invert-image a img {
     width: auto;
     max-height: 100%;
@@ -4238,12 +4261,12 @@ div.col-md-3.product-tab-grid.simpleCart_shelfItem {
   #myBtn:hover {
     background-color: transparent;
   }
-  div.col-md-3.related-grid.simpleCart_shelfItem{
+  /* div.col-md-3.related-grid.simpleCart_shelfItem{
     position: relative;
     min-height: 1px;
     padding-right: 15px;
     padding-left: 15px;
-  }
+  } */
   @media (min-width: 1024px) {
     div.col-md-3.related-grid.simpleCart_shelfItem{
         width: 15%;
