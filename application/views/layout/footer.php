@@ -126,5 +126,6 @@
 		});
 	</script>
 	<button onclick="topFunction()" id="myBtn" title="Go to top"><img src="http://localhost/askitchen/images/top.png" width="40" height="40" /></button>
+	<div class="sharethis-inline-share-buttons"></div>
 </body>
 </html>
