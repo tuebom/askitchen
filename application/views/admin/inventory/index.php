@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <td><?php echo htmlspecialchars($item->berat, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td><?php echo htmlspecialchars($item->tag, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td><?php echo htmlspecialchars($item->hjual, ENT_QUOTES, 'UTF-8'); ?></td>
-                                                <td><?php echo htmlspecialchars($item->diskon, ENT_QUOTES, 'UTF-8'); ?></td>
+                                                <td><?php echo htmlspecialchars($item->disc, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td>
                                                     <?php echo anchor('admin/inventory/edit/'.$item->kdurl, 'Edit'); ?>
                                                 </td>

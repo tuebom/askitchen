@@ -38,8 +38,8 @@
 									<th>Product Code</th>
 									<th>Product</th>
 									<th>Product Name</th>
-									<th>Product Size</th>
-									<th>Quantity</th>
+									<th>Product Size (CM)</th>
+									<th>&nbsp;Qty&nbsp;</th>
 									<th>Price</th>
 									<th>Remove</th>
 								</tr>
@@ -75,13 +75,13 @@
 										</a>
 									</td>
 									<td class="invert"><?= $item["nama"]; ?></td>
-									<td class="invert"><?= $item["pnj"]; ?> cm x<br><?= $item["lbr"]; ?> cm x<br><?= $item["tgi"]; ?> cm</td>
+									<td class="invert">P: <?= $item["pnj"]; ?><br>L: <?= $item["lbr"]; ?><br>T: <?= $item["tgi"]; ?></td>
 									<td class="invert">
 										<div class="quantity">
 											<span><?= $item["qty"]; ?></span>
 										</div>
 									</td>
-									<td class="invert">Rp<?= number_format($item_price, 0, '.', ',') ?></td>
+									<td class="price invert">Rp<?= number_format($item_price, 0, '.', ',') ?></td>
 									<td class="invert">
 										<div class="rem">
 											<div class="close"> </div>
@@ -94,7 +94,7 @@
 								<tr>
 									<td colspan="5" style="text-align: right"><b>Total</b></td>
 									<td><?= $total_qty ?></td>
-									<td>Rp<?= number_format($total_price, 0, '.', ',') ?></td>
+									<td class="price">Rp<?= number_format($total_price, 0, '.', ',') ?></td>
 									<td></td>
 								</tr>
 							</tfoot>
