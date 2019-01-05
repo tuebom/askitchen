@@ -109,7 +109,6 @@ function topFunction() {
 						<div class="arrivals-grids">
 							<div class="col-md-4 arrival-grid simpleCart_shelfItem">
 								<div class="grid-arr-hot">
-									<!-- <div class="text1">Hot Products</div> -->
 											<a href="<?php echo site_url(); ?>" class="new-gri">
 												<img src="<?=site_url('images/hot.jpg');?>" class="img-hot" alt="">
 												<div class="text">
@@ -120,39 +119,25 @@ function topFunction() {
 							</div>
 						
 					
-					<!-- <div class="container"> -->
-						<div class="arrivals-grids">
 							<div class="col-md-4 arrival-grid simpleCart_shelfItem">
 								<div class="grid-arr-hot">
-									 <!-- <label class="hot"></label> -->
-									<!-- <div class="grid-arrival">  -->
-										<figure>		
 											<a href="<?php echo site_url(); ?>" class="new-gri">
-												<div class="grid-img">
-													<img src="<?=site_url('images/promotions.png');?>" class="img-hot" alt="">
-													<div class="text">
-														<h3>Promotions</h3>
-												</div>
+												<img src="<?=site_url('images/promotions.png');?>" class="img-hot" alt="">
+												<div class="text">
+													<h3>Promotions</h3>
 												</div>
 											</a>		
-										</figure>	
-									</div>
 								</div>
 							</div>
+							
 							<div class="col-md-4 arrival-grid simpleCart_shelfItem">
 								<div class="grid-arr-hot">
-									<!-- <label class="hot">Best Seller</label> -->
-									<div class="grid-arrival">
-										<figure>		
 											<a href="<?php echo site_url(); ?>" class="new-gri">
-												<div class="grid-img">
-													<img src="<?=site_url('images/bestseller.jpg');?>" class="img-hot" alt="">
-													<div class="text2">
-														<h3>Best Seller</h3>
+												<img src="<?=site_url('images/bestseller.jpg');?>" class="img-hot" alt="">
+												<div class="text">
+													<h3>Best Seller</h3>
 												</div>
 											</a>		
-										</figure>	
-									</div>
 								</div>
 							</div>
 							<div class="clearfix"></div>

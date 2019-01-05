@@ -59,21 +59,21 @@
 								<form id="register-form" action="<?= site_url('register') ?>" method="post" role="form" style="display: block;">
 									<?php if (isset($this->data['message_register'])) echo $this->data['message_register'];?>
 									<div class="form-group">
-										<input type="text" name="first_name" id="firstname" tabindex="1" class="form-control" placeholder="<?php echo lang('users_firstname') ?>" value="">
+										<input type="text" name="first_name" id="first_name" tabindex="1" class="form-control" placeholder="<?php echo lang('users_firstname') ?>" value="<?=isset($this->data['first_name']) ? $this->data['first_name']['value'] : '';?>">
 									</div>
 									<div class="form-group">
-										<input type="text" name="last_name" id="lastname" tabindex="2" class="form-control" placeholder="<?php echo lang('users_lastname') ?>" value="">
+										<input type="text" name="last_name" id="last_name" tabindex="2" class="form-control" placeholder="<?php echo lang('users_lastname') ?>" value="<?=isset($this->data['last_name']) ? $this->data['last_name']['value'] : '';?>">
 									</div>
 									<div class="form-group has-feedback">
-										<input type="email" name="email" id="email2" tabindex="3" class="form-control" placeholder="<?php echo lang('users_email') ?>" value="">
+										<input type="email" name="email" id="email2" tabindex="3" class="form-control" placeholder="<?php echo lang('users_email') ?>" value="<?=isset($this->data['email']) ? $this->data['email']['value'] : '';?>">
 										<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 									</div>
 									<div class="form-group has-feedback">
-										<input type="password" name="password" id="password2" tabindex="4" class="form-control" placeholder="<?php echo lang('users_password') ?>">
+										<input type="password" name="password" id="password2" tabindex="4" class="form-control" placeholder="<?php echo lang('users_password') ?>" value="<?=isset($this->data['password']) ? $this->data['password']['value'] : '';?>">
 										<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 									</div>
 									<div class="form-group has-feedback">
-										<input type="password" name="password_confirm" id="password_confirm" tabindex="6" class="form-control" placeholder="<?php echo lang('users_password_confirm') ?>">
+										<input type="password" name="password_confirm" id="password_confirm" tabindex="6" class="form-control" placeholder="<?php echo lang('users_password_confirm') ?>" value="<?=isset($this->data['password_confirm']) ? $this->data['password_confirm']['value'] : '';?>">
 										<span class="glyphicon glyphicon-log-in form-control-feedback"></span>
 									</div>
 									<div class="row">

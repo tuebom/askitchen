@@ -40,15 +40,29 @@ class Detail extends Public_Controller {
 				"name"     => $this->input->post('name'),
 				"email"    => $this->input->post('email'),
 				"comment"  => $this->input->post('comment')
-				);
+			);
 			
-			$url = $this->input->post('url');
-		
-			$this->reviews_model->insert($data);
-			header("location: ".$url);
+			$captcha  = $this->input->post('captcha');
+			$url 	  = $this->input->post('url');
+
+			// if ($captcha == $_SESSION['captcha_session'])
+			if ($captcha == $this->session->userdata('captcha_session'))
+			{
+				$this->reviews_model->insert($data);
+				header("location: ".$url);
+			}
+			else
+			{
+				// $this->session->set_flashdata('message', 'Kode yang Anda masukkan tidak cocok.');
+				$this->data['name']    = $this->input->post('name');
+				$this->data['email']   = $this->input->post('email');
+				$this->data['comment'] = $this->input->post('comment');
+				$this->data['message'] = 'Kode yang Anda masukkan tidak cocok.<br>'.
+				$this->session->userdata('captcha_session');
+			}
 		}
 		
-		$this->data['reviews'] = $this->reviews_model->get_limit_data(3,0,$kode);
+		$this->data['reviews']    = $this->reviews_model->get_limit_data(3,0,$kode);
 		$this->data['totreviews'] = $this->reviews_model->total_rows($kode);
 
 		$this->load->view('layout/header', $this->data);
