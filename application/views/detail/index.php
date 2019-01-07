@@ -163,7 +163,7 @@
 									</div>
 									<div class="row">
 										<div class="col-md-6 row-grid">
-											<img class="captcha" src="<?=site_url('images/captcha').$this->session->userdata('image')?>">
+											<img class="captcha" src="<?=site_url('images/captcha/').$this->session->userdata('image')?>">
 										</div>
 										<div class="col-md-6 row-grid">
 											<label>Captcha</label>
