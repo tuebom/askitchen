@@ -4036,7 +4036,7 @@ h3.tittle1, h3.tittle {
     z-index: 10000;
 	width:42px;
 	height:40px;
-	bottom:40px;
+	bottom:110px;
 	right:30px;
 	background-color:#06C;
 	color:#FFF;
@@ -4245,8 +4245,8 @@ div.col-md-3.product-tab-grid.simpleCart_shelfItem {
     
     display: none;
     position: fixed;
-    bottom: 110px;
-    right: 17px;
+    bottom: 45px;
+    right: 14px;
     z-index: 10000;
     font-size: 18px;
     border: transparent;

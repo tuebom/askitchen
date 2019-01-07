@@ -30,7 +30,7 @@
 								
 								<h4><?= $this->data['product']->nama . ' ('. $this->data['product']->kdbar .')' ?></h4>
 								<div class="block">
-									<div class="starbox small ghosting" data-start-value="<?= $this->data['product']->rating ?>"> </div>
+									<div class="starbox small ghosting unchangeable" data-start-value="<?= $this->data['product']->rating ?>"> </div>
 								</div>
 								<span class="size"><?= $this->data['product']->pnj; ?> x <?= $this->data['product']->lbr; ?> x <?= $this->data['product']->tgi; ?> CM</span>
 								<p class="price item_price">Rp <?= $this->data['product']->hjual ?></p>
@@ -126,7 +126,7 @@
 									<div class="reviews-right">
 										<ul>
 											<li><a href="#"><?=$item->name?></a> <!--<?=date_format($item->timestamp, "j D Y")?>--></li>
-											<li><a href="#"><i class="glyphicon glyphicon-share" aria-hidden="true"></i>Reply</a></li>
+											<!-- <li><a href="#"><i class="glyphicon glyphicon-share" aria-hidden="true"></i>Reply</a></li> -->
 										</ul>
 										<p><?=$item->comment?></p>
 									</div>

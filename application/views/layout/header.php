@@ -79,15 +79,17 @@
 					average: 0, //starbox.attr('data-start-value'),
 					changeable: starbox.hasClass('unchangeable') ? false : starbox.hasClass('clickonce') ? 'once' : true,
 					ghosting: starbox.hasClass('ghosting'),
-					autoUpdateAverage: starbox.hasClass('autoupdate'),
+					autoUpdateAverage: true, //starbox.hasClass('autoupdate'),
 					buttons: starbox.hasClass('smooth') ? false : starbox.attr('data-button-count') || 5,
 					stars: starbox.attr('data-star-count') || 5
 					}).bind('starbox-value-changed', function(event, value) {
-					if(starbox.hasClass('random')) {
-					var val = Math.random();
-					starbox.next().text(' '+val);
-					return val;
-					}
+						starbox.starbox('setOption', 'average', value);
+						console.log(value)
+					// if(starbox.hasClass('random')) {
+					// var val = Math.random();
+					// starbox.next().text(' '+val);
+					// return val;
+					// }
 				})
 			});
 		});
@@ -389,15 +391,17 @@ div.hello-bar {
 											<div>
 												<?php foreach ($this->data['item_'.$item->kdgol] as $detail) { ?>
 												<div class="col-sm-3 multi-gd-img">
-													<div><label class="block-with-text"><?php echo $detail->nama ?></label></div>
+													<div class="row text-center"><label class="block-with-text"><?php echo $detail->nama ?></label></div>
 													<div class="row">
 														<div class="sample">
 														<a href="<?php echo site_url('products/'.$detail->kdgol2); ?>">
 															<img src="<?php echo site_url($this->data['products_dir'].'/'.$detail->gambar); ?>" alt="<?php echo $detail->nama ?>"/></a>
 														</div>
 													</div>
-													<div><label class="block-with-text"><?php echo $detail->kdbar ?></label></div>
-													<a class="view-more btn- btn-sm" href="<?php echo site_url('products/'.$detail->kdgol2); ?>">Read More</a>
+													<div class="row text-center"><label class="block-with-text"><?php echo $detail->kdbar ?></label></div>
+													<div class="row text-center">
+														<a class="view-more btn- btn-sm" href="<?php echo site_url('products/'.$detail->kdgol2); ?>">Read More</a>
+													</div>
 												</div>
 												<?php } ?>
 											</div>
