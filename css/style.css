@@ -126,7 +126,7 @@ body{
     padding: 10px 10px;
 }
 .navbar-default .navbar-nav > li > a:hover {
-    color: #fff;
+    color: #fff !important;
 }
 @media (min-width: 1366px) {
     .header-top {
@@ -1121,7 +1121,7 @@ a.my-cart-b, a.my-cart-d {
     color: #fff;
     font-size: 0.8em;
     /*border: 1px solid #F19E1F;*/
-    padding: 0.75em 2.5em;
+    padding: 0.75em 1em; /*2.5em*/
     outline: none;
     border-radius: 50px;
 }
@@ -2400,6 +2400,18 @@ p.quote {
 .reviews-right ul li a i {
     left: -1em;
 }
+.all-reviews {
+    background: #000;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1em;
+    border: 1px solid #FFF;
+    padding: 0.5em 2em;
+	display: inline-block;
+	width: 30%;
+	text-align: center;
+    margin-top: 1em;
+}
 .reviews-bottom {
     margin-top: 2em;
 }
@@ -2421,7 +2433,7 @@ p.quote {
     margin-bottom:1em;
     resize: none;
 }
-.reviews-bottom form, .comment {
+/*.reviews-bottom form,*/ .comment {
     margin-top: 1em;
 }
 .reviews-top input[type="button"] {
@@ -2463,7 +2475,7 @@ label.message {
     label.message {
         margin-top: 2px;
     }
-    .reviews-top input[type="button"] {
+    .reviews-top input[type="button"], .all-reviews {
         width: 50%;
     }
     .reviews-bottom input[type="submit"] {
@@ -2474,7 +2486,7 @@ label.message {
     label.message {
         margin-top: 12px;
     }
-    .reviews-top input[type="button"] {
+    .reviews-top input[type="button"], .all-reviews {
         width: 20%;
     }
     .reviews-bottom input[type="submit"] {
@@ -2485,7 +2497,7 @@ label.message {
     label.message {
         margin-top: 12px;
     }
-    .reviews-top input[type="button"] {
+    .reviews-top input[type="button"], .all-reviews {
         width: 30%;
     }
     .reviews-bottom input[type="submit"] {
@@ -4196,6 +4208,9 @@ img.img-go{
 }
 
 /* login */
+a.forget:hover, a.term:hover, a.policy:hover{
+	color:#3c8dbc;
+}
 
 .panel-login {
 	border-color: #ccc;

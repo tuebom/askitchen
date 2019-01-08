@@ -138,7 +138,23 @@
 															<p ><em class="item_price">Rp<?= $item->hjual; ?></em></p>
 															<span class="size"><?= $item->kdbar; ?></span>
 															<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
-															<span class="detail"><a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="See Details" class="my-cart-d item_add">See Details</a></span>
+															<!--<span class="detail"><a href="#" class="my-cart-d item_add"><img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a>-->
+															<!--<form action="#" method="post">
+																<fieldset>
+																	<input type="hidden" name="cmd" value="_cart" />
+																	<input type="hidden" name="add" value="1" />
+																	<input type="hidden" name="business" value=" " />
+																	<input type="hidden" name="item_name" value="<?= $item->nama; ?>" />
+																	<input type="hidden" name="amount" value="<?= $item->hjual; ?>" />
+																	<input type="hidden" name="discount_amount" value="1.00" />
+																	<input type="hidden" name="currency_code" value="Rp" />
+																	<input type="hidden" name="return" value=" " />
+																	<input type="hidden" name="cancel_return" value=" " />
+																	<input type="submit" name="submit" value="Add to cart" class="detail button" />
+																</fieldset>
+															</form>-->
+															<!--</span>-->
+															<span class="detail"><a href="#" class="my-cart-d item_add"><img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a>&nbsp;<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" class="my-cart-d item_add">See Details</a></span>
 														</div>
 													</div>
 												</div>
