@@ -112,6 +112,30 @@
 
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.ui.min.js'></script>
+
+	<!-- cart-js -->
+	<script src="<?=base_url('js/minicart.js');?>"></script>
+	<script>
+		paypalm.minicartk.render(); //use only unique class names other than paypalm.minicartk.Also Replace same class name in css and minicart.min.js
+
+		paypalm.minicartk.cart.on('checkout', function (evt) {
+			var items = this.items(),
+				len = items.length,
+				total = 0,
+				i;
+
+			// Count the number of each item in the cart
+			for (i = 0; i < len; i++) {
+				total += items[i].get('quantity');
+			}
+
+			if (total < 1) {
+				alert('The minimum order quantity is 1. Please add more to your shopping cart before checking out.');
+				evt.preventDefault();
+			}
+		});
+	</script>
+	<!-- //cart-js -->
 	
 	<!-- <script src="<?php echo base_url($frameworks_dir . '/jquery/jquery.min.js'); ?>"></script> -->
 	<!-- <script src="<?php echo base_url($frameworks_dir . '/bootstrap/js/bootstrap.min.js'); ?>"></script> -->

@@ -14,7 +14,7 @@
 											<div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive"> </div>
 										</li>
 										<li data-thumb="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>">
-												<div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive"> </div>
+											<div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive"> </div>
 										</li>
 										<li data-thumb="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>">
 											<div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive"> </div>
@@ -30,7 +30,7 @@
 								
 								<h4><?= $this->data['product']->nama . ' ('. $this->data['product']->kdbar .')' ?></h4>
 								<div class="block">
-									<div class="starbox small ghosting unchangeable" data-start-value="<?= $this->data['product']->rating ?>"> </div>
+									<div class="starbox small ghosting unchangeable" data-start-value="<?= $this->data['item_rating']->rating ?>"> </div>
 								</div>
 								<span class="size"><?= $this->data['product']->pnj; ?> x <?= $this->data['product']->lbr; ?> x <?= $this->data['product']->tgi; ?> CM</span>
 								<p class="price item_price">Rp <?= $this->data['product']->hjual ?></p>
@@ -75,6 +75,30 @@
 							</div>
 							<div class="clearfix"> </div>
 						</div>
+						<script type="text/javascript">
+jQuery(function() {
+	jQuery('.starbox').each(function() {
+		var starbox = jQuery(this);
+			starbox.starbox({
+			average: 0, //starbox.attr('data-start-value'),
+			changeable: starbox.hasClass('unchangeable') ? false : starbox.hasClass('clickonce') ? 'once' : true,
+			ghosting: starbox.hasClass('ghosting'),
+			autoUpdateAverage: true, //starbox.hasClass('autoupdate'),
+			buttons: starbox.hasClass('smooth') ? false : starbox.attr('data-button-count') || 5,
+			stars: starbox.attr('data-star-count') || 5
+			}).bind('starbox-value-changed', function(event, value) {
+				starbox.starbox('setOption', 'average', value);
+				var el = $(this).parents("#formReview").find('#rating')[0];
+				if (el) el.value = value;
+			// if(starbox.hasClass('random')) {
+			// var val = Math.random();
+			// starbox.next().text(' '+val);
+			// return val;
+			// }
+		})
+	});
+});
+</script>
 						<div class="tab-wl3">
 							<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
 								<ul id="myTab" class="nav nav-tabs left-tab" role="tablist">
@@ -133,21 +157,23 @@
 									<div class="clearfix"></div>
 								</div>
 								<?php }
-									if($this->data['totreviews'] > 3): ?>
-								<input type="button" value="Read All Reviews">
-								<?php endif; ?>
+									if(isset($this->data['showbutton'])) {
+									// if($this->data['totreviews'] > 3): ?>
+									<!--<input type="button" value="Read All Reviews">-->
+									<a class="all-reviews" href="<?=current_url().'?action=getall';?>">Read All Reviews</a>
+								<?php } ?>
 							</div>
 							<div class="reviews-bottom">
 								<h4>Add Reviews</h4>
-								<?php echo $this->session->userdata('captcha'); ?>
 								<p>Your email address will not be published. Required fields are marked *</p>
-								<p>Your Rating</p>
+								Your Rating
+								<form id="formReview" action="<?=current_url().'?action=comment';?>" method="post">
 								<div class="block">
-									<div class="starbox small ghosting"><div class="positioner" style=""><div class="stars"><div class="ghost" style="width: 0px; display: none;"></div><div class="colorbar" style="width: 42.5px;"></div><div class="star_holder"><div class="star star-0"></div><div class="star star-1"></div><div class="star star-2"></div><div class="star star-3"></div><div class="star star-4"></div></div></div></div></div>
+									<div class="starbox small ghosting" data-start-value="<?=isset($this->data['rating']) ? $this->data['rating'] : '0';?>"><div class="positioner" style=""><div class="stars"><div class="ghost" style="width: 0px; display: none;"></div><div class="colorbar" style="width: 42.5px;"></div><div class="star_holder"><div class="star star-0"></div><div class="star star-1"></div><div class="star star-2"></div><div class="star star-3"></div><div class="star star-4"></div></div></div></div></div>
 								</div>
-								<form action="<?=current_url().'?action=comment';?>" method="post">
 									<input type="hidden" name="kdbar" value="<?= $this->data['product']->kdbar ?>">
 									<input type="hidden" name="url" value="<?= current_url() ?>">
+									<input type="hidden" id="rating" name="rating" value="<?=isset($this->data['rating']) ? $this->data['rating'] : '0';?>">
 									<label>Your Review </label>
 									<textarea type="text" name="comment" placeholder="Message..." required><?=isset($this->data['comment']) ? $this->data['comment'] : '';?></textarea>
 									<div class="row">

@@ -19,6 +19,18 @@ class Recover extends Public_Controller {
 		foreach ($this->data['golongan'] as $item) {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
+		
+		$this->form_validation->set_rules('email', 'Email', 'required');
+		
+		if ($this->form_validation->run() == TRUE)
+		{
+			// send email
+		}
+		else
+		{
+			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+		}
+
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('recover/index', $this->data);
