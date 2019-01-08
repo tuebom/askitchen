@@ -29,11 +29,12 @@
 									</div>
 									<div class="row">
 										<div class="col-xs-8">
-											<label class="control control--checkbox">Remember Me
-											<!-- <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> -->
+										<a href="<?= site_url('recover') ?>" class="forget" tabindex="5" class="forgot-password">Forgot Password?</a>
+											<!-- <label class="control control--checkbox">Remember Me
+											-- <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> --
 											<input type="checkbox">
 											<div class="control__indicator"></div>
-											</label>
+											</label> -->
 										</div>
 										<!-- /.col -->
 										<div class="col-xs-4">
@@ -46,15 +47,15 @@
 										<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
 										<a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
 									</div>-->
-									<div class="form-group">
+									<!-- <div class="form-group">
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="text-center">
-													<a href="<?= site_url('recover') ?>" tabindex="5" class="forgot-password">Forgot Password?</a>
+													<a href="<?= site_url('recover') ?>" class="forget" tabindex="5" class="forgot-password">Forgot Password?</a>
 												</div>
 											</div>
 										</div>
-									</div>
+									</div> -->
 								</form>
 								<form id="register-form" action="<?= site_url('register') ?>" method="post" role="form" style="display: none;">
 									<?php if (isset($this->data['message_register'])) echo $this->data['message_register'];?>
@@ -77,16 +78,19 @@
 										<span class="glyphicon glyphicon-log-in form-control-feedback"></span>
 									</div>
 									<div class="row">
-										<div class="col-xs-8">    
-												<label class="control control--checkbox">I agree to the <a href="<?=site_url('term-of-use');?>">terms</a> and <a href="<?=site_url('privacy-policy');?>">privacy policy</a>
-													<!-- <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> I agree to the <a href="<?=site_url('term-of-use');?>">terms</a> and <a href="<?=site_url('privacy-policy');?>">privacy policy</a> -->
-													<input type="checkbox">
-													<div class="control__indicator"></div>
-												</label>
-										</div><!-- /.col -->
+										<div class="col-xs-8">
+											<label>By clicking register, I agree to your <a href="<?=site_url('term-of-use');?>" class="term">terms</a> and <a href="<?=site_url('privacy-policy');?>" class="policy">privacy policy</a></label>
+											<!-- <label class="control control--checkbox">I agree to the <a href="<?=site_url('term-of-use');?>">terms</a> and <a href="<?=site_url('privacy-policy');?>">privacy policy</a></label>
+												<div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> I agree to the <a href="<?=site_url('term-of-use');?>">terms</a> and <a href="<?=site_url('privacy-policy');?>">privacy policy</a>
+												<input type="checkbox">
+												<div class="control__indicator"></div>
+											-- </label> -->
+										</div>
+										<!-- /.col -->
 										<div class="col-xs-4">
 											<button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
-										</div><!-- /.col -->
+										</div>
+										<!-- /.col -->
 									</div>
 									<!--<div class="social-auth-links text-center">
 										<p>- OR -</p>

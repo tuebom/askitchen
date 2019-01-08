@@ -16,9 +16,10 @@ class Reviews_model extends CI_Model
     }
 
     // get all
-    function get_all()
+    function get_all($kode)
     {
-        $this->db->order_by($this->id, $this->order);
+        $this->db->order_by('timestamp', 'DESC');
+        $this->db->where('kdbar', $kode);
         return $this->db->get($this->table)->result();
     }
 
@@ -29,12 +30,23 @@ class Reviews_model extends CI_Model
         return $this->db->get($this->table)->row();
     }
     
-    // get total rows
+    function get_rating($kode)
+    {
+        $total = $this->total_rows($kode);
+
+        $sql = 'SELECT ROUND(SUM(rating) / ?,1) as rating FROM reviews WHERE kdbar = ?';
+        $query = $this->db->query($sql, array($total, $kode));
+            // ->from($this->table)
+            // ->where('kdbar', $kode);
+        return $query->row(); //get()->row();
+    }
+    
+    // get total rows - limited by code
     function total_rows($q = NULL) {
-        $this->db->like('kdbar', $q);
-        $this->db->or_like('name', $q);
-        $this->db->or_like('email', $q);
-        $this->db->or_like('comment', $q);
+        $this->db->where('kdbar', $q);
+        // $this->db->or_like('name', $q);
+        // $this->db->or_like('email', $q);
+        // $this->db->or_like('comment', $q);
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }

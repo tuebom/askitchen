@@ -70,30 +70,31 @@
 
 <!--start-rate-->
 <script src="<?=base_url('js/jstarbox.js');?>"></script>
-	<link rel="stylesheet" href="<?=base_url('css/jstarbox.css');?>" type="text/css" media="screen" charset="utf-8" />
-		<script type="text/javascript">
-			jQuery(function() {
-			jQuery('.starbox').each(function() {
-				var starbox = jQuery(this);
-					starbox.starbox({
-					average: 0, //starbox.attr('data-start-value'),
-					changeable: starbox.hasClass('unchangeable') ? false : starbox.hasClass('clickonce') ? 'once' : true,
-					ghosting: starbox.hasClass('ghosting'),
-					autoUpdateAverage: true, //starbox.hasClass('autoupdate'),
-					buttons: starbox.hasClass('smooth') ? false : starbox.attr('data-button-count') || 5,
-					stars: starbox.attr('data-star-count') || 5
-					}).bind('starbox-value-changed', function(event, value) {
-						starbox.starbox('setOption', 'average', value);
-						console.log(value)
-					// if(starbox.hasClass('random')) {
-					// var val = Math.random();
-					// starbox.next().text(' '+val);
-					// return val;
-					// }
-				})
-			});
-		});
-		</script>
+<link rel="stylesheet" href="<?=base_url('css/jstarbox.css');?>" type="text/css" media="screen" charset="utf-8" />
+<script type="text/javascript">
+jQuery(function() {
+	jQuery('.starbox').each(function() {
+		var starbox = jQuery(this);
+			starbox.starbox({
+			average: 0, //starbox.attr('data-start-value'),
+			changeable: starbox.hasClass('unchangeable') ? false : starbox.hasClass('clickonce') ? 'once' : true,
+			ghosting: starbox.hasClass('ghosting'),
+			autoUpdateAverage: true, //starbox.hasClass('autoupdate'),
+			buttons: starbox.hasClass('smooth') ? false : starbox.attr('data-button-count') || 5,
+			stars: starbox.attr('data-star-count') || 5
+			}).bind('starbox-value-changed', function(event, value) {
+				starbox.starbox('setOption', 'average', value);
+				var el = $(this).parents("#formReview").find('#rating')[0];
+				if (el) el.value = value;
+			// if(starbox.hasClass('random')) {
+			// var val = Math.random();
+			// starbox.next().text(' '+val);
+			// return val;
+			// }
+		})
+	});
+});
+</script>
 <!--//End-rate-->
 
 <script defer src="<?=base_url('js/jquery.flexslider.js');?>"></script>
@@ -299,9 +300,9 @@ div.hello-bar {
 		});
 	
 	    $('#img-logo').hover(function(){
-			$(this).attr('src','images/askitchen2.png');
+			$(this).attr('src','<?= site_url('images/askitchen2.png'); ?>');
 		},function(){
-			$(this).attr('src','images/askitchen.png');
+			$(this).attr('src','<?= site_url('images/askitchen.png'); ?>');
 		});
 
 	    $('#login-form-link').click(function(e) {

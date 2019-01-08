@@ -5,179 +5,97 @@
 					<div class="container">
 						<div class="product-agileinfo-grids w3l">
 							<div class="col-md-3 product-agileinfo-grid">
+								<label class="search">Show results for</label>
 								<div class="categories">
-									<h3>Categories</h3>
-									<ul class="tree-list-pad">
-										<?php
-											$index = 0;
-											foreach ($this->data['golongan'] as $item) {
-										?>
-										<li><input type="checkbox" id="item-<?=$index?>" /><label for="item-<?=$index?>"><span></span><?= $item->nama ?></label>
-											<ul>
-												<?php foreach ($this->data['item_'.$item->kdgol] as $detail) { ?>
-												<li><input type="checkbox" id="item-<?=$index?>-0" /><a href="<?php echo site_url('products/'.$detail->kdgol2); ?>"><?= $detail->nama?></a></li>
-												<?php } ?>
+
+									<label class="title">Categories</label>
+									<!--<ul>
+										<li><input type="checkbox" id="item-001" /><label class="search" for="item-001"><span></span><b>Categories</b></label>-->
+											<ul class="tree-list-pad">
+												<?php
+													$index = 0;
+													foreach ($this->data['golongan'] as $item) {
+														
+														if ($item->kdgol !== $this->data['kdgol']) {
+															continue;
+														}
+														$index++;
+												?>
+												<li><input type="checkbox" id="item-<?=$index?>" /><label class="tree" for="item-<?=$index?>"><span></span><?= $item->nama ?></label>
+													<ul>
+														<?php foreach ($this->data['item_'.$item->kdgol] as $detail) { ?>
+														<li><input type="checkbox" id="item-<?=$index?>-0" /><a href="<?php echo site_url('products/'.$detail->kdgol2); ?>"><?= $detail->nama?></a></li>
+														<?php } ?>
+													</ul>
+												</li>
+												<?php break; /*$index++;*/ } ?>
 											</ul>
-										</li>
-										<?php $index++; } ?>
-										<!--<li><input type="checkbox" id="item-1" checked="checked" /><label for="item-1">Best Collections</label>
-											<ul>
-												<li><input type="checkbox" checked="checked" id="item-1-0" /><label for="item-1-0">New Arrivals</label>
-													<ul>
-														<li><a href="products.html">Shirts</a></li>
-														<li><a href="products.html">Shoes</a></li>
-														<li><a href="products.html">Pants</a></li>
-														<li><a href="products.html">SunGlasses</a></li>
-													</ul>
-												</li>
-												
-											</ul>
-										</li>
-										<li><input type="checkbox" checked="checked" id="item-2" /><label for="item-2">Best Offers</label>
-											<ul>
-												<li><input type="checkbox"  id="item-2-0" /><label for="item-2-0">Summer Discount Sales</label>
-													<ul>
-														<li><a href="products.html">Shirts</a></li>
-														<li><a href="products.html">Shoes</a></li>
-														<li><a href="products.html">Pants</a></li>
-														<li><a href="products.html">SunGlasses</a></li>
-													</ul>
-												</li>
-												<li><input type="checkbox" id="item-2-1" /><label for="item-2-1">Exciting Offers</label>
-													<ul>
-														<li><a href="products.html">Shirts</a></li>
-														<li><a href="products.html">Shoes</a></li>
-														<li><a href="products.html">Pants</a></li>
-														<li><a href="products.html">SunGlasses</a></li>
-													</ul>
-												</li>
-												<li><input type="checkbox" id="item-2-2" /><label for="item-2-2">Flat Discounts</label>
-													<ul>
-														<li><a href="products.html">Shirts</a></li>
-														<li><a href="products.html">Shoes</a></li>
-														<li><a href="products.html">Pants</a></li>
-														<li><a href="products.html">SunGlasses</a></li>
-													</ul>
-												</li>
-											</ul>
-										</li>-->
-									</ul>
+										<!--</li>
+									</ul>-->
 								</div>
 								<div class="price">
-									<h3>Price Range</h3>
-									<ul class="dropdown-menu6">
-										<li>                
-											<div id="slider-range"></div>							
-											<input type="text" id="amount" style="border: 0; color: #ffffff; font-weight: normal;" />
-										</li>			
-									</ul>
-									<script type='text/javascript'>//<![CDATA[ 
-									$(window).load(function(){
-									 $( "#slider-range" ).slider({
-												range: true,
-												min: 0,
-												max: <?php echo $this->data['price_range'][0]->hmax ?>,
-												values: [ <?php echo $this->data['price_range'][0]->hmin ?>, <?php echo $this->data['price_range'][0]->hmax ?> ],
-												slide: function( event, ui ) {  $( "#amount" ).val( "Rp" + ui.values[ 0 ] + " - Rp" + ui.values[ 1 ] );
-												}
-									 });
-									$( "#amount" ).val( "Rp" + $( "#slider-range" ).slider( "values", 0 ) + " - Rp" + $( "#slider-range" ).slider( "values", 1 ) );
+									<label class="title">Price</label>
 
-									});//]]>  
-
-									</script>
-									<script type="text/javascript" src="<?=base_url('js/jquery-ui.js');?>"></script>
-								</div>
-								<!--<div class="top-rates">
-									<h3>Top Rates products</h3>
-									<div class="recent-grids">
-										<div class="recent-left">
-											<a href="single.html"><img class="img-responsive " src="<?=base_url('images/r.jpg');?>" alt=""></a>	
-										</div>
-										<div class="recent-right">
-											<h6 class="best2"><a href="single.html">Lorem ipsum dolor </a></h6>
-											<p><del>$100.00</del> <em class="item_price">$09.00</em></p>
-										</div>	
-										<div class="clearfix"> </div>
-									</div>
-									<div class="recent-grids">
-										<div class="recent-left">
-											<a href="single.html"><img class="img-responsive " src="<?=base_url('images/r1.jpg');?>" alt=""></a>	
-										</div>
-										<div class="recent-right">
-											<h6 class="best2"><a href="single.html">Duis aute irure </a></h6>
-											<p><del>$100.00</del> <em class="item_price">$19.00</em></p>
-										</div>	
-										<div class="clearfix"> </div>
-									</div>
-									<div class="recent-grids">
-										<div class="recent-left">
-											<a href="single.html"><img class="img-responsive " src="<?=base_url('images/r2.jpg');?>" alt=""></a>	
-										</div>
-										<div class="recent-right">
-											<h6 class="best2"><a href="single.html">Lorem ipsum dolor </a></h6>
-											<p><del>$100.00</del> <em class="item_price">$39.00</em></p>
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-									<div class="recent-grids">
-										<div class="recent-left">
-											<a href="single.html"><img class="img-responsive " src="<?=base_url('images/r3.jpg');?>" alt=""></a>	
-										</div>
-										<div class="recent-right">
-											<h6 class="best2"><a href="single.html">Ut enim ad minim </a></h6>
-											<p><em class="item_price">$39.00</em></p>
-										</div>	
-										<div class="clearfix"> </div>
-									</div>
-								</div>-->
-								<div class="brand-w3l">
-									<h3>Brands Filter</h3>
 									<ul>
-										<li><a href="<?php echo site_url('products/'.$this->data['kode'].'/GEA'); ?>">GEA</a></li>
-										<li><a href="<?php echo site_url('products/'.$this->data['kode'].'/GETRA'); ?>">GETRA</a></li>
-										<li><a href="<?php echo site_url('products/'.$this->data['kode'].'/SANDEN'); ?>">SANDEN</a></li>
-										<li><a href="<?php echo site_url('products/'.$this->data['kode'].'/MADIN'); ?>">MADIN</a></li>
-										<!--<li><a href="<?php echo site_url('products/OTHER'); ?>">OTHER</a></li>-->
+										<li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&p1=0&p2=999999'); ?>">Under Rp1.000.000</a></li>
+										<li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&p1=1000000&p2=5000000'); ?>">Rp1.000.000 to Rp5.000.000</a></li>
+										<li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&p1=5000000&p2=10000000'); ?>">Rp5.000.000 to Rp10.000.000</a></li>
+										<li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&p1=10000000'); ?>">Rp10.000.000 Above</a></li>
+										<li><input id="pf" type="text" class="pricef" onkeypress="return isNumber(event)">&nbsp;-&nbsp;
+										<input id="pt" type="text" class="pricef" onkeypress="return isNumber(event)">
+										<a id="btnGo" href="<?php echo site_url('search'); ?>" class="btn-go">GO</a></li>
+									</ul>
+									
+									<script type="text/javascript">
+									// $(window).load(function(){
+										
+										function isNumber(evt) {
+											evt = (evt) ? evt : window.event;
+											var charCode = (evt.which) ? evt.which : evt.keyCode;
+											if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+												return false;
+											}
+											return true;
+										}
+										
+										var theUrl = <?php echo '"'.site_url().'search?q='.$this->data['kode'].'"' ?>;
+
+										$('#btnGo').click(function(event) {
+											event.preventDefault();
+											var p1 = document.getElementById('pf').value;
+											var p2 = document.getElementById('pt').value;
+											if (p1 == '' || p2 == '') {
+												return false;
+											}
+											var newUri = theUrl + '&p1='+p1+'&p2='+p2;
+											$(this).attr("href", newUri);
+											window.location.href = $(this).attr('href');
+										});
+									// })
+									
+									</script>
+									 
+								</div>
+								<div class="brand-w3l">
+									<label class="title">Brand</label>
+									<ul>
+										<li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&b=GEA'); ?>">GEA</a></li>
+										<li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&b=GETRA'); ?>">GETRA</a></li>
+										<li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&b=SANDEN'); ?>">SANDEN</a></li>
+										<li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&b=MADIN'); ?>">MADIN</a></li>
+										<li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&b=OTHER'); ?>">OTHER</a></li>
 									</ul>
 								</div>
 							</div>
 							<div class="col-md-9 product-agileinfon-grid1 w3l">
-								<!--<div class="product-agileinfon-top">
-									<div class="col-md-6 product-agileinfon-top-left">
-										<img class="img-responsive " src="<?=base_url('images/img1.jpg');?>" alt="">
-									</div>
-									<div class="col-md-6 product-agileinfon-top-left">
-										<img class="img-responsive " src="<?=base_url('images/img2.jpg');?>" alt="">
-									</div>
-									<div class="clearfix"></div>
-								</div>
-								<div class="mens-toolbar">
-									<p >Showing 1–9 of 21 results</p>
-									 <p class="showing">Sorting By
-										<select>
-											  <option value=""> Name</option>
-											  <option value="">  Rate</option>
-												<option value=""> Color </option>
-												<option value=""> Price </option>
-										</select>
-									  </p> 
-									  <p>Show
-										<select>
-											  <option value=""> 9</option>
-											  <option value="">  10</option>
-												<option value=""> 11 </option>
-												<option value=""> 12 </option>
-										</select>
-									  </p>
-									<div class="clearfix"></div>		
-								</div>-->
 								<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+									<?php if (count($this->data['products']) > 0): ?>
 									<ul id="myTab" class="nav1 nav1-tabs left-tab" role="tablist">
 										<ul id="myTab" class="nav nav-tabs left-tab" role="tablist">
 									<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"><img src="<?=base_url('images/menu1.png');?>"></a></li>
-									<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile"><img src="<?=base_url('images/menu.png');?>"></a></li>
+									<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile"><img src="<?=base_url('images/menu3.png');?>"></a></li>
 									</ul>
+									<?php endif; ?>
 									<div id="myTabContent" class="tab-content">
 										<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
 											<?php
@@ -210,15 +128,12 @@
 																	<div class="grid-img">
 																		<img src="<?=base_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar; ?>">
 																	</div>
-																	<!--<div class="grid-img">
-																		<img src="<?=base_url('images/p5.jpg');?>" class="img-responsive"  alt="">
-																	</div>-->
 																</a>		
 															</figure>	
 														</div>
-														<div class="block">
-															<div class="starbox small ghosting"> </div>
-														</div>
+														<!-- <div class="block">
+															<div class="starbox small ghosting unchangeable" data-start-value="<?= $item->rating ?>"> </div>
+														</div> -->
 														<div class="women">
 															<p ><em class="item_price">Rp<?= $item->hjual; ?></em></p>
 															<span class="size"><?= $item->kdbar; ?></span>
@@ -255,23 +170,26 @@
 																	<div class="grid-img">
 																		<img src="<?=base_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar; ?>">
 																	</div>
-																	<!--<div class="grid-img">
-																		<img src="<?=base_url('images/p5.jpg');?>" class="img-responsive"  alt="">
-																	</div>-->
 																</a>		
 															</figure>	
+														</div>
+														<div class="women">
+															<p ><em class="item_price">Rp<?= $item->hjual; ?></em></p>
+															<span class="size"><?= $item->kdbar; ?></span>
+															<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
+															<!--<span class="detail"><a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="See Details" class="my-cart-d item_add">See Details</a></span>-->
 														</div>
 													</div>
 												</div>
 												<div class="col-md-9 product-tab1-grid1 simpleCart_shelfItem">
-													<div class="block">
-														<div class="starbox small ghosting"> </div>
-													</div>
+													<!-- <div class="block">
+														<div class="starbox small ghosting unchangeable"> </div>
+													</div> -->
 													<div class="women">
 														<h6><a href="<?php echo site_url('detail/'.$item->kdurl); ?>"><?= $item->kdbar; ?></a></h6>
 														<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
 														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Atqui iste locus est, Piso, tibi etiam atque etiam confirmandus, inquam; Refert tamen, quo modo. Quod autem meum munus dicis non equidem recuso, sed te adiungo socium. </p>
-														<p><!--<del>$100.00</del>--><em class="item_price">Rp<?= $item->hjual; ?></em></p>
+														<p><em class="item_price">Rp<?= $item->hjual; ?></em></p>
 														<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="See Details" class="my-cart-d item_add">See Details</a>
 													</div>
 												</div>
@@ -283,7 +201,7 @@
 									</div>
 								</div>
 								<div class="box-footer" align="center">
-									<?php echo $this->pagination->create_links(); ?>
+									<?php echo $this->data['pagination']; ?>
 								</div>
 							</div>
 							<div class="clearfix"> </div>

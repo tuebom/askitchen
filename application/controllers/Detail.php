@@ -34,49 +34,54 @@ class Detail extends Public_Controller {
 		$action  = $this->input->get('action');
 		
 		if ($action) {
+			
+			if ($action = 'comment') {
 
-            $this->form_validation->set_rules('name', 'Name', 'required');
-            $this->form_validation->set_rules('email', 'Email', 'required');
-            $this->form_validation->set_rules('comment', 'Comment', 'required');
+				$this->form_validation->set_rules('name', 'Name', 'required');
+				$this->form_validation->set_rules('email', 'Email', 'required');
+				$this->form_validation->set_rules('comment', 'Comment', 'required');
 
-            if ($this->form_validation->run() == TRUE)
-            {
-				$data = array(
-					"kdbar"    => $this->input->post('kdbar'),
-					"name"     => $this->input->post('name'),
-					"email"    => $this->input->post('email'),
-					"comment"  => $this->input->post('comment')
-				);
-				
-				$captcha  = $this->input->post('captcha');
-				$url 	  = $this->input->post('url');
-
-				if ($captcha == $this->session->userdata('captcha'))
+				if ($this->form_validation->run() == TRUE)
 				{
-					// if (file_exists(BASEPATH . "../captcha/" . $this->session->userdata['image']))
-					// unlink(BASEPATH . "../captcha/" . $this->session->userdata['image']);
-					if (file_exists('D:\xampp\htdocs\askitchen\images\captcha\\' . $this->session->userdata['image']))
-						unlink('D:\xampp\htdocs\askitchen\images\captcha\\' . $this->session->userdata['image']);
-		
-					$this->session->unset_userdata('captcha');
-					$this->session->unset_userdata('image');
+					$data = array(
+						"kdbar"    => $this->input->post('kdbar'),
+						"name"     => $this->input->post('name'),
+						"email"    => $this->input->post('email'),
+						"comment"  => $this->input->post('comment'),
+						"rating"   => $this->input->post('rating')
+					);
+					
+					$captcha  = $this->input->post('captcha');
+					$url 	  = $this->input->post('url');
 
-					$this->reviews_model->insert($data);
-					header("location: ".$url);
+					if ($captcha == $this->session->userdata('captcha'))
+					{
+						// if (file_exists(BASEPATH . "../captcha/" . $this->session->userdata['image']))
+						// unlink(BASEPATH . "../captcha/" . $this->session->userdata['image']);
+						if (file_exists('C:\xampp\htdocs\askitchen\images\captcha\\' . $this->session->userdata['image']))
+							unlink('C:\xampp\htdocs\askitchen\images\captcha\\' . $this->session->userdata['image']);
+			
+						$this->session->unset_userdata('captcha');
+						$this->session->unset_userdata('image');
+
+						$this->reviews_model->insert($data);
+						header("location: ".$url);
+					}
+					else
+					{
+
+						// $this->session->set_flashdata('message', 'Kode yang Anda masukkan tidak cocok.');
+						$this->data['name']    = $this->input->post('name');
+						$this->data['email']   = $this->input->post('email');
+						$this->data['comment'] = $this->input->post('comment');
+						$this->data['rating']  = $this->input->post('rating');
+						$this->data['message'] = 'Kode yang Anda masukkan tidak cocok.';
+					}
 				}
 				else
 				{
-
-					// $this->session->set_flashdata('message', 'Kode yang Anda masukkan tidak cocok.');
-					$this->data['name']    = $this->input->post('name');
-					$this->data['email']   = $this->input->post('email');
-					$this->data['comment'] = $this->input->post('comment');
-					$this->data['message'] = 'Kode yang Anda masukkan tidak cocok.';
+					$this->data['message'] = (validation_errors()) ? validation_errors() : '';
 				}
-			}
-			else
-			{
-				$this->data['message'] = (validation_errors()) ? validation_errors() : '';
 			}
 		}
 		
@@ -91,7 +96,7 @@ class Detail extends Public_Controller {
 
 			'word' => $captcha,
 
-			'img_path' => 'D:\xampp\htdocs\askitchen\images\captcha',
+			'img_path' => 'C:\xampp\htdocs\askitchen\images\captcha\\', //'./captcha'
 
 			'img_url' => base_url('images/captcha'),
 
@@ -116,14 +121,28 @@ class Detail extends Public_Controller {
 			// if (file_exists(BASEPATH . "../captcha/" . $this->session->userdata['image']))
 			// unlink(BASEPATH . "../captcha/" . $this->session->userdata['image']);
 
-			if (file_exists("D:\xampp\htdocs\askitchen\images\captcha\\" . $this->session->userdata['image']))
-				unlink("D:\xampp\htdocs\askitchen\images\captcha\\" . $this->session->userdata['image']);
+			if (file_exists('C:\xampp\htdocs\askitchen\images\captcha\\' . $this->session->userdata['image']))
+				unlink('C:\xampp\htdocs\askitchen\images\captcha\\' . $this->session->userdata['image']);
 		}
 
+		// $this->data['pathgbr']    = 'C:\xampp\htdocs\askitchen\images\captcha\\' . $this->session->userdata['image'];
 		$this->session->set_userdata(array('captcha' => $captcha, 'image' => $cap['time'] . '.jpg'));
 		
-		$this->data['reviews']    = $this->reviews_model->get_limit_data(3,0,$kode);
-		$this->data['totreviews'] = $this->reviews_model->total_rows($kode);
+		$this->data['item_rating'] = $this->reviews_model->get_rating($kode);
+		
+		$totrevs = $this->reviews_model->total_rows($kode);
+		
+		if (!$action)
+		{
+			if ($totrevs > 3) $this->data['showbutton'] = true;
+			$this->data['reviews'] = $this->reviews_model->get_limit_data(3,0,$kode);
+		}
+		else
+		{
+			if ($action == 'getall') unset($this->data['showbutton']);
+			$this->data['reviews'] = $this->reviews_model->get_all($kode);
+		}
+		$this->data['totreviews'] = $totrevs;
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('detail/index', $this->data);

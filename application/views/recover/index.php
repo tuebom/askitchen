@@ -1,28 +1,42 @@
 		<!--banner-->
-		<div class="banner1">
+		<!-- <div class="banner1">
 			<div class="container">
 				<h3><a href="<?php echo site_url(); ?>">Home</a> / <span>Register</span></h3>
 			</div>
-		</div>
+		</div> -->
 		<!--banner-->
 
 		<!--content-->
 		<div class="content">
 			<!--login-->
-			<div class="login">
-				<div class="main-agileits">
-					<div class="form-w3agile form1">
-						<h3>Register</h3>
-						<form action="#" method="post">
-							<div class="key">
-								<i class="fa fa-envelope" aria-hidden="true"></i>
-								<input type="text" value="Email" name="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-								<div class="clearfix"></div>
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-12">
+								<a href="#" class="active" id="reset-form-link">Reset Password</a>
 							</div>
-							<input type="submit" value="Submit">
-						</form>
+						</div>
+						<hr>
 					</div>
-					
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form id="reset-form" action="<?= site_url('recover') ?>" method="post" role="form" style="display: block;">
+									<?php if (isset($this->data['message'])) echo $this->data['message'];?>
+									<div class="form-group has-feedback">
+										<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="<?php echo lang('auth_your_email') ?>">
+										<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+									</div>
+									<div class="row">
+										<div class="col-md-6 col-md-offset-3">
+										<button type="submit" class="btn btn-primary btn-block btn-flat">Submit</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<!--login-->
