@@ -55,8 +55,8 @@ class Detail extends Public_Controller {
 				{
 					// if (file_exists(BASEPATH . "../captcha/" . $this->session->userdata['image']))
 					// unlink(BASEPATH . "../captcha/" . $this->session->userdata['image']);
-					if (file_exists('C:\xampp\htdocs\askitchen\images\captcha\\' . $this->session->userdata['image']))
-						unlink('C:\xampp\htdocs\askitchen\images\captcha\\' . $this->session->userdata['image']);
+					if (file_exists('D:\xampp\htdocs\askitchen\images\captcha\\' . $this->session->userdata['image']))
+						unlink('D:\xampp\htdocs\askitchen\images\captcha\\' . $this->session->userdata['image']);
 		
 					$this->session->unset_userdata('captcha');
 					$this->session->unset_userdata('image');
@@ -91,7 +91,7 @@ class Detail extends Public_Controller {
 
 			'word' => $captcha,
 
-			'img_path' => 'C:\xampp\htdocs\askitchen\images\captcha',
+			'img_path' => 'D:\xampp\htdocs\askitchen\images\captcha',
 
 			'img_url' => base_url('images/captcha'),
 
@@ -105,18 +105,20 @@ class Detail extends Public_Controller {
 
 		);
 
+		// note: pastikan folder captcha sudah dibuat
 		$cap = create_captcha($vals);
 
 		// $this->data['cap'] = $cap;
 		// $this->data['image'] = $cap['image'];
 		// $this->data['file_path'] = BASEPATH . "../captcha/"; //. $this->session->userdata['image'];
 
-		// if (file_exists(BASEPATH . "../captcha/" . $this->session->userdata['image']))
-		// unlink(BASEPATH . "../captcha/" . $this->session->userdata['image']);
+		if (isset($this->session->userdata['image'])) {
+			// if (file_exists(BASEPATH . "../captcha/" . $this->session->userdata['image']))
+			// unlink(BASEPATH . "../captcha/" . $this->session->userdata['image']);
 
-		if (file_exists("C:\xampp\htdocs\askitchen\images\captcha\\" . $this->session->userdata['image']))
-			unlink("C:\xampp\htdocs\askitchen\images\captcha\\" . $this->session->userdata['image']);
-
+			if (file_exists("D:\xampp\htdocs\askitchen\images\captcha\\" . $this->session->userdata['image']))
+				unlink("D:\xampp\htdocs\askitchen\images\captcha\\" . $this->session->userdata['image']);
+		}
 
 		$this->session->set_userdata(array('captcha' => $captcha, 'image' => $cap['time'] . '.jpg'));
 		

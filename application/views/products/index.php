@@ -131,9 +131,9 @@
 																</a>		
 															</figure>	
 														</div>
-														<div class="block">
-															<div class="starbox small ghosting"> </div>
-														</div>
+														<!-- <div class="block">
+															<div class="starbox small ghosting unchangeable" data-start-value="<?= $item->rating ?>"> </div>
+														</div> -->
 														<div class="women">
 															<p ><em class="item_price">Rp<?= $item->hjual; ?></em></p>
 															<span class="size"><?= $item->kdbar; ?></span>
@@ -182,9 +182,9 @@
 													</div>
 												</div>
 												<div class="col-md-9 product-tab1-grid1 simpleCart_shelfItem">
-													<div class="block">
-														<div class="starbox small ghosting"> </div>
-													</div>
+													<!-- <div class="block">
+														<div class="starbox small ghosting unchangeable"> </div>
+													</div> -->
 													<div class="women">
 														<h6><a href="<?php echo site_url('detail/'.$item->kdurl); ?>"><?= $item->kdbar; ?></a></h6>
 														<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
