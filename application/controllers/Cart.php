@@ -32,6 +32,8 @@ class Cart extends Public_Controller {
 
 	public function add()
 	{
+        // menambah item ke cart
+
         // $logged_in = $this->session->userdata('logged_in');
         // if(!$logged_in){
         //     header("location: ".base_url());
@@ -90,7 +92,6 @@ class Cart extends Public_Controller {
         }
 
         $_SESSION["totqty"] += $qty;
-        // die(print_r($_SESSION["cart_item"]));
         
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('cart/index', $this->data);

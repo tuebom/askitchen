@@ -20,6 +20,75 @@ class Search extends Public_Controller {
 		foreach ($this->data['golongan'] as $item) {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
+
+		$action  = $this->input->get('action');
+		
+		if ($action) {
+			
+			$kdbar = $this->input->get('code'); // kode barang => cart
+
+			if ($kdbar != '') {
+				
+				// $detail = $this->stock_model->get_by_id($kdbar);
+				$this->db->select('kdbar, kdurl, nama, hjual, format(hjual,0,"id") as hjualf, gambar, pnj, lbr, tgi');
+				$this->db->where('kdurl', $kdbar);
+				
+				$detail = $this->db->get('stock')->row();
+					
+				$qty = 1; //$this->input->post('qty');
+				
+				$itemArray = array( $kdbar => array( 'kdbar' => $detail->kdbar, 'kdurl' => $detail->kdurl,
+													'nama'  => $detail->nama,
+													'qty'   => $qty,
+													'harga' => $detail->hjual,
+													'hargaf'=> $detail->hjualf, // harga dgn pemisah ribuan
+													'gambar'=> $detail->gambar,
+													'pnj'   => $detail->pnj,
+													'lbr'   => $detail->lbr,
+													'tgi'   => $detail->tgi
+												));
+	
+	
+				if(!empty($_SESSION["cart_item"])) {
+	
+					if(in_array($kdbar, array_keys($_SESSION["cart_item"]))) {
+	
+						foreach($_SESSION["cart_item"] as $k => $v) {
+								
+							if($kdbar == $k) {
+									
+								if(empty($_SESSION["cart_item"][$k]["qty"])) {
+									$_SESSION["cart_item"][$k]["qty"] = 0;
+								}
+								$_SESSION["cart_item"][$k]["qty"] += $qty;
+							}
+						}
+					} else {
+						$_SESSION["cart_item"] = array_merge($_SESSION["cart_item"], $itemArray);
+					}
+				} else {
+					// data array kosong
+					$_SESSION["cart_item"] = $itemArray;
+				}
+	
+				// $_SESSION["totqty"] += $qty;
+				$val = (int)$this->session->userdata('totqty') + 1;
+				$this->session->set_userdata('totqty', $val);
+			}
+				
+			// inisiasi
+			$item_price = 0;
+			$total_price = 0;
+						
+			foreach($_SESSION["cart_item"] as $k) {
+				$item_price  = (float)$_SESSION["cart_item"][$k]["qty"]*$_SESSION["cart_item"][$k]["harga"];
+				$total_price += $item_price;
+			}
+			$this->session->set_userdata('tot_price', $total_price);
+			
+			$url = strtok(current_url(), '?');
+			header("location: ".$url);
+		}
 		
 		$q  = $this->input->get('q');
 		$b  = $this->input->get('b');
@@ -41,7 +110,7 @@ class Search extends Public_Controller {
 		// filter pencarian
 		if ($q) $cond .= 'q='.$q;
 
-		// filter merk
+		// filter merk / brand
 		if ($b) {
 			if ($cond !== '') {
 				$cond .= '&b='.$b;
