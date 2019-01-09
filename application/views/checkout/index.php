@@ -12,7 +12,7 @@
 				<div class="container">
                     <form id="frmSubmit" action="<?= site_url('submit'); ?>" method="post">
 
-                    <div class="col-md-8">    
+                    <div class="col-md-8 col-sm-6">    
                         <h2><?= lang('checkout_billing_details') ?></h2>
                         <div class="row">
                             <div class="col-sm-6">    
@@ -113,7 +113,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-6">
                         <h2>Your Order</h2>
                         <table class="table table table-striped">
                             <thead>
