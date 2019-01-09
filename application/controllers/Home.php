@@ -12,6 +12,7 @@ class Home extends Public_Controller {
 
 		$this->load->model('golongan_model');
 		$this->load->model('stock_model');
+		
 		// unset($_SESSION["cart_item"]);
 		// unset($_SESSION["totqty"]);
 		// $this->output->enable_profiler(TRUE);

@@ -6,7 +6,10 @@ class Products extends Public_Controller {
     public function __construct()
     {
 		parent::__construct();
-		$this->load->library('pagination');
+		
+		$this->load->library('pagination', 'session');
+        // $this->load->library('session');
+		
 		$this->load->model('golongan_model');
 		$this->load->model('stock_model');
 		// $this->output->enable_profiler(TRUE);
@@ -20,16 +23,89 @@ class Products extends Public_Controller {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
         
-        $kode = $this->uri->segment(2);
+        $kdgol = $this->uri->segment(2); // kode golongan
 		
-		if (strlen($kode) == 2) {
-			$this->data['title'] = $this->golongan_model->get_by_id($kode)->nama;
-			$this->data['kdgol'] = $kode;
+		if (strlen($kdgol) == 2) {
+			$this->data['title'] = $this->golongan_model->get_by_id($kdgol)->nama;
+			$this->data['kdgol'] = $kdgol;
 		} else {
-			$this->data['title'] = $this->golongan_model->get_by_subid($kode)->nama;
-			$this->data['kdgol'] = substr($kode,0,2);
+			$this->data['title'] = $this->golongan_model->get_by_subid($kdgol)->nama;
+			$this->data['kdgol'] = substr($kdgol,0,2);
 		}
 
+		$action  = $this->input->get('action');
+		
+		if ($action) {
+			
+			$kdbar = $this->input->get('code'); // kode barang => cart
+
+			if ($kdbar != '') {
+				
+				// $detail = $this->stock_model->get_by_id($kdbar);
+				$this->db->select('kdbar, kdurl, nama, hjual, format(hjual,0,"id") as hjualf, gambar, pnj, lbr, tgi');
+				$this->db->where('kdurl', $kdbar);
+				
+				$detail = $this->db->get('stock')->row();
+					
+				$qty = 1; //$this->input->post('qty');
+				
+				$itemArray = array( $kdbar => array( 'kdbar' => $detail->kdbar, 'kdurl' => $detail->kdurl,
+													'nama'  => $detail->nama,
+													'qty'   => $qty,
+													'harga' => $detail->hjual,
+													'hargaf'=> $detail->hjualf, // harga dgn pemisah ribuan
+													'gambar'=> $detail->gambar,
+													'pnj'   => $detail->pnj,
+													'lbr'   => $detail->lbr,
+													'tgi'   => $detail->tgi
+												));
+	
+				if(!empty($_SESSION["cart_item"])) {
+	
+					if(in_array($kdbar, array_keys($_SESSION["cart_item"]))) {
+	
+						foreach($_SESSION["cart_item"] as $k => $v) {
+								
+							if($kdbar == $k) {
+									
+								if(empty($_SESSION["cart_item"][$k]["qty"])) {
+									$_SESSION["cart_item"][$k]["qty"] = 0;
+								}
+								$_SESSION["cart_item"][$k]["qty"] += $qty;
+							}
+							
+							$item_price  = (float)$_SESSION["cart_item"][$k]["qty"]*$_SESSION["cart_item"][$k]["harga"];
+							$total_price += $item_price;
+						}
+
+					} else {
+						$_SESSION["cart_item"] = array_merge($_SESSION["cart_item"], $itemArray);
+					}
+				} else {
+					// data array kosong
+					$_SESSION["cart_item"] = $itemArray;
+				}
+
+				// $_SESSION["totqty"] += $qty;
+				$val = (int)$this->session->userdata('totqty') + 1;
+				$this->session->set_userdata('totqty', $val);
+			}
+				
+			// inisiasi
+			$item_price = 0;
+			$total_price = 0;
+						
+			foreach($_SESSION["cart_item"] as $k) {
+				$item_price  = (float)$_SESSION["cart_item"][$k]["qty"]*$_SESSION["cart_item"][$k]["harga"];
+				$total_price += $item_price;
+			}
+			$this->session->set_userdata('tot_price', $total_price);
+			
+			$url = strtok(current_url(), '?');
+			header("location: ".$url);
+		}
+			
+		
 		if ($this->input->get('p')) {
 			$page   = $this->input->get('p');
 			$offset = ((int)$page-1)*8;
@@ -38,12 +114,12 @@ class Products extends Public_Controller {
 			$offset = 0;
 		}
 		
-		$total = $this->stock_model->total_rows($kode);
+		$total = $this->stock_model->total_rows($kdgol);
 		$url   = current_url() . '?p=';
 		
-		$this->data['products'] = $this->stock_model->get_by_category(8, $offset, $kode);
+		$this->data['products'] = $this->stock_model->get_by_category(8, $offset, $kdgol);
 		
-		$this->data['kode'] = $kode;
+		$this->data['kode'] = $kdgol;
 		
 		$this->data['pagination'] = $this->paging($total, $page, $url);
 

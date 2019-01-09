@@ -37,7 +37,7 @@
 	<link rel="stylesheet" type="text/css" href="<?=base_url('css/font-awesome.css');?>">
 	<link rel="stylesheet" type="text/css" href="<?=base_url('css/jquery-ui.css');?>">
 	
-	<link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/bootstrap/css/bootstrap.min.css'); ?>">
+	<!--<link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/bootstrap/css/bootstrap.min.css'); ?>">-->
     <link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/font-awesome/css/font-awesome.min.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/adminlte/css/adminlte.min.css'); ?>">
 	<!-- <link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/adminlte/plugins/iCheck/flat/blue.css'); ?>"> -->
@@ -60,6 +60,7 @@
     namespace: "callbacks",
     pager: true,
    });
+
   });
 </script>
 <?php endif; ?>
@@ -127,91 +128,13 @@ $(window).load(function() {
 </script>
 
 <style>
-	/* modal */
-@media screen {
-	.menu-modal {
-		width: 450px;
-	}
-	div.hello-body {
-	padding: 5em 0;
-	height: 420px;
-	}
-}
-
-@media (max-width: 640px) {
-	.menu-modal {
-		width: 90%;
-	}
-}
-@media (max-width: 384px) {
-    .menu-modal {
-        margin-top: 30px;
-    }
-	div.hello-body {
-	padding: 5em 0;
-	height: 525px;
-	}
-}
-.menu-modal {
-    background-color: #941204;
-    box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
-    padding: 24px;
-	border-radius: 20px;
-}
-
-.menu-close {
-    display: block;
-	position: absolute;
-	background: #941204;
-	padding: 0.5em 0.85em;
-	border-radius: 50px;
-    top: -25px;
-    right: -15px;
-    z-index: 10000;
-    outline: none;
-    font-size: 20px;
-    line-height: 30px;
-    color: #FFF;
-}
-/* div.hello-body {
-	padding: 5em 0;
-	height: 400px;
-} */
-h4.hello-tittle {
-	color: #fff;
-	padding: 0.5em 0;
-}
-.hello-menu {
-    background: #941204;
-    text-decoration: none;
-    color: #fff;
-    font-size: 0.9em;
-    border: 1px solid #FFF;
-    padding: 0.5em 2em;
-    outline: none;
-	border-radius: 50px;
-	display: inline-block;
-	white-space: nowrap;
-	width: 100%;
-	text-align: center;
-}
-@media (max-width: 640px) {
-	.hello-menu {
-		width: 90%;
-	}
-}
-
-div.hello-bar {
-    height: 40px;
-}
-
+/*
 .control {
   display: block;
   position: relative;
   padding-left: 30px;
   margin-bottom: 15px;
   cursor: pointer;
-  /* font-size: 18px; */
 }
 .control input {
   position: absolute;
@@ -261,7 +184,7 @@ div.hello-bar {
 }
 .control--checkbox input:disabled, .control__indicator:after {
   border-color: #7b7b7b;
-}
+}*/
 
 </style>
 <?php if ($mobile === FALSE): ?>
@@ -298,6 +221,10 @@ div.hello-bar {
 		$('.modal').on("shown.bs.modal",function(l){
 			$("#menu-modal").velocity("callout.bounce");
 		});
+		
+		$("#cart").on("click", function() {
+			$(".shopping-cart").fadeToggle( "fast");
+		});
 	
 	    $('#img-logo').hover(function(){
 			$(this).attr('src','<?= site_url('images/askitchen2.png'); ?>');
@@ -321,7 +248,6 @@ div.hello-bar {
 		});
 	});
 	</script>
-	
 
 	<!--header-->
 		<div class="header">
@@ -430,7 +356,7 @@ div.hello-bar {
 							<li><a href="<?php echo site_url('login'); ?>">Sign In</a></li>
 							<!--<li><a href="javascript:void(0);" data-toggle="modal" data-target="#loginModal">Sign In</a></li>-->
 							<?php endif; ?>
-							<li><a href="<?php echo site_url('cart'); ?>">Cart&nbsp;<img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a>
+							<li><a href="#" id="cart">Cart&nbsp;<img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a>
 							&nbsp;<span class="badge badge-primary"><?php if($this->session->userdata('totqty')): echo $this->session->userdata('totqty'); else: echo '0'; endif; ?></span></li>
 						</ul>
 					</div>
@@ -502,6 +428,7 @@ div.hello-bar {
 						<div class="clearfix"> </div>
 					</div>
 				</div>
+	
 			</div>
 		</div>
 	<!--header-->
@@ -577,12 +504,48 @@ div.hello-bar {
 		document.body.scrollTop = 0;
 		document.documentElement.scrollTop = 0;
 	}
-
-
-	<?php if($this->session->flashdata('message')){  ?>
-    toastr.error("<?php echo $this->session->flashdata('message'); ?>");
-	<?php } ?>
-
  
 </script>
 
+	<div class="shopping-cart">
+		<div class="shopping-cart-header">
+		<i class="fa fa-shopping-cart cart-icon"></i><span class="badge"><?php if($this->session->userdata('totqty')): echo $this->session->userdata('totqty'); else: echo '0'; endif; ?></span>
+		<div class="shopping-cart-total">
+			<span class="lighter-text">Total:</span>
+			<span class="main-color-text">Rp<?php if($this->session->userdata('tot_price')): echo $this->session->userdata('tot_price'); else: echo '0'; endif; ?></span>
+		</div>
+		</div> <!--end shopping-cart-header -->
+
+		<ul class="shopping-cart-items">
+		<?php 
+			// $total_qty = 0;
+			$item_price = 0;
+			// $total_price = 0;
+			
+		foreach ($_SESSION["cart_item"] as $item) {
+			$item_price  = (float)$item["qty"]*$item["harga"];
+			// $total_price += $item_price;
+			
+			// count total item
+			// $total_qty  += $item["qty"];
+
+		?><li class="clearfix">
+			<div style="display: flex; align-items: center;">
+				<div class="cart-img">
+					<img src="<?= site_url($this->data['products_dir'].'/'.$item["gambar"]); ?>" alt="item1" />
+				</div>
+				<div class="cart-desc">
+					<span class="item-name"><?= $item["nama"]; ?></span>
+					<span class="item-price">Rp<?= number_format($item_price, 0, '.', ',') ?></span>
+					<span class="item-quantity">Qty: <?= $item["qty"]; ?></span>
+				</div>
+				<div class="rem2">
+					<span class="close2"></span>
+				</div>
+			</div>
+		</li>
+		<?php } ?>
+		</ul>
+
+		<a href="<?php echo site_url('checkout'); ?>" class="button">Checkout</a>
+	</div> <!--end shopping-cart -->
