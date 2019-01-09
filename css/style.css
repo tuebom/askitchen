@@ -4271,30 +4271,84 @@ div.col-md-3.product-tab-grid.simpleCart_shelfItem {
     cursor: pointer;
     padding: 15px;
     border-radius: 50px;
-  }
-  
-  #myBtn:hover {
+}
+
+#myBtn:hover {
     background-color: transparent;
-  }
-  /* div.col-md-3.related-grid.simpleCart_shelfItem{
+}
+/* div.col-md-3.related-grid.simpleCart_shelfItem{
     position: relative;
     min-height: 1px;
     padding-right: 15px;
     padding-left: 15px;
-  } */
-  @media (min-width: 1024px) {
-    div.col-md-3.related-grid.simpleCart_shelfItem{
+} */
+@media (min-width: 1024px) {
+    div.col-md-3.related-grid.simpleCart_shelfItem {
         width: 15%;
     }
-  }
-  img.img-responsive2{
+}
+img.img-responsive2{
     display: block;
     max-width: 100%;
     height: auto;
     margin: auto;
-  }
-  div.col-md-3.product-agileinfo-grid{
-    /* border-right: 3px solid black;  */
+}
+div.col-md-3.product-agileinfo-grid{
+/* border-right: 3px solid black;  */
     height: 400px;
     overflow: auto; 
-  }
+}
+
+/* shopping cart */
+.shopping-cart {
+    margin: 20px 0;
+    float: right;
+    background: white;
+    width: 320px;
+    position: relative;
+    border-radius: 3px;
+    padding: 20px;
+}
+.shopping-cart .shopping-cart-header {
+    border-bottom: 1px solid #E8E8E8;
+    padding-bottom: 15px;
+}
+.shopping-cart .shopping-cart-header .shopping-cart-total {
+    float: right;
+}
+.shopping-cart .shopping-cart-items {
+    padding-top: 20px;
+}
+.shopping-cart .shopping-cart-items li {
+    margin-bottom: 18px;
+}
+.shopping-cart .shopping-cart-items img {
+    float: left;
+    margin-right: 12px;
+}
+.shopping-cart .shopping-cart-items .item-name {
+    display: block;
+    padding-top: 10px;
+    font-size: 16px;
+}
+.shopping-cart .shopping-cart-items .item-price {
+    color: #6394F8;
+    margin-right: 8px;
+}
+.shopping-cart .shopping-cart-items .item-quantity {
+    color: #ABB0BE;
+}
+
+.shopping-cart:after {
+    bottom: 100%;
+    left: 89%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: white;
+    border-width: 8px;
+    margin-left: -8px;
+}
