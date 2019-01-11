@@ -540,7 +540,7 @@ $(window).load(function() {
 					<span class="item-quantity">Qty: <?= $item["qty"]; ?></span>
 				</div>
 				<div class="rem2">
-					<span class="close2"></span>
+				<a href="<?= current_url().'?action=remove&code='.$item["kdurl"] ?>"><span class="close2"></span></a>
 				</div>
 			</div>
 		</li>

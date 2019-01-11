@@ -21,6 +21,7 @@
 										</li> 
 									</ul>
 								</div>
+								<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/wVHoD1eQPE4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 							</div>
 							<div class="single-right simpleCart_shelfItem">
 								
@@ -62,7 +63,8 @@
 										</script>
 								</div>
 								<div class="women">
-									<a href="javascript:{}" onclick="document.getElementById('formAdd').submit(); return false;" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a>
+									<!-- <a href="javascript:{}" onclick="document.getElementById('formAdd').submit(); return false;" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a> -->
+									<a href="<?= current_url().'?action=add&code='.$this->data['product']->kdurl ?>" class="my-cart-b item_add">Add To Cart</a>
 								</div>
 								<div class="social-icon">
 									<h6>Share:</h6>

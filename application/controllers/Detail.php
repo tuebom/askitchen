@@ -34,8 +34,119 @@ class Detail extends Public_Controller {
 		$action  = $this->input->get('action');
 		
 		if ($action) {
+
+			if ($action == 'add'):
 			
-			if ($action = 'comment') {
+				$kdbar = $this->input->get('code'); // kode barang => cart
+				$qty   = $this->input->get('qty');  // qty barang => cart
+
+				if ($kdbar != '') {
+					
+					// $detail = $this->stock_model->get_by_id($kdbar);
+					$this->db->select('kdbar, kdurl, nama, hjual, format(hjual,0,"id") as hjualf, gambar, pnj, lbr, tgi');
+					$this->db->where('kdurl', $kdbar);
+					
+					$detail = $this->db->get('stock')->row();
+						
+					if (!$qty) $qty = 1; //$this->input->post('qty');
+					
+					$itemArray = array( $kdbar => array( 'kdbar' => $detail->kdbar, 'kdurl' => $detail->kdurl,
+														'nama'  => $detail->nama,
+														'qty'   => $qty,
+														'harga' => $detail->hjual,
+														'hargaf'=> $detail->hjualf, // harga dgn pemisah ribuan
+														'gambar'=> $detail->gambar,
+														'pnj'   => $detail->pnj,
+														'lbr'   => $detail->lbr,
+														'tgi'   => $detail->tgi
+													));
+		
+					if(!empty($_SESSION["cart_item"])) {
+		
+						if(in_array($kdbar, array_keys($_SESSION["cart_item"]))) {
+		
+							foreach($_SESSION["cart_item"] as $k => $v) {
+									
+								if($kdbar == $k) {
+										
+									if(empty($_SESSION["cart_item"][$k]["qty"])) {
+										$_SESSION["cart_item"][$k]["qty"] = 0;
+									}
+									$_SESSION["cart_item"][$k]["qty"] += $qty;
+								}
+								
+								$item_price  = (float)$_SESSION["cart_item"][$k]["qty"]*$_SESSION["cart_item"][$k]["harga"];
+								$total_price += $item_price;
+							}
+
+						} else {
+							$_SESSION["cart_item"] = array_merge($_SESSION["cart_item"], $itemArray);
+						}
+					} else {
+						// data array kosong
+						$_SESSION["cart_item"] = $itemArray;
+					}
+
+					// $_SESSION["totqty"] += $qty;
+					$val = (int)$this->session->userdata('totqty') + 1;
+					$this->session->set_userdata('totqty', $val);
+				}
+					
+				// inisiasi
+				$item_price = 0;
+				$total_price = 0;
+							
+				foreach($_SESSION["cart_item"] as $k) {
+					$item_price  = (float)$_SESSION["cart_item"][$k]["qty"]*$_SESSION["cart_item"][$k]["harga"];
+					$total_price += $item_price;
+				}
+				$this->session->set_userdata('tot_price', $total_price);
+				
+				$url = strtok(current_url(), '?');
+				header("location: ".$url);
+			
+			elseif ($action == 'remove'):
+			
+				$kdbar = $this->input->get('code'); // kode barang => cart
+		
+				if ($kdbar != '') {
+					
+					// $qty = $this->input->post('qty');
+					
+		
+					if(!empty($_SESSION["cart_item"])) {
+		
+						if(in_array($kdbar, array_keys($_SESSION["cart_item"]))) {
+		
+							foreach($_SESSION["cart_item"] as $k => $v) {
+									
+								if($kdbar == $k) {
+										
+									$val = (int)$this->session->userdata('totqty') - $_SESSION["cart_item"][$k]["qty"];
+									$this->session->set_userdata('totqty', $val);
+									unset($_SESSION['cart_item'][$k]);
+								}
+							}
+						}
+		
+					}
+			
+				}
+		
+				// inisiasi
+				$item_price = 0;
+				$total_price = 0;
+							
+				foreach($_SESSION["cart_item"] as $k) {
+					$item_price  = (float)$_SESSION["cart_item"][$k]["qty"]*$_SESSION["cart_item"][$k]["harga"];
+					$total_price += $item_price;
+				}
+				$this->session->set_userdata('tot_price', $total_price);
+				
+				$url = strtok(current_url(), '?');
+				header("location: ".$url);
+			
+			else:
 
 				$this->form_validation->set_rules('name', 'Name', 'required');
 				$this->form_validation->set_rules('email', 'Email', 'required');
@@ -82,7 +193,8 @@ class Detail extends Public_Controller {
 				{
 					$this->data['message'] = (validation_errors()) ? validation_errors() : '';
 				}
-			}
+
+			endif;
 		}
 		
 		// prepare captcha

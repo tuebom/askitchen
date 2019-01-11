@@ -6,7 +6,9 @@ class Search extends Public_Controller {
     public function __construct()
     {
 		parent::__construct();
+
 		$this->load->library('pagination');
+
 		$this->load->model('golongan_model');
 		$this->load->model('stock_model');
 		// $this->output->enable_profiler(TRUE);
@@ -25,69 +27,114 @@ class Search extends Public_Controller {
 		
 		if ($action) {
 			
-			$kdbar = $this->input->get('code'); // kode barang => cart
+			if ($action == 'add') {
+			
+				$kdbar = $this->input->get('code'); // kode barang => cart
 
-			if ($kdbar != '') {
-				
-				// $detail = $this->stock_model->get_by_id($kdbar);
-				$this->db->select('kdbar, kdurl, nama, hjual, format(hjual,0,"id") as hjualf, gambar, pnj, lbr, tgi');
-				$this->db->where('kdurl', $kdbar);
-				
-				$detail = $this->db->get('stock')->row();
+				if ($kdbar != '') {
 					
-				$qty = 1; //$this->input->post('qty');
-				
-				$itemArray = array( $kdbar => array( 'kdbar' => $detail->kdbar, 'kdurl' => $detail->kdurl,
-													'nama'  => $detail->nama,
-													'qty'   => $qty,
-													'harga' => $detail->hjual,
-													'hargaf'=> $detail->hjualf, // harga dgn pemisah ribuan
-													'gambar'=> $detail->gambar,
-													'pnj'   => $detail->pnj,
-													'lbr'   => $detail->lbr,
-													'tgi'   => $detail->tgi
-												));
-	
-	
-				if(!empty($_SESSION["cart_item"])) {
-	
-					if(in_array($kdbar, array_keys($_SESSION["cart_item"]))) {
-	
-						foreach($_SESSION["cart_item"] as $k => $v) {
-								
-							if($kdbar == $k) {
+					// $detail = $this->stock_model->get_by_id($kdbar);
+					$this->db->select('kdbar, kdurl, nama, hjual, format(hjual,0,"id") as hjualf, gambar, pnj, lbr, tgi');
+					$this->db->where('kdurl', $kdbar);
+					
+					$detail = $this->db->get('stock')->row();
+						
+					$qty = 1; //$this->input->post('qty');
+					
+					$itemArray = array( $kdbar => array( 'kdbar' => $detail->kdbar, 'kdurl' => $detail->kdurl,
+														'nama'  => $detail->nama,
+														'qty'   => $qty,
+														'harga' => $detail->hjual,
+														'hargaf'=> $detail->hjualf, // harga dgn pemisah ribuan
+														'gambar'=> $detail->gambar,
+														'pnj'   => $detail->pnj,
+														'lbr'   => $detail->lbr,
+														'tgi'   => $detail->tgi
+													));
+		
+		
+					if(!empty($_SESSION["cart_item"])) {
+		
+						if(in_array($kdbar, array_keys($_SESSION["cart_item"]))) {
+		
+							foreach($_SESSION["cart_item"] as $k => $v) {
 									
-								if(empty($_SESSION["cart_item"][$k]["qty"])) {
-									$_SESSION["cart_item"][$k]["qty"] = 0;
+								if($kdbar == $k) {
+										
+									if(empty($_SESSION["cart_item"][$k]["qty"])) {
+										$_SESSION["cart_item"][$k]["qty"] = 0;
+									}
+									$_SESSION["cart_item"][$k]["qty"] += $qty;
 								}
-								$_SESSION["cart_item"][$k]["qty"] += $qty;
 							}
+						} else {
+							$_SESSION["cart_item"] = array_merge($_SESSION["cart_item"], $itemArray);
 						}
 					} else {
-						$_SESSION["cart_item"] = array_merge($_SESSION["cart_item"], $itemArray);
+						// data array kosong
+						$_SESSION["cart_item"] = $itemArray;
 					}
-				} else {
-					// data array kosong
-					$_SESSION["cart_item"] = $itemArray;
+		
+					// $_SESSION["totqty"] += $qty;
+					$val = (int)$this->session->userdata('totqty') + $qty;
+					$this->session->set_userdata('totqty', $val);
 				}
-	
-				// $_SESSION["totqty"] += $qty;
-				$val = (int)$this->session->userdata('totqty') + 1;
-				$this->session->set_userdata('totqty', $val);
-			}
+					
+				// inisiasi
+				$item_price = 0;
+				$total_price = 0;
+							
+				foreach($_SESSION["cart_item"] as $k) {
+					$item_price  = (float)$_SESSION["cart_item"][$k]["qty"]*$_SESSION["cart_item"][$k]["harga"];
+					$total_price += $item_price;
+				}
+				$this->session->set_userdata('tot_price', $total_price);
 				
-			// inisiasi
-			$item_price = 0;
-			$total_price = 0;
-						
-			foreach($_SESSION["cart_item"] as $k) {
-				$item_price  = (float)$_SESSION["cart_item"][$k]["qty"]*$_SESSION["cart_item"][$k]["harga"];
-				$total_price += $item_price;
+				$url = strtok(current_url(), '?');
+				header("location: ".$url);
 			}
-			$this->session->set_userdata('tot_price', $total_price);
+			else
+			{
 			
-			$url = strtok(current_url(), '?');
-			header("location: ".$url);
+				$kdbar = $this->input->get('code'); // kode barang => cart
+		
+				if ($kdbar != '') {
+					
+					// $qty = $this->input->post('qty');
+					
+		
+					if(!empty($_SESSION["cart_item"])) {
+		
+						if(in_array($kdbar, array_keys($_SESSION["cart_item"]))) {
+		
+							foreach($_SESSION["cart_item"] as $k => $v) {
+									
+								if($kdbar == $k) {
+										
+									$val = (int)$this->session->userdata('totqty') - $_SESSION["cart_item"][$k]["qty"];
+									$this->session->set_userdata('totqty', $val);
+									unset($_SESSION['cart_item'][$k]);
+								}
+							}
+						}
+		
+					}
+			
+				}
+		
+				// inisiasi
+				$item_price = 0;
+				$total_price = 0;
+							
+				foreach($_SESSION["cart_item"] as $k) {
+					$item_price  = (float)$_SESSION["cart_item"][$k]["qty"]*$_SESSION["cart_item"][$k]["harga"];
+					$total_price += $item_price;
+				}
+				$this->session->set_userdata('tot_price', $total_price);
+				
+				$url = strtok(current_url(), '?');
+				header("location: ".$url);
+			}
 		}
 		
 		$q  = $this->input->get('q');
