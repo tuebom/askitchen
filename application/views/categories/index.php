@@ -24,7 +24,7 @@
 												<li><input type="checkbox" id="item-<?=$index?>" /><label class="tree" for="item-<?=$index?>"><span></span><?= $item->nama ?></label>
 													<ul>
 														<?php foreach ($this->data['item_'.$item->kdgol] as $detail) { ?>
-														<li><input type="checkbox" id="item-<?=$index?>-0" /><a href="<?php echo site_url('products/'.$detail->kdgol2); ?>"><?= $detail->nama?></a></li>
+														<li><input type="checkbox" id="item-<?=$index?>-0" /><a href="<?php echo site_url('subcategories/'.$detail->kdgol2); ?>"><?= $detail->nama?></a></li>
 														<?php } ?>
 													</ul>
 												</li>
@@ -72,20 +72,6 @@
 											window.location.href = $(this).attr('href');
 										});
 
-										// $('.grid-arr-cat').mouseover(function(){
-
-										// div = $('.opacity-container');
-
-										// div.stop().animate({visibility: visible}, 150);
-
-										// }).mouseout(function(){
-
-										// div.stop().animate({visibility: hidden}, 150);
-
-										// });
-										// $('.grid-arr-cat').hover(
-										// 	function(){$(this).toggleClass(‘classname’);}
-										// );
 									// })
 									
 									</script>
@@ -132,7 +118,7 @@
 													<div class="grid-arr-cat">
 														<div class="grid-arrival">
 															<figure>		
-																<a href="<?= site_url('products/'.$item->kdgol2); ?>" class="new-gri">
+																<a href="<?= site_url('subcategories/'.$item->kdgol.'/'.$item->kdgol2); ?>" class="new-gri">
 																	<div class="grid-img">
 																		<img src="<?=site_url('images/categories/'.$item->gbr);?>" class="img-responsive" alt="<?= $item->gbr; ?>">
 																	</div>
@@ -140,7 +126,7 @@
 															</figure>	
 														</div>
 														<div class="article-title"><?=$item->nama?></div>
-														<a href="<?= site_url('products/'.$item->kdgol2); ?>" class="new-gri">
+														<a href="<?= site_url('subcategories/'.$item->kdgol.'/'.$item->kdgol2); ?>" class="new-gri">
 															<div class="opacity-container">
 																<div class="article-title"><?=$item->info?></div>
 															</div>
