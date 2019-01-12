@@ -12,7 +12,7 @@
 				<div class="container">
                     <form id="frmSubmit" action="<?= site_url('submit'); ?>" method="post">
 
-                    <div class="col-md-8 col-sm-6">    
+                    <div class="col-md-7 col-sm-6 bill-detail">    
                         <h2><?= lang('checkout_billing_details') ?></h2>
                         <div class="row">
                             <div class="col-sm-6">    
@@ -112,8 +112,10 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-1">
+                    </div>
 
-                    <div class="col-md-4 col-sm-6">
+                    <div class="col-md-4 col-sm-6 order">
                         <h2>Your Order</h2>
                         <table class="table table table-striped">
                             <thead>
@@ -155,8 +157,8 @@
                             </tfoot>
                         </table>
 
-                        <div class="col-sm-6 checkout-right-basket2"><a class="checkout-right-basket2" href="<?php echo site_url('cart'); ?>">Back</a></div>
-                        <div class="col-sm-6 checkout-right-basket2"><a class="checkout-right-basket2" href="javascript:{}" onclick="document.getElementById('frmSubmit').submit(); return false;">Submit Order</a></div>
+                        <div class="col-sm-6 col-xs-6 checkout-right-basket2"><a class="checkout-right-basket2" href="<?php echo site_url('cart'); ?>">Back</a></div>
+                        <div class="col-sm-6 col-xs-6 checkout-right-basket2"><a class="checkout-right-basket2" href="javascript:{}" onclick="document.getElementById('frmSubmit').submit(); return false;">Submit Order</a></div>
                     </div>
                     <input type="hidden" name="total" value="<?=$total_price?>">
                     <input type="hidden" name="shipping" value="">

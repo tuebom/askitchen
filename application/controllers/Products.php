@@ -11,7 +11,7 @@ class Products extends Public_Controller {
 		
 		$this->load->model('golongan_model');
 		$this->load->model('stock_model');
-		// $this->output->enable_profiler(TRUE);
+		$this->output->enable_profiler(TRUE);
 	}
 
 	public function index()
@@ -138,7 +138,7 @@ class Products extends Public_Controller {
 				$item_price = 0;
 				$total_price = 0;
 							
-				foreach($_SESSION["cart_item"] as $k) {
+				foreach($_SESSION["cart_item"] as $k => $v) {
 					$item_price  = (float)$_SESSION["cart_item"][$k]["qty"]*$_SESSION["cart_item"][$k]["harga"];
 					$total_price += $item_price;
 				}

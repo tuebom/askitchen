@@ -36,10 +36,10 @@
 									<label class="title">Price</label>
 
 									<ul>
-										<li><a href="<?php echo site_url('search?p1=0&p2=999999'); ?>">Under Rp1.000.000</a></li>
-										<li><a href="<?php echo site_url('search?p1=1000000&p2=5000000'); ?>">Rp1.000.000 to Rp5.000.000</a></li>
-										<li><a href="<?php echo site_url('search?p1=5000000&p2=10000000'); ?>">Rp5.000.000 to Rp10.000.000</a></li>
-										<li><a href="<?php echo site_url('search?p1=10000000'); ?>">Rp10.000.000 Above</a></li>
+										<li><a href="<?php echo site_url('search?q='.$this->data['q'].'&p1=0&p2=999999'); ?>">Under Rp1.000.000</a></li>
+										<li><a href="<?php echo site_url('search?q='.$this->data['q'].'&p1=1000000&p2=5000000'); ?>">Rp1.000.000 to Rp5.000.000</a></li>
+										<li><a href="<?php echo site_url('search?q='.$this->data['q'].'&p1=5000000&p2=10000000'); ?>">Rp5.000.000 to Rp10.000.000</a></li>
+										<li><a href="<?php echo site_url('search?q='.$this->data['q'].'&p1=10000000'); ?>">Rp10.000.000 Above</a></li>
 										<li><input id="pf" type="text" class="pricef" onkeypress="return isNumber(event)">&nbsp;-&nbsp;
 										<input id="pt" type="text" class="pricef" onkeypress="return isNumber(event)">
 										<a id="btnGo" href="<?php echo site_url('search'); ?>" class="btn-go">GO</a></li>
@@ -57,7 +57,7 @@
 											return true;
 										}
 										
-										var theUrl = <?php echo '"'.site_url().'search?q='.$this->data['kode'].'"' ?>;
+										var theUrl = <?php echo '"'.site_url().'search?q='.$this->data['q'].'"' ?>;
 
 										$('#btnGo').click(function(event) {
 											event.preventDefault();

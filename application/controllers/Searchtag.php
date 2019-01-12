@@ -84,7 +84,7 @@ class Searchtag extends Public_Controller {
 				$item_price = 0;
 				$total_price = 0;
 							
-				foreach($_SESSION["cart_item"] as $k) {
+				foreach($_SESSION["cart_item"] as $k => $v) {
 					$item_price  = (float)$_SESSION["cart_item"][$k]["qty"]*$_SESSION["cart_item"][$k]["harga"];
 					$total_price += $item_price;
 				}
@@ -126,7 +126,7 @@ class Searchtag extends Public_Controller {
 				$item_price = 0;
 				$total_price = 0;
 							
-				foreach($_SESSION["cart_item"] as $k) {
+				foreach($_SESSION["cart_item"] as $k => $v) {
 					$item_price  = (float)$_SESSION["cart_item"][$k]["qty"]*$_SESSION["cart_item"][$k]["harga"];
 					$total_price += $item_price;
 				}
