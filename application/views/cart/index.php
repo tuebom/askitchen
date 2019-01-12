@@ -115,7 +115,7 @@
 		<script>
 			$(document).ready(function (c) {
 				$('.close').on('click', function (c) {
-					$(this).parents("#formReview").find('#rating')[0];
+					$(this).parents(".rem").find('.formRem')[0].submit();
 				});
 			});
 		</script>
