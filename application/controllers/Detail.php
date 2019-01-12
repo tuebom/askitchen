@@ -75,8 +75,8 @@ class Detail extends Public_Controller {
 									$_SESSION["cart_item"][$k]["qty"] += $qty;
 								}
 								
-								$item_price  = (float)$_SESSION["cart_item"][$k]["qty"]*$_SESSION["cart_item"][$k]["harga"];
-								$total_price += $item_price;
+								// $item_price  = (float)$_SESSION["cart_item"][$k]["qty"]*$_SESSION["cart_item"][$k]["harga"];
+								// $total_price += $item_price;
 							}
 
 						} else {
@@ -96,11 +96,12 @@ class Detail extends Public_Controller {
 				$item_price = 0;
 				$total_price = 0;
 							
-				foreach($_SESSION["cart_item"] as $k) {
+				foreach($_SESSION["cart_item"] as $k => $v) {
 					$item_price  = (float)$_SESSION["cart_item"][$k]["qty"]*$_SESSION["cart_item"][$k]["harga"];
 					$total_price += $item_price;
 				}
 				$this->session->set_userdata('tot_price', $total_price);
+				// die($total_price);
 				
 				$url = strtok(current_url(), '?');
 				header("location: ".$url);
@@ -137,7 +138,7 @@ class Detail extends Public_Controller {
 				$item_price = 0;
 				$total_price = 0;
 							
-				foreach($_SESSION["cart_item"] as $k) {
+				foreach($_SESSION["cart_item"] as $k => $v) {
 					$item_price  = (float)$_SESSION["cart_item"][$k]["qty"]*$_SESSION["cart_item"][$k]["harga"];
 					$total_price += $item_price;
 				}
@@ -169,8 +170,14 @@ class Detail extends Public_Controller {
 					{
 						// if (file_exists(BASEPATH . "../captcha/" . $this->session->userdata['image']))
 						// unlink(BASEPATH . "../captcha/" . $this->session->userdata['image']);
-						if (file_exists('C:\xampp\htdocs\askitchen\images\captcha\\' . $this->session->userdata['image']))
-							unlink('C:\xampp\htdocs\askitchen\images\captcha\\' . $this->session->userdata['image']);
+
+						if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+							$file = 'D:\xampp\htdocs\askitchen\images\captcha\\';
+						} else {
+							$file = '';
+						}
+						if (file_exists($file . $this->session->userdata['image']))
+							unlink($file . $this->session->userdata['image']);
 			
 						$this->session->unset_userdata('captcha');
 						$this->session->unset_userdata('image');
@@ -204,11 +211,17 @@ class Detail extends Public_Controller {
 
 		$captcha = substr(str_shuffle($original_string), 0, 6);
 		
+		if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+			$file = 'D:\xampp\htdocs\askitchen\images\captcha\\';
+		} else {
+			$file = '';
+		}
+
 		$vals = array(
 
 			'word' => $captcha,
 
-			'img_path' => 'C:\xampp\htdocs\askitchen\images\captcha\\', //'./captcha'
+			'img_path' => $file, //'D:\xampp\htdocs\askitchen\images\captcha\\', //'./captcha'
 
 			'img_url' => base_url('images/captcha'),
 
@@ -233,11 +246,11 @@ class Detail extends Public_Controller {
 			// if (file_exists(BASEPATH . "../captcha/" . $this->session->userdata['image']))
 			// unlink(BASEPATH . "../captcha/" . $this->session->userdata['image']);
 
-			if (file_exists('C:\xampp\htdocs\askitchen\images\captcha\\' . $this->session->userdata['image']))
-				unlink('C:\xampp\htdocs\askitchen\images\captcha\\' . $this->session->userdata['image']);
+			if (file_exists($file . $this->session->userdata['image']))
+				unlink($file . $this->session->userdata['image']);
 		}
 
-		// $this->data['pathgbr']    = 'C:\xampp\htdocs\askitchen\images\captcha\\' . $this->session->userdata['image'];
+		// $this->data['pathgbr']    = 'D:\xampp\htdocs\askitchen\images\captcha\\' . $this->session->userdata['image'];
 		$this->session->set_userdata(array('captcha' => $captcha, 'image' => $cap['time'] . '.jpg'));
 		
 		$this->data['item_rating'] = $this->reviews_model->get_rating($kode);

@@ -132,7 +132,7 @@
 															</figure>	
 														</div>
 														<!-- <div class="block">
-															<div class="starbox small ghosting unchangeable" data-start-value="<?= $item->rating ?>"> </div>
+															<div class="starbox small ghosting unchangeable" data-start-value="0"> </div>
 														</div> -->
 														<div class="women">
 															<p ><em class="item_price">Rp<?= $item->hjual; ?></em></p>

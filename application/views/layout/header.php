@@ -198,7 +198,7 @@ $(window).load(function() {
 <body>
 
 	<?php if (current_url() !== site_url().'cart/add' && current_url() !== site_url().'checkout'): ?>
-	<a href="#menu-modal" class="float" data-toggle="modal"><img id="maskot" src="<?= site_url('images/ms2.png'); ?>" alt="maskot"><!--<i class="fa fa-question-circle my-float"></i>--></a>
+	<a href="#menu-modal" class="float" data-toggle="modal"><img id="maskot" src="<?= site_url('images/ma2.png'); ?>" alt="maskot"><!--<i class="fa fa-question-circle my-float"></i>--></a>
 	<?php
 	  $sTmp = (current_url() == site_url())? "true;" : "false;";
 	?>
@@ -233,9 +233,9 @@ $(window).load(function() {
 		});
 	
 	    $('#maskot').hover(function(){
-			$(this).attr('src','<?= site_url('images/ms1.png'); ?>');
+			$(this).attr('src','<?= site_url('images/ma1.png'); ?>');
 		},function(){
-			$(this).attr('src','<?= site_url('images/ms2.png'); ?>');
+			$(this).attr('src','<?= site_url('images/ma2.png'); ?>');
 		});
 
 	    $('#login-form-link').click(function(e) {
@@ -387,10 +387,6 @@ $(window).load(function() {
 							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs2">
 								
 								<ul class="nav navbar-nav">
-									<!--<li><a href="#">
-										<div style="display: inline-block; vertical-align: middle;"><img src="<?= site_url('images/location.png'); ?>" alt="location"/></div>
-										<div style="display: inline-block; vertical-align: middle;">Deliver To<br>INDONESIA</div></a>
-									</li>-->
 
 									<!-- Mega Menu -->
 									<?php 

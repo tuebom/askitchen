@@ -22,6 +22,12 @@ class Search extends Public_Controller {
 		foreach ($this->data['golongan'] as $item) {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
+		
+		if(!isset($_SESSION["totqty"])) {
+			$this->session->set_userdata('totqty', 0);
+			$this->session->set_userdata('tot_price', 0);
+			$this->session->set_userdata('cart_item', array());
+		}
 
 		$action  = $this->input->get('action');
 		
@@ -84,7 +90,7 @@ class Search extends Public_Controller {
 				$item_price = 0;
 				$total_price = 0;
 							
-				foreach($_SESSION["cart_item"] as $k) {
+				foreach($_SESSION["cart_item"] as $k => $v) {
 					$item_price  = (float)$_SESSION["cart_item"][$k]["qty"]*$_SESSION["cart_item"][$k]["harga"];
 					$total_price += $item_price;
 				}
@@ -126,7 +132,7 @@ class Search extends Public_Controller {
 				$item_price = 0;
 				$total_price = 0;
 							
-				foreach($_SESSION["cart_item"] as $k) {
+				foreach($_SESSION["cart_item"] as $k => $v) {
 					$item_price  = (float)$_SESSION["cart_item"][$k]["qty"]*$_SESSION["cart_item"][$k]["harga"];
 					$total_price += $item_price;
 				}
@@ -151,7 +157,7 @@ class Search extends Public_Controller {
 			$offset = 0;
 		}
 		
-		$total = $this->stock_model->total_rows($q,$b,$p1,$p2);
+		$total = $this->stock_model->total_rows(' '.$q,$b,$p1,$p2);
 		
 		$cond = '';
 		// filter pencarian
@@ -187,7 +193,7 @@ class Search extends Public_Controller {
 		$this->data['pagination'] = $this->paging($total, $page, $url);
 
 		$this->data['q'] = $q; //data
-		$this->data['products'] = $this->stock_model->get_limit_data(8,$offset,$q,$b,$p1,$p2);
+		$this->data['products'] = $this->stock_model->get_limit_data(8,$offset,' '.$q,$b,$p1,$p2);
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('search/index', $this->data);
