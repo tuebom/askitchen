@@ -110,7 +110,7 @@ function topFunction() {
 						<div class="col-md-4 arrival-grid simpleCart_shelfItem">
 							<div class="grid-arr-hot">
 								<a href="<?php echo site_url(); ?>" class="new-gri">
-									<img src="<?=site_url('images/hot.jpg');?>" class="img-hot" alt="">
+									<img src="<?=site_url('images/hot-product.jpg');?>" class="img-hot" alt="">
 									<div class="text">
 										<h3>Hot Products</h3>
 									</div>
