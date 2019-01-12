@@ -198,7 +198,7 @@ $(window).load(function() {
 <body>
 
 	<?php if (current_url() !== site_url().'cart/add' && current_url() !== site_url().'checkout'): ?>
-	<a href="#menu-modal" class="float" data-toggle="modal"><i class="fa fa-question-circle my-float"></i></a>
+	<a href="#menu-modal" class="float" data-toggle="modal"><img id="maskot" src="<?= site_url('images/ms2.png'); ?>" alt="maskot"><!--<i class="fa fa-question-circle my-float"></i>--></a>
 	<?php
 	  $sTmp = (current_url() == site_url())? "true;" : "false;";
 	?>
@@ -230,6 +230,12 @@ $(window).load(function() {
 			$(this).attr('src','<?= site_url('images/askitchen2.png'); ?>');
 		},function(){
 			$(this).attr('src','<?= site_url('images/askitchen.png'); ?>');
+		});
+	
+	    $('#maskot').hover(function(){
+			$(this).attr('src','<?= site_url('images/ms1.png'); ?>');
+		},function(){
+			$(this).attr('src','<?= site_url('images/ms2.png'); ?>');
 		});
 
 	    $('#login-form-link').click(function(e) {
@@ -509,10 +515,10 @@ $(window).load(function() {
 
 	<div class="shopping-cart">
 		<div class="shopping-cart-header">
-		<i class="fa fa-shopping-cart cart-icon"></i><span class="badge"><?php if($this->session->userdata('totqty')): echo $this->session->userdata('totqty'); else: echo '0'; endif; ?></span>
+		<i class="fa fa-shopping-cart cart-icon"></i><span class="badge"><?php if($this->session->userdata('totqty')): echo number_format($this->session->userdata('totqty'),0,",","."); else: echo '0'; endif; ?></span>
 		<div class="shopping-cart-total">
 			<span class="lighter-text">Total:&nbsp;</span>
-			<span class="main-color-text">Rp<?php if($this->session->userdata('tot_price')): echo $this->session->userdata('tot_price'); else: echo '0'; endif; ?></span>
+			<span class="main-color-text">Rp<?php if($this->session->userdata('tot_price')): echo number_format($this->session->userdata('tot_price'),0,",","."); else: echo '0'; endif; ?></span>
 		</div>
 		</div> <!--end shopping-cart-header -->
 
@@ -536,7 +542,7 @@ $(window).load(function() {
 				</div>
 				<div class="cart-desc">
 					<span class="item-name"><?= $item["nama"]; ?></span>
-					<span class="item-price">Rp<?= number_format($item_price, 0, '.', ',') ?></span>
+					<span class="item-price">Rp<?= number_format($item_price, 0, ',', '.') ?></span>
 					<span class="item-quantity">Qty: <?= $item["qty"]; ?></span>
 				</div>
 				<div class="rem2">
