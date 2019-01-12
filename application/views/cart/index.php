@@ -81,7 +81,7 @@
 											<span><?= $item["qty"]; ?></span>
 										</div>
 									</td>
-									<td class="price invert">Rp<?= number_format($item_price, 0, '.', ',') ?></td>
+									<td class="price invert">Rp<?= number_format($item_price, 0, ',', '.') ?></td>
 									<td class="invert">
 										<div class="rem">
 											<div class="close"> </div>
@@ -94,7 +94,7 @@
 								<tr>
 									<td colspan="5" style="text-align: right"><b>Total</b></td>
 									<td><?= $total_qty ?></td>
-									<td class="price">Rp<?= number_format($total_price, 0, '.', ',') ?></td>
+									<td class="price">Rp<?= number_format($total_price, 0, ',', '.') ?></td>
 									<td></td>
 								</tr>
 							</tfoot>

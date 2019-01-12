@@ -4414,6 +4414,14 @@ ul.shopping-cart-items {
     display: table;
     clear: both;
 }
+/* shopping cart */
+
+/* checkout */
+.order {
+    background-color: #fafafa;
+    padding: 0 10px;
+}
+/* checkout */
 
 /* modal */
 @media screen {

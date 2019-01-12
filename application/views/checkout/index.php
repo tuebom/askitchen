@@ -1,9 +1,9 @@
     <!--banner-->
-		<div class="banner1">
+		<!-- <div class="banner1">
 			<div class="container">
 				<h3><a href="<?php echo site_url(); ?>">Home</a> / <span>Checkout</span></h3>
 			</div>
-		</div>
+		</div> -->
 	<!--banner-->
 
 	<!--content-->
