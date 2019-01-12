@@ -4033,15 +4033,15 @@ h3.tittle1, h3.tittle {
 .float {
     position:fixed;
     z-index: 10000;
-	width:42px;
+	bottom: 110px;
+	right: 20px;
+	/*width:42px;
 	height:40px;
-	bottom:110px;
-	right:30px;
 	background-color:#06C;
 	color:#FFF;
 	border-radius:50px;
 	text-align:center;
-	box-shadow: 2px 2px 3px #999;
+	box-shadow: 2px 2px 3px #999;*/
 }
 
 .my-float{
@@ -4414,6 +4414,14 @@ ul.shopping-cart-items {
     display: table;
     clear: both;
 }
+/* shopping cart */
+
+/* checkout */
+.order {
+    background-color: #fafafa;
+    padding: 0 10px;
+}
+/* checkout */
 
 /* modal */
 @media screen {
