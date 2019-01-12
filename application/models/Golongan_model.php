@@ -63,7 +63,6 @@ class Golongan_model extends CI_Model
     function total_rows($q = NULL) {
         $this->db->like('kdgol', $q);
         $this->db->or_like('nama', $q);
-        // $this->db->or_like('detail', $q);
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }

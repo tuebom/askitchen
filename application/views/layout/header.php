@@ -511,7 +511,7 @@ $(window).load(function() {
 		<div class="shopping-cart-header">
 		<i class="fa fa-shopping-cart cart-icon"></i><span class="badge"><?php if($this->session->userdata('totqty')): echo $this->session->userdata('totqty'); else: echo '0'; endif; ?></span>
 		<div class="shopping-cart-total">
-			<span class="lighter-text">Total:</span>
+			<span class="lighter-text">Total:&nbsp;</span>
 			<span class="main-color-text">Rp<?php if($this->session->userdata('tot_price')): echo $this->session->userdata('tot_price'); else: echo '0'; endif; ?></span>
 		</div>
 		</div> <!--end shopping-cart-header -->
@@ -540,7 +540,7 @@ $(window).load(function() {
 					<span class="item-quantity">Qty: <?= $item["qty"]; ?></span>
 				</div>
 				<div class="rem2">
-					<span class="close2"></span>
+				<a href="<?= current_url().'?action=remove&code='.$item["kdurl"] ?>"><span class="close2"></span></a>
 				</div>
 			</div>
 		</li>
