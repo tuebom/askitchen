@@ -137,12 +137,17 @@
                                 <?php
                                     $item_price = 0;
                                     $total_price = 0;
+
                                     foreach ($_SESSION["cart_item"] as $item) {
 
                                         $item_price  = (float)$item["qty"]*$item["harga"];
                                         $total_price += $item_price;
                                 ?>
                                 <tr>
+                                    <input type="hidden" name="kdbar[]" value="<?= $item["kdbar"]; ?>">
+                                    <input type="hidden" name="qty[]" value="<?= $item["qty"]; ?>">
+                                    <input type="hidden" name="harga[]" value="<?= $item["harga"]; ?>">
+                                    <input type="hidden" name="jumlah[]" value="<?= $item_price; ?>">
                                     <td><?= $item["nama"]; ?></td>
                                     <td class="text-right">Rp<?= number_format($item_price, 0, '.', ',') ?></td>
                                 </tr>

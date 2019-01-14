@@ -29,6 +29,7 @@ class Checkout extends Public_Controller {
 		}
 		
 		$this->data['provinsi'] = $this->provinsi_model->get_all();
+		$this->data['province'] = '';
 		
 		if (!$this->ion_auth->logged_in())
 		{
@@ -110,17 +111,18 @@ class Checkout extends Public_Controller {
 				);
 				$this->db->insert('orders', $orders_data);
 		
+				redirect('submit', 'refresh');
 				
-				if(!empty($_SESSION["cart_item"])) {
+				// if(!empty($_SESSION["cart_item"])) {
 		
-					foreach($_SESSION["cart_item"] as $k => $v) {
-						unset($_SESSION['cart_item'][$k]);
-					}
-				}
-				$this->session->set_userdata('totqty', 0);
-				$this->session->set_userdata('tot_price', 0);
+				// 	foreach($_SESSION["cart_item"] as $k => $v) {
+				// 		unset($_SESSION['cart_item'][$k]);
+				// 	}
+				// }
+				// $this->session->set_userdata('totqty', 0);
+				// $this->session->set_userdata('tot_price', 0);
 				
-				redirect('/', 'refresh');
+				// redirect('/', 'refresh');
 			}
 			else
 			{

@@ -16,6 +16,29 @@ CREATE DATABASE IF NOT EXISTS `ask` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `ask`;
 
 
+-- Dumping structure for table ask.address
+DROP TABLE IF EXISTS `address`;
+CREATE TABLE IF NOT EXISTS `address` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
+  `company` varchar(100) DEFAULT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone` varchar(25) DEFAULT NULL,
+  `province` char(2) DEFAULT NULL,
+  `regency` char(4) DEFAULT NULL,
+  `district` char(7) DEFAULT NULL,
+  `post_code` varchar(10) DEFAULT NULL,
+  `address1` varchar(100) DEFAULT NULL,
+  `address2` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table ask.address: ~0 rows (approximately)
+/*!40000 ALTER TABLE `address` DISABLE KEYS */;
+/*!40000 ALTER TABLE `address` ENABLE KEYS */;
+
+
 -- Dumping structure for table ask.admin_preferences
 DROP TABLE IF EXISTS `admin_preferences`;
 CREATE TABLE IF NOT EXISTS `admin_preferences` (
@@ -45,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `brands` (
   PRIMARY KEY (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table ask.brands: ~0 rows (approximately)
+-- Dumping data for table ask.brands: ~5 rows (approximately)
 /*!40000 ALTER TABLE `brands` DISABLE KEYS */;
 INSERT INTO `brands` (`name`) VALUES
 	('ASKITCHEN'),
@@ -67,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `districts` (
   CONSTRAINT `districts_regency_id_foreign` FOREIGN KEY (`regency_id`) REFERENCES `regencies` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table ask.districts: ~7.561 rows (approximately)
+-- Dumping data for table ask.districts: ~7.135 rows (approximately)
 /*!40000 ALTER TABLE `districts` DISABLE KEYS */;
 INSERT INTO `districts` (`id`, `regency_id`, `name`) VALUES
 	('1101010', '1101', 'TEUPAH SELATAN'),
@@ -7537,7 +7560,7 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
   `login` varchar(100) NOT NULL,
   `time` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ask.login_attempts: ~0 rows (approximately)
 /*!40000 ALTER TABLE `login_attempts` DISABLE KEYS */;
@@ -7549,8 +7572,11 @@ DROP TABLE IF EXISTS `orders`;
 CREATE TABLE IF NOT EXISTS `orders` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `tglinput` date DEFAULT NULL,
+  `mbrid` int(11) unsigned DEFAULT NULL,
+  `addrid` int(11) unsigned DEFAULT NULL,
   `total` double DEFAULT '0',
   `disc` float DEFAULT '0',
+  `discrp` double DEFAULT '0',
   `gtotal` double DEFAULT '0',
   `shipcost` double DEFAULT '0',
   `status` char(1) DEFAULT 'O',
@@ -7568,7 +7594,8 @@ CREATE TABLE IF NOT EXISTS `orders_detail` (
   `id` int(10) unsigned DEFAULT NULL,
   `kdbar` varchar(25) DEFAULT NULL,
   `qty` int(11) DEFAULT '1',
-  `hjual` double DEFAULT '0'
+  `hjual` double DEFAULT '0',
+  `jumlah` double DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ask.orders_detail: ~0 rows (approximately)
@@ -7665,7 +7692,7 @@ CREATE TABLE IF NOT EXISTS `regencies` (
   CONSTRAINT `regencies_province_id_foreign` FOREIGN KEY (`province_id`) REFERENCES `provinces` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table ask.regencies: ~743 rows (approximately)
+-- Dumping data for table ask.regencies: ~757 rows (approximately)
 /*!40000 ALTER TABLE `regencies` DISABLE KEYS */;
 INSERT INTO `regencies` (`id`, `province_id`, `name`) VALUES
 	('1101', '11', 'KABUPATEN SIMEULUE'),
@@ -8513,7 +8540,7 @@ CREATE TABLE IF NOT EXISTS `stock` (
   KEY `kdurl` (`kdurl`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table ask.stock: ~575 rows (approximately)
+-- Dumping data for table ask.stock: ~788 rows (approximately)
 /*!40000 ALTER TABLE `stock` DISABLE KEYS */;
 INSERT INTO `stock` (`kdbar`, `kdurl`, `nama`, `kdgol`, `kdgol2`, `kdgol3`, `satuan`, `merk`, `pnj`, `lbr`, `tgi`, `gambar`, `listrik`, `kapasitas`, `gas`, `berat`, `fitur`, `tag`, `hjual`, `disc`, `saldo`, `last_update`) VALUES
 	('AS-9800-12', 'AS-9800-12', 'Bar Faucet Hot & Cool', '07', '07.01', '07.01.06', 'pcs', 'GETRA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1000000, 0, 0, '2019-01-12 15:21:21'),
@@ -9277,9 +9304,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table ask.users: ~3 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `address1`, `address2`, `phone`, `city`, `province`, `zip`) VALUES
-	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1546675777, 1, 'Admin', 'istrator', 'ADMIN', NULL, NULL, '0', NULL, NULL, NULL),
+	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1547444473, 1, 'Admin', 'istrator', 'ADMIN', NULL, NULL, '0', NULL, NULL, NULL),
 	(2, '::1', 'putu wirya', '$2y$08$zxNLYqTPfZxjbnxRd5rQB.0FS7Zz76p3KeHzP3lkupnRdNgJLzKT6', NULL, 'poetoee@yahoo.co.id', NULL, NULL, NULL, NULL, 1544226665, 1546574375, 1, 'Putu', 'Wirya', 'AAA', NULL, NULL, '085739961234', NULL, NULL, NULL),
-	(3, '::1', 'made budi', '$2y$08$0atx.zx51tQcNSwv0MW9NOhbPcUGtpfifZ74yg.h/Wn4XWMXl0lby', NULL, 'made_budixyz@gmail.com', NULL, NULL, NULL, NULL, 1546487728, 1546487777, 1, 'Made', 'Budi', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+	(3, '::1', 'made budi', '$2y$08$DCk27b0xNsEvtltfuATMIuoeyX9kEndb.o/Nr4ph3aYHMT6Fgg4ye', NULL, 'made_budixyz@gmail.com', NULL, NULL, NULL, NULL, 1546487728, 1547452673, 1, 'Made', 'Budi', 'ABC', NULL, NULL, '081916032171', NULL, NULL, NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 
@@ -9295,14 +9322,14 @@ CREATE TABLE IF NOT EXISTS `users_groups` (
   KEY `fk_users_groups_groups1_idx` (`group_id`),
   CONSTRAINT `fk_users_groups_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `fk_users_groups_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- Dumping data for table ask.users_groups: ~3 rows (approximately)
 /*!40000 ALTER TABLE `users_groups` DISABLE KEYS */;
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 	(1, 1, 1),
 	(3, 2, 2),
-	(4, 3, 2);
+	(5, 3, 2);
 /*!40000 ALTER TABLE `users_groups` ENABLE KEYS */;
 
 
@@ -9317,7 +9344,7 @@ CREATE TABLE IF NOT EXISTS `villages` (
   CONSTRAINT `villages_district_id_foreign` FOREIGN KEY (`district_id`) REFERENCES `districts` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table ask.villages: ~82.468 rows (approximately)
+-- Dumping data for table ask.villages: ~80.228 rows (approximately)
 /*!40000 ALTER TABLE `villages` DISABLE KEYS */;
 INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 	('1101010001', '1101010', 'LATIUNG'),
