@@ -23,7 +23,7 @@
 												<li><input type="checkbox" id="item-<?=$index?>" /><label class="tree" for="item-<?=$index?>"><span></span><?= $item->nama ?></label>
 													<ul>
 														<?php foreach ($this->data['item_'.$item->kdgol] as $detail) { ?>
-														<li><input type="checkbox" id="item-<?=$index?>-0" /><a href="<?php echo site_url('products/'.$detail->kdgol2); ?>"><?= $detail->nama?></a></li>
+														<li><input type="checkbox" id="item-<?=$index?>-0" /><a href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>"><?= $detail->nama?></a></li>
 														<?php } ?>
 													</ul>
 												</li>

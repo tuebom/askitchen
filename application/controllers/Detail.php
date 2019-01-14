@@ -257,7 +257,7 @@ class Detail extends Public_Controller {
 		
 		$totrevs = $this->reviews_model->total_rows($kode);
 		
-		if (!$action)
+		if (!$action) // tampilkan tombol 'get all reviews'
 		{
 			if ($totrevs > 3) $this->data['showbutton'] = true;
 			$this->data['reviews'] = $this->reviews_model->get_limit_data(3,0,$kode);

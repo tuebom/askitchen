@@ -9,6 +9,7 @@ class Subcategories extends Public_Controller {
 
 		$this->load->model('golongan_model');
 		$this->load->model('golongan2_model');
+		$this->load->model('golongan3_model');
 		$this->load->model('stock_model');
 		// $this->output->enable_profiler(TRUE);
 	}
@@ -21,7 +22,8 @@ class Subcategories extends Public_Controller {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
         
-        $kode = $this->uri->segment(3);
+		$kode = $this->uri->segment(3);
+		// die($kode);
 		
 		// if (strlen($kode) == 2) {
 			$this->data['title']  = $this->golongan2_model->get_by_id($kode)->nama;

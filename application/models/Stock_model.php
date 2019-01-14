@@ -45,6 +45,7 @@ class Stock_model extends CI_Model
         // $this->db->where('kdgol2', $code);
         $this->db->like('kdgol', $code);
         $this->db->or_like('kdgol2', $code);
+        $this->db->or_like('kdgol3', $code);
 	    $this->db->limit($limit, $start);
         return $this->db->get($this->table)->result();
     }
@@ -114,7 +115,7 @@ class Stock_model extends CI_Model
         if ($q) {
             $this->db
             ->group_start()
-            ->or_like(['kdbar'=> $q, 'nama'=> $q, 'kdgol'=> $q, 'kdgol2'=> $q, 'pnj'=> $q, 'lbr'=> $q, 'tgi'=> $q, 'tag'=> $q])
+            ->or_like(['kdbar'=> $q, 'nama'=> $q, 'kdgol'=> $q, 'kdgol2'=> $q, 'kdgol3'=> $q, 'pnj'=> $q, 'lbr'=> $q, 'tgi'=> $q, 'tag'=> $q])
             ->group_end();
         }
         
@@ -169,7 +170,7 @@ class Stock_model extends CI_Model
         
         if ($q) {
             $qry->group_start()
-            ->or_like(['kdbar'=> $q, 'nama'=> $q, 'kdgol'=> $q, 'kdgol2'=> $q, 'pnj'=> $q, 'lbr'=> $q, 'tgi'=> $q])
+            ->or_like(['kdbar'=> $q, 'nama'=> $q, 'kdgol'=> $q, 'kdgol2'=> $q, 'kdgol3'=> $q, 'pnj'=> $q, 'lbr'=> $q, 'tgi'=> $q])
             ->group_end();
         }
         

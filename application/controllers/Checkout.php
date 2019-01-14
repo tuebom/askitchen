@@ -6,7 +6,10 @@ class Checkout extends Public_Controller {
     public function __construct()
     {
 		parent::__construct();
-        $this->lang->load('checkout');
+		
+		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter'), $this->config->item('error_end_delimiter'));
+		
+		$this->lang->load('checkout');
 		
 		$this->load->model('golongan_model');
 		$this->load->model('provinsi_model');
@@ -18,12 +21,13 @@ class Checkout extends Public_Controller {
 
 	public function index()
 	{
-		// $this->load->view('public/home', $this->data);
+		
 		$this->data['golongan'] = $this->golongan_model->get_all();
 
 		foreach ($this->data['golongan'] as $item) {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
+		
 		$this->data['provinsi'] = $this->provinsi_model->get_all();
 		
 		if ( $this->ion_auth->logged_in())
@@ -31,6 +35,44 @@ class Checkout extends Public_Controller {
 			// siapkan data member
 			$this->data['anggota'] = $this->ion_auth->user()->row();
         }
+            
+        $submit = $this->input->post('submit');
+
+        if ($submit) {
+			die('submited!');
+
+            /* Validate form input */
+            $this->form_validation->set_rules('first_name', 'lang:checkout_firstname', 'required');
+            $this->form_validation->set_rules('last_name', 'lang:checkout_lastname', 'required');
+			$this->form_validation->set_rules('email', 'lang:checkout_email', 'required|valid_email');
+			$this->form_validation->set_rules('phone', 'lang:checkout_phone', 'required|valid_email');
+			
+			$this->form_validation->set_rules('province', 'lang:checkout_province', 'required');
+			$this->form_validation->set_rules('regency', 'lang:checkout_regency', 'required');
+			$this->form_validation->set_rules('district', 'lang:checkout_district', 'required');
+			
+			$this->form_validation->set_rules('province', 'lang:checkout_post_code', 'required');
+			$this->form_validation->set_rules('regency', 'lang:checkout_address1', 'required');
+			// $this->form_validation->set_rules('district', 'lang:checkout_district', 'required');
+			
+			if ($this->form_validation->run() == TRUE)
+            {
+                $first_name = $this->input->post('first_name');
+                $last_name  = $this->input->post('last_name');
+                $company    = $this->input->post('company');
+				$email      = strtolower($this->input->post('email'));
+				$phone      = $this->input->post('phone');
+				
+				// shipping address data
+				$province   = $this->input->post('province');
+				$regency    = $this->input->post('regency');
+				$district   = $this->input->post('district');
+			}
+			else
+			{
+				$this->data['message'] = (validation_errors() ? validation_errors() : 'Input data belum benar!');
+			}
+		}
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('checkout/index', $this->data);

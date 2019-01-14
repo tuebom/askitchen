@@ -10,8 +10,10 @@
 		<div class="content">
 			<div class="cart-items">
 				<div class="container">
-                    <form id="frmSubmit" action="<?= site_url('submit'); ?>" method="post">
+                    <form id="frmSubmit" action="<?= site_url('checkout'); ?>" method="post">
 
+                    <input type="hidden" name="mbrid" value="<?=isset($this->data['anggota']->id) ? $this->data['anggota']->id : '';?>">
+                    <input type="hidden" name="submit" value="submit">
                     <div class="col-md-7 col-sm-6 bill-detail">    
                         <h2><?= lang('checkout_billing_details') ?></h2>
                         <div class="row">
@@ -111,6 +113,13 @@
                                 </div>
                             </div>
                         </div>
+                        <?php if (isset($this->data['message'])) :?>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <?php echo $this->data['message']; ?>
+                            </div>
+                        </div>
+                        <?php endif; ?>
                     </div>
                     <div class="col-md-1">
                     </div>
@@ -158,7 +167,7 @@
                         </table>
 
                         <div class="col-sm-6 col-xs-6 checkout-right-basket2"><a class="checkout-right-basket2" href="<?php echo site_url('cart'); ?>">Back</a></div>
-                        <div class="col-sm-6 col-xs-6 checkout-right-basket2"><a class="checkout-right-basket2" href="javascript:{}" onclick="document.getElementById('frmSubmit').submit(); return false;">Submit Order</a></div>
+                        <div class="col-sm-6 col-xs-6 checkout-right-basket2"><a class="checkout-right-basket2" href="#" id="btnSubmit">Submit Order</a></div>
                     </div>
                     <input type="hidden" name="total" value="<?=$total_price?>">
                     <input type="hidden" name="shipping" value="">
@@ -169,6 +178,12 @@
 	<!-- content -->
 	<script type="text/javascript">
     $(document).ready(function() {
+        
+        $('#btnSubmit').click(function(event) {
+            event.preventDefault();
+            $('#frmSubmit').submit();
+            // alert('haloo');
+        });
         
         $('#province').change(function(){
             $.ajax({
