@@ -1,6 +1,6 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Server version:               5.5.39-log - MySQL Community Server (GPL)
+-- Server version:               5.5.39 - MySQL Community Server (GPL)
 -- Server OS:                    Win32
 -- HeidiSQL Version:             8.3.0.4694
 -- --------------------------------------------------------
@@ -38,6 +38,24 @@ INSERT INTO `admin_preferences` (`id`, `user_panel`, `sidebar_form`, `messages_m
 /*!40000 ALTER TABLE `admin_preferences` ENABLE KEYS */;
 
 
+-- Dumping structure for table ask.brands
+DROP TABLE IF EXISTS `brands`;
+CREATE TABLE IF NOT EXISTS `brands` (
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Dumping data for table ask.brands: ~0 rows (approximately)
+/*!40000 ALTER TABLE `brands` DISABLE KEYS */;
+INSERT INTO `brands` (`name`) VALUES
+	('ASKITCHEN'),
+	('GEA'),
+	('GETRA'),
+	('MADIN'),
+	('SANDEN');
+/*!40000 ALTER TABLE `brands` ENABLE KEYS */;
+
+
 -- Dumping structure for table ask.districts
 DROP TABLE IF EXISTS `districts`;
 CREATE TABLE IF NOT EXISTS `districts` (
@@ -49,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `districts` (
   CONSTRAINT `districts_regency_id_foreign` FOREIGN KEY (`regency_id`) REFERENCES `regencies` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table ask.districts: ~6.734 rows (approximately)
+-- Dumping data for table ask.districts: ~7.561 rows (approximately)
 /*!40000 ALTER TABLE `districts` DISABLE KEYS */;
 INSERT INTO `districts` (`id`, `regency_id`, `name`) VALUES
 	('1101010', '1101', 'TEUPAH SELATAN'),
@@ -7229,7 +7247,7 @@ INSERT INTO `districts` (`id`, `regency_id`, `name`) VALUES
 	('9433033', '9433', 'OMUKIA'),
 	('9433040', '9433', 'SINAK'),
 	('9433041', '9433', 'SINAK BARAT'),
-	('9433042', '9433', 'MAGEÃƒÂBUME'),
+	('9433042', '9433', 'MAGEÃƒÆ’Ã‚ÂBUME'),
 	('9433043', '9433', 'YUGUMUAK'),
 	('9433050', '9433', 'POGOMA'),
 	('9433051', '9433', 'KEMBRU'),
@@ -7647,7 +7665,7 @@ CREATE TABLE IF NOT EXISTS `regencies` (
   CONSTRAINT `regencies_province_id_foreign` FOREIGN KEY (`province_id`) REFERENCES `provinces` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table ask.regencies: ~757 rows (approximately)
+-- Dumping data for table ask.regencies: ~743 rows (approximately)
 /*!40000 ALTER TABLE `regencies` DISABLE KEYS */;
 INSERT INTO `regencies` (`id`, `province_id`, `name`) VALUES
 	('1101', '11', 'KABUPATEN SIMEULUE'),
@@ -8495,7 +8513,7 @@ CREATE TABLE IF NOT EXISTS `stock` (
   KEY `kdurl` (`kdurl`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table ask.stock: ~903 rows (approximately)
+-- Dumping data for table ask.stock: ~575 rows (approximately)
 /*!40000 ALTER TABLE `stock` DISABLE KEYS */;
 INSERT INTO `stock` (`kdbar`, `kdurl`, `nama`, `kdgol`, `kdgol2`, `kdgol3`, `satuan`, `merk`, `pnj`, `lbr`, `tgi`, `gambar`, `listrik`, `kapasitas`, `gas`, `berat`, `fitur`, `tag`, `hjual`, `disc`, `saldo`, `last_update`) VALUES
 	('AS-9800-12', 'AS-9800-12', 'Bar Faucet Hot & Cool', '07', '07.01', '07.01.06', 'pcs', 'GETRA', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1000000, 0, 0, '2019-01-12 15:21:21'),
@@ -8509,7 +8527,7 @@ INSERT INTO `stock` (`kdbar`, `kdurl`, `nama`, `kdgol`, `kdgol2`, `kdgol3`, `sat
 	('AS.A-530V', 'AS.A-530V', 'Countertop Cake Showcase', '01', '01.02', '01.02.06', 'pcs', 'GEA', '90', '54', '79', '01/02/AS.A530V.png', '420 WATT / 220 V', '140 Liter', NULL, 90, NULL, NULL, 20000000, 0, 0, '2019-01-11 14:51:33'),
 	('AS.A-540V', 'AS.A-540V', 'Countertop Cake Showcase', '01', '01.02', '01.02.06', 'pcs', 'GEA', '120', '54', '79', '01/02/AS.A540V.png', '465 WATT / 220 V', '190 Liter', NULL, 105, NULL, NULL, 24000000, 0, 0, '2019-01-11 14:51:39'),
 	('AS.A-550V', 'AS.A-550V', 'Countertop Cake Showcase', '01', '01.02', '01.02.06', 'pcs', 'GEA', '150', '54', '79', '01/02/AS.A550V.png', '550 WATT / 220 V', '240 Liter', NULL, 120, NULL, NULL, 26500000, 0, 0, '2019-01-11 14:51:46'),
-	('AS.AB-106R', 'AS.AB-106R', 'Chest Freezer', '01', '01.01', '01.01.01', 'pcs', 'GEA', '56.3', '56.2', '84.5', 'gambar depan.png', '80 WATT / 220 V', '102 Liter', NULL, 24, NULL, NULL, 2550000, 0, 0, '2019-01-12 14:07:09'),
+	('AS.AB-106R', 'AS.AB-106R', 'Chest Freezer', '01', '01.01', '01.01.01', 'pcs', 'GEA', '56.3', '56.2', '84.5', '01/01/AS.AB-106R.png', '80 WATT / 220 V', '102 Liter', NULL, 24, NULL, NULL, 2550000, 0, 0, '2019-01-14 08:34:51'),
 	('AS.AB-1200TX', 'AS.AB-1200TX', 'Chest Freezer', '01', '01.01', '01.01.01', 'pcs', 'GEA', '225', '82', '88', '01/01/AS.AB1200T.png', '468 WATT / 220 V', '1.050 Liter', NULL, 115, NULL, NULL, 12420000, 0, 0, '2019-01-10 13:25:11'),
 	('AS.AB-226R', 'AS.AB-226R', 'Chest Freezer', '01', '01.01', '01.01.01', 'pcs', 'GEA', '94.6', '56.2', '84.5', NULL, '90 WATT / 220 V', '220 Liter', NULL, 37, NULL, NULL, 3450000, 0, 0, '2019-01-10 13:25:11'),
 	('AS.AB-336R', 'AS.AB-336R', 'Chest Freezer', '01', '01.01', '01.01.01', 'pcs', 'GEA', '112.5', '68.5', '85.5', '01/01/AS.AB-336R.png', '150 WATT / 220 V', '330 Liter', NULL, 48, NULL, NULL, 4300000, 0, 0, '2019-01-10 13:25:11'),
@@ -9299,7 +9317,7 @@ CREATE TABLE IF NOT EXISTS `villages` (
   CONSTRAINT `villages_district_id_foreign` FOREIGN KEY (`district_id`) REFERENCES `districts` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table ask.villages: ~81.156 rows (approximately)
+-- Dumping data for table ask.villages: ~82.468 rows (approximately)
 /*!40000 ALTER TABLE `villages` DISABLE KEYS */;
 INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 	('1101010001', '1101010', 'LATIUNG'),
@@ -73845,7 +73863,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 	('7209070013', '7209070', 'BAULU'),
 	('7209070014', '7209070', 'MATOBIYAI'),
 	('7209070015', '7209070', 'SAMPOBAE'),
-	('7209070016', '7209070', 'TITIRIÃƒÂ­ POPOLION'),
+	('7209070016', '7209070', 'TITIRIÃƒÆ’Ã‚Â­ POPOLION'),
 	('7209080006', '7209080', 'TIGA PULAU'),
 	('7209080007', '7209080', 'LUOK'),
 	('7209080008', '7209080', 'POPOLII'),
@@ -75048,9 +75066,9 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 	('7308030003', '7308030', 'BONTO BAHARI'),
 	('7308030004', '7308030', 'PAJUKUKANG'),
 	('7308030005', '7308030', 'TUNIKAMASEANG'),
-	('7308030006', '7308030', 'BONTOA'),
-	('7308030007', '7308030', 'SALENRANG');
+	('7308030006', '7308030', 'BONTOA');
 INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+	('7308030007', '7308030', 'SALENRANG'),
 	('7308030008', '7308030', 'BONTO LEMPANGAN'),
 	('7308030009', '7308030', 'MINASA UPA'),
 	('7308030010', '7308030', 'TUPABIRING'),

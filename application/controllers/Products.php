@@ -10,6 +10,7 @@ class Products extends Public_Controller {
 		$this->load->library('pagination');
 		
 		$this->load->model('golongan_model');
+		$this->load->model('golongan3_model');
 		$this->load->model('stock_model');
 		$this->output->enable_profiler(TRUE);
 	}
@@ -22,15 +23,16 @@ class Products extends Public_Controller {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
         
-        $kdgol = $this->uri->segment(2); // kode golongan
+		$kdgol = $this->uri->segment(3); // kode golongan
+		// die($kdgol);
 		
-		if (strlen($kdgol) == 2) {
-			$this->data['title'] = $this->golongan_model->get_by_id($kdgol)->nama;
+		// if (strlen($kdgol) == 2) {
+			$this->data['title'] = $this->golongan3_model->get_by_id($kdgol)->nama;
 			$this->data['kdgol'] = $kdgol;
-		} else {
-			$this->data['title'] = $this->golongan_model->get_by_subid($kdgol)->nama;
-			$this->data['kdgol'] = substr($kdgol,0,2);
-		}
+		// } else {
+		// 	$this->data['title'] = $this->golongan_model->get_by_subid($kdgol)->nama;
+		// 	$this->data['kdgol'] = substr($kdgol,0,2);
+		// }
 
 		$action  = $this->input->get('action');
 		
