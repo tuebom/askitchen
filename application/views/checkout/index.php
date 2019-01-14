@@ -13,7 +13,7 @@
                     <form id="frmSubmit" action="<?= site_url('checkout'); ?>" method="post">
 
                     <input type="hidden" name="mbrid" value="<?=isset($this->data['anggota']->id) ? $this->data['anggota']->id : '';?>">
-                    <input type="hidden" name="submit" value="submit">
+                    <input type="hidden" name="submit1" value="submit">
                     <div class="col-md-7 col-sm-6 bill-detail">    
                         <h2><?= lang('checkout_billing_details') ?></h2>
                         <div class="row">
@@ -61,7 +61,7 @@
                                         <?php
                                             foreach ($this->data['provinsi'] as $itemx) {
                                         ?>
-                                        <option value="<?= $itemx->id ?>"><?= $itemx->name ?></option>
+                                        <option value="<?= $itemx->id ?>"<?php if( $itemx->id == $this->data['province'] ): ?> selected="selected"<?php endif; ?>><?= $itemx->name ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -167,10 +167,10 @@
                         </table>
 
                         <div class="col-sm-6 col-xs-6 checkout-right-basket2"><a class="checkout-right-basket2" href="<?php echo site_url('cart'); ?>">Back</a></div>
-                        <div class="col-sm-6 col-xs-6 checkout-right-basket2"><a class="checkout-right-basket2" href="#" id="btnSubmit">Submit Order</a></div>
+                        <div class="col-sm-6 col-xs-6 checkout-right-basket2"><a class="checkout-right-basket2" href="javascript:void(0);" id="btnSubmit">Submit Order</a></div>
                     </div>
                     <input type="hidden" name="total" value="<?=$total_price?>">
-                    <input type="hidden" name="shipping" value="">
+                    <input type="hidden" name="shipcost" value="0">
                     </form>
 				</div>
 			</div>
