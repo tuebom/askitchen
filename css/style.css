@@ -672,9 +672,10 @@ h2.tittle {
 }
 .img-hot {
     /*display: block;*/
-    max-width: 80%;
+    max-width: 100%;
     /* height: auto;  */
-    margin-top: 30px; 
+    /* margin-top: 30px;  */
+    border-radius: 10px;
     
 }
 .img-hot1 {
@@ -692,7 +693,7 @@ h2.tittle {
 }
 .text{
   position: absolute; /* Position the background text */
-  bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+  bottom: -2px; /* At the bottom. Use top:0 to append it to the top */
   background: rgb(0, 0, 0); /* Fallback color */
   background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
   color: #f1f1f1; /* Grey text */
@@ -801,14 +802,14 @@ label.hot {
     margin-top: 2em;
 }
 .grid-arr-hot {
-    background: #f5efe5;
+    /* background: #f5efe5;
     border: 1px solid #e2e2e2;
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); */
     /*padding: 1.0em;*/
     /*margin-top: 25px;*/
-    border-radius: 10px;
+    /* border-radius: 10px; */
     height: 275px;
 }
 .grid-arr-cat {
@@ -1526,6 +1527,54 @@ img.captcha {
 }
 .social-icon i.icon3:hover {
   background: #AF1D0D   url(../images/img-sprite.png) no-repeat -96px 0px;
+      border-radius: 0px;
+	      transform: rotate(25deg);
+}
+.contact-icon {
+    margin-top: 1em;
+}
+.contact-icon a i {
+    width: 32px;
+    height: 33px;
+    background:rgb(0, 0, 0) url(../images/mail.png) no-repeat 0px 0px;
+    display: inline-block;
+	margin:0 0.2em;
+	transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+	    border-radius: 16px;
+}
+.contact-icon i.icon:hover {
+  background: rgb(12, 12, 12)   url(../images/mail.png) no-repeat 2px 6px;
+      border-radius: 0px;
+	      transform: rotate(25deg);
+}
+.contact-icon i.icon {
+    background-position: 2px 6px;
+}
+.contact-icon i.icon1 {
+    background-position: -32px 7px;
+}
+.contact-icon i.icon1:hover {
+  background: rgb(12, 12, 12)  url(../images/mail.png) no-repeat -32px 7px;
+      border-radius: 0px;
+	      transform: rotate(25deg);
+}
+.contact-icon i.icon2 {
+    background-position: -128px 0px;
+}
+.contact-icon i.icon2:hover {
+  background: #AF1D0D   url(../images/mail.png) no-repeat -64px 0px;
+      border-radius: 0px;
+	      transform: rotate(25deg);
+}
+.contact-icon i.icon3 {
+    background-position: -96px 0px;
+}
+.contact-icon i.icon3:hover {
+  background: #AF1D0D   url(../images/mail.png) no-repeat -96px 0px;
       border-radius: 0px;
 	      transform: rotate(25deg);
 }
