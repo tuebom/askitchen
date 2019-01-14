@@ -55,7 +55,7 @@ class Contact_us extends Public_Controller {
 						if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
 							$file = 'D:\xampp\htdocs\askitchen\images\captcha\\';
 						} else {
-							$file = '';
+							$file = './captcha/';
 						}
 						if (file_exists($file . $this->session->userdata['image']))
 							unlink($file . $this->session->userdata['image']);
@@ -95,7 +95,7 @@ class Contact_us extends Public_Controller {
 		if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
 			$file = 'D:\xampp\htdocs\askitchen\images\captcha\\';
 		} else {
-			$file = './captcha';
+			$file = './captcha/';
 		}
 
 		$vals = array(

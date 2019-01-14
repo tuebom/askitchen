@@ -138,6 +138,7 @@ class Detail extends Public_Controller {
 				$item_price = 0;
 				$total_price = 0;
 							
+				// hitung total dan simpan di variabel session
 				foreach($_SESSION["cart_item"] as $k => $v) {
 					$item_price  = (float)$_SESSION["cart_item"][$k]["qty"]*$_SESSION["cart_item"][$k]["harga"];
 					$total_price += $item_price;
@@ -174,7 +175,7 @@ class Detail extends Public_Controller {
 						if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
 							$file = 'D:\xampp\htdocs\askitchen\images\captcha\\';
 						} else {
-							$file = '';
+							$file = './captcha/';
 						}
 						if (file_exists($file . $this->session->userdata['image']))
 							unlink($file . $this->session->userdata['image']);
@@ -214,7 +215,7 @@ class Detail extends Public_Controller {
 		if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
 			$file = 'D:\xampp\htdocs\askitchen\images\captcha\\';
 		} else {
-			$file = '';
+			$file = './captcha/';
 		}
 
 		$vals = array(

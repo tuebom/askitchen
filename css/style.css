@@ -4496,6 +4496,9 @@ ul.shopping-cart-items {
 }
 
 @media (min-width: 768px) {
+    .bill-detail {
+        border-right: solid 3px #fff;
+    }
     .order{
         margin-top: 0;
         height: 686px;

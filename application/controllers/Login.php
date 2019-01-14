@@ -39,7 +39,16 @@ class Login extends Public_Controller {
                     if ( ! $this->ion_auth->is_admin())
                     {
                         $this->session->set_flashdata('message', $this->ion_auth->messages());
-                        redirect('/', 'refresh');
+                        
+                        if (isset($_SESSION["cart_item"])) {
+                            if (count($_SESSION["cart_item"]) > 0) {
+                                redirect('checkout', 'refresh');
+                            }
+                        }
+                        else
+                        {
+                            redirect('/', 'refresh');
+                        }
                     }
                     else
                     {
