@@ -53,6 +53,22 @@
 									</div>
 									</ul>
 								</div> -->
+								<div class="col-md-3 footer-grid" style="width : auto; padding : 0px;">
+									<h4>Contact Us</h4>
+									<ul>
+									<div class="contact-icon">
+										<a href="<?php echo site_url('contact'); ?>"><i class="icon"></i></a>
+										<!-- <a href="http://www.facebook.com/askitchen" target="_blank"><i class="icon"></i></a> -->
+										<a href="http://www.instagram.com/askitchen" target="_blank"><i class="icon1"></i></a>
+										<!-- <a href="#"><i class="icon2"></i></a>
+										<a href="#"><i class="icon3"></i></a> -->
+									</div>
+										<!-- <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a href="#">E Comertown Rd, Westby, USA</a></li>
+										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a href="#">1 599-033-5036</a></li>
+										<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:example@mail.com"> example@mail.com</a></li> -->
+									</ul>
+								</div>
+								
 							<div class="clearfix"> </div>
 							</div>
 							
