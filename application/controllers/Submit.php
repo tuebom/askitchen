@@ -20,19 +20,19 @@ class Submit extends Public_Controller {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
 		
-		if(!empty($_SESSION["cart_item"])) {
+		// if(!empty($_SESSION["cart_item"])) {
 		
-			foreach($_SESSION["cart_item"] as $k => $v) {
-				unset($_SESSION['cart_item'][$k]);
-			}
-		}
-		$this->session->set_userdata('totqty', 0);
-		$this->session->set_userdata('tot_price', 0);
+		// 	foreach($_SESSION["cart_item"] as $k => $v) {
+		// 		unset($_SESSION['cart_item'][$k]);
+		// 	}
+		// }
+		// $this->session->set_userdata('totqty', 0);
+		// $this->session->set_userdata('tot_price', 0);
 		
-		redirect('/', 'refresh');
+		// redirect('/', 'refresh');
 
-		// $this->load->view('layout/header', $this->data);
-		// $this->load->view('submit/index', $this->data);
-		// $this->load->view('layout/footer', $this->data);
+		$this->load->view('layout/header', $this->data);
+		$this->load->view('submit/index', $this->data);
+		$this->load->view('layout/footer', $this->data);
 	}
 }

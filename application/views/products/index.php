@@ -23,8 +23,13 @@
 												?>
 												<li><input type="checkbox" id="item-<?=$index?>" /><label class="tree" for="item-<?=$index?>"><span></span><?= $item->nama ?></label>
 													<ul>
-														<?php foreach ($this->data['item_'.$item->kdgol] as $detail) { ?>
-														<li><input type="checkbox" id="item-<?=$index?>-0" /><a href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>"><?= $detail->nama?></a></li>
+														<?php 
+														$index2 = 0;
+														foreach ($this->data['item_'.$item->kdgol] as $detail) { ?>
+														<li><input type="checkbox" id="item-<?=$index?>-<?=$index2?>" />
+															<a href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>"><?= $detail->nama?></a>
+															<!-- <label class="tree" for="item-<?=$index?>-<?=$index2?>"><span></span><?= $detail->nama ?></label> -->
+														</li>
 														<?php } ?>
 													</ul>
 												</li>
@@ -71,6 +76,7 @@
 											$(this).attr("href", newUri);
 											window.location.href = $(this).attr('href');
 										});
+
 									// })
 									
 									</script>

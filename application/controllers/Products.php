@@ -10,9 +10,10 @@ class Products extends Public_Controller {
 		$this->load->library('pagination');
 		
 		$this->load->model('golongan_model');
+		$this->load->model('golongan2_model');
 		$this->load->model('golongan3_model');
 		$this->load->model('stock_model');
-		$this->output->enable_profiler(TRUE);
+		// $this->output->enable_profiler(TRUE);
 	}
 
 	public function index()
@@ -23,17 +24,21 @@ class Products extends Public_Controller {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
         
-		$kdgol = $this->uri->segment(3); // kode golongan
-		// die($kdgol);
+		$kode = $this->uri->segment(3); // kode golongan
+		// die($kode);
 		
-		// if (strlen($kdgol) == 2) {
-			$this->data['title'] = $this->golongan3_model->get_by_id($kdgol)->nama;
-			$this->data['kdgol'] = $kdgol;
-		// } else {
-		// 	$this->data['title'] = $this->golongan_model->get_by_subid($kdgol)->nama;
-		// 	$this->data['kdgol'] = substr($kdgol,0,2);
-		// }
+		$this->data['title']  = $this->golongan3_model->get_by_id($kode)->nama;
+		$this->data['kdgol']  = substr($kode,0,2);
+		// $this->data['kdgol2'] = substr($kode,0,5);
+		$kdgol2 = substr($kode,0,5);
 
+		$this->data['item_'.$kdgol2] = $this->golongan2_model->get_sub_category($kdgol2);
+		// $this->data['kode'] = $kdgol2;
+
+		// foreach ($this->data['item_'.$kdgol2] as $item) {
+		// 	$this->data['item_'.$item->kdgol3] = $this->golongan2_model->get_sample($kdgol2);
+		// }
+		
 		$action  = $this->input->get('action');
 		
 		if ($action) {
@@ -160,12 +165,12 @@ class Products extends Public_Controller {
 			$offset = 0;
 		}
 		
-		$total = $this->stock_model->total_rows($kdgol);
+		$total = $this->stock_model->total_rows($kode);
 		$url   = current_url() . '?p=';
 		
-		$this->data['products'] = $this->stock_model->get_by_category(8, $offset, $kdgol);
+		$this->data['products'] = $this->stock_model->get_by_category(8, $offset, $kode);
 		
-		$this->data['kode'] = $kdgol;
+		$this->data['kode'] = $kode;
 		
 		$this->data['pagination'] = $this->paging($total, $page, $url);
 

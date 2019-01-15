@@ -26,19 +26,19 @@ class Golongan2_model extends CI_Model
     function get_sample($kode)
     {
         // $this->db->query("select skdgol2, s.kdbar, g.nama where s.kdgol2 = g.kdgol2 and s.kdgol2 = '$kode'")
-        $this->db->select('stock.kdgol, stock.kdgol2, stock.kdbar, stock.gambar, golongan2.nama, golongan2.info, golongan2.gambar as gbr')
+        $this->db->select('stock.kdgol2, stock.kdgol3, stock.kdbar, stock.gambar, golongan3.nama, golongan3.info, golongan3.gambar as gbr')
             ->from('stock')
             ->join('golongan3', 'stock.kdgol3 = golongan3.kdgol3')
-            ->group_by('stock.kdgol2')
-            ->having('stock.kdgol', $kode)
-            ->order_by('stock.kdgol2', 'ASC');
+            ->group_by('stock.kdgol3')
+            ->having('stock.kdgol2', $kode)
+            ->order_by('stock.kdgol3', 'ASC');
         return $this->db->get()->result();
     }
 
     // get sub category
     function get_sub_category($kode)
     {
-        $this->db->select('CONCAT(kdgol2,"/",kdgol3) as kode, nama, info, gambar')
+        $this->db->select('CONCAT(kdgol2,"/",kdgol3) as kode, kdgol3, nama, info, gambar')
             ->from('golongan3')
             ->where('kdgol2', $kode)
             ->order_by('kdgol3', 'ASC');

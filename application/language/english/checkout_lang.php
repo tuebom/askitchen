@@ -20,7 +20,7 @@ $lang['checkout_province']            = 'Province';
 $lang['checkout_regency']             = 'Regency';
 $lang['checkout_district']            = 'District';
 $lang['checkout_post_code']           = 'Post Code';
-$lang['checkout_address1']            = 'Address 1';
+$lang['checkout_address']             = 'Address';
 $lang['checkout_address2']            = 'Address 2';
 $lang['checkout_order_notes']         = 'Order Notes';
 
