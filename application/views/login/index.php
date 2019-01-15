@@ -1,5 +1,5 @@
 		<!--content-->
-		<div class="content">
+		<div class="content login-page">
 			<!--login-->
 			<div class="col-md-6 col-md-offset-3">
 				<div class="panel panel-login">

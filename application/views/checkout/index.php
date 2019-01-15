@@ -9,6 +9,11 @@
 	<!--content-->
 		<div class="content">
 			<div class="cart-items">
+                <ul class="nav nav-pills nav-fill">
+                    <li class="nav-item"><a href="shop-checkout1.html" class="nav-link active"> <i class="fa fa-map-marker"></i><br>Address</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link disabled"><i class="fa fa-truck"></i><br>Delivery Method</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link disabled"><i class="fa fa-money"></i><br>Payment Method</a></li>
+                </ul>
 				<div class="container">
                     <form id="frmSubmit" action="<?= site_url('checkout'); ?>" method="post">
 
@@ -39,16 +44,10 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-6">    
+                            <div class="col-sm-12">    
                                 <div class="form-group">
-                                    <label for="email"><?= lang('checkout_email') ?></label>
-                                    <input type="text" class="form-control" id="email" name="email" value="<?=isset($this->data['anggota']->email)? $this->data['anggota']->email : '';?>" placeholder="Enter email address">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">    
-                                <div class="form-group">
-                                    <label for="phone"><?= lang('checkout_phone') ?></label>
-                                    <input type="text" class="form-control" id="phone" name="phone" value="<?=isset($this->data['anggota']->phone)? $this->data['anggota']->phone : '';?>" placeholder="Enter phone number">
+                                    <label for="address"><?= lang('checkout_address') ?></label>
+                                    <input type="text" class="form-control" id="address" name="address" value="<?=isset($this->data['anggota']->address)? $this->data['anggota']->address : '';?>" placeholder="Enter address" required>
                                 </div>
                             </div>
                         </div>
@@ -90,18 +89,16 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-12">    
+                            <div class="col-sm-6">    
                                 <div class="form-group">
-                                    <label for="address1"><?= lang('checkout_address1') ?></label>
-                                    <input type="text" class="form-control" id="address1" name="address1" value="<?=isset($this->data['anggota']->address1)? $this->data['anggota']->address1 : '';?>" placeholder="Enter address 1" required>
+                                    <label for="phone"><?= lang('checkout_phone') ?></label>
+                                    <input type="text" class="form-control" id="phone" name="phone" value="<?=isset($this->data['anggota']->phone)? $this->data['anggota']->phone : '';?>" placeholder="Enter phone number">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">    
+                            <div class="col-sm-6">    
                                 <div class="form-group">
-                                    <label for="address2"><?= lang('checkout_address2') ?></label>
-                                    <input type="text" class="form-control" id="address2" name="address2" value="<?=isset($this->data['anggota']->address2)? $this->data['anggota']->address2 : '';?>" placeholder="Enter address 2">
+                                    <label for="email"><?= lang('checkout_email') ?></label>
+                                    <input type="text" class="form-control" id="email" name="email" value="<?=isset($this->data['anggota']->email)? $this->data['anggota']->email : '';?>" placeholder="Enter email address">
                                 </div>
                             </div>
                         </div>

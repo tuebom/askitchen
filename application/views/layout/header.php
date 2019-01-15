@@ -520,16 +520,11 @@ $(window).load(function() {
 
 		<ul class="shopping-cart-items">
 		<?php 
-			// $total_qty = 0;
 			$item_price = 0;
-			// $total_price = 0;
 			
 		foreach ($_SESSION["cart_item"] as $item) {
-			$item_price  = (float)$item["qty"]*$item["harga"];
-			// $total_price += $item_price;
 			
-			// count total item
-			// $total_qty  += $item["qty"];
+			$item_price  = (float)$item["qty"]*$item["harga"];
 
 		?><li class="clearfix">
 			<div style="display: flex; align-items: center;">

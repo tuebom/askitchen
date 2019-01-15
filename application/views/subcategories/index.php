@@ -67,7 +67,7 @@
 											if (p1 == '' || p2 == '') {
 												return false;
 											}
-											var newUri = theUrl + '&p1='+p1+'&p2='+p2; //$(this).attr('href') + stringToSend;
+											var newUri = theUrl + '&p1='+p1+'&p2='+p2;
 											$(this).attr("href", newUri);
 											window.location.href = $(this).attr('href');
 										});
