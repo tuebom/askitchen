@@ -4583,12 +4583,13 @@ div.hello-bar {
 .container-contact{
 	margin: 5% auto;
 	/* box-shadow: 0px 0px 10px #C8C7D9; */
-	position: relative;
+    position: relative;
+   
 }	
 textarea {
 	resize: none;
 }
-.form-label {
+.form-contact-label {
 	font-size: 12px;
 	color: #5e9bfc;
 	margin: 0;
@@ -4597,14 +4598,14 @@ textarea {
 	-webkit-transition: .333s ease top, .333s ease opacity;
 	transition: .333s ease top, .333s ease opacity;
 }
-.form-control {
+.form-contact-control {
 	border-radius: 10px;
 	border-color: #ccc;
    	border-width: 0 0 2px 0;
    	border-style: none none solid none;
    	box-shadow: none;
 }
-.form-control:focus {
+.form-contact-control:focus {
 	box-shadow: none;
 	border-color: #2f323a;
 }
@@ -4635,5 +4636,6 @@ textarea {
 }
 .content-contact {
     min-height: 550px;
+    background-color:whitesmoke;
     
 }  
