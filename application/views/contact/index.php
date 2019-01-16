@@ -12,7 +12,7 @@
                     <p class="lead">Contact us today, and get reply with in 24 hours!</p>
 
                     <!-- We're going to place the form here in the next step -->
-                    <form id="contact-form" method="post" action="contact.php" role="form">
+                    <form id="contact-form" method="post" action="<?= site_url('contact-us') ?>" role="form">
 
 							<div class="messages"></div>
 
