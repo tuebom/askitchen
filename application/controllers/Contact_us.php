@@ -113,6 +113,63 @@ $errorMessage = 'There was an error while submitting the form. Please try again 
 				// If the field exists in the $fields array, include it in the email 
 				if (isset($fields[$key])) {
 					$emailText .= "$fields[$key]: $value\n";
+
+		if ($action) {
+
+			if ($action == 'add') {
+
+				$this->form_validation->set_rules('name', 'First Name', 'required');
+				$this->form_validation->set_rules('surname', 'Last Name', 'required');
+				$this->form_validation->set_rules('email', 'Email', 'required');
+				$this->form_validation->set_rules('need', 'Comment', 'required');
+				$this->form_validation->set_rules('message', 'Comment', 'required');
+
+				if ($this->form_validation->run() == TRUE)
+				{
+					$data = array(
+						"first_name"  => $this->input->post('name'),
+						"last_name"   => $this->input->post('surname'),
+						"email"       => $this->input->post('email'),
+						"need"        => $this->input->post('need'),
+						"message"     => $this->input->post('message')
+					);
+					
+					$captcha  = $this->input->post('captcha');
+					$url 	  = $this->input->post('url');
+
+					if ($captcha == $this->session->userdata('captcha'))
+					{
+						// if (file_exists(BASEPATH . "../captcha/" . $this->session->userdata['image']))
+						// unlink(BASEPATH . "../captcha/" . $this->session->userdata['image']);
+
+						if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+							$file = 'D:\xampp\htdocs\askitchen\images\captcha\\';
+						} else {
+							$file = './captcha/';
+						}
+						if (file_exists($file . $this->session->userdata['image']))
+							unlink($file . $this->session->userdata['image']);
+			
+						$this->session->unset_userdata('captcha');
+						$this->session->unset_userdata('image');
+
+						$this->reviews_model->insert($data);
+						header("location: ".$url);
+					}
+					else
+					{
+
+						// $this->session->set_flashdata('message', 'Kode yang Anda masukkan tidak cocok.');
+						$this->data['first_name'] = $this->input->post('name');
+						$this->data['last_name']  = $this->input->post('surname');
+						$this->data['email']      = $this->input->post('email');
+						$this->data['need']       = $this->input->post('need');
+						$this->data['message']    = $this->input->post('message');
+					}
+				}
+				else
+				{
+					$this->data['error_message'] = (validation_errors()) ? validation_errors() : '';
 				}
 			}
 		
