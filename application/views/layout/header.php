@@ -44,7 +44,9 @@
 	<link rel="stylesheet" type="text/css" href="<?=base_url('css/style.css');?>" media="all"/>
 	
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-	<script src="<?=base_url('js/jquery.min.js');?>"></script>
+	<!-- <script src="<?=base_url('js/jquery.min.js');?>"></script> -->
+	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        
 	<!--search jQuery-->
 	<!-- <script src="<?=base_url('js/main.js');?>"></script> -->
 	<!--search jQuery-->

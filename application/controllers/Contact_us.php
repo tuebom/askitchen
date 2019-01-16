@@ -55,8 +55,8 @@ class Contact_us extends Public_Controller {
 		// if you are not debugging and don't need error reporting, turn this off by error_reporting(0);
 		// error_reporting(0);
 		
-		try
-		{
+		// try
+		// {
 		
 			// validasi input
 			$this->form_validation->set_rules('name', 'First Name', 'required');
@@ -85,8 +85,26 @@ class Contact_us extends Public_Controller {
 		
 				// Send email
 				mail($sendTo, $subject, $emailText, implode("\n", $headers));
+
+				if(!$mail->send()) {
+					throw new \Exception('I could not send the email.' . $mail->ErrorInfo);
+				}
 			
-				// $responseArray = array('type' => 'success', 'message' => $okMessage);
+				$responseArray = array('type' => 'success', 'message' => $okMessage);
+				// // if requested by AJAX request return JSON response
+				if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+					$encoded = json_encode($responseArray);
+				
+					header('Content-Type: application/json');
+				
+					echo $encoded;
+				}
+				// else just display the message
+				else {
+					echo $responseArray['message'];
+				}
+				redirect('/', 'refresh');
+				
 				// 	data = array(
 				// 	"first_name"  => $this->input->post('name'),
 				// 	"last_name"   => $this->input->post('surname'),
@@ -132,14 +150,9 @@ class Contact_us extends Public_Controller {
 			{
 				$this->data['error_message'] = (validation_errors()) ? validation_errors() : '';
 			}
-		}
 		
 		
-		// if requested by AJAX request return JSON response
-		if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-			$encoded = json_encode($responseArray);
 		
-			header('Content-Type: application/json');
 		
 			echo $encoded;
 		}
@@ -147,7 +160,6 @@ class Contact_us extends Public_Controller {
 		else {
 			echo $responseArray['message'];
 		}
-
 		
 		// // prepare captcha
 		// $original_string = array_merge(range(0, 9), range('a', 'z'), range('A', 'Z'));
@@ -195,7 +207,7 @@ class Contact_us extends Public_Controller {
 		// 		unlink($file . $this->session->userdata['image']);
 		// }
 
-		$this->session->set_userdata(array('captcha' => $captcha, 'image' => $cap['time'] . '.jpg'));
+		// $this->session->set_userdata(array('captcha' => $captcha, 'image' => $cap['time'] . '.jpg'));
 		
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('contact/index', $this->data);
