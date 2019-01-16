@@ -4517,13 +4517,20 @@ ul.shopping-cart-items {
     padding: .5rem 1rem;
 }
 
-/* delivery method */
+/* delivery method & payment */
+.box.shipping-method, .box.payment-method {
+    margin: 0;
+    margin-bottom: 20px;
+}
 .box.shipping-method h4, .box.payment-method h4 {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 5px;
 }
-
+.box.shipping-method p, .box.payment-method p {
+    font-size: 0.9rem;
+    color: #555;
+}
 .bill-detail {
     background-color: #f5f5f5;
     padding: 15px 15px;

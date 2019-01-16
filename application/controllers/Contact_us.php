@@ -154,12 +154,12 @@ class Contact_us extends Public_Controller {
 		
 		
 		
-			echo $encoded;
-		}
+		// 	echo $encoded;
+		// }
 		// else just display the message
-		else {
-			echo $responseArray['message'];
-		}
+		// else {
+		// 	echo $responseArray['message'];
+		// }
 		
 		// // prepare captcha
 		// $original_string = array_merge(range(0, 9), range('a', 'z'), range('A', 'Z'));
