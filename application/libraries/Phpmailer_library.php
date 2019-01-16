@@ -8,10 +8,10 @@ class Phpmailer_library
 
     public function load()
     {
-        require_once(APPPATH.'third_party/phpmailer/src/PHPMailer.php');
-        require_once(APPPATH.'third_party/phpmailer/src/SMTP.php');
+        require_once(APPPATH.'third_party/phpmailer/class.PHPMailer.php');
+        require_once(APPPATH.'third_party/phpmailer/class.SMTP.php');
 
-        $objMail = new PHPMailer\PHPMailer\PHPMailer();
+        $objMail = new PHPMailer();
         return $objMail;
     }
 }
