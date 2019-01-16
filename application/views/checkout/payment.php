@@ -182,6 +182,7 @@
                     </div>
                     <input type="hidden" name="total" value="<?=$total_price?>">
                     <input type="hidden" name="shipcost" value="0">
+                    <input type="hidden" name="tax" value="0">
                     </form>
 				</div>
 			</div>

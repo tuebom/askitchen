@@ -28,6 +28,14 @@ class Kabupaten_model extends CI_Model
         $this->db->where($this->id, $id);
         return $this->db->get($this->table)->row();
     }
+
+    // get data by province id
+    function get_by_province_id($id)
+    {
+        $this->db->order_by($this->id, $this->order);
+        $this->db->where('province_id', $id);
+        return $this->db->get($this->table)->result();
+    }
     
     // get total rows
     function total_rows($q = NULL) {

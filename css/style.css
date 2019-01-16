@@ -4516,7 +4516,14 @@ ul.shopping-cart-items {
 .nav-link {
     padding: .5rem 1rem;
 }
- 
+
+/* delivery method */
+.box.shipping-method h4, .box.payment-method h4 {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 5px;
+}
+
 .bill-detail {
     background-color: #f5f5f5;
     padding: 15px 15px;
