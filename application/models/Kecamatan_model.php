@@ -28,6 +28,14 @@ class Kecamatan_model extends CI_Model
         $this->db->where($this->id, $id);
         return $this->db->get($this->table)->row();
     }
+
+    // get data by regency id
+    function get_by_regency_id($id)
+    {
+        $this->db->order_by($this->id, $this->order);
+        $this->db->where('regency_id', $id);
+        return $this->db->get($this->table)->result();
+    }
     
     // get total rows
     function total_rows($q = NULL) {
