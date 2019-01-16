@@ -4673,6 +4673,17 @@ textarea {
     color: #5e9bfc;
     border-radius: 10px;
 }
+.btn-send {
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 20px;
+}
+
+.help-block.with-errors {
+    color: #ff5050;
+    margin-top: 5px;
+}
 .content-contact {
     min-height: 550px;
     background-color:whitesmoke;
