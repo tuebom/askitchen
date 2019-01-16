@@ -49,7 +49,7 @@
                                 <div class="col-sm-12">    
                                     <div class="form-group">
                                         <label for="address"><?= lang('checkout_address') ?></label>
-                                        <input type="text" class="form-control" id="address" name="address" value="<?=isset($this->data['anggota']->address)? $this->data['anggota']->address : '';?>" placeholder="Enter address" required>
+                                        <input type="text" class="form-control" id="address" name="address" value="<?=isset($_SESSION["address"])? $_SESSION["address"] : '';?>" placeholder="Enter address" required>
                                     </div>
                                 </div>
                             </div>
@@ -71,6 +71,14 @@
                                     <div class="form-group">
                                         <label for="regency"><?= lang('checkout_regency') ?></label>
                                         <select id="regency" name="regency" class="form-control">
+                                        <?php
+                                            if (isset($this->data['kabupaten'])) :
+                                                foreach ($this->data['kabupaten'] as $item) {
+                                        ?>
+                                        <option value="<?= $item->id ?>"<?php if( $_SESSION["regency"] == $item->id ): ?> selected="selected"<?php endif; ?>><?= $item->nama ?></option>
+                                        <?php   }
+                                            endif;
+                                        ?>
                                         </select>
                                     </div>
                                 </div>
@@ -80,13 +88,21 @@
                                     <div class="form-group">
                                         <label for="district"><?= lang('checkout_district') ?></label>
                                         <select id="district" name="district" class="form-control">
+                                        <?php
+                                            if (isset($this->data['kecamatan'])) :
+                                                foreach ($this->data['kecamatan'] as $item) {
+                                        ?>
+                                        <option value="<?= $item->id ?>"<?php if( $_SESSION["district"] == $item->id ): ?> selected="selected"<?php endif; ?>><?= $item->nama ?></option>
+                                        <?php   }
+                                            endif;
+                                        ?>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">    
                                     <div class="form-group">
                                         <label for="zip"><?= lang('checkout_post_code') ?></label>
-                                        <input type="text" class="form-control" id="post_code" name="post_code" placeholder="Enter post code">
+                                        <input type="text" class="form-control" id="post_code" name="post_code" value="<?=isset($_SESSION["post_code"])? $_SESSION["post_code"] : '';?>" placeholder="Enter post code">
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +124,7 @@
                                 <div class="col-sm-12">    
                                     <div class="form-group">
                                         <label for="note"><?= lang('checkout_order_notes') ?></label>
-                                        <input type="text" class="form-control" id="note" name="note" placeholder="Enter order notes">
+                                        <input type="text" class="form-control" id="note" name="note" value="<?=isset($_SESSION["note"])? $_SESSION["note"] : '';?>" placeholder="Enter order notes">
                                     </div>
                                 </div>
                             </div>
@@ -148,10 +164,6 @@
                                         $total_price += $item_price;
                                 ?>
                                 <tr>
-                                    <!-- <input type="hidden" name="kdbar[]" value="<?= $item["kdbar"]; ?>">
-                                    <input type="hidden" name="qty[]" value="<?= $item["qty"]; ?>">
-                                    <input type="hidden" name="harga[]" value="<?= $item["harga"]; ?>">
-                                    <input type="hidden" name="jumlah[]" value="<?= $item_price; ?>"> -->
                                     <td><?= $item["nama"]; ?></td>
                                     <td class="text-right">Rp<?= number_format($item_price, 0, '.', ',') ?></td>
                                 </tr>
@@ -182,6 +194,7 @@
                     </div>
                     <input type="hidden" name="total" value="<?=$total_price?>">
                     <input type="hidden" name="shipcost" value="0">
+                    <input type="hidden" name="tax" value="0">
                     </form>
 				</div>
 			</div>
