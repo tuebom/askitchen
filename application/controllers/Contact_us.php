@@ -30,18 +30,20 @@ class Contact_us extends Public_Controller {
 
 			if ($action == 'add') {
 
-				$this->form_validation->set_rules('name', 'Name', 'required');
+				$this->form_validation->set_rules('name', 'First Name', 'required');
+				$this->form_validation->set_rules('surname', 'Last Name', 'required');
 				$this->form_validation->set_rules('email', 'Email', 'required');
-				$this->form_validation->set_rules('comment', 'Comment', 'required');
+				$this->form_validation->set_rules('need', 'Comment', 'required');
+				$this->form_validation->set_rules('message', 'Comment', 'required');
 
 				if ($this->form_validation->run() == TRUE)
 				{
 					$data = array(
-						"kdbar"    => $this->input->post('kdbar'),
-						"name"     => $this->input->post('name'),
-						"email"    => $this->input->post('email'),
-						"comment"  => $this->input->post('comment'),
-						"rating"   => $this->input->post('rating')
+						"first_name"  => $this->input->post('name'),
+						"last_name"   => $this->input->post('surname'),
+						"email"       => $this->input->post('email'),
+						"need"        => $this->input->post('need'),
+						"message"     => $this->input->post('message')
 					);
 					
 					$captcha  = $this->input->post('captcha');
@@ -70,16 +72,16 @@ class Contact_us extends Public_Controller {
 					{
 
 						// $this->session->set_flashdata('message', 'Kode yang Anda masukkan tidak cocok.');
-						$this->data['name']    = $this->input->post('name');
-						$this->data['email']   = $this->input->post('email');
-						$this->data['comment'] = $this->input->post('comment');
-						$this->data['rating']  = $this->input->post('rating');
-						$this->data['message'] = 'Kode yang Anda masukkan tidak cocok.';
+						$this->data['first_name'] = $this->input->post('name');
+						$this->data['last_name']  = $this->input->post('surname');
+						$this->data['email']      = $this->input->post('email');
+						$this->data['need']       = $this->input->post('need');
+						$this->data['message']    = $this->input->post('message');
 					}
 				}
 				else
 				{
-					$this->data['message'] = (validation_errors()) ? validation_errors() : '';
+					$this->data['error_message'] = (validation_errors()) ? validation_errors() : '';
 				}
 
             }
