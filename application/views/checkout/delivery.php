@@ -33,6 +33,8 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-sm-6">    
                                     <div class="box shipping-method">
                                         <h4>Sea Freight</h4>

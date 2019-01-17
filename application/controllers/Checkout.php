@@ -104,8 +104,8 @@ class Checkout extends Public_Controller {
 							// simpan data alamat pengiriman ke variabel session
 							$this->session->set_userdata($address_data);
 
-							$this->data['kabupaten'] = $this->kabupaten_model->get_by_province_id($province);
-							$this->data['kecamatan'] = $this->kecamatan_model->get_by_regency_id($regency);
+							// $this->data['kabupaten'] = $this->kabupaten_model->get_by_province_id($province);
+							// $this->data['kecamatan'] = $this->kecamatan_model->get_by_regency_id($regency);
 
 							$this->load->view('layout/header', $this->data);
 							$this->load->view('checkout/delivery', $this->data);
@@ -122,6 +122,14 @@ class Checkout extends Public_Controller {
 							$this->data['address']   = $this->form_validation->set_value('address');
 			
 							$this->data['message'] = (validation_errors() ? validation_errors() : 'Input data belum benar!');
+						}
+					}
+					else
+					{
+
+						if (isset($_SESSION["province"])) {
+							$this->data['kabupaten'] = $this->kabupaten_model->get_by_province_id($_SESSION["province"]);
+							$this->data['kecamatan'] = $this->kecamatan_model->get_by_regency_id($_SESSION["regency"]);
 						}
 					}
 				}

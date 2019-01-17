@@ -79,7 +79,7 @@
                                             if (isset($this->data['kabupaten'])) :
                                                 foreach ($this->data['kabupaten'] as $item) {
                                         ?>
-                                        <option value="<?= $item->id ?>"<?php if( $_SESSION["regency"] == $item->id ): ?> selected="selected"<?php endif; ?>><?= $item->nama ?></option>
+                                        <option value="<?= $item->id ?>"<?php if( $_SESSION["regency"] == $item->id ): ?> selected="selected"<?php endif; ?>><?= $item->name ?></option>
                                         <?php   }
                                             endif;
                                         ?>
@@ -96,7 +96,7 @@
                                             if (isset($this->data['kecamatan'])) :
                                                 foreach ($this->data['kecamatan'] as $item) {
                                         ?>
-                                        <option value="<?= $item->id ?>"<?php if( $_SESSION["district"] == $item->id ): ?> selected="selected"<?php endif; ?>><?= $item->nama ?></option>
+                                        <option value="<?= $item->id ?>"<?php if( $_SESSION["district"] == $item->id ): ?> selected="selected"<?php endif; ?>><?= $item->name ?></option>
                                         <?php   }
                                             endif;
                                         ?>
