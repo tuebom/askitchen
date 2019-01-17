@@ -3,7 +3,7 @@
 						<div class="container">
 							<div class="footer-grids">
 								<div class="col-md-3 footer-grid">
-									<h4>About Us</h4>
+									<h4><a href="<?= site_url('about-us'); ?>">About Us</a></h4>
 									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
 									<!-- <div class="social-icon">
 										<a href="#"><i class="icon"></i></a>

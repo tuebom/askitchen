@@ -123,6 +123,7 @@ body{
 .navbar-default .navbar-nav > li > a {
     color: #fff;
     font-size: 12px;
+    font-weight: 600;
     padding: 10px 10px;
 }
 .navbar-default .navbar-nav > li > a:hover {
@@ -192,9 +193,9 @@ body{
 .row > div.sample img, .grid-arrival > .grid-img img {
     max-height: 100%;
 }
-.col-sm-3.multi-gd-img {
+/* .col-sm-3.multi-gd-img {
     margin-top: 35px;
-}
+} */
 .multi-column-dropdown li a {
     color: #999 !important;
 }
@@ -779,13 +780,13 @@ label.hot {
 	text-align: center;
 }
 .related-w3agile {
-    padding: 1em 0;
+    padding: 2em 0;
     background:white;
     text-align: center;
     font-size: 12px;
 }
 .reviews {
-    padding: 1em 0;
+    padding: 2em 0;
     background:white;
     text-align: justify;
     font-size: 12px;
@@ -1772,10 +1773,10 @@ img.captcha {
     color: #941204;
 }
 .categories a {
-    /*background: url("../images/icons1.png") no-repeat 10px 9px !important;*/
+    /* background: url("../images/icons1.png") no-repeat 10px 9px !important; */
     padding: 7px 0 0 0;
     border-radius: 3px;
-    margin: 2px;
+    margin: 2px 15px;
     font-size: 13px;
 }
 
@@ -1784,7 +1785,10 @@ img.captcha {
 {
 	list-style: none;
 }
-
+.categories li.item
+{
+	background: url("../images/icons1a.png") no-repeat 0px 9px !important;
+}
 .categories input
 {
 	position: absolute;
@@ -1812,7 +1816,7 @@ img.captcha {
 
 .categories input + label + ul
 {
-	margin: 0 0 0 22px;
+	margin: 0 0 0 10px;
 }
 
 .categories input + label + ul
@@ -2285,7 +2289,7 @@ h2.typoh2{
 /*--codes--*/
 /*--single--*/
 .single-wl3 {
-    padding: 5em 0;
+    padding: 3em 0;
 }
 .single-left {
     float: left;
@@ -4528,7 +4532,7 @@ ul.shopping-cart-items {
     margin-bottom: 5px;
 }
 .box.shipping-method p, .box.payment-method p {
-    font-size: 0.9rem;
+    font-size: 0.9em;
     color: #555;
 }
 .bill-detail {

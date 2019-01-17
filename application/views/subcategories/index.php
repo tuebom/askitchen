@@ -24,7 +24,7 @@
 												<li><input type="checkbox" id="item-<?=$index?>" /><label class="tree" for="item-<?=$index?>"><span></span><?= $item->nama ?></label>
 													<ul>
 														<?php foreach ($this->data['item_'.$item->kdgol] as $detail) { ?>
-														<li><input type="checkbox" id="item-<?=$index?>-0" /><a href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>"><?= $detail->nama?></a></li>
+														<li class="item"><input type="checkbox" id="item-<?=$index?>-0" /><a href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>"><?= $detail->nama?></a></li>
 														<?php } ?>
 													</ul>
 												</li>
@@ -120,7 +120,7 @@
 															<figure>		
 																<a href="<?= site_url('products/'.$item->kode); ?>" class="new-gri">
 																	<div class="grid-img">
-																		<img src="<?=site_url('images/categories/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->gambar; ?>">
+																		<img src="<?=site_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->gambar; ?>">
 																	</div>
 																</a>		
 															</figure>	
