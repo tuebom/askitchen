@@ -494,13 +494,24 @@ $(window).load(function() {
 
 <script>
 	
+	var navbar = document.getElementById("nav1");
+	var sticky = navbar.offsetTop;
+	
 	window.onscroll = function() {scrollFunction()};
 
 	function scrollFunction() {
+		
 		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
 			document.getElementById("myBtn").style.display = "block";
 		} else {
 			document.getElementById("myBtn").style.display = "none";
+		}
+		
+		// console.log('window.pageYOffset: ', window.pageYOffset)
+		if (window.pageYOffset >= sticky) {
+			navbar.classList.add("sticky")
+		} else {
+			navbar.classList.remove("sticky");
 		}
 	}
 
@@ -509,7 +520,6 @@ $(window).load(function() {
 		document.body.scrollTop = 0;
 		document.documentElement.scrollTop = 0;
 	}
- 
 </script>
 
 	<div class="shopping-cart">
@@ -547,5 +557,5 @@ $(window).load(function() {
 		<?php } ?>
 		</ul>
 
-		<a href="<?php echo site_url('checkout'); ?>" class="button">Checkout</a>
+		<a href="<?php echo site_url('checkout'); ?>" class="button <?php if($this->session->userdata('totqty')): echo ''; else: echo 'btn disabled'; endif;?>">Checkout</a>
 	</div> <!--end shopping-cart -->

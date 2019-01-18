@@ -10,7 +10,7 @@
 		<div class="content" style="background-color:lightgrey; ">
 			<div class="cart-items">
 				<div class="container">
-                    <form id="frmAddress" action="<?= site_url('checkout?tab=address'); ?>" method="post">
+                    <form id="frmAddress" action="<?= site_url('checkout?tab=delivery'); ?>" method="post">
 
                     <input type="hidden" name="mbrid" value="<?=isset($this->data['anggota']->id) ? $this->data['anggota']->id : '';?>">
                     <input type="hidden" name="submit1" value="submit">
