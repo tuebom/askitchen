@@ -10,7 +10,7 @@
 		<div class="content">
 			<div class="cart-items">
 				<div class="container">
-                    <form id="frmDelivery" action="<?= site_url('checkout?tab=delivery'); ?>" method="post">
+                    <form id="frmDelivery" action="<?= site_url('checkout?tab=payment'); ?>" method="post">
 
                     <input type="hidden" name="mbrid" value="<?=isset($this->data['anggota']->id) ? $this->data['anggota']->id : '';?>">
                     <input type="hidden" name="submit1" value="submit">
