@@ -10,7 +10,7 @@
 		<div class="content">
 			<div class="cart-items">
 				<div class="container">
-                    <form id="frmPayment" action="<?= site_url('checkout?tab=payment'); ?>" method="post">
+                    <form id="frmPayment" action="<?= site_url('checkout?action=submit'); ?>" method="post">
 
                     <input type="hidden" name="mbrid" value="<?=isset($this->data['anggota']->id) ? $this->data['anggota']->id : '';?>">
                     <input type="hidden" name="submit1" value="submit">
@@ -53,7 +53,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-xs-6 checkout-right-basket2"><a class="checkout-right-basket2" href="<?= site_url('checkout?tab=delivery&dir=back'); ?>">Back to Delivery Method</a></div>
+                        <div class="col-sm-6 col-xs-6 checkout-right-basket2"><a class="checkout-right-basket2" href="<?= site_url('checkout?tab=delivery'); ?>">Back to Delivery Method</a></div>
                         <div class="col-sm-6 col-xs-6 checkout-right-basket2"><a class="checkout-right-basket2" href="javascript:void(0);" id="btnSubmit">Place the Order</a></div>
                     </div>
 

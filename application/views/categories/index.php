@@ -120,7 +120,7 @@
 															<figure>		
 																<a href="<?= site_url('subcategories/'.$item->kdgol.'/'.$item->kdgol2); ?>" class="new-gri">
 																	<div class="grid-img">
-																		<img src="<?=site_url('images/categories/'.$item->gbr);?>" class="img-responsive" alt="<?= $item->gbr; ?>">
+																		<img src="<?=site_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar; ?>">
 																	</div>
 																</a>		
 															</figure>	
@@ -128,7 +128,7 @@
 														<div class="article-title"><?=$item->nama?></div>
 														<a href="<?= site_url('subcategories/'.$item->kdgol.'/'.$item->kdgol2); ?>" class="new-gri">
 															<div class="opacity-container">
-																<div class="article-title"><?=$item->info?></div>
+																<div class="article-desc"><?=$item->info?></div>
 															</div>
 														</a>
 													</div>

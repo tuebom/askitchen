@@ -47,7 +47,7 @@
                             </div>
 
                         </div>
-                        <div class="col-sm-6 col-xs-6 checkout-right-basket2"><a class="checkout-right-basket2" href="<?= site_url('checkout?tab=address&dir=back'); ?>">Back to Address</a></div>
+                        <div class="col-sm-6 col-xs-6 checkout-right-basket2"><a class="checkout-right-basket2" href="<?= site_url('checkout?tab=address'); ?>">Back to Address</a></div>
                         <div class="col-sm-6 col-xs-6 checkout-right-basket2"><a class="checkout-right-basket2" href="javascript:void(0);" id="btnSubmit">Continue to Payment Method</a></div>
                     </div>
 
