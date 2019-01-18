@@ -59,7 +59,7 @@
 									<div class="contact-icon">
 										<a href="<?php echo site_url('contact-us'); ?>"><i class="icon"></i></a>
 										<!-- <a href="http://www.facebook.com/askitchen" target="_blank"><i class="icon"></i></a> -->
-										<a href="http://www.instagram.com/askitchen" target="_blank"><i class="icon1"></i></a>
+										<a href="https://wa.me/6281807727857" target="_blank"><i class="icon1"></i></a>
 										<!-- <a href="#"><i class="icon2"></i></a>
 										<a href="#"><i class="icon3"></i></a> -->
 									</div>
