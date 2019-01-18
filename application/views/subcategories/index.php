@@ -128,7 +128,7 @@
 														<div class="article-title"><?=$item->nama?></div>
 														<a href="<?= site_url('products/'.$item->kode); ?>" class="new-gri">
 															<div class="opacity-container">
-																<div class="article-title"><?=$item->info?></div>
+																<div class="article-desc"><?=$item->info?></div>
 															</div>
 														</a>
 													</div>
