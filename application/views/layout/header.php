@@ -120,7 +120,7 @@ $(window).load(function() {
 <script>
 	$(document).ready(function() {
 		$("#owl-demo").owlCarousel({
-			items : 1,
+			items : 5,
 			lazyLoad : true,
 			autoPlay : true,
 			navigation : false,
@@ -206,11 +206,11 @@ $(window).load(function() {
 	  $sTmp = (current_url() == site_url())? "true;" : "false;";
 	?>
 	<script type="text/javascript">
-	var bShowDlg = <?php echo $sTmp; ?>
+	// var bShowDlg = <?php echo $sTmp; ?>
 
-    $(window).load(function(){
+    // $(window).load(function(){
     //   if (bShowDlg) modal.open();
-	});
+	// });
 	
 	</script>
 	<div class="label-container">
@@ -255,6 +255,37 @@ $(window).load(function() {
 			$(this).addClass('active');
 			e.preventDefault();
 		});
+	
+		var navbar = document.getElementById("nav1");
+		var navmenu = document.getElementById("bs-megadropdown-tabs");
+		var sticky = navbar.offsetTop;
+		// console.log('navbar.offsetTop: ', navbar.offsetTop)
+		
+		window.onscroll = function() {scrollFunction()};
+
+		function scrollFunction() {
+			
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				document.getElementById("myBtn").style.display = "block";
+			} else {
+				document.getElementById("myBtn").style.display = "none";
+			}
+			
+			// console.log('window.pageYOffset: ', window.pageYOffset)
+			if (window.pageYOffset >= sticky) {
+				navbar.classList.add("sticky");
+				navmenu.classList.add("sticky")
+			} else {
+				navbar.classList.remove("sticky");
+				navmenu.classList.remove("sticky");
+			}
+		}
+
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
 	});
 	</script>
 
@@ -491,36 +522,6 @@ $(window).load(function() {
 		</div>
 	</div>
 	<!--modal-->
-
-<script>
-	
-	var navbar = document.getElementById("nav1");
-	var sticky = navbar.offsetTop;
-	
-	window.onscroll = function() {scrollFunction()};
-
-	function scrollFunction() {
-		
-		if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-			document.getElementById("myBtn").style.display = "block";
-		} else {
-			document.getElementById("myBtn").style.display = "none";
-		}
-		
-		// console.log('window.pageYOffset: ', window.pageYOffset)
-		if (window.pageYOffset >= sticky) {
-			navbar.classList.add("sticky")
-		} else {
-			navbar.classList.remove("sticky");
-		}
-	}
-
-	// When the user clicks on the button, scroll to the top of the document
-	function topFunction() {
-		document.body.scrollTop = 0;
-		document.documentElement.scrollTop = 0;
-	}
-</script>
 
 	<div class="shopping-cart">
 		<div class="shopping-cart-header">

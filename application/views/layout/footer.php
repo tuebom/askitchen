@@ -13,9 +13,8 @@
 										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>0851 0662 2255</a></li>
 										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>(0361) 4727857</a></li>
 										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>(0361) 4727855</a></li>
-										<!-- <li><iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.9012839818474!2d115.17481901478428!3d-8.700924193748858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd246da81c9a9af%3A0xa1a7b2258788fb37!2sJl.+Dewi+Sri+No.189%2C+Legian%2C+Kuta%2C+Kabupaten+Badung%2C+Bali+80361!5e0!3m2!1sid!2sid!4v1547781319320" width="150" height="131" frameborder="0" style="border:0" allowfullscreen></iframe></li> -->
 									</ul>
-									<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.9012839818474!2d115.17481901478428!3d-8.700924193748858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd246da81c9a9af%3A0xa1a7b2258788fb37!2sJl.+Dewi+Sri+No.189%2C+Legian%2C+Kuta%2C+Kabupaten+Badung%2C+Bali+80361!5e0!3m2!1sid!2sid!4v1547781319320" width="225" height="169" frameborder="0" style="border:0" allowfullscreen></iframe>
+									<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.9012839818474!2d115.17481901478428!3d-8.700924193748858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd246da81c9a9af%3A0xa1a7b2258788fb37!2sJl.+Dewi+Sri+No.189%2C+Legian%2C+Kuta%2C+Kabupaten+Badung%2C+Bali+80361!5e0!3m2!1sid!2sid!4v1547781319320" frameborder="0" style="border:0" allowfullscreen></iframe>
 								</div>  
 								<div class="col-md-3 footer-grid">
 									<h4>Branch Office</h4>
@@ -24,9 +23,8 @@
 										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>0851 0511 5557</a></li>
 										<!-- <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>0851 0813 3577</a></li>
 										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>(0411) 822 4090</a></li> -->
-										<!-- <li><iframe class="map" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3973.740027685548!2d119.41668064998368!3d-5.14549294624763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sJl.+Sungai+Sadang+Lama+++++++++++++++Komplek+Ruko+Latanete+Plaza+++++++++++++++Blok+B+No.+11%2C+Makassar+!5e0!3m2!1sid!2sus!4v1547782856851" width="150" height="131" frameborder="0" style="border:0" allowfullscreen></iframe></li> -->
 									</ul>
-									<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3973.740027685548!2d119.41668064998368!3d-5.14549294624763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sJl.+Sungai+Sadang+Lama+++++++++++++++Komplek+Ruko+Latanete+Plaza+++++++++++++++Blok+B+No.+11%2C+Makassar+!5e0!3m2!1sid!2sus!4v1547782856851" width="225" height="169" frameborder="0" style="border:0" allowfullscreen></iframe>
+									<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3973.740027685548!2d119.41668064998368!3d-5.14549294624763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sJl.+Sungai+Sadang+Lama+++++++++++++++Komplek+Ruko+Latanete+Plaza+++++++++++++++Blok+B+No.+11%2C+Makassar+!5e0!3m2!1sid!2sus!4v1547782856851" frameborder="0" style="border:0" allowfullscreen></iframe>
 								</div>
 								<div class="col-md-3 footer-grid foot">
 									<h4>Follow Us</h4>
