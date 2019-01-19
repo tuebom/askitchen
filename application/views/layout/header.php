@@ -302,7 +302,7 @@ $(window).load(function() {
 				</div>
 			</div>
 			<div class="header-top">
-				<div class="container">
+				<div class="container top">
 					<div class="top-left">
 						<div>
 							<a href="<?php echo site_url(); ?>"><img src="<?= site_url('images/logo.png'); ?>" alt="ASKITCHEN Logo"></a>
