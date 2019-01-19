@@ -7,7 +7,7 @@
 	<!--banner-->
 
 	<!--content-->
-		<div class="content">
+		<div class="content" style="background-color:lightgrey; ">
 			<div class="cart-items">
 				<div class="container">
                     <form id="frmAddress" action="<?= site_url('checkout?tab=delivery'); ?>" method="post">

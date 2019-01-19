@@ -64,7 +64,7 @@
 								</div>
 								<div class="women">
 									<!-- <a href="javascript:{}" onclick="document.getElementById('formAdd').submit(); return false;" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a> -->
-									<a href="<?= current_url().'?action=add&code='.$item->kdurl ?>" class="my-cart-b item_add">Add To Cart</a>
+									<a href="<?= current_url().'?action=add&code='.$this->data['product']->kdurl ?>" class="my-cart-b item_add">Add To Cart</a>
 								</div>
 								<div class="social-icon">
 									<h6>Share:</h6>
@@ -135,6 +135,51 @@ jQuery(function() {
 				</div>
 			</div>
 			<!--single-->
+			<?php
+				if (count($this->data['related']) > 0) :
+			?>
+			<!--related-products-->
+			<div class="related-w3agile">
+				<div class="container">
+					<h3 class="tittle1">Related Products</h3>
+					<!-- <div class="related-grids"> -->
+					<div class="owl-carousel owl-theme owl-loaded owl-drag">
+						<?php
+							// for($i=0; $i<6;$i++) $this->data['related'][$i]
+							$index = 0;
+							foreach ($this->data['related'] as $item) {
+						?>
+						<div class="col-md-3 related-grid simpleCart_shelfItem">
+							<div class="grid-rel">
+								<div class="grid-related">
+									<figure>		
+										<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" class="new-gri">
+											<div class="grid-img">
+												<img src="<?=site_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar?>">
+											</div>
+										</a>		
+									</figure>	
+								</div>
+								<div class="women">
+									<p ><em class="item_price">Rp<?= $item->hjual; ?></em></p>
+									<span class="size"><?= $item->kdbar; ?></span>
+									<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
+									<span class="detail"><a href="<?= current_url().'?action=add&code='.$item->kdurl ?>" class="my-cart-d item_add"><img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a>&nbsp;<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" class="my-cart-d item_add">Detail</a></span>
+								</div>
+							</div>
+						</div>
+						<?php 
+							$index++;
+							if ($index == 6) break;
+							} ?>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+			<!--related-products-->
+			<?php
+				endif;
+			?>
 			<!--reviews-->
 			<div class="reviews">
 				<div class="container">
@@ -214,49 +259,5 @@ jQuery(function() {
 				</div>
 			</div>
 			<!--reviews-->
-			<?php
-				if (count($this->data['related']) > 0) :
-			?>
-			<!--related-products-->
-			<div class="related-w3agile">
-				<div class="container">
-					<h3 class="tittle1">Related Products</h3>
-					<div class="related-grids">
-						<?php
-							// for($i=0; $i<6;$i++) $this->data['related'][$i]
-							$index = 0;
-							foreach ($this->data['related'] as $item) {
-						?>
-						<div class="col-md-3 related-grid simpleCart_shelfItem">
-							<div class="grid-rel">
-								<div class="grid-related">
-									<figure>		
-										<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" class="new-gri">
-											<div class="grid-img">
-												<img src="<?=site_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar?>">
-											</div>
-										</a>		
-									</figure>	
-								</div>
-								<div class="women">
-									<p ><em class="item_price">Rp<?= $item->hjual; ?></em></p>
-									<span class="size"><?= $item->kdbar; ?></span>
-									<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
-									<span class="detail"><a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="See Details" class="my-cart-d item_add">See Details</a></span>
-								</div>
-							</div>
-						</div>
-						<?php 
-							$index++;
-							if ($index == 6) break;
-							} ?>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-			</div>
-			<!--related-products-->
-			<?php
-				endif;
-			?>
 		</div>
     <!--content-->
