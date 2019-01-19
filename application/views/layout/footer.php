@@ -19,10 +19,7 @@
 								<div class="col-md-3 footer-grid">
 									<h4>Branch Office</h4>
 									<ul>
-										
-
 										<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a>Jl. Sungai Saddang Lama<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Komplek Ruko Latanete Plaza<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Blok B No. 11<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Makassar - Indonesia</a></li>
-
 										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>0851 0511 5557</a></li>
 										<!-- <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>0851 0813 3577</a></li>
 										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>(0411) 822 4090</a></li> -->
