@@ -17,7 +17,7 @@
                     <div class="col-md-7 col-sm-7 bill-detail">
                         <div>
                             <ul class="nav nav-pills nav-fill">
-                                <li class="nav-item"><a href="shop-checkout1.html" class="nav-link disabled"> <i class="fa fa-map-marker"></i><br>Address</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link disabled"> <i class="fa fa-map-marker"></i><br>Address</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link active"><i class="fa fa-truck"></i><br>Delivery Method</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link disabled"><i class="fa fa-money"></i><br>Payment Method</a></li>
                             </ul>

@@ -89,7 +89,11 @@ CREATE TABLE IF NOT EXISTS `districts` (
   CONSTRAINT `districts_regency_id_foreign` FOREIGN KEY (`regency_id`) REFERENCES `regencies` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+<<<<<<< HEAD
 -- Dumping data for table ask.districts: ~7.579 rows (approximately)
+=======
+-- Dumping data for table ask.districts: ~7.215 rows (approximately)
+>>>>>>> master
 /*!40000 ALTER TABLE `districts` DISABLE KEYS */;
 INSERT INTO `districts` (`id`, `regency_id`, `name`) VALUES
 	('1101010', '1101', 'TEUPAH SELATAN'),
@@ -7697,7 +7701,11 @@ CREATE TABLE IF NOT EXISTS `regencies` (
   CONSTRAINT `regencies_province_id_foreign` FOREIGN KEY (`province_id`) REFERENCES `provinces` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+<<<<<<< HEAD
 -- Dumping data for table ask.regencies: ~743 rows (approximately)
+=======
+-- Dumping data for table ask.regencies: ~514 rows (approximately)
+>>>>>>> master
 /*!40000 ALTER TABLE `regencies` DISABLE KEYS */;
 INSERT INTO `regencies` (`id`, `province_id`, `name`) VALUES
 	('1101', '11', 'KABUPATEN SIMEULUE'),
@@ -8231,7 +8239,7 @@ CREATE TABLE IF NOT EXISTS `reviews` (
   KEY `kdbar` (`kdbar`)
 ) ENGINE=InnoDB AUTO_INCREMENT=240 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ask.reviews: ~273 rows (approximately)
+-- Dumping data for table ask.reviews: ~233 rows (approximately)
 /*!40000 ALTER TABLE `reviews` DISABLE KEYS */;
 INSERT INTO `reviews` (`id`, `kdbar`, `rating`, `name`, `email`, `comment`, `timestamp`) VALUES
 	(1, 'AS.A-530V', 0, 'Eka', 'eka@gmail.com', 'Produknya bagus', '2019-01-02 13:28:27'),
@@ -8545,13 +8553,17 @@ CREATE TABLE IF NOT EXISTS `stock` (
   KEY `kdurl` (`kdurl`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+<<<<<<< HEAD
 -- Dumping data for table ask.stock: ~697 rows (approximately)
+=======
+-- Dumping data for table ask.stock: ~727 rows (approximately)
+>>>>>>> master
 /*!40000 ALTER TABLE `stock` DISABLE KEYS */;
 INSERT INTO `stock` (`kdbar`, `kdurl`, `nama`, `kdgol`, `kdgol2`, `kdgol3`, `satuan`, `merk`, `pnj`, `lbr`, `tgi`, `gambar`, `listrik`, `kapasitas`, `gas`, `berat`, `fitur`, `tag`, `hjual`, `disc`, `saldo`, `last_update`) VALUES
 	('AS-9800-12', 'AS-9800-12', 'Bar Faucet Hot & Cool', '07', '07.01', '07.01.06', 'pcs', 'GETRA', NULL, NULL, NULL, '07/01/AS-9800-12.png', NULL, NULL, NULL, NULL, NULL, NULL, 1000000, 0, 0, '2019-01-16 15:44:53'),
-	('AS.220ES/B-8', 'AS.220ES B-8', 'Semiautomatic Meat Slicer 22 cm', '04', '04.01', '04.01.02', 'pcs', 'GETRA', '45', '28', NULL, '04/01/AS.220ES B8.png', '280 WATT / 220 V', NULL, NULL, 13.2, NULL, NULL, 4100000, 0, 0, '2019-01-17 10:10:28'),
-	('AS.250ES/B-10', 'AS.250ES B-10', 'Semiautomatic Meat Slicer 25 cm', '04', '04.01', '04.01.02', 'pcs', 'GETRA', '47', '28', NULL, '04/01/AS.250ES B10.png', '320 WATT / 220 V', NULL, NULL, 14.3, NULL, NULL, 4500000, 0, 0, '2019-01-17 10:10:32'),
-	('AS.300ES/B-12', 'AS.300ES B-12', 'Semiautomatic Meat Slicer 30 cm', '04', '04.01', '04.01.02', 'pcs', 'GETRA', '53', '33', NULL, '04/01/AS.300ES B12.png', '420 WATT / 220 V', NULL, NULL, 24.3, NULL, NULL, 7200000, 0, 0, '2019-01-17 10:10:37'),
+	('AS.220ES/B-8', 'AS.220ES-B-8', 'Semiautomatic Meat Slicer 22 cm', '04', '04.01', '04.01.02', 'pcs', 'GETRA', '45', '28', NULL, '04/01/AS.220ES B8.png', '280 WATT / 220 V', NULL, NULL, 13.2, NULL, NULL, 4100000, 0, 0, '2019-01-21 11:21:24'),
+	('AS.250ES/B-10', 'AS.250ES-B-10', 'Semiautomatic Meat Slicer 25 cm', '04', '04.01', '04.01.02', 'pcs', 'GETRA', '47', '28', NULL, '04/01/AS.250ES B10.png', '320 WATT / 220 V', NULL, NULL, 14.3, NULL, NULL, 4500000, 0, 0, '2019-01-21 11:22:26'),
+	('AS.300ES/B-12', 'AS.300ES-B-12', 'Semiautomatic Meat Slicer 30 cm', '04', '04.01', '04.01.02', 'pcs', 'GETRA', '53', '33', NULL, '04/01/AS.300ES B12.png', '420 WATT / 220 V', NULL, NULL, 24.3, NULL, NULL, 7200000, 0, 0, '2019-01-21 11:22:42'),
 	('AS.98001-1', 'AS.98001-1', 'Pre Rinse', '07', '07.01', '07.01.06', 'pcs', 'GETRA', NULL, NULL, NULL, '07/01/AS.9800 1.png', NULL, NULL, NULL, NULL, NULL, NULL, 2800000, 0, 0, '2019-01-17 13:39:17'),
 	('AS.98001-2', 'AS.98001-2', 'Pre Rinse w/ Faucet', '07', '07.01', '07.01.06', 'pcs', 'GETRA', NULL, NULL, NULL, '07/01/AS.9800 1.png', NULL, NULL, NULL, NULL, NULL, NULL, 3500000, 0, 0, '2019-01-17 13:39:23'),
 	('AS.9816-P3', 'AS.9816-P3', 'Sink Faucet Hot & Cool', '07', '07.01', '07.01.06', 'pcs', 'GETRA', NULL, NULL, NULL, '07/01/AS.9816-P3.png', NULL, NULL, NULL, NULL, NULL, NULL, 1200000, 0, 0, '2019-01-16 15:44:53'),
@@ -9311,7 +9323,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `address1`, `address2`, `phone`, `city`, `province`, `zip`) VALUES
 	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1547444473, 1, 'Admin', 'istrator', 'ADMIN', NULL, NULL, '0', NULL, NULL, NULL),
 	(2, '::1', 'putu wirya', '$2y$08$zxNLYqTPfZxjbnxRd5rQB.0FS7Zz76p3KeHzP3lkupnRdNgJLzKT6', NULL, 'poetoee@yahoo.co.id', NULL, NULL, NULL, NULL, 1544226665, 1546574375, 1, 'Putu', 'Wirya', 'AAA', NULL, NULL, '085739961234', NULL, NULL, NULL),
+<<<<<<< HEAD
 	(3, '::1', 'made budi', '$2y$08$DCk27b0xNsEvtltfuATMIuoeyX9kEndb.o/Nr4ph3aYHMT6Fgg4ye', NULL, 'made_budixyz@gmail.com', NULL, NULL, NULL, NULL, 1546487728, 1547883127, 1, 'Made', 'Budi', 'ABC', NULL, NULL, '081916032171', NULL, NULL, NULL);
+=======
+	(3, '::1', 'made budi', '$2y$08$DCk27b0xNsEvtltfuATMIuoeyX9kEndb.o/Nr4ph3aYHMT6Fgg4ye', NULL, 'made_budixyz@gmail.com', NULL, NULL, NULL, NULL, 1546487728, 1548039063, 1, 'Made', 'Budi', 'ABC', NULL, NULL, '081916032171', NULL, NULL, NULL);
+>>>>>>> master
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 
@@ -9349,7 +9365,11 @@ CREATE TABLE IF NOT EXISTS `villages` (
   CONSTRAINT `villages_district_id_foreign` FOREIGN KEY (`district_id`) REFERENCES `districts` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+<<<<<<< HEAD
 -- Dumping data for table ask.villages: ~81.092 rows (approximately)
+=======
+-- Dumping data for table ask.villages: ~80.534 rows (approximately)
+>>>>>>> master
 /*!40000 ALTER TABLE `villages` DISABLE KEYS */;
 INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 	('1101010001', '1101010', 'LATIUNG'),
