@@ -32,15 +32,17 @@ class Contact_us extends Public_Controller {
 		*/
 
 		// an email address that will be in the From field of the email.
-		$fromEmail = 'marketing@askitchen.com';
+		$fromEmail = 'webmaster@askitchen.com';
 		$fromName = 'webadmin';
 
 		// an email address that will receive the email with the output of the form
 		$sendToEmail = 'marketing@askitchen.com';
 		$sendToName = 'marketing';
 
+		$name = $this->input->post('name') . ' ' . $this->input->post('surname');
+
 		// subject of the email
-		$subject = 'New message from contact form';
+		$subject = 'New message from '.$name;
 
 		// form field names and their translations.
 		// array variable name => Text to appear in the email
@@ -52,9 +54,6 @@ class Contact_us extends Public_Controller {
 		// If something goes wrong, we will display this message.
 		$errorMessage = 'There was an error while submitting the form. Please try again later';
 
-		// if you are not debugging and don't need error reporting, turn this off by error_reporting(0);
-		// error_reporting(0);
-		
 		// try
 		// {
 		
@@ -76,15 +75,16 @@ class Contact_us extends Public_Controller {
 						$emailText .= "$fields[$key]: $value\n";
 					}
 				}
+				
 				// All the neccessary headers for the email.
 				$headers = array('Content-Type: text/plain; charset="UTF-8";',
-					'From: ' . $from,
-					'Reply-To: ' . $from,
-					'Return-Path: ' . $from,
+					'From: ' . $fromEmail,
+					'Reply-To: ' . $fromEmail,
+					'Return-Path: ' . $fromEmail,
 				);
 		
 				// Send email
-				mail($sendTo, $subject, $emailText, implode("\n", $headers));
+				mail($sendToEmail, $subject, $emailText, implode("\n", $headers));
 
 				if(!$mail->send()) {
 					throw new \Exception('I could not send the email.' . $mail->ErrorInfo);

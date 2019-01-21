@@ -122,7 +122,7 @@ $(window).load(function() {
 		$("#owl-demo").owlCarousel({
 			items : 5,
 			lazyLoad : true,
-			autoPlay : true,
+			// autoPlay : true,
 			navigation : false,
 			navigationText :  false,
 			pagination : true,
@@ -201,7 +201,7 @@ $(window).load(function() {
 <body>
 
 	<?php if (current_url() !== site_url().'cart/add' && current_url() !== site_url().'checkout'): ?>
-	<a href="#menu-modal" class="float" data-toggle="modal"><img id="maskot" src="<?= site_url('images/ma2.png'); ?>" alt="maskot"><!--<i class="fa fa-question-circle my-float"></i>--></a>
+	<a href="#menu-modal" class="float" data-toggle="modal"><img id="maskot" src="<?= site_url('images/mb2.png'); ?>" alt="maskot"><!--<i class="fa fa-question-circle my-float"></i>--></a>
 	<?php
 	  $sTmp = (current_url() == site_url())? "true;" : "false;";
 	?>
@@ -235,10 +235,20 @@ $(window).load(function() {
 			$(this).attr('src','<?= site_url('images/askitchen.png'); ?>');
 		});
 	
+	    // $('.dropdown-toggle').hover(function(){
+		// 	var menu = $(this).attr('data-menu');
+		// 	$('#'+menu).not('.in .dropdown-menu').stop(true, true).delay(100).fadeIn(400);
+		// 	$(this).toggleClass('open');
+		// },function(){
+		// 	var menu = $(this).attr('data-menu');
+		// 	$('#'+menu).not('.in .dropdown-menu').stop(true, true).delay(100).fadeOut(400);
+		// 	$(this).toggleClass('open');
+		// });
+	
 	    $('#maskot').hover(function(){
-			$(this).attr('src','<?= site_url('images/ma1.png'); ?>');
+			$(this).attr('src','<?= site_url('images/mb1.png'); ?>');
 		},function(){
-			$(this).attr('src','<?= site_url('images/ma2.png'); ?>');
+			$(this).attr('src','<?= site_url('images/mb2.png'); ?>');
 		});
 
 	    $('#login-form-link').click(function(e) {
@@ -259,7 +269,6 @@ $(window).load(function() {
 		var navbar = document.getElementById("nav1");
 		var navmenu = document.getElementById("bs-megadropdown-tabs");
 		var sticky = navbar.offsetTop;
-		// console.log('navbar.offsetTop: ', navbar.offsetTop)
 		
 		window.onscroll = function() {scrollFunction()};
 
@@ -271,7 +280,6 @@ $(window).load(function() {
 				document.getElementById("myBtn").style.display = "none";
 			}
 			
-			// console.log('window.pageYOffset: ', window.pageYOffset)
 			if (window.pageYOffset >= sticky) {
 				navbar.classList.add("sticky");
 				navmenu.classList.add("sticky")
@@ -349,7 +357,7 @@ $(window).load(function() {
 										foreach ($this->data['golongan'] as $item) {
 									?>
 									<li class="dropdown">
-										<a href="<?php echo site_url('products/'.$item->kdgol); ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $item->nama ?><b class="caret"></b></a>
+										<a href="<?php echo site_url('products/'.$item->kdgol); ?>" class="dropdown-toggle" data-toggle="dropdown" data-menu="dropdown-<?=$item->kdgol?>"><?php echo $item->nama ?><b class="caret"></b></a>
 										<?php if($index >=4){ ?>
 										<ul class="dropdown-menu multi-column columns-3 pull-right">
 											<?php } else { ?>
@@ -390,6 +398,7 @@ $(window).load(function() {
 							<li><a href="<?php echo site_url('admin'); ?>">Admin</a></li>
 							<?php endif; ?>
 							<?php if ($logout_link): ?>
+							<li><a href="<?php echo site_url('akun'); ?>">Akun Saya</a></li>
 							<li><a href="<?php echo site_url('auth/logout/public'); ?>">Logout</a></li>
 							<?php else: ?>
 							<li><a href="<?php echo site_url('register'); ?>">Register</a></li>
@@ -522,6 +531,30 @@ $(window).load(function() {
 		</div>
 	</div>
 	<!--modal-->
+
+	<?php 
+		$index = 0;
+
+		foreach ($this->data['golongan'] as $item) {
+	?>
+	<div id="dropdown-<?=$item->kdgol?>" class="dropdown-menu">
+	<?php foreach ($this->data['item_'.$item->kdgol] as $detail) { ?>
+	<div class="col-sm-3 multi-gd-img">
+		<div class="row text-center"><label class="block-with-text"><?php echo $detail->nama ?></label></div>
+		<div class="row">
+			<div class="sample">
+			<a href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>">
+				<img src="<?php echo site_url($this->data['products_dir'].'/'.$detail->gambar); ?>" alt="<?php echo $detail->nama ?>"/></a>
+			</div>
+		</div>
+		<div class="row text-center"><label class="block-with-text"><?php echo $detail->kdbar ?></label></div>
+		<div class="row text-center">
+			<a class="view-more btn- btn-sm" href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>">Read More</a>
+		</div>
+	</div>
+	<?php } ?>
+	</div>
+	<?php } ?>
 
 	<div class="shopping-cart">
 		<div class="shopping-cart-header">
