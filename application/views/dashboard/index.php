@@ -5,13 +5,13 @@
 					<div class="core-slider_viewport">
 						<div class="core-slider_list">
 							<div class="core-slider_item">
-								<img src="<?php echo site_url('images/bn1.jpg'); ?>" class="img-responsive" alt="">
+								<img src="<?php echo site_url('images/ban1-2.jpg'); ?>" class="img-responsive" alt="">
 							</div>
 							 <div class="core-slider_item">
-								 <img src="<?php echo site_url('images/bn2.jpg'); ?>" class="img-responsive" alt="">
+								 <img src="<?php echo site_url('images/ban2-2.jpg'); ?>" class="img-responsive" alt="">
 							 </div>
 							<div class="core-slider_item">
-								 <img src="<?php echo site_url('images/bn3.jpg'); ?>" class="img-responsive" alt="">
+								 <img src="<?php echo site_url('images/ban3-2.jpg'); ?>" class="img-responsive" alt="">
 							</div>
 						</div>
 					</div>
