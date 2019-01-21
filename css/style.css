@@ -1414,18 +1414,24 @@ h4.branch {
 img.office {
     width: 100%;
 }
-iframe.map {
-    position: absolute;
-    bottom: 5px;
-}
 
 @media (max-width:360px){
     img.office {
         margin-top: 2em;
     }
+    iframe.map {
+        margin-top: 15px;
+        width: 100%;
+        height: auto;
+    }
+    iframe.map-about {
+        margin-top: 25px;
+        width: 100%;
+        height: auto;
+    }
 }
 
-@media (min-width:360px){
+@media (min-width:361px){
     iframe.map {
         width: 180px;
         height: 135px;
@@ -1474,8 +1480,14 @@ iframe.map {
     background: #021931;
     padding: 1em 0;
 }
-.footer-grid {
-    min-height: 415px;
+@media (min-width:768px){
+    iframe.map {
+        position: absolute;
+        bottom: 5px;
+    }
+    .footer-grid {
+        min-height: 415px;
+    }
 }
 .footer-grid h4 {
         font-size: 1.8em;
