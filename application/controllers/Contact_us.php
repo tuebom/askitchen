@@ -8,6 +8,7 @@ class Contact_us extends Public_Controller {
 		parent::__construct();
 
 		$this->load->helper('captcha');
+		$this->load->library('MyPHPMailer'); // load library
 
 		$this->load->model('golongan_model');
 		$this->load->model('stock_model');
@@ -18,8 +19,9 @@ class Contact_us extends Public_Controller {
 	public function index()
 	{
 
-		$this->load->library("phpmailer_library");
-        $objMail = $this->phpmailer_library->load();
+		// $this->load->library("phpmailer_library");
+		// $objMail = $this->phpmailer_library->load();
+		
 
 		$this->data['golongan'] = $this->golongan_model->get_all();
 
