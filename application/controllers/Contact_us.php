@@ -84,7 +84,21 @@ class Contact_us extends Public_Controller {
 				);
 		
 				// Send email
-				mail($sendToEmail, $subject, $emailText, implode("\n", $headers));
+				// mail($sendToEmail, $subject, $emailText, implode("\n", $headers));
+				$mail->IsSMTP(); // enable SMTP
+				$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+				$mail->SMTPAuth = true; // authentication enabled
+				$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+				$mail->Host = "smtp.gmail.com";
+				$mail->Port = 465; // or 587
+				$mail->IsHTML(true);
+				$mail->Username = "webmaster@gmail.com";
+				$mail->Password = "jimmyfallon5757";
+				$mail->SetFrom("webmaster@gmail.com");
+				$mail->Subject = $subject;
+				$mail->Body = $emailText;
+				// $mail->AddAddress("email@gmail.com");
+
 
 				if(!$mail->send()) {
 					throw new \Exception('I could not send the email.' . $mail->ErrorInfo);
