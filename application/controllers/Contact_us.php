@@ -36,7 +36,7 @@ class Contact_us extends Public_Controller {
 		$fromName = 'webadmin';
 
 		// an email address that will receive the email with the output of the form
-		$sendToEmail = 'marketing@askitchen.com';
+		$sendToEmail = 'aswin@askitchen.com';
 		$sendToName = 'marketing';
 
 		$name = $this->input->post('name') . ' ' . $this->input->post('surname');
@@ -46,7 +46,7 @@ class Contact_us extends Public_Controller {
 
 		// form field names and their translations.
 		// array variable name => Text to appear in the email
-		$fields = array('name' => 'Name', 'surname' => 'Surname', 'phone' => 'Phone', 'email' => 'Email', 'message' => 'Message');
+		$fields = array('name' => 'Name', 'surname' => 'Surname', 'phone' => 'Phone', 'need' => 'Need', 'email' => 'Email', 'message' => 'Message');
 
 		// message that will be displayed when everything is OK :)
 		$okMessage = 'Contact form successfully submitted. Thank you, I will get back to you soon!';
@@ -54,126 +54,116 @@ class Contact_us extends Public_Controller {
 		// If something goes wrong, we will display this message.
 		$errorMessage = 'There was an error while submitting the form. Please try again later';
 
-		// try
-		// {
 		
-			// validasi input
-			$this->form_validation->set_rules('name', 'First Name', 'required');
-			$this->form_validation->set_rules('surname', 'Last Name', 'required');
-			$this->form_validation->set_rules('email', 'Email', 'required');
-			$this->form_validation->set_rules('need', 'Comment', 'required');
-			$this->form_validation->set_rules('message', 'Comment', 'required');
+		// validasi input
+		$this->form_validation->set_rules('name', 'First Name', 'required');
+		$this->form_validation->set_rules('surname', 'Last Name', 'required');
+		$this->form_validation->set_rules('email', 'Email', 'required');
+		$this->form_validation->set_rules('need', 'Need', 'required');
+		$this->form_validation->set_rules('message', 'Comment', 'required');
 
-			if ($this->form_validation->run() == TRUE)
-			{
-				
-				$emailText = "You have a new message from your contact form\n=============================\n";
-	
-				foreach ($_POST as $key => $value) {
-					// If the field exists in the $fields array, include it in the email 
-					if (isset($fields[$key])) {
-						$emailText .= "$fields[$key]: $value\n";
-					}
+		if ($this->form_validation->run() == TRUE)
+		{
+			
+			$emailText = "You have a new message from your contact form <br>";
+
+			foreach ($_POST as $key => $value) {
+				// If the field exists in the $fields array, include it in the email 
+				if (isset($fields[$key])) {
+					$emailText .= "$fields[$key]: $value<br>";
 				}
+			}
+			
+	
+			// Send email
+			$mail = new PHPMailer();
+			$mail->IsSMTP(); // enable SMTP
+			$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+			$mail->SMTPAuth = true; // authentication enabled
+			$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+			$mail->Host = "smtp.gmail.com";
+			$mail->Port = 465; // or 587
+			$mail->IsHTML(true);
+			$mail->Username = "webmaster@askitchen.com";
+			$mail->Password = "jimmyfallon5757";
+			$mail->SetFrom("webmaster@askitchen.com");
+			$mail->Subject = $subject;
+			$mail->Body = $emailText;
+			$mail->AddAddress("aswin@askitchen.com");
+
+
+			try {
 				
-				// All the neccessary headers for the email.
-				$headers = array('Content-Type: text/plain; charset="UTF-8";',
-					'From: ' . $fromEmail,
-					'Reply-To: ' . $fromEmail,
-					'Return-Path: ' . $fromEmail,
-				);
-		
-				// Send email
-				// mail($sendToEmail, $subject, $emailText, implode("\n", $headers));
-				$mail->IsSMTP(); // enable SMTP
-				$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
-				$mail->SMTPAuth = true; // authentication enabled
-				$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-				$mail->Host = "smtp.gmail.com";
-				$mail->Port = 465; // or 587
-				$mail->IsHTML(true);
-				$mail->Username = "webmaster@gmail.com";
-				$mail->Password = "jimmyfallon5757";
-				$mail->SetFrom("webmaster@gmail.com");
-				$mail->Subject = $subject;
-				$mail->Body = $emailText;
-				// $mail->AddAddress("email@gmail.com");
-
-
 				if(!$mail->send()) {
 					throw new \Exception('I could not send the email.' . $mail->ErrorInfo);
 				}
-			
+				
 				$responseArray = array('type' => 'success', 'message' => $okMessage);
-				// // if requested by AJAX request return JSON response
-				if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-					$encoded = json_encode($responseArray);
-				
-					header('Content-Type: application/json');
-				
-					echo $encoded;
-				}
-				// else just display the message
-				else {
-					echo $responseArray['message'];
-				}
-				redirect('/', 'refresh');
-				
-				// 	data = array(
-				// 	"first_name"  => $this->input->post('name'),
-				// 	"last_name"   => $this->input->post('surname'),
-				// 	"email"       => $this->input->post('email'),
-				// 	"need"        => $this->input->post('need'),
-				// 	"message"     => $this->input->post('message')
-				// );
-				
-				$captcha  = $this->input->post('captcha');
-				$url 	  = $this->input->post('url');
-
-				if ($captcha == $this->session->userdata('captcha'))
-				{
-					// if (file_exists(BASEPATH . "../captcha/" . $this->session->userdata['image']))
-					// unlink(BASEPATH . "../captcha/" . $this->session->userdata['image']);
-
-					if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-						$file = 'D:\xampp\htdocs\askitchen\images\captcha\\';
-					} else {
-						$file = './captcha/';
-					}
-					if (file_exists($file . $this->session->userdata['image']))
-						unlink($file . $this->session->userdata['image']);
-		
-					$this->session->unset_userdata('captcha');
-					$this->session->unset_userdata('image');
-
-					$this->reviews_model->insert($data);
-					header("location: ".$url);
-				}
-				else
-				{
-
-					// $this->session->set_flashdata('message', 'Kode yang Anda masukkan tidak cocok.');
-					$this->data['first_name'] = $this->input->post('name');
-					$this->data['last_name']  = $this->input->post('surname');
-					$this->data['email']      = $this->input->post('email');
-					$this->data['need']       = $this->input->post('need');
-					$this->data['message']    = $this->input->post('message');
-				}
+			} catch (\Exception $e) {
+				// $responseArray = array('type' => 'danger', 'message' => $errorMessage);
+				$responseArray = array('type' => 'danger', 'message' => $e->getMessage());
 			}
-			else
-			{
-				$this->data['error_message'] = (validation_errors()) ? validation_errors() : '';
+
+			// if requested by AJAX request return JSON response
+			if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+				$encoded = json_encode($responseArray);
+				
+				return $this->output
+				->set_content_type('application/json')
+				->set_status_header(200)
+				->set_output($encoded);
+						
+				// echo $encoded;
 			}
+			// else just display the message
+			else {
+				$this->data['message'] = $okMessage;
+			}
+			
 		
+			// redirect('/', 'refresh'); // raise error
+ 			// echo '<script type="text/javascript">window.location = ". site_url() . ";</script>';
+ 			// return;
+			
+			// $captcha  = $this->input->post('captcha');
+			// $url 	  = $this->input->post('url');
+
+			// if ($captcha == $this->session->userdata('captcha'))
+			// {
+			// 	// if (file_exists(BASEPATH . "../captcha/" . $this->session->userdata['image']))
+			// 	// unlink(BASEPATH . "../captcha/" . $this->session->userdata['image']);
+
+			// 	if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+			// 		$file = 'D:\xampp\htdocs\askitchen\images\captcha\\';
+			// 	} else {
+			// 		$file = './captcha/';
+			// 	}
+			// 	if (file_exists($file . $this->session->userdata['image']))
+			// 		unlink($file . $this->session->userdata['image']);
+	
+			// 	$this->session->unset_userdata('captcha');
+			// 	$this->session->unset_userdata('image');
+
+			// 	$this->reviews_model->insert($data);
+			// 	header("location: ".$url);
+			// }
+			// else
+			// {
+
+			// 	// $this->session->set_flashdata('message', 'Kode yang Anda masukkan tidak cocok.');
+			// 	$this->data['first_name'] = $this->input->post('name');
+			// 	$this->data['last_name']  = $this->input->post('surname');
+			// 	$this->data['email']      = $this->input->post('email');
+			// 	$this->data['need']       = $this->input->post('need');
+			// 	$this->data['message']    = $this->input->post('message');
+			// }
+		    
+		}
+		else
+		{
+			$this->data['error_message'] = (validation_errors()) ? validation_errors() : '';
+		}
 		
-		
-		
-		// 	echo $encoded;
-		// }
-		// else just display the message
-		// else {
-		// 	echo $responseArray['message'];
-		// }
 		
 		// // prepare captcha
 		// $original_string = array_merge(range(0, 9), range('a', 'z'), range('A', 'Z'));
