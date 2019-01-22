@@ -4513,7 +4513,7 @@ div.col-md-3.product-agileinfo-grid{
 /* .dropdown-menu {
     margin: 0;
     float: left;
-    background: white;
+    background: #d6cfcf;
     width: 90%;
     border-radius: 3px;
     padding: 20px;
@@ -4870,14 +4870,10 @@ img.profile {
     border-radius:50px;
 }
 .profile-grid {
-    /* display: flex; */
-    align-items: center;
     margin-bottom: 15px;
 }
 img.propic {
-    width: 35%;
-    border-radius:50px;
-    display: inline-block;
+    width: 100px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -4890,6 +4886,9 @@ img.propic {
     text-decoration: none;
     color: darkgray;
     font-size: 0.9em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 .button-pic:hover {
     color: darkgray;
@@ -4898,6 +4897,9 @@ span.profile {
     padding: 0 10px;
     display: inline-block;
     vertical-align: middle;
+}
+div.row.profile {
+    padding: 2em 0;
 }
 
 /* status barang*/
@@ -4924,7 +4926,7 @@ span.profile {
     border-bottom: 2px solid #467fbf !important;
     /* background-color: #467fbf; */
 }
-.nav-page .nav-link.active:hover,
+.nav-page .nav-link.active:hover, .nav-page .nav-link.active:focus,
 .nav-page .nav-link:hover {
     color: #ffff;
     background: #467fbf;
