@@ -4879,11 +4879,12 @@ img.propic {
 }
 .button-pic {
     width: 50%;
-    height: 35px;
+    height: 31px;
     background: #fff;
     padding: 5px 10px;
     border: solid 1px lightgrey;
     text-decoration: none;
+    text-align: center;
     color: darkgray;
     font-size: 0.9em;
     display: block;
@@ -4900,8 +4901,12 @@ span.profile {
 }
 div.row.profile {
     padding: 2em 0;
+    background: #fff;
+    border-radius: 3px;
 }
-
+div.profile {
+    padding: 2em 0;
+}
 /* status barang*/
 .nav-page {
     margin-bottom: 10px;

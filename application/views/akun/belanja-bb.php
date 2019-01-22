@@ -17,7 +17,7 @@
 				<div class="col-md-9">
                     <div class="row">
                         <ul class="nav nav-page nav-fill">
-                            <li class="nav-item"><a href="#" class="nav-link">Belum Bayar</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link active">Belum Bayar</a></li>
                             <li class="nav-item"><a href="<?php echo site_url('akun?p=bk'); ?>" class="nav-link">Belum Dikirimkan</a></li>
                             <li class="nav-item"><a href="<?php echo site_url('akun?p=bt'); ?>" class="nav-link">Belum Diterima</a></li>
                             <li class="nav-item"><a href="<?php echo site_url('akun?p=bs'); ?>" class="nav-link">Selesai</a></li>
