@@ -67,6 +67,12 @@
 								<div class="col-md-12">
 									<input type="submit" class="btn btn-success btn-send" value="Send message">
 								</div>
+								<?php if (isset($this->data['message']))
+								{
+								  echo ' <div class="col-md-12">\n'.
+								  $this->data['message'] .
+								  '</div>';
+								  } ?>
 							</div>
 							<div class="row">
 								<div class="col-md-12">
@@ -112,6 +118,7 @@ $('#contact-form').on('submit', function (e) {
 			success: function (data)
 			{
 				// data = JSON object that contact.php returns
+				console.log (data);
 
 				// we recieve the type of the message: success x danger and apply it to the 
 				var messageAlert = 'alert-' + data.type;

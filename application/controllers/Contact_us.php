@@ -76,52 +76,46 @@ class Contact_us extends Public_Controller {
 				}
 			}
 			
-			$this->load->library('../controllers/MyEmail');
-			
-			if ($this->myemail->emailSend($subject, $emailText)) {
-				redirect('/', 'refresh');
-			}
 	
 			// Send email
-			// $mail = new PHPMailer();
-			// $mail->IsSMTP(); // enable SMTP
-			// $mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
-			// $mail->SMTPAuth = true; // authentication enabled
-			// $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-			// $mail->Host = "smtp.gmail.com";
-			// $mail->Port = 465; // or 587
-			// $mail->IsHTML(true);
-			// $mail->Username = "webmaster@askitchen.com";
-			// $mail->Password = "jimmyfallon5757";
-			// $mail->SetFrom("webmaster@askitchen.com");
-			// $mail->Subject = $subject;
-			// $mail->Body = $emailText;
-			// $mail->AddAddress("aswin@askitchen.com");
+			$mail = new PHPMailer();
+			$mail->IsSMTP(); // enable SMTP
+			$mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
+			$mail->SMTPAuth = true; // authentication enabled
+			$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+			$mail->Host = "smtp.gmail.com";
+			$mail->Port = 465; // or 587
+			$mail->IsHTML(true);
+			$mail->Username = "webmaster@askitchen.com";
+			$mail->Password = "jimmyfallon5757";
+			$mail->SetFrom("webmaster@askitchen.com");
+			$mail->Subject = $subject;
+			$mail->Body = $emailText;
+			$mail->AddAddress("aswin@askitchen.com");
 
 
-			// try {
+			try {
 				
-			// 	if(!$mail->send()) {
-			// 		throw new \Exception('I could not send the email.' . $mail->ErrorInfo);
-			// 	}
+				if(!$mail->send()) {
+					throw new \Exception('I could not send the email.' . $mail->ErrorInfo);
+				}
 				
-			// 	$responseArray = array('type' => 'success', 'message' => $okMessage);
-			// } catch (\Exception $e) {
-			// 	// $responseArray = array('type' => 'danger', 'message' => $errorMessage);
-			// 	$responseArray = array('type' => 'danger', 'message' => $e->getMessage());
-			// }
+				$responseArray = array('type' => 'success', 'message' => $okMessage);
+			} catch (\Exception $e) {
+				// $responseArray = array('type' => 'danger', 'message' => $errorMessage);
+				$responseArray = array('type' => 'danger', 'message' => $e->getMessage());
+			}
 
 			// if requested by AJAX request return JSON response
 			if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 				$encoded = json_encode($responseArray);
 				
-				// return $this->output
-				// ->set_content_type('application/json')
-				// ->set_status_header(200)
-				// ->set_output($encoded);
+				return $this->output
+				->set_content_type('application/json')
+				->set_status_header(200)
+				->set_output($encoded);
 						
-				header('Content-Type: application/json');
-				echo $encoded;
+				// echo $encoded;
 			}
 			// else just display the message
 			else {
