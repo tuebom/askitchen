@@ -69,7 +69,6 @@ class Checkout extends Public_Controller {
 						
 						$this->form_validation->set_rules('post_code', 'lang:checkout_post_code', 'required');
 						$this->form_validation->set_rules('address', 'lang:checkout_address', 'required');
-						// $this->form_validation->set_rules('address2', 'lang:checkout_address2', 'required');
 						
 						if ($this->form_validation->run() == TRUE)
 						{

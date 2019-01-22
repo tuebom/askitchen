@@ -150,7 +150,6 @@ class Checkout extends Public_Controller {
 				$this->form_validation->set_rules('last_name', 'lang:checkout_last_name', 'required');
 				
 				$this->form_validation->set_rules('address', 'lang:checkout_address', 'required');
-				// $this->form_validation->set_rules('address2', 'lang:checkout_address2', 'required');
 
 				$this->form_validation->set_rules('province', 'lang:checkout_province', 'required');
 				$this->form_validation->set_rules('regency', 'lang:checkout_regency', 'required');

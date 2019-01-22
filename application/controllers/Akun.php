@@ -11,6 +11,10 @@ class Akun extends Public_Controller {
 		
 		$this->load->model('golongan_model');
 		$this->load->model('stock_model');
+		
+		$this->load->model('provinsi_model');
+		$this->load->model('kabupaten_model');
+		$this->load->model('kecamatan_model');
 		// $this->output->enable_profiler(TRUE);
     }
 
@@ -43,26 +47,76 @@ class Akun extends Public_Controller {
 
 			return;
 		}
+
+		$this->data['provinsi'] = $this->provinsi_model->get_all();
 		
-		if (!$this->ion_auth->logged_in())
+		$submit = $this->input->post('submit1');
+
+        if ($submit) {
+
+			// $this->form_validation->set_rules('email', 'Email', 'required');
+			
+			// if ($this->form_validation->run() == TRUE)
+			// {
+			// 	// send email
+			// }
+			// else
+			// {
+			// 	$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+			// }
+
+			$id = $this->input->post('mbrid');
+
+			$user_data = array(
+				'first_name' => $this->input->post('first_name'),
+				'last_name'  => $this->input->post('last_name'),
+				'company'    => $this->input->post('company'),
+				'address'    => $this->input->post('address'),
+				'province'   => $this->input->post('province'),
+				'regency'    => $this->input->post('regency'),
+				'district'   => $this->input->post('district'),
+				'post_code'  => $this->input->post('post_code'),
+				'phone'      => $this->input->post('phone'),
+				'email'      => $this->input->post('email'),
+			);
+		
+			$this->db->update('users', $user_data);
+		}
+		
+		if ($this->ion_auth->logged_in())
         {
 			// siapkan data member
 			$this->data['anggota'] = $this->ion_auth->user()->row();
         }
 
-		// $this->form_validation->set_rules('email', 'Email', 'required');
-		
-		// if ($this->form_validation->run() == TRUE)
-		// {
-		// 	// send email
-		// }
-		// else
-		// {
-		// 	$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-		// }
-
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('akun/profil', $this->data);
 		$this->load->view('layout/footer', $this->data);
+	}
+
+	public function regencies()
+	{
+		$provid = $this->uri->segment(3);
+		// $provid = $this->input->post("id");
+		$data = $this->kabupaten_model->search($provid);
+		return $this->output
+		->set_content_type('application/json')
+		->set_status_header(200)
+		->set_output(json_encode(array(
+				'data' => $data
+		)));
+	}
+
+	public function districts()
+	{
+		$kbpid = $this->uri->segment(3);
+		// $provid = $this->input->post("id");
+		$data = $this->kecamatan_model->search($kbpid);
+		return $this->output
+		->set_content_type('application/json')
+		->set_status_header(200)
+		->set_output(json_encode(array(
+				'data' => $data
+		)));
 	}
 }
