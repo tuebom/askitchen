@@ -12,7 +12,7 @@ class Login extends Public_Controller {
 		$this->load->model('golongan_model');
 		$this->load->model('member_model');
         
-        // $this->output->enable_profiler(TRUE);
+        $this->output->enable_profiler(TRUE);
 	}
 
 	public function index()
@@ -25,69 +25,81 @@ class Login extends Public_Controller {
         
         if ( ! $this->ion_auth->logged_in())
         {
+            
+            $id = $this->input->post('identity');
 
-            /* Valid form */
-            $this->form_validation->set_rules('identity', 'Email', 'required');
-            $this->form_validation->set_rules('password', 'Password', 'required');
+            if ($id) {
+    
+                /* Valid form */
+                $this->form_validation->set_rules('identity', 'Email', 'required');
+                $this->form_validation->set_rules('password', 'Password', 'required');
 
-            if ($this->form_validation->run() == TRUE)
-            {
-                $remember = (bool) $this->input->post('remember');
-
-                if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember))
+                if ($this->form_validation->run() == TRUE)
                 {
-                    if ( ! $this->ion_auth->is_admin())
+                    $remember = (bool) $this->input->post('remember');
+
+                    if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember))
                     {
-                        $this->session->set_flashdata('message', $this->ion_auth->messages());
-                        
-                        if (isset($_SESSION["cart_item"])) {
-                            if (count($_SESSION["cart_item"]) > 0) {
-                                redirect('checkout', 'refresh');
+                        if ( ! $this->ion_auth->is_admin())
+                        {
+
+                            $this->session->set_flashdata('message', $this->ion_auth->messages());
+                            
+                            if (isset($_SESSION["cart_item"])) {
+                                
+                                if (count($_SESSION["cart_item"]) > 0) {
+                                    redirect('checkout', 'refresh');
+                                }
+                                else
+                                {
+                                    redirect('/', 'refresh');
+                                }
+                            }
+                            else
+                            {
+                                redirect('/', 'refresh');
                             }
                         }
                         else
                         {
-                            redirect('/', 'refresh');
+                            /* Data */
+                            $this->data['message_login'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+
+                            /* Load Template */
+                            $this->template->auth_render('auth/choice', $this->data);
+                            return;
                         }
+                        
                     }
                     else
                     {
-                        /* Data */
-                        $this->data['message_login'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-
-                        /* Load Template */
-                        $this->template->auth_render('auth/choice', $this->data);
-                        return;
+                        $this->session->set_flashdata('message', $this->ion_auth->errors());
+                        redirect('login', 'refresh');
                     }
                 }
                 else
                 {
-                    $this->session->set_flashdata('message', $this->ion_auth->errors());
-				    redirect('login', 'refresh');
+                    $this->data['message_login'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+
+                    $this->data['identity'] = array(
+                        'name'        => 'identity',
+                        'id'          => 'identity',
+                        'type'        => 'email',
+                        'value'       => $this->form_validation->set_value('identity'),
+                        'class'       => 'form-control',
+                        'placeholder' => lang('auth_your_email')
+                    );
+                    $this->data['password'] = array(
+                        'name'        => 'password',
+                        'id'          => 'password',
+                        'type'        => 'password',
+                        'class'       => 'form-control',
+                        'placeholder' => lang('auth_your_password')
+                    );
+
+                    /* Load Template */
+                    // $this->template->auth_render('auth/login', $this->data);
                 }
-            }
-            else
-            {
-                $this->data['message_login'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-
-                $this->data['identity'] = array(
-                    'name'        => 'identity',
-                    'id'          => 'identity',
-                    'type'        => 'email',
-                    'value'       => $this->form_validation->set_value('identity'),
-                    'class'       => 'form-control',
-                    'placeholder' => lang('auth_your_email')
-                );
-                $this->data['password'] = array(
-                    'name'        => 'password',
-                    'id'          => 'password',
-                    'type'        => 'password',
-                    'class'       => 'form-control',
-                    'placeholder' => lang('auth_your_password')
-                );
-
-                /* Load Template */
-                // $this->template->auth_render('auth/login', $this->data);
             }
 
             $this->load->view('layout/header', $this->data);
@@ -98,5 +110,5 @@ class Login extends Public_Controller {
         {
             redirect('/', 'refresh');
 		}
-	}
+    }
 }

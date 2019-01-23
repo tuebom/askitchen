@@ -80,6 +80,7 @@ class Akun extends Public_Controller {
 				'email'      => $this->input->post('email'),
 			);
 		
+			$this->db->where('id =', $id);
 			$this->db->update('users', $user_data);
 		}
 		

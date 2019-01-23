@@ -3,30 +3,35 @@
   /**
    *
    */
-class MyEmail extends CI_Controller{
+class EmailSvc extends CI_Controller{
     function __construct(){
         parent::__construct();
-        $this->load->library('MyPHPMailer'); // load library
+        $this->load->library("phpmailer_library");
     }
  
-    function emailSend(){
+    function contact_us(){
 
-        $name = $this->input->post('name') . ' ' . $this->input->post('surname');
+		$name = $this->input->post('name') . ' ' . $this->input->post('surname');
 
 		// subject of the email
 		$subject = 'New message from '.$name;
+			
         $emailText = "You have a new message from your contact form <br>";
 
-			foreach ($_POST as $key => $value) {
-				// If the field exists in the $fields array, include it in the email 
-				if (isset($fields[$key])) {
-					$emailText .= "$fields[$key]: $value<br>";
-				}
-			}
+        // array variable name => Text to appear in the email
+        $fields = array('name' => 'Name', 'surname' => 'Surname', 'phone' => 'Phone', 'need' => 'Need', 'email' => 'Email', 'message' => 'Message');
+
+        foreach ($_POST as $key => $value) {
+            // If the field exists in the $fields array, include it in the email 
+            if (isset($fields[$key])) {
+                $emailText .= "$fields[$key]: $value<br>";
+            }
+        }
+        
         $fromEmail = "webmaster@askitchen.com";
         // $isiEmail = "Isi email tulis disini";
 
-        $mail = new PHPMailer();
+        $mail = $this->phpmailer_library->load(); //new PHPMailer();
         $mail->IsHTML(true);    // set email format to HTML
         $mail->IsSMTP();   // we are going to use SMTP
         $mail->SMTPAuth   = true; // enabled SMTP authentication
@@ -43,12 +48,15 @@ class MyEmail extends CI_Controller{
         $mail->AddAddress($toEmail);
        
         if(!$mail->Send()) {
-            // echo "Eror: ".$mail->ErrorInfo;
+            // echo "Error: ".$mail->ErrorInfo;
+            $responseArray = array('type' => 'danger', 'message' => $errorMessage);
             return FALSE;
         } else {
             // echo "Email berhasil dikirim";
-            return TRUE;
+            $responseArray = array('type' => 'success', 'message' => 'Submitted the form successfully!');
+            // return TRUE;
         }
+        echo json_encode($responseArray);
     }
 }
 ?>

@@ -60,7 +60,7 @@
 								<form id="register-form" action="<?= site_url('register') ?>" method="post" role="form" style="display: block;">
 									<?php if (isset($this->data['message_register'])) echo $this->data['message_register'];?>
 									<div class="form-group">
-										<input type="text" name="first_name" id="first_name" tabindex="1" class="form-control" placeholder="<?php echo lang('users_firstname') ?>" value="<?=isset($this->data['first_name']) ? $this->data['first_name']['value'] : '';?>">
+										<input type="text" name="first_name" id="first_name" tabindex="1" class="form-control" placeholder="<?php echo lang('users_firstname') ?>" value="<?=isset($this->data['first_name']) ? $this->data['first_name']['value'] : '';?>" autofocus>
 									</div>
 									<div class="form-group">
 										<input type="text" name="last_name" id="last_name" tabindex="2" class="form-control" placeholder="<?php echo lang('users_lastname') ?>" value="<?=isset($this->data['last_name']) ? $this->data['last_name']['value'] : '';?>">

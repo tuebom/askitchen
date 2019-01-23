@@ -116,6 +116,12 @@
 			// 	increaseArea: '20%'
 			// });
 		});
+
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
 	</script>
 	<button onclick="topFunction()" id="myBtn" title="Go to top"><img src="<?= site_url('images/simple-red-top-button.png'); ?>" width="40" height="40" /></button>
 	<div class="sharethis-inline-share-buttons"></div>

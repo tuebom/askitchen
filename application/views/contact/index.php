@@ -139,9 +139,7 @@ $('#contact-form').on('submit', function (e) {
 				// If we have messageAlert and messageText
 				if (messageAlert && messageText) {
 					// inject the alert to .messages div in our form
-					var el = $('#contact-form').find('.messages');
-					console.log(el);
-					el.html(alertBox);
+					var el = $('#contact-form').find('.messages').html(alertBox);
 					// empty the form
 					$('#contact-form')[0].reset();
 				}
