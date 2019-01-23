@@ -32,6 +32,7 @@ class Contact_us extends Public_Controller {
 		/*
 		*  CONFIGURE EVERYTHING HERE
 		*/
+		$recaptchaSecret = '6Le1AowUAAAAAO7QwX672TI7qNo0JT-eueqaAJ4d';
 
 		// an email address that will be in the From field of the email.
 		$fromEmail = 'webmaster@askitchen.com';

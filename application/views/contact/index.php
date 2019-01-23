@@ -12,7 +12,7 @@
                     <p class="lead">Contact us today, and get reply with in 24 hours!</p>
 
                     <!-- We're going to place the form here in the next step -->
-                    <form id="contact-form" method="post" action="<?= site_url('contact-us') ?>" role="form">
+                    <form id="contact-form" method="post" action="#" role="form">
 
 							<div class="messages"></div>
 
@@ -65,7 +65,15 @@
 									</div>
 								</div>
 								<div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="g-recaptcha" data-sitekey="6Le1AowUAAAAAF_pBHB401tykRs1buhibhqTC0uy" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
+                                        <input class="form-control hidden" data-recaptcha="true" required data-error="Please complete the Captcha">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+								<div class="col-md-12">
 									<input type="submit" class="btn btn-success btn-send" value="Send message">
+									<input type="reset" id="reset" class="btn btn-reset" value="Reset">
 								</div>
 								<?php if (isset($this->data['message']))
 								{
@@ -108,7 +116,7 @@ $('#contact-form').on('submit', function (e) {
 
 	// if the validator does not prevent form submit
 	if (!e.isDefaultPrevented()) {
-		var url = "contact-us";
+		var url = "<?php echo site_url();?>emailsvc/contact_us/";
 
 		// POST values in the background the the script URL
 		$.ajax({
@@ -118,11 +126,12 @@ $('#contact-form').on('submit', function (e) {
 			success: function (data)
 			{
 				// data = JSON object that contact.php returns
-				console.log (data);
+				// console.log ('result: ', data);
+				var obj = JSON.parse(data);
 
 				// we recieve the type of the message: success x danger and apply it to the 
-				var messageAlert = 'alert-' + data.type;
-				var messageText = data.message;
+				var messageAlert = 'alert-' + obj.type;
+				var messageText = obj.message;
 
 				// let's compose Bootstrap alert box HTML
 				var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
@@ -130,7 +139,9 @@ $('#contact-form').on('submit', function (e) {
 				// If we have messageAlert and messageText
 				if (messageAlert && messageText) {
 					// inject the alert to .messages div in our form
-					$('#contact-form').find('.messages').html(alertBox);
+					var el = $('#contact-form').find('.messages');
+					console.log(el);
+					el.html(alertBox);
 					// empty the form
 					$('#contact-form')[0].reset();
 				}
@@ -140,4 +151,10 @@ $('#contact-form').on('submit', function (e) {
 	}
 })
 });
+</script>
+<script>
+$('#reset').on('click', function()
+    {
+        $('#contact-form').reset();
+    });
 </script>

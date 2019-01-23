@@ -9,8 +9,20 @@ class MyEmail extends CI_Controller{
         $this->load->library('MyPHPMailer'); // load library
     }
  
-    function emailSend($subject, $isiEmail){
+    function emailSend(){
 
+        $name = $this->input->post('name') . ' ' . $this->input->post('surname');
+
+		// subject of the email
+		$subject = 'New message from '.$name;
+        $emailText = "You have a new message from your contact form <br>";
+
+			foreach ($_POST as $key => $value) {
+				// If the field exists in the $fields array, include it in the email 
+				if (isset($fields[$key])) {
+					$emailText .= "$fields[$key]: $value<br>";
+				}
+			}
         $fromEmail = "webmaster@askitchen.com";
         // $isiEmail = "Isi email tulis disini";
 
@@ -25,7 +37,7 @@ class MyEmail extends CI_Controller{
         $mail->Password   = "jimmyfallon5757";            // password GMail
         $mail->SetFrom('webmaster@askitchen.com', 'noreply');  //Siapa yg mengirim email
         $mail->Subject    = $subject;
-        $mail->Body       = $isiEmail;
+        $mail->Body       = $emailText;
         // $toEmail = "aswin@askitchen.com"; // siapa yg menerima email ini
         $toEmail = "rokmeowildan@gmail.com"; // siapa yg menerima email ini
         $mail->AddAddress($toEmail);
