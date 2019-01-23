@@ -20,7 +20,7 @@
 								<form id="login-form" action="<?= site_url('login') ?>" method="post" role="form" style="display: block;">
 									<?php if (isset($this->data['message_login'])) echo $this->data['message_login'];?>
 									<div class="form-group has-feedback">
-										<input type="text" name="identity" id="email" tabindex="1" class="form-control" placeholder="<?php echo lang('auth_your_email') ?>" value="<?=isset($this->data['identity']) ? $this->data['identity']['value'] : '';?>">
+										<input type="text" name="identity" id="email" tabindex="1" class="form-control" placeholder="<?php echo lang('auth_your_email') ?>" value="<?=isset($this->data['identity']) ? $this->data['identity']['value'] : '';?>" autofocus>
 										<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 									</div>
 									<div class="form-group has-feedback">
@@ -60,7 +60,7 @@
 								<form id="register-form" action="<?= site_url('register') ?>" method="post" role="form" style="display: none;">
 									<?php if (isset($this->data['message_register'])) echo $this->data['message_register'];?>
 									<div class="form-group">
-										<input type="text" name="first_name" id="first_name" tabindex="1" class="form-control" placeholder="<?php echo lang('users_firstname') ?>" value="">
+										<input type="text" name="first_name" id="first_name" tabindex="1" class="form-control" placeholder="<?php echo lang('users_firstname') ?>" value="" autofocus>
 									</div>
 									<div class="form-group">
 										<input type="text" name="last_name" id="last_name" tabindex="2" class="form-control" placeholder="<?php echo lang('users_lastname') ?>" value="">
