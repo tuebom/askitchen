@@ -367,7 +367,7 @@ $(window).load(function() {
 															<img src="<?php echo site_url($this->data['products_dir'].'/'.$detail->gambar); ?>" alt="<?php echo $detail->nama ?>"/></a>
 														</div>
 													</div>
-													<div class="row text-center"><label class="block-with-text"><?php echo $detail->kdbar ?></label></div>
+													<!-- <div class="row text-center"><label class="block-with-text"><?php echo $detail->kdbar ?></label></div> -->
 													<div class="row text-center">
 														<a class="view-more btn- btn-sm" href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>">Read More</a>
 													</div>
@@ -448,7 +448,7 @@ $(window).load(function() {
 															<img src="<?php echo site_url($this->data['products_dir'].'/'.$detail->gambar); ?>" alt="<?php echo $detail->nama ?>"/></a>
 														</div>
 													</div>
-													<div><label class="block-with-text"><?php echo $detail->kdbar ?></label></div>
+													<!-- <div><label class="block-with-text"><?php echo $detail->kdbar ?></label></div> -->
 													<a class="view-more btn- btn-sm" href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>">Read More</a>
 												</div>
 												<?php } ?>
