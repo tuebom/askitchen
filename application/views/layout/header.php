@@ -68,6 +68,7 @@
 <?php endif; ?>
 <script type="text/javascript" src="<?=base_url('js/bootstrap-3.1.1.min.js');?>"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js" integrity="sha256-dHf/YjH1A4tewEsKUSmNnV05DDbfGN3g7NMq86xgGh8=" crossorigin="anonymous"></script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <!-- cart -->
 <script src="<?=base_url('js/simpleCart.min.js');?>"></script>
 <!-- cart -->

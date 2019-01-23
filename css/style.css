@@ -1469,8 +1469,8 @@ img.office {
         height: 191px;
     }
     iframe.map-about {
-        width: 653px;
-        height: 430px;
+        width: 600px;
+        height: 400px;
     }
 }        
 .footer-w3l {
@@ -4861,6 +4861,17 @@ textarea {
     letter-spacing: 0.2em;
     margin-bottom: 20px;
 }
+.btn-reset {
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    background-color: #00a65a;
+    border-color: #008d4c;
+    color: white;
+}
+
 
 .help-block.with-errors {
     color: #ff5050;

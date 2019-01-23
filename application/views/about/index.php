@@ -1,7 +1,7 @@
 
 		<!--content-->
 		<div class="content about-page">
-			<h3 class="text-center">About Us</h3>
+			<h1 class="text-center"><b>About Us</b></h1>
 
 			<div class="row map-grids">
 				<div class="col-md-6 col-sm-6">
