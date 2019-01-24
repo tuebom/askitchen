@@ -9,6 +9,7 @@ class EmailSvc extends CI_Controller{
         $this->load->library("phpmailer_library");
     }
  
+    // function contact_us($subject, $isiEmail){
     function contact_us(){
 
 		$name = $this->input->post('name') . ' ' . $this->input->post('surname');
@@ -44,7 +45,7 @@ class EmailSvc extends CI_Controller{
         $mail->Subject    = $subject;
         $mail->Body       = $emailText;
         // $toEmail = "aswin@askitchen.com"; // siapa yg menerima email ini
-        $toEmail = "rokmeowildan@gmail.com"; // siapa yg menerima email ini
+        $toEmail = "marketing@askitchen.com"; // siapa yg menerima email ini
         $mail->AddAddress($toEmail);
        
         if(!$mail->Send()) {

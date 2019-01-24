@@ -55,6 +55,13 @@
 										<div class="help-block with-errors"></div>
 									</div>
 								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="form_phone">Phone *</label>
+										<input id="form_phone" type="phone" name="phone" class="form-control" placeholder="Please enter your Phone Number *" required="required" data-error="Phone number is required.">
+										<div class="help-block with-errors"></div>
+									</div>
+								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-12">
@@ -108,6 +115,15 @@ $(function () {
 // validator files are included in the download package
 // otherwise download from http://1000hz.github.io/bootstrap-validator
 
+    window.verifyRecaptchaCallback = function (response) {
+        $('input[data-recaptcha]').val(response).trigger('change')
+    }
+
+    window.expiredRecaptchaCallback = function () {
+        $('input[data-recaptcha]').val("").trigger('change')
+    }
+
+
 $('#contact-form').validator();
 
 
@@ -139,7 +155,9 @@ $('#contact-form').on('submit', function (e) {
 				// If we have messageAlert and messageText
 				if (messageAlert && messageText) {
 					// inject the alert to .messages div in our form
-					var el = $('#contact-form').find('.messages').html(alertBox);
+					var el = $('#contact-form').find('.messages');
+					console.log(el);
+					el.html(alertBox);
 					// empty the form
 					// $('#contact-form').reset();
 				}

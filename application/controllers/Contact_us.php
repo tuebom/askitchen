@@ -11,6 +11,7 @@ class Contact_us extends Public_Controller {
 
 		$this->load->model('golongan_model');
 		$this->load->model('stock_model');
+		require_once(APPPATH.'third_party/recaptcha-master/src/autoload.php');
 
 		// $this->output->enable_profiler(TRUE);
 	}
@@ -77,6 +78,25 @@ class Contact_us extends Public_Controller {
 		// }
 
 		// $this->session->set_userdata(array('captcha' => $captcha, 'image' => $cap['time'] . '.jpg'));
+		
+		if (!empty($_POST)) {
+
+        // validate the ReCaptcha, if something is wrong, we throw an Exception,
+        // i.e. code stops executing and goes to catch() block
+        
+            if (!isset($_POST['g-recaptcha-response'])) {
+                throw new \Exception('ReCaptcha is not set.');
+            }
+		    $recaptcha = new \ReCaptcha\ReCaptcha($recaptchaSecret, new \ReCaptcha\RequestMethod\CurlPost());
+        
+            // we validate the ReCaptcha field together with the user's IP address
+        
+            $response = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
+
+            if (!$response->isSuccess()) {
+                throw new \Exception('ReCaptcha was not validated.');
+            }
+		}
 		
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('contact/index', $this->data);
