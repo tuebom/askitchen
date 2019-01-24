@@ -50,7 +50,7 @@ class EmailSvc extends CI_Controller{
         if(!$mail->Send()) {
             // echo "Error: ".$mail->ErrorInfo;
             $responseArray = array('type' => 'danger', 'message' => $errorMessage);
-            return FALSE;
+            // return FALSE;
         } else {
             // echo "Email berhasil dikirim";
             $responseArray = array('type' => 'success', 'message' => 'Submitted the form successfully!');

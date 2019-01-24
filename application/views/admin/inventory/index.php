@@ -31,13 +31,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <th class="text-right">Lebar</th>
                                                 <th class="text-right">Tinggi</th>
                                                 <th>Gambar</th>
-                                                <th>Listrik</th>
+                                                <!-- <th>Listrik</th>
                                                 <th>Kapasitas</th>
                                                 <th>Gas</th>
                                                 <th>Berat</th>
                                                 <th>Tag</th>
                                                 <th>Harga Jual</th>
-                                                <th>Diskon</th>
+                                                <th>Diskon</th> -->
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -55,13 +55,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <td class="text-right"><?php echo htmlspecialchars($item->lbr, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td class="text-right"><?php echo htmlspecialchars($item->tgi, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td><?php echo htmlspecialchars($item->gambar, ENT_QUOTES, 'UTF-8'); ?></td>
-                                                <td><?php echo htmlspecialchars($item->listrik, ENT_QUOTES, 'UTF-8'); ?></td>
+                                                <!-- <td><?php echo htmlspecialchars($item->listrik, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td><?php echo htmlspecialchars($item->kapasitas, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td><?php echo htmlspecialchars($item->gas, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td><?php echo htmlspecialchars($item->berat, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td><?php echo htmlspecialchars($item->tag, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td><?php echo htmlspecialchars($item->hjual, ENT_QUOTES, 'UTF-8'); ?></td>
-                                                <td><?php echo htmlspecialchars($item->disc, ENT_QUOTES, 'UTF-8'); ?></td>
+                                                <td><?php echo htmlspecialchars($item->disc, ENT_QUOTES, 'UTF-8'); ?></td> -->
                                                 <td>
                                                     <?php echo anchor('admin/inventory/edit/'.$item->kdurl, 'Edit'); ?>
                                                 </td>
@@ -70,6 +70,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </tbody>
                                     </table>
                                 </div>
+                                <div class="box-footer" align="center">
+									<?php echo $this->data['pagination']; ?>
+								</div>
+
                             </div>
                          </div>
                     </div>

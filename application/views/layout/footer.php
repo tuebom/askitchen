@@ -100,6 +100,7 @@
 		}, function() {
 			$(this).find('div.opacity-container').css("visibility", "hidden");
 		});
+
 	</script>
 
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js'></script>

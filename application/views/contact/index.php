@@ -64,13 +64,13 @@
 										<div class="help-block with-errors"></div>
 									</div>
 								</div>
-								<div class="col-md-12">
+								<!-- <div class="col-md-12">
                                     <div class="form-group">
                                         <div class="g-recaptcha" data-sitekey="6Le1AowUAAAAAF_pBHB401tykRs1buhibhqTC0uy" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
                                         <input class="form-control hidden" data-recaptcha="true" required data-error="Please complete the Captcha">
                                         <div class="help-block with-errors"></div>
                                     </div>
-                                </div>
+                                </div> -->
 								<div class="col-md-12">
 									<input type="submit" class="btn btn-success btn-send" value="Send message">
 									<input type="reset" id="reset" class="btn btn-reset" value="Reset">
@@ -141,7 +141,7 @@ $('#contact-form').on('submit', function (e) {
 					// inject the alert to .messages div in our form
 					var el = $('#contact-form').find('.messages').html(alertBox);
 					// empty the form
-					$('#contact-form')[0].reset();
+					// $('#contact-form').reset();
 				}
 			}
 		});
@@ -149,10 +149,4 @@ $('#contact-form').on('submit', function (e) {
 	}
 })
 });
-</script>
-<script>
-$('#reset').on('click', function()
-    {
-        $('#contact-form').reset();
-    });
 </script>
