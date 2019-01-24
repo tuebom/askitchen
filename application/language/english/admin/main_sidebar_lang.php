@@ -26,6 +26,8 @@ $lang['menu_search'] = 'Search';
 /* ****** */$lang['menu_linkedproducts']        = 'Linked Products';
 /* ****** */$lang['menu_attributes']            = 'Attributes';
 
+/* ****** */$lang['menu_orders']                = 'Orders';
+
 
 /* * */$lang['menu_administration']             = 'Administration';
 /* ****** */$lang['menu_users']                 = 'Users';

@@ -38,6 +38,13 @@ class Inventory_model extends CI_Model
         return $this->db->get($this->table)->row();
     }
 
+    // get data brand
+    function all_brands()
+    {
+        $this->db->order_by('name', 'ASC');
+        return $this->db->get('brands')->result();
+    }
+
     // get data by category
     function get_by_category($limit, $start = 0, $code)
     {

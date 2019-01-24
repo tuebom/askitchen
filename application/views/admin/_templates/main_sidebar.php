@@ -59,25 +59,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <!-- <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('admin/prefs/interfaces/admin'); ?>"><?php echo lang('menu_interfaces'); ?></a></li> -->
                                 <li class="<?=active_link_controller('inventory')?>">
                                     <a href="<?php echo site_url('admin/inventory'); ?>">
-                                        <i class="fa fa-user"></i> <span><?php echo lang('menu_inventory'); ?></span>
+                                        <i class="fa fa-shopping-cart"></i> <span><?php echo lang('menu_inventory'); ?></span>
                                     </a>
                                 </li>
                                 <li class="<?=active_link_controller('shipping')?>">
                                     <a href="<?php echo site_url('admin/shipping'); ?>">
-                                        <i class="fa fa-user"></i> <span><?php echo lang('menu_shipping'); ?></span>
+                                        <i class="fa fa-shipping-fast"></i> <span><?php echo lang('menu_shipping'); ?></span>
                                     </a>
                                 </li>
                                 <li class="<?=active_link_controller('linkedproducts')?>">
                                     <a href="<?php echo site_url('admin/linkedproducts'); ?>">
-                                        <i class="fa fa-user"></i> <span><?php echo lang('menu_linkedproducts'); ?></span>
+                                        <i class="fa fa-share-alt"></i> <span><?php echo lang('menu_linkedproducts'); ?></span>
                                     </a>
                                 </li>
                                 <li class="<?=active_link_controller('attributes')?>">
                                     <a href="<?php echo site_url('admin/attributes'); ?>">
-                                        <i class="fa fa-user"></i> <span><?php echo lang('menu_attributes'); ?></span>
+                                        <i class="fa fa-shapes"></i> <span><?php echo lang('menu_attributes'); ?></span>
                                     </a>
                                 </li>
                             </ul>
+                        </li>
+                        <li class="treeview <?=active_link_controller('orders')?>">
+                            <a href="#">
+                                <i class="fa fa-book"></i>
+                                <span><?php echo lang('menu_orders'); ?></span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
                         </li>
 
 

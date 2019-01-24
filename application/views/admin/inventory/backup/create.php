@@ -40,58 +40,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </div>
 
                                         <div class="form-group">
-                                            <?php echo lang('inventory_group', 'kdgol', array('class' => 'col-sm-3 control-label')); ?>
-                                            <div class="col-sm-9">
-                                            <select id="kdgol" name="kdgol" class="form-control">
-                                                <option value=""<?=isset($_SESSION['kdgol'])?'': ' selected';?>>-</option>
-                                                <?php
-                                                    foreach ($this->data['golongan'] as $itemx) {
-                                                        if (isset($_SESSION['kdgol']))
-                                                        {
-                                                ?>
-                                                <option value="<?= $itemx->kdgol ?>"<?php if( $itemx->id == $_SESSION['kdgol'] ): ?> selected="selected"<?php endif; ?>><?= $itemx->nama ?></option>
-                                                <?php   } else { ?>
-                                                <option value="<?= $itemx->kdgol ?>"><?= $itemx->nama ?></option>
-                                                <?php } } ?>
-                                            </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <?php echo lang('inventory_group_lv2', 'kdgol2', array('class' => 'col-sm-3 control-label')); ?>
-                                            <div class="col-sm-9">
-                                            <select id="kdgol2" name="kdgol2" class="form-control">
-                                                <option value=""<?=isset($_SESSION['kdgol2'])?'': ' selected';?>>-</option>
-                                                <?php
-                                                    foreach ($this->data['golongan2'] as $itemx) {
-                                                        if (isset($_SESSION['kdgol2']))
-                                                        {
-                                                ?>
-                                                <option value="<?= $itemx->kdgol2 ?>"<?php if( $itemx->id == $_SESSION['kdgol2'] ): ?> selected="selected"<?php endif; ?>><?= $itemx->nama ?></option>
-                                                <?php   } else { ?>
-                                                <option value="<?= $itemx->kdgol2 ?>"><?= $itemx->nama ?></option>
-                                                <?php } } ?>
-                                            </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <?php echo lang('inventory_group_lv3', 'kdgol3', array('class' => 'col-sm-3 control-label')); ?>
-                                            <div class="col-sm-9">
-                                            <select id="kdgol3" name="kdgol3" class="form-control">
-                                            <?php
-                                                if (isset($this->data['golongan3'])) :
-                                                    foreach ($this->data['golongan3'] as $item) {
-                                            ?>
-                                            <option value="<?= $item->kdgol3 ?>"<?php if( $_SESSION["kdgol3"] == $item->kdgol3 ): ?> selected="selected"<?php endif; ?>><?= $item->nama ?></option>
-                                            <?php   }
-                                                endif;
-                                            ?>
-                                            </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
                                             <?php echo lang('inventory_unit', 'satuan', array('class' => 'col-sm-3 control-label')); ?>
                                             <div class="col-sm-9">
                                                 <?php echo form_input($satuan);?>
@@ -116,27 +64,84 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </div>
                                         </div>
 
+                                        <!-- golongan level 1, 2 & 3 -->
+                                        <div class="col-sm-3">
+                                            <?php echo lang('inventory_groups', 'kdgol', array('class' => 'col-sm-3 control-label')); ?>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <!-- <label for="kdgol"><?= lang('inventory_level') ?></label> -->
+                                                <select id="kdgol" name="kdgol" class="form-control">
+                                                    <option value=""<?=isset($_SESSION['kdgol'])?'': ' selected';?>>-</option>
+                                                    <?php
+                                                        foreach ($this->data['golongan'] as $itemx) {
+                                                            if (isset($_SESSION['kdgol']))
+                                                            {
+                                                    ?>
+                                                    <option value="<?= $itemx->kdgol ?>"<?php if( $itemx->id == $_SESSION['kdgol'] ): ?> selected="selected"<?php endif; ?>><?= $itemx->nama ?></option>
+                                                    <?php   } else { ?>
+                                                    <option value="<?= $itemx->kdgol ?>"><?= $itemx->nama ?></option>
+                                                    <?php } } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <!-- <div class="row"> -->
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <!-- <label for="kdgol2"><?= lang('inventory_level2') ?></label> -->
+                                                    <select id="kdgol2" name="kdgol2" class="form-control">
+                                                        <option value=""<?=isset($_SESSION['kdgol2'])?'': ' selected';?>>-</option>
+                                                        <?php
+                                                            foreach ($this->data['golongan2'] as $itemx) {
+                                                                if (isset($_SESSION['kdgol2']))
+                                                                {
+                                                        ?>
+                                                        <option value="<?= $itemx->kdgol2 ?>"<?php if( $itemx->id == $_SESSION['kdgol2'] ): ?> selected="selected"<?php endif; ?>><?= $itemx->nama ?></option>
+                                                        <?php   } else { ?>
+                                                        <option value="<?= $itemx->kdgol2 ?>"><?= $itemx->nama ?></option>
+                                                        <?php } } ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">    
+                                                <div class="form-group">
+                                                    <!-- <label for="kdgol3"><?= lang('inventory_level3') ?></label> -->
+                                                    <select id="kdgol3" name="kdgol3" class="form-control">
+                                                    <?php
+                                                        if (isset($this->data['golongan3'])) :
+                                                            foreach ($this->data['golongan3'] as $item) {
+                                                    ?>
+                                                    <option value="<?= $item->kdgol3 ?>"<?php if( $_SESSION["kdgol3"] == $item->kdgol3 ): ?> selected="selected"<?php endif; ?>><?= $item->nama ?></option>
+                                                    <?php   }
+                                                        endif;
+                                                    ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        <!-- </div> -->
+
                                         <!-- merk & golongan level 1 -->
                                         <div class="col-sm-4">
                                             <div class="form-group">
-                                                <?php echo lang('inventory_length', 'pnj', array('class' => 'col-sm-3 control-label')); ?>
-                                                <div class="col-sm-9">
+                                                <?php echo lang('inventory_length', 'pnj', array('class' => 'col-sm-2 control-label')); ?>
+                                                <div class="col-sm-10">
                                                     <?php echo form_input($pnj);?>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
-                                                <?php echo lang('inventory_width', 'lbr', array('class' => 'col-sm-3 control-label')); ?>
-                                                <div class="col-sm-9">
+                                                <?php echo lang('inventory_width', 'lbr', array('class' => 'col-sm-2 control-label')); ?>
+                                                <div class="col-sm-10">
                                                     <?php echo form_input($lbr);?>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="form-group">
-                                                <?php echo lang('inventory_height', 'tgi', array('class' => 'col-sm-3 control-label')); ?>
-                                                <div class="col-sm-9">
+                                                <?php echo lang('inventory_height', 'tgi', array('class' => 'col-sm-2 control-label')); ?>
+                                                <div class="col-sm-10">
                                                     <?php echo form_input($tgi);?>
                                                 </div>
                                             </div>
@@ -158,40 +163,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </section>
             </div>
-
-<script>
-	$(document).ready(function() {
-
-		$('#kdgol').change(function(){
-			// alert('test')
-			$.ajax({
-			    type: "POST",
-			    url: "<?php echo site_url();?>inventory/level2/"+$(this).val(),
-			    success:function(json){
-			        var data = json.data;
-			        console.log(data)
-			        $('#kdgol2').html('');
-			        for (var i = 0; i < data.length; i++) {
-			            $('#kdgol2').append('<option value="'+data[i].kdgol2+'">'+data[i].nama+'</option>')
-			        }
-			    },
-			});
-		});
-
-		$('#kdgol2').change(function(){
-			$.ajax({
-				type: "POST",
-				url: "<?php echo site_url();?>inventory/level3/"+$(this).val(),
-				success:function(json){
-					var data = json.data;
-					console.log(data)
-					$('#kdgol3').html('');
-					for (var i = 0; i < data.length; i++) {
-						$('#kdgol3').append('<option value="'+data[i].kdgol3+'">'+data[i].nama+'</option>')
-					}
-				},
-			});
-		});
-
-    });
-</script>

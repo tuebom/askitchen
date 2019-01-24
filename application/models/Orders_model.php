@@ -18,8 +18,11 @@ class Orders_model extends CI_Model
     // get all
     function get_all()
     {
-        $this->db->order_by($this->id, $this->order);
-        return $this->db->get($this->table)->result();
+        $this->db->select('select o.id, concat(a.first_name, " ", a.last_name) as name, o.tglinput, concat(a.address, ", ", a.district, ", ", a.regency, ", ", a.province, " ", a.post_code) as alamat, o.gtotal')
+        ->from('orders o, address a, users u')
+        ->where('o.addrid = a.id and o.mbrid = u.id')
+        ->order_by('o.id', 'ASC');
+        return $this->db->get()->result();
     }
 
     // get data by id
