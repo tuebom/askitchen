@@ -16,7 +16,7 @@ class Checkout extends Public_Controller {
 		$this->load->model('kabupaten_model');
 		$this->load->model('kecamatan_model');
 		// $this->load->model('member_model');
-		// $this->output->enable_profiler(TRUE);
+		$this->output->enable_profiler(TRUE);
     }
 
 	public function index()
@@ -37,7 +37,6 @@ class Checkout extends Public_Controller {
 			redirect('login', 'refresh');
 		}
 		else
-		// if ( $this->ion_auth->logged_in())
         {
 			// siapkan data member
 			$member = $this->ion_auth->user()->row();
@@ -92,7 +91,9 @@ class Checkout extends Public_Controller {
 			$total      = $this->input->post('total');
 			$shipcost   = $this->input->post('shipcost');
 			$tax        = $this->input->post('tax');
+			
 			$note       = $_SESSION["note"];
+			$delivery   = $_SESSION["delivery"];
 			
 			$payment    = $this->input->post('payment');
 
@@ -103,11 +104,12 @@ class Checkout extends Public_Controller {
 				'mbrid'    => $mbrid,
 				'addrid'   => $addrid,
 				'total'    => $total,
-				'gtotal'   => $total,
-				'shipcost' => $shipcost,
 				'tax'      => $tax,
+				'shipcost' => $shipcost,
+				'gtotal'   => $total,
 				'payment'  => $payment,
 				'note'     => $note,
+				'delivery' => $delivery,
 			);
 			$this->db->insert('orders', $orders_data);
 			$orderid = $this->db->insert_id();
@@ -152,16 +154,17 @@ class Checkout extends Public_Controller {
 
 		if ($tab) {
 
-			if ($tab === 'address') {
+			// if ($tab === 'address') {
 				
-				if (isset($_SESSION["province"])) {
-					$this->data['kabupaten'] = $this->kabupaten_model->get_by_province_id($_SESSION["province"]);
-					$this->data['kecamatan'] = $this->kecamatan_model->get_by_regency_id($_SESSION["regency"]);
-				}
-			}
-			elseif ($tab === 'delivery')
+			// 	if (isset($_SESSION["province"])) {
+			// 		$this->data['kabupaten'] = $this->kabupaten_model->get_by_province_id($_SESSION["province"]);
+			// 		$this->data['kecamatan'] = $this->kecamatan_model->get_by_regency_id($_SESSION["regency"]);
+			// 	}
+			// }
+			if ($tab === 'delivery')
 			{
 
+				// log_message('Debug', '$this->input->post('first_name') = '.$_SESSION["regency"]);
 				/* Validate form input */
 				$this->form_validation->set_rules('first_name', 'lang:checkout_first_name', 'required');
 				$this->form_validation->set_rules('last_name', 'lang:checkout_last_name', 'required');
@@ -231,14 +234,24 @@ class Checkout extends Public_Controller {
 				
 
 			}
-			else  // tab payment
+			elseif ($tab === 'payment')
 			{
 				
+				$delivery   = $this->input->post('delivery');
+				$this->session->set_userdata('delivery', $delivery);
+
 				$this->load->view('layout/header', $this->data);
 				$this->load->view('checkout/payment', $this->data);
 				$this->load->view('layout/footer', $this->data);
 				return;
 
+			}
+		}
+		else
+		{
+			if (isset($_SESSION["province"])) {
+				$this->data['kabupaten'] = $this->kabupaten_model->get_by_province_id($_SESSION["province"]);
+				$this->data['kecamatan'] = $this->kecamatan_model->get_by_regency_id($_SESSION["regency"]);
 			}
 		}
 

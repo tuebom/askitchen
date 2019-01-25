@@ -1,11 +1,3 @@
-    <!--banner-->
-		<!-- <div class="banner1">
-			<div class="container">
-				<h3><a href="<?php echo site_url(); ?>">Home</a> / <span>Checkout</span></h3>
-			</div>
-		</div> -->
-	<!--banner-->
-
 	<!--content-->
 		<div class="content" style="background-color:lightgrey;">
 			<div class="cart-items">
@@ -22,7 +14,6 @@
                                 <li class="nav-item"><a href="#" class="nav-link disabled"><i class="fa fa-money"></i><br>Payment Method</a></li>
                             </ul>
 
-                            <!-- <h2><?= lang('checkout_billing_details') ?></h2> -->
                             <div class="row">
                                 <div class="col-sm-6">    
                                     <div class="form-group">
@@ -76,6 +67,7 @@
                                         <label for="regency"><?= lang('checkout_regency') ?></label>
                                         <select id="regency" name="regency" class="form-control">
                                         <?php
+                                            log_message('Debug', '$_SESSION["regency"] = '.$_SESSION["regency"]);
                                             if (isset($this->data['kabupaten'])) :
                                                 foreach ($this->data['kabupaten'] as $item) {
                                         ?>
@@ -93,6 +85,7 @@
                                         <label for="district"><?= lang('checkout_district') ?></label>
                                         <select id="district" name="district" class="form-control">
                                         <?php
+                                            log_message('Debug', '$_SESSION["district"] = '.$_SESSION["district"]);
                                             if (isset($this->data['kecamatan'])) :
                                                 foreach ($this->data['kecamatan'] as $item) {
                                         ?>

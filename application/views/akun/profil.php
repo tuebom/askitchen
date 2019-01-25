@@ -29,7 +29,8 @@
                             <li class="list-group-item"><b><a class="profile" href="<?php echo site_url('akun?p=histori'); ?>">Histori</a></b></li>
                         </ul>
 
-                        <a href="#" class="btn btn-primary btn-block"><b>Update Profile</b></a>
+                        <a href="#" class="btn btn-primary btn-block btn-profile"><b>Update Profile</b></a>
+                        <input id="userfile" name="userfile" type="file" style="display: none;">
                         </div>
                         <!-- /.box-body -->
                     </div>
@@ -210,5 +211,10 @@
                     }
                 },
             });
+        });
+
+        // update profile
+        $('.btn-profile').on('click', function (c) {
+            $('#userfile').trigger("click");
         });
 	</script>

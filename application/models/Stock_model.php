@@ -79,6 +79,17 @@ class Stock_model extends CI_Model
         return $this->db->get()->result();
     }
 
+    // get promotion product
+    function get_promotion($kode, $kdbar)
+    {
+        $this->db->select('kdbar, kdurl, nama, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar')
+            ->from('stock')
+            ->where('promosi', 'Y')
+            ->where('kdbar !=', $kdbar)
+            ->order_by('kdbar', 'ASC');
+        return $this->db->get()->result();
+    }
+
     // get random product
     function get_random_products($kode, $kdbar)
     {

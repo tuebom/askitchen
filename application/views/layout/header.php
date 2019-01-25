@@ -122,6 +122,7 @@ $(window).load(function() {
 	$(document).ready(function() {
 		$("#owl-demo").owlCarousel({
 			items : 5,
+			loop:true,
 			lazyLoad : true,
 			autoPlay : true,
 			navigation : false,

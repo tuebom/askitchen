@@ -3130,7 +3130,7 @@ li.bt-nn h6 {
     top: 17%;
 }
 }
-@media(max-width:1080px){
+/* @media(max-width:1080px){
 .ban-text2 {
     width: 20%;
 }
@@ -3194,7 +3194,7 @@ li.bt-nn h6 {
 .video iframe {
     height: 345px;
 }
-}
+} */
 @media (max-width: 1024px){
 .dropdown-menu.columns-3 {
     left: -240%;
