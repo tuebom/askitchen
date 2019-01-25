@@ -3,16 +3,24 @@
 		<div class="container">
 			<div class="product-agileinfo-grids w3l">
 				<div class="col-md-3">
-                    <div class="row">
-                        <img class="profile" src="<?= site_url('images/men3.jpg'); ?>" alt="profile"/>
-                        <span class="profile"style=""><b>Nama Member</b><br><i class="fa fa-pencil"></i>&nbsp;<a>Ubah Profil</a></span></a>
+                    <div class="box box-primary">
+                        <div class="box-body box-profile">
+                        <img class="propic img-responsive img-circle" src="<?= site_url('images/men3.jpg'); ?>" alt="User profile picture">
+
+                        <h4 class="profile-username text-center"><?=$this->data['anggota']->first_name ?> <?=$this->data['anggota']->last_name ?></h4>
+
+                        <!-- <p class="text-muted text-center">Software Engineer</p> -->
+
+                        <ul class="list-group list-group-unbordered">
+                            <li class="list-group-item"><b><a class="profile" href="<?php echo site_url('akun'); ?>">Profil Saya</a></b></li>
+                            <li class="list-group-item"><b><a class="profile" href="<?php echo site_url('akun?p=bb'); ?>">Belanjaan Saya</a></b></li>
+                            <li class="list-group-item"><b><a class="profile" href="<?php echo site_url('akun?p=histori'); ?>">Histori</a></b></li>
+                        </ul>
+
+                        <a href="#" class="btn btn-primary btn-block"><b>Update Profile</b></a>
+                        </div>
+                        <!-- /.box-body -->
                     </div>
-					<!-- <div class="row">
-						<ul class="tree-list-pad">
-						<li><input type="checkbox" id="item-01" /><a href="<?php echo site_url('akun'); ?>">Profil Saya</a></li>
-						<li><input type="checkbox" id="item-02" /><label class="tree" for="item-01"><span></span>Belanjaan Saya</label></li>
-						</ul>
-					</div> -->
                 </div>
 				<div class="col-md-9">
                     <div class="row">

@@ -49,8 +49,8 @@ class Inventory extends Admin_Controller {
 				$offset = 0;
 			}
 				
-			$this->data['inventory'] = $this->inventory_model->get_by_category(8, $offset, $kode);
-			$total = $this->inventory_model->total_rows($kode);
+			$this->data['inventory'] = $this->inventory_model->get_limit_data(8, $offset);
+			$total = $this->inventory_model->total_rows();
 			$url   = current_url() . '?p=';
 			$this->data['pagination'] = $this->paging($total, $page, $url);			
 			/* Load Template */

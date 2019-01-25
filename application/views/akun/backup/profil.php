@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="product-agileinfo-grids w3l">
 				<div class="col-md-3">
-					<!-- <div class="row">
+					<div class="row">
 						<img class="profile" src="<?= site_url('images/men3.jpg'); ?>" alt="profile"/>
 						<span class="profile"style=""><b>Nama Member</b><br><i class="fa fa-pencil"></i>&nbsp;<a>Ubah Profil</a></span></a>
 					</div>
@@ -14,25 +14,6 @@
                             <li><input type="checkbox" id="item-02" /><a href="<?php echo site_url('akun?p=bb'); ?>">Belanjaan Saya</a></li>
                             </ul>
                         </div>
-                    </div> -->
-                    <div class="box box-primary">
-                        <div class="box-body box-profile">
-                        <img class="propic img-responsive img-circle" src="<?= site_url('images/men3.jpg'); ?>" alt="User profile picture">
-
-                        <h4 class="profile-username text-center"><?=$this->data['anggota']->first_name ?> <?=$this->data['anggota']->last_name ?></h4>
-
-                        <!-- <p class="text-muted text-center">Software Engineer</p> -->
-
-                        <ul class="list-group list-group-unbordered">
-                            <li class="list-group-item"><b><a class="profile" href="<?php echo site_url('akun'); ?>">Profil Saya</a></b></li>
-                            <li class="list-group-item"><b><a class="profile" href="<?php echo site_url('akun?p=bb'); ?>">Belanjaan Saya</a></b></li>
-                            <li class="list-group-item"><b><a class="profile" href="<?php echo site_url('akun?p=histori'); ?>">Histori</a></b></li>
-                        </ul>
-
-                        <a href="#" class="btn btn-primary btn-block btn-profile"><b>Update Profile</b></a>
-                        <input id="userfile" name="userfile" type="file" style="display: none;">
-                        </div>
-                        <!-- /.box-body -->
                     </div>
 				</div>
 				<div class="col-md-9">
@@ -149,10 +130,10 @@
                             </div>
 						</div>
                         </form>
-						<!-- <div class="col-md-4">
+						<div class="col-md-4">
 							<div class="row profile-grid"><img class="propic img-responsive img-circle" src="<?= site_url('images/men3.jpg'); ?>"></div>
 							<div class="row profile-grid"><a class="button-pic" href="#">Pilih Gambar</a></div>
-						</div> -->
+						</div>
 					</div>
 				</div>
 			</div>
@@ -211,10 +192,5 @@
                     }
                 },
             });
-        });
-
-        // update profile
-        $('.btn-profile').on('click', function (c) {
-            $('#userfile').trigger("click");
         });
 	</script>

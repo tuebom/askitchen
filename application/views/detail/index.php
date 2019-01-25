@@ -6,25 +6,29 @@
 				<div class="container">
 					<div class="single-grids">
 						<div clas="single-top">
-							<div class="single-left">
-								<!-- <div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive2"> </div> -->
-								<div class="flexslider">
-									<ul class="slides">
-										<li data-thumb="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>">
-											<div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive"> </div>
-										</li>
-										<li data-thumb="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>">
-											<div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive"> </div>
-										</li>
-										<li data-thumb="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>">
-											<div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive"> </div>
-										</li> 
-									</ul>
+							<!-- <div class="single-left"> -->
+							<div class="col-md-4 col-sm-4 col-xs-12">
+								<div class="row">
+									<!-- <div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive2"> </div> -->
+									<div class="flexslider">
+										<ul class="slides">
+											<li data-thumb="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>">
+												<div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive"> </div>
+											</li>
+											<li data-thumb="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>">
+												<div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive"> </div>
+											</li>
+											<li data-thumb="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>">
+												<div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive"> </div>
+											</li> 
+										</ul>
+									</div>
+									<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/wVHoD1eQPE4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 								</div>
-								<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/wVHoD1eQPE4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 							</div>
-							<div class="single-right simpleCart_shelfItem">
-								
+
+							<!-- <div class="single-right simpleCart_shelfItem"> -->
+							<div class="col-md-5 col-sm-5 col-xs-12">
 								<form id="formAdd" action="<?= site_url('cart/add'); ?>" method="post">
 								<input type="hidden" name="kode" value="<?= $this->data['product']->kdbar ?>">
 								<input type="hidden" id="qty" name="qty" value="1">
@@ -74,6 +78,8 @@
 									<a href="#"><i class="icon3"></i></a> -->
 								</div>
 								</form>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-12">
 							</div>
 							<div class="clearfix"> </div>
 						</div>
@@ -209,7 +215,6 @@ jQuery(function() {
 								<?php }
 									if(isset($this->data['showbutton'])) {
 									// if($this->data['totreviews'] > 3): ?>
-									<!--<input type="button" value="Read All Reviews">-->
 									<a class="all-reviews" href="<?=current_url().'?action=getall';?>">Read All Reviews</a>
 								<?php } ?>
 							</div>

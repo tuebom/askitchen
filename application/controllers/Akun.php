@@ -27,10 +27,20 @@ class Akun extends Public_Controller {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
 		
+		if ($this->ion_auth->logged_in())
+        {
+			// siapkan data member
+
+			$member = $this->ion_auth->user()->row();
+			$this->data['anggota']  = $member;
+		}
+		
 		$page = $this->input->get('p');
 
 		if ($page) {
+
 			$this->load->view('layout/header', $this->data);
+
 			if ($page === 'bb') {
 				$this->load->view('akun/belanja-bb', $this->data);
 			}
@@ -40,15 +50,23 @@ class Akun extends Public_Controller {
 			elseif ($page === 'bt') {
 				$this->load->view('akun/belanja-bt', $this->data);
 			}
-			else { // selesai
+			elseif ($page === 'bs') {
 				$this->load->view('akun/belanja-bs', $this->data);
+			}
+			else { // histori
+				$this->load->view('akun/histori', $this->data);
 			}
 			$this->load->view('layout/footer', $this->data);
 
 			return;
 		}
+		else // halaman profil
+		{
+			$this->data['provinsi']  = $this->provinsi_model->get_all();
+			$this->data['kabupaten'] = $this->kabupaten_model->get_by_province_id($member->province);
+			$this->data['kecamatan'] = $this->kecamatan_model->get_by_regency_id($member->regency);
+		}
 
-		$this->data['provinsi'] = $this->provinsi_model->get_all();
 		
 		$submit = $this->input->post('submit1');
 
@@ -83,12 +101,6 @@ class Akun extends Public_Controller {
 			$this->db->where('id =', $id);
 			$this->db->update('users', $user_data);
 		}
-		
-		if ($this->ion_auth->logged_in())
-        {
-			// siapkan data member
-			$this->data['anggota'] = $this->ion_auth->user()->row();
-        }
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('akun/profil', $this->data);

@@ -3,7 +3,7 @@
   /**
    *
    */
-class EmailSvc extends CI_Controller{
+class Emailsvc extends CI_Controller{
     function __construct(){
         parent::__construct();
         $this->load->library("phpmailer_library");

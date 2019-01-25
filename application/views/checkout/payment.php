@@ -1,11 +1,3 @@
-    <!--banner-->
-		<!-- <div class="banner1">
-			<div class="container">
-				<h3><a href="<?php echo site_url(); ?>">Home</a> / <span>Checkout</span></h3>
-			</div>
-		</div> -->
-	<!--banner-->
-
 	<!--content-->
 		<div class="content">
 			<div class="cart-items">
@@ -14,7 +6,7 @@
 
                     <input type="hidden" name="mbrid" value="<?=isset($this->data['anggota']->id) ? $this->data['anggota']->id : '';?>">
                     <input type="hidden" name="submit1" value="submit">
-                    <div class="col-md-7 col-sm-7 bill-detail">
+                    <div class="col-md-7 col-sm-8 bill-detail">
                         <div>
                             <ul class="nav nav-pills nav-fill">
                                 <li class="nav-item"><a href="#" class="nav-link disabled"> <i class="fa fa-map-marker"></i><br>Address</a></li>
@@ -22,14 +14,13 @@
                                 <li class="nav-item"><a href="#" class="nav-link active"><i class="fa fa-money"></i><br>Payment Method</a></li>
                             </ul>
 
-                            <!-- <h2><?= lang('checkout_billing_details') ?></h2> -->
                             <div class="row">
                                 <div class="col-sm-6">    
                                     <div class="box shipping-method">
                                         <h4>Direct bank transfer</h4>
                                         <p>Make your payment directly into our bank account.</p>
                                         <div class="box-footer text-center">
-                                            <input type="radio" name="payment" value="transfer" checked="checked">
+                                            <input type="radio" name="payment" value="transfer"<?php if(isset($_SESSION['payment'])){ if($_SESSION['payment'] == 'transfer') echo 'checked="checked"'; } ?>>
                                         </div>
                                     </div>
                                 </div>
@@ -38,7 +29,7 @@
                                         <h4>Cash On Delivery</h4>
                                         <p>&nbsp;</p>
                                         <div class="box-footer text-center">
-                                            <input type="radio" name="payment" value="cod">
+                                            <input type="radio" name="payment" value="cod"<?php if(isset($_SESSION['payment'])){ if($_SESSION['payment'] == 'cod') echo 'checked="checked"'; } ?>>
                                         </div>
                                     </div>
                                 </div>
@@ -47,7 +38,7 @@
                                         <h4>Paypal</h4>
                                         <p>Make your payment via paypal account.</p>
                                         <div class="box-footer text-center">
-                                            <input type="radio" name="payment" value="paypal">
+                                            <input type="radio" name="payment" value="paypal"<?php if(isset($_SESSION['payment'])){ if($_SESSION['payment'] == 'paypal') echo 'checked="checked"'; } ?>>
                                         </div>
                                     </div>
                                 </div>
@@ -60,7 +51,7 @@
                     <div class="col-md-1">
                     </div>
 
-                    <div class="col-md-4 col-sm-5 order">
+                    <div class="col-md-4 col-sm-4 order">
                         <h2>Your Order</h2>
                         <table class="table table table-striped">
                             <thead>

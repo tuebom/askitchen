@@ -122,8 +122,9 @@ $(window).load(function() {
 	$(document).ready(function() {
 		$("#owl-demo").owlCarousel({
 			items : 5,
+			loop:true,
 			lazyLoad : true,
-			// autoPlay : true,
+			autoPlay : true,
 			navigation : false,
 			navigationText :  false,
 			pagination : true,
@@ -370,7 +371,7 @@ $(window).load(function() {
 													</div>
 													<!-- <div class="row text-center"><label class="block-with-text"><?php echo $detail->kdbar ?></label></div> -->
 													<div class="row text-center">
-														<a class="view-more btn- btn-sm" href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>">Read More</a>
+														<a class="view-more btn- btn-sm" href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>">More</a>
 													</div>
 												</div>
 												<?php } ?>
@@ -450,7 +451,7 @@ $(window).load(function() {
 														</div>
 													</div>
 													<!-- <div><label class="block-with-text"><?php echo $detail->kdbar ?></label></div> -->
-													<a class="view-more btn- btn-sm" href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>">Read More</a>
+													<a class="view-more btn- btn-sm" href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>">More</a>
 												</div>
 												<?php } ?>
 											</div>
@@ -544,7 +545,7 @@ $(window).load(function() {
 		</div>
 		<div class="row text-center"><label class="block-with-text"><?php echo $detail->kdbar ?></label></div>
 		<div class="row text-center">
-			<a class="view-more btn- btn-sm" href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>">Read More</a>
+			<a class="view-more btn- btn-sm" href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>">More</a>
 		</div>
 	</div>
 	<?php } ?>

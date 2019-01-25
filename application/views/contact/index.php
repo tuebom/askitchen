@@ -1,170 +1,33 @@
+
 		<!--content-->
-		<div class="content-contact">
-			<!--login-->
-			<div class="col-md-6 col-md-offset-3">
-			<div class="container-contact">
-			<div class="row">
+		<div class="content about-page">
+			<h1 class="text-center"><b>Contact Us</b></h1>
 
-                <div class="col-xl-8 offset-xl-2 py-5">
-
-                    <h1 style="color: red;">Quick Contact</h1>
-
-                    <p class="lead">Contact us today, and get reply with in 24 hours!</p>
-
-                    <!-- We're going to place the form here in the next step -->
-                    <form id="contact-form" method="post" action="#" role="form">
-
-							<div class="messages"></div>
-
-							<div class="controls">
-
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="form_name">Firstname *</label>
-										<input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
-										<div class="help-block with-errors"></div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="form_lastname">Lastname *</label>
-										<input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
-										<div class="help-block with-errors"></div>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="form_email">Email *</label>
-										<input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
-										<div class="help-block with-errors"></div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="form_need">Please specify your need *</label>
-										<select id="form_need" name="need" class="form-control" required="required" data-error="Please specify your need.">
-											<option value=""></option>
-											<option value="Request quotation">Request quotation</option>
-											<option value="Request order status">Request order status</option>
-											<option value="Request copy of an invoice">Request copy of an invoice</option>
-											<option value="Other">Other</option>
-										</select>
-										<div class="help-block with-errors"></div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="form_phone">Phone *</label>
-										<input id="form_phone" type="phone" name="phone" class="form-control" placeholder="Please enter your Phone Number *" required="required" data-error="Phone number is required.">
-										<div class="help-block with-errors"></div>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-12">
-									<div class="form-group">
-										<label for="form_message">Message *</label>
-										<textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please, leave us a message."></textarea>
-										<div class="help-block with-errors"></div>
-									</div>
-								</div>
-								<!-- <div class="col-md-12">
-                                    <div class="form-group">
-                                        <div class="g-recaptcha" data-sitekey="6Le1AowUAAAAAF_pBHB401tykRs1buhibhqTC0uy" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
-                                        <input class="form-control hidden" data-recaptcha="true" required data-error="Please complete the Captcha">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div> -->
-								<div class="col-md-12">
-									<input type="submit" class="btn btn-success btn-send" value="Send message">
-									<input type="reset" id="reset" class="btn btn-reset" value="Reset">
-								</div>
-								<?php if (isset($this->data['message']))
-								{
-								  echo ' <div class="col-md-12">\n'.
-								  $this->data['message'] .
-								  '</div>';
-								  } ?>
-							</div>
-							<div class="row">
-								<div class="col-md-12">
-									<p class="text-muted">
-										<strong>*</strong> These fields are required.</p>
-								</div>
-							</div>
-						</div>
-					</form> 
-
-                </div>
-
-            </div>
-
+			<div class="row map-grids">
+				<div class="col-md-6 col-sm-6">
+					<iframe class="map-about" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.9012839818474!2d115.17481901478428!3d-8.700924193748858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd246da81c9a9af%3A0xa1a7b2258788fb37!2sJl.+Dewi+Sri+No.189%2C+Legian%2C+Kuta%2C+Kabupaten+Badung%2C+Bali+80361!5e0!3m2!1sid!2sid!4v1547781319320" frameborder="0" style="border:0" allowfullscreen></iframe>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<div>
+						<h4 class="branch">Main Office</h4>
+						<p>Jl. Dewi Sri 189<br>Kuta - Bali, Indonesia</p>
+						<p>Phone: 0851 0662 2255, (0361) 4727857, (0361) 4727855</p>
+						<br>
+						<br>
+					</div>
+				</div>
+			</div>
+			<div class="row map-grids">
+				<div class="col-md-6 col-sm-6">
+					<iframe class="map-about" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3973.740027685548!2d119.41668064998368!3d-5.14549294624763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sJl.+Sungai+Sadang+Lama+++++++++++++++Komplek+Ruko+Latanete+Plaza+++++++++++++++Blok+B+No.+11%2C+Makassar+!5e0!3m2!1sid!2sus!4v1547782856851" frameborder="0" style="border:0" allowfullscreen></iframe>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<div>
+						<h4 class="branch">Branch Office</h4>
+						<p>Jl. Sungai Saddang Lama<br>Komplek Ruko Latanete Plaza<br>Blok B No. 11<br>Makassar - Indonesia</p>
+						<p>Phone: 0851 0511 5557, 0851 0813 3577, (0411) 822 4090</p>
+					</div>
+				</div>
+			</div>
 		</div>
-			<!--login-->
-	</div>
-</div>
 		<!--content-->
-		
-<script>
-$(function () {
-
-// init the validator
-// validator files are included in the download package
-// otherwise download from http://1000hz.github.io/bootstrap-validator
-
-    window.verifyRecaptchaCallback = function (response) {
-        $('input[data-recaptcha]').val(response).trigger('change')
-    }
-
-    window.expiredRecaptchaCallback = function () {
-        $('input[data-recaptcha]').val("").trigger('change')
-    }
-
-
-$('#contact-form').validator();
-
-
-// when the form is submitted
-$('#contact-form').on('submit', function (e) {
-
-	// if the validator does not prevent form submit
-	if (!e.isDefaultPrevented()) {
-		var url = "<?php echo site_url();?>emailsvc/contact_us/";
-
-		// POST values in the background the the script URL
-		$.ajax({
-			type: "POST",
-			url: url,
-			data: $(this).serialize(),
-			success: function (data)
-			{
-				// data = JSON object that contact.php returns
-				// console.log ('result: ', data);
-				var obj = JSON.parse(data);
-
-				// we recieve the type of the message: success x danger and apply it to the 
-				var messageAlert = 'alert-' + obj.type;
-				var messageText = obj.message;
-
-				// let's compose Bootstrap alert box HTML
-				var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
-				
-				// If we have messageAlert and messageText
-				if (messageAlert && messageText) {
-					// inject the alert to .messages div in our form
-					var el = $('#contact-form').find('.messages');
-					console.log(el);
-					el.html(alertBox);
-					// empty the form
-					// $('#contact-form').reset();
-				}
-			}
-		});
-		return false;
-	}
-})
-});
-</script>

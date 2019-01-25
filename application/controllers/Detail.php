@@ -28,8 +28,9 @@ class Detail extends Public_Controller {
         
         $kode = $this->uri->segment(2);
 		
-		$this->data['product'] = $this->stock_model->get_by_kodeurl($kode);
-		$this->data['related'] = $this->stock_model->get_related($this->data['product']->kdgol2, $kode);
+		$this->data['product']   = $this->stock_model->get_by_kodeurl($kode);
+		$this->data['related']   = $this->stock_model->get_related($this->data['product']->kdgol2, $kode);
+		// $this->data['promotion'] = $this->stock_model->get_promotion($this->data['product']->kdgol2, $kode);
 
 		$action  = $this->input->get('action');
 		
