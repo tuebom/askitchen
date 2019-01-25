@@ -14,7 +14,7 @@
 
                     <input type="hidden" name="mbrid" value="<?=isset($this->data['anggota']->id) ? $this->data['anggota']->id : '';?>">
                     <input type="hidden" name="submit1" value="submit">
-                    <div class="col-md-7 col-sm-7 bill-detail">
+                    <div class="col-md-7 col-sm-8 bill-detail">
                         <div>
                             <ul class="nav nav-pills nav-fill">
                                 <li class="nav-item"><a href="#" class="nav-link disabled"> <i class="fa fa-map-marker"></i><br>Address</a></li>
@@ -47,14 +47,14 @@
                             </div>
 
                         </div>
-                        <div class="col-sm-6 col-xs-6 checkout-right-basket2"><a class="checkout-right-basket2" href="<?= site_url('checkout?tab=address'); ?>">Back to Address</a></div>
-                        <div class="col-sm-6 col-xs-6 checkout-right-basket2"><a class="checkout-right-basket2" href="javascript:void(0);" id="btnSubmit">Continue to Payment Method</a></div>
+                        <div class="col-md-6 col-sm-4 col-xs-6 checkout-right-basket2"><a class="checkout-right-basket2" href="<?= site_url('checkout?tab=address'); ?>">Back to Address</a></div>
+                        <div class="col-md-6 col-sm-8 col-xs-6 checkout-right-basket2"><a class="checkout-right-basket2" href="javascript:void(0);" id="btnSubmit">Continue to Payment Method</a></div>
                     </div>
 
                     <div class="col-md-1">
                     </div>
 
-                    <div class="col-md-4 col-sm-5 order">
+                    <div class="col-md-4 col-sm-4 order">
                         <h2>Your Order</h2>
                         <table class="table table table-striped">
                             <thead>

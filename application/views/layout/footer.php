@@ -14,17 +14,15 @@
 										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>(0361) 4727857</a></li>
 										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>(0361) 4727855</a></li>
 									</ul>
-									<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.9012839818474!2d115.17481901478428!3d-8.700924193748858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd246da81c9a9af%3A0xa1a7b2258788fb37!2sJl.+Dewi+Sri+No.189%2C+Legian%2C+Kuta%2C+Kabupaten+Badung%2C+Bali+80361!5e0!3m2!1sid!2sid!4v1547781319320" frameborder="0" style="border:0" allowfullscreen></iframe>
 								</div>  
 								<div class="col-md-3 footer-grid">
 									<h4>Branch Office</h4>
 									<ul>
 										<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a>Jl. Sungai Saddang Lama<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Komplek Ruko Latanete Plaza<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Blok B No. 11<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Makassar - Indonesia</a></li>
 										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>0851 0511 5557</a></li>
-										<!-- <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>0851 0813 3577</a></li>
-										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>(0411) 822 4090</a></li> -->
+										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>0851 0813 3577</a></li>
+										<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i><a>(0411) 822 4090</a></li>
 									</ul>
-									<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3973.740027685548!2d119.41668064998368!3d-5.14549294624763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sJl.+Sungai+Sadang+Lama+++++++++++++++Komplek+Ruko+Latanete+Plaza+++++++++++++++Blok+B+No.+11%2C+Makassar+!5e0!3m2!1sid!2sus!4v1547782856851" frameborder="0" style="border:0" allowfullscreen></iframe>
 								</div>
 								<div class="col-md-3 footer-grid foot">
 									<h4>Follow Us</h4>
@@ -34,8 +32,7 @@
 										<!-- <a href="#"><i class="icon2"></i></a>
 										<a href="#"><i class="icon3"></i></a> -->
 									</div>
-								<!-- <div class="col-md-3 footer-grid" style="width : auto; padding : 0px;"> -->
-									<h4>Contact Us</h4>
+									<h4><a class="about" href="<?= site_url('contact'); ?>">Contact Us</a></h4>
 									<div class="contact-icon">
 										<a href="<?php echo site_url('contact-us'); ?>"><i class="icon"></i></a>
 										<!-- <a href="http://www.facebook.com/askitchen" target="_blank"><i class="icon"></i></a> -->
@@ -55,7 +52,6 @@
 					<div class="hr"></div>
 						<div class="container">
 							<div class="footer-grid-bawah">
-							<!-- <div class="col-md-3 footer-grid"> -->
 								<ul>
 									<!-- <div class="logo-bawah"> -->
 									

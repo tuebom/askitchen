@@ -14,7 +14,7 @@
 
                     <input type="hidden" name="mbrid" value="<?=isset($this->data['anggota']->id) ? $this->data['anggota']->id : '';?>">
                     <input type="hidden" name="submit1" value="submit">
-                    <div class="col-md-7 col-sm-7 bill-detail">
+                    <div class="col-md-7 col-sm-8 bill-detail">
                         <div>
                             <ul class="nav nav-pills nav-fill">
                                 <li class="nav-item"><a href="#" class="nav-link disabled"> <i class="fa fa-map-marker"></i><br>Address</a></li>
@@ -60,7 +60,7 @@
                     <div class="col-md-1">
                     </div>
 
-                    <div class="col-md-4 col-sm-5 order">
+                    <div class="col-md-4 col-sm-4 order">
                         <h2>Your Order</h2>
                         <table class="table table table-striped">
                             <thead>

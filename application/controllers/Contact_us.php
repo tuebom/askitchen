@@ -79,7 +79,7 @@ class Contact_us extends Public_Controller {
 		// $this->session->set_userdata(array('captcha' => $captcha, 'image' => $cap['time'] . '.jpg'));
 		
 		$this->load->view('layout/header', $this->data);
-		$this->load->view('contact/index', $this->data);
+		$this->load->view('contact-us/index', $this->data);
 		$this->load->view('layout/footer', $this->data);
 	}
 }
