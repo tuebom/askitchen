@@ -62,16 +62,11 @@
                                         <div class="form-group">
                                             <label for="province"><?= lang('account_province') ?></label>
                                             <select id="province" name="province" class="form-control">
-                                                <option value=""<?=isset($this->data['province'])?'': ' selected';?>>-</option>
                                                 <?php
                                                     foreach ($this->data['provinsi'] as $itemx) {
-                                                        if (isset($this->data['province']))
-                                                        {
                                                 ?>
-                                                <option value="<?= $itemx->id ?>"<?php if( $itemx->id == $this->data['province'] ): ?> selected="selected"<?php endif; ?>><?= $itemx->name ?></option>
-                                                <?php   } else { ?>
-                                                <option value="<?= $itemx->id ?>"><?= $itemx->name ?></option>
-                                                <?php } } ?>
+                                                <option value="<?= $itemx->id ?>"<?php if( $this->data['anggota']->province == $itemx->id ): ?> selected="selected"<?php endif; ?>><?= $itemx->name ?></option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                     </div>

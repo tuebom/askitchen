@@ -40,8 +40,25 @@ class Checkout extends Public_Controller {
 		// if ( $this->ion_auth->logged_in())
         {
 			// siapkan data member
-			$this->data['anggota'] = $this->ion_auth->user()->row();
-        }
+			$member = $this->ion_auth->user()->row();
+			$this->data['anggota'] = $member;
+			
+			$address_data = array(
+				'first_name' => $member->first_name,
+				'last_name'  => $member->last_name,
+				'company'    => $member->company,
+				'address'    => $member->address,
+				'province'   => $member->province,
+				'regency'    => $member->regency,
+				'district'   => $member->district,
+				'post_code'  => $member->post_code,
+				'phone'      => $member->phone,
+				'email'      => $member->email,
+			);
+			
+			// simpan data alamat pengiriman ke variabel session
+			$this->session->set_userdata($address_data);
+		}
             
 		
 		$submit = $this->input->get('action');
