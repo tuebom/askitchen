@@ -31,12 +31,10 @@ CREATE TABLE IF NOT EXISTS `address` (
   `phone` varchar(25) DEFAULT NULL,
   `email` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table ask.address: ~1 rows (approximately)
+-- Dumping data for table ask.address: ~0 rows (approximately)
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
-INSERT INTO `address` (`id`, `first_name`, `last_name`, `company`, `address`, `province`, `regency`, `district`, `post_code`, `phone`, `email`) VALUES
-	(1, 'Made', 'Budi', 'ATOZ', 'Jalan Kargo Permai XXX', '51', '5171', '5171030', '80117', '081916032172', 'made_budixyz@gmail.com');
 /*!40000 ALTER TABLE `address` ENABLE KEYS */;
 
 
@@ -91,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `districts` (
   CONSTRAINT `districts_regency_id_foreign` FOREIGN KEY (`regency_id`) REFERENCES `regencies` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table ask.districts: ~6.621 rows (approximately)
+-- Dumping data for table ask.districts: ~7.148 rows (approximately)
 /*!40000 ALTER TABLE `districts` DISABLE KEYS */;
 INSERT INTO `districts` (`id`, `regency_id`, `name`) VALUES
 	('1101010', '1101', 'TEUPAH SELATAN'),
@@ -7581,16 +7579,15 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `shipcost` double DEFAULT '0',
   `gtotal` double DEFAULT '0',
   `payment` varchar(15) DEFAULT NULL,
-  `status` char(1) DEFAULT 'O',
+  `status` char(1) DEFAULT 'P',
   `note` varchar(200) DEFAULT NULL,
+  `delivery` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `tglinput` (`tglinput`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table ask.orders: ~1 rows (approximately)
+-- Dumping data for table ask.orders: ~0 rows (approximately)
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` (`id`, `tglinput`, `mbrid`, `addrid`, `total`, `disc`, `discrp`, `tax`, `shipcost`, `gtotal`, `payment`, `status`, `note`) VALUES
-	(1, '2019-01-24', NULL, 1, NULL, 0, 0, NULL, NULL, NULL, NULL, 'O', NULL);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 
 
@@ -7607,10 +7604,8 @@ CREATE TABLE IF NOT EXISTS `orders_detail` (
   KEY `tglinput` (`tglinput`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table ask.orders_detail: ~1 rows (approximately)
+-- Dumping data for table ask.orders_detail: ~0 rows (approximately)
 /*!40000 ALTER TABLE `orders_detail` DISABLE KEYS */;
-INSERT INTO `orders_detail` (`id`, `tglinput`, `kdbar`, `qty`, `hjual`, `jumlah`) VALUES
-	(1, '2019-01-24', 'AS.A-530V', 1, 20000000, 20000000);
 /*!40000 ALTER TABLE `orders_detail` ENABLE KEYS */;
 
 
@@ -7703,7 +7698,7 @@ CREATE TABLE IF NOT EXISTS `regencies` (
   CONSTRAINT `regencies_province_id_foreign` FOREIGN KEY (`province_id`) REFERENCES `provinces` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table ask.regencies: ~619 rows (approximately)
+-- Dumping data for table ask.regencies: ~510 rows (approximately)
 /*!40000 ALTER TABLE `regencies` DISABLE KEYS */;
 INSERT INTO `regencies` (`id`, `province_id`, `name`) VALUES
 	('1101', '11', 'KABUPATEN SIMEULUE'),
@@ -8552,7 +8547,7 @@ CREATE TABLE IF NOT EXISTS `stock` (
   KEY `kdurl` (`kdurl`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table ask.stock: ~701 rows (approximately)
+-- Dumping data for table ask.stock: ~806 rows (approximately)
 /*!40000 ALTER TABLE `stock` DISABLE KEYS */;
 INSERT INTO `stock` (`kdbar`, `kdurl`, `nama`, `kdgol`, `kdgol2`, `kdgol3`, `satuan`, `merk`, `pnj`, `lbr`, `tgi`, `gambar`, `listrik`, `kapasitas`, `gas`, `berat`, `fitur`, `promosi`, `tag`, `hjual`, `disc`, `saldo`, `last_update`) VALUES
 	('AS-9800-12', 'AS-9800-12', 'Bar Faucet Hot & Cool', '07', '07.01', '07.01.06', 'pcs', 'GETRA', NULL, NULL, NULL, '07/01/AS-9800-12.png', NULL, NULL, NULL, NULL, NULL, 'N', 'other', 1000000, 0, 0, '2019-01-23 15:48:31'),
@@ -9318,7 +9313,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `address`, `phone`, `province`, `regency`, `district`, `post_code`) VALUES
 	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1548377252, 1, 'admin', 'istrator', 'ABCDEF', 'Jalan Kargo Permai XX', '081916032171', '51', '5103', '5103050', '80117'),
 	(2, '::1', 'putu wirya', '$2y$08$zxNLYqTPfZxjbnxRd5rQB.0FS7Zz76p3KeHzP3lkupnRdNgJLzKT6', NULL, 'made_budixyz@gmail.com', NULL, NULL, NULL, NULL, 1544226665, 1546574375, 1, 'MadeX', 'BudiX', 'ABCDEF', 'Jalan Kargo Permai XX', '081916032171', '51', '5103', '5103050', '80117'),
-	(3, '::1', 'made budi', '$2y$08$DCk27b0xNsEvtltfuATMIuoeyX9kEndb.o/Nr4ph3aYHMT6Fgg4ye', NULL, 'made_budixyz@gmail.com', NULL, NULL, NULL, NULL, 1546487728, 1548319157, 1, 'Made', 'Budi', 'ATOZ', 'Jalan Kargo Permai XXX', '081916032172', '51', '5171', '5171030', '80117');
+	(3, '::1', 'made budi', '$2y$08$DCk27b0xNsEvtltfuATMIuoeyX9kEndb.o/Nr4ph3aYHMT6Fgg4ye', NULL, 'made_budixyz@gmail.com', NULL, NULL, NULL, NULL, 1546487728, 1548403650, 1, 'Made', 'Budi', 'ATOZ', 'Jalan Kargo Permai XX', '081916032171', '51', '5171', '5171030', '80117');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 
@@ -9356,7 +9351,7 @@ CREATE TABLE IF NOT EXISTS `villages` (
   CONSTRAINT `villages_district_id_foreign` FOREIGN KEY (`district_id`) REFERENCES `districts` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table ask.villages: ~81.060 rows (approximately)
+-- Dumping data for table ask.villages: ~80.388 rows (approximately)
 /*!40000 ALTER TABLE `villages` DISABLE KEYS */;
 INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 	('1101010001', '1101010', 'LATIUNG'),
@@ -89907,7 +89902,7 @@ CREATE TABLE IF NOT EXISTS `xstock` (
   PRIMARY KEY (`kdbar`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table ask.xstock: ~807 rows (approximately)
+-- Dumping data for table ask.xstock: ~406 rows (approximately)
 /*!40000 ALTER TABLE `xstock` DISABLE KEYS */;
 INSERT INTO `xstock` (`kdbar`, `hjual`) VALUES
 	('A-530V', 20000000),
