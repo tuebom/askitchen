@@ -189,8 +189,10 @@ class Products extends Public_Controller {
 		
 		   $page = '<ul class="pagination no-print">';
 			
-		   if($curr_page > 1)
-				 $page .='<li><a href="'.$url.($curr_page-1).'">Prev</a></li>';
+		   if ($total_page > 9)
+		   		$page .='<li><a href="'.$url.'0">First</a></li>';
+		   if ($curr_page > 1)
+				$page .='<li><a href="'.$url.($curr_page-1).'">Prev</a></li>';
 		   
 		   for($x = 1;$x <= $total_page;$x++){
 				
@@ -205,7 +207,9 @@ class Products extends Public_Controller {
 			if($curr_page < $total_page)
 				$page .='<li><a href="'.$url.($curr_page+1).'">Next</a></li>';
 			
-			$page .='</ul>';
+			if ($total_page > 9)
+			$page .='<li><a href="'.$url.$total_page.'">Last</a></li>';
+		 	$page .='</ul>';
 		}
 			
 		return $page;
