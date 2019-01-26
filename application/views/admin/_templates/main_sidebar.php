@@ -64,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </li>
                                 <li class="<?=active_link_controller('shipping')?>">
                                     <a href="<?php echo site_url('admin/shipping'); ?>">
-                                        <i class="fa fa-shipping-fast"></i> <span><?php echo lang('menu_shipping'); ?></span>
+                                        <i class="fa fa-truck"></i> <span><?php echo lang('menu_shipping'); ?></span>
                                     </a>
                                 </li>
                                 <li class="<?=active_link_controller('linkedproducts')?>">
@@ -72,11 +72,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <i class="fa fa-share-alt"></i> <span><?php echo lang('menu_linkedproducts'); ?></span>
                                     </a>
                                 </li>
-                                <li class="<?=active_link_controller('attributes')?>">
+                                <!-- <li class="<?=active_link_controller('attributes')?>">
                                     <a href="<?php echo site_url('admin/attributes'); ?>">
                                         <i class="fa fa-shapes"></i> <span><?php echo lang('menu_attributes'); ?></span>
                                     </a>
-                                </li>
+                                </li> -->
                             </ul>
                         </li>
                         <li class="treeview <?=active_link_controller('orders')?>">
@@ -85,6 +85,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <span><?php echo lang('menu_orders'); ?></span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
+                            <ul class="treeview-menu">
+                                <li class="<?=active_link_controller('orders')?>">
+                                    <a href="<?php echo site_url('admin/orders'); ?>">
+                                        <i class="fa fa-book"></i> <span>Order List</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
 
 

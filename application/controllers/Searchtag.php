@@ -169,24 +169,44 @@ class Searchtag extends Public_Controller {
 		
 		if($total > 8) { // hasil bagi atau jumlah halaman lebih dari satu
 		
-		   $page = '<ul class="pagination no-print">';
+			$page = '<ul class="pagination no-print">';
 			
-		   if($curr_page > 1)
-				 $page .='<li><a href="'.$url.($curr_page-1).'">Prev</a></li>';
+			if ($total_page > 9)
+		   		$page .='<li><a href="'.$url.'0"><<</a></li>';
+			if ($curr_page > 1)
+				$page .='<li><a href="'.$url.($curr_page-1).'"><</a></li>';
 		   
-		   for($x = 1;$x <= $total_page;$x++){
-				
-				$active = '';
-				
-				if($x == $curr_page)
-					$active = 'class="active"';
-				  
-				$page .='<li '.$active.'><a href="'.$url.$x.'">'.$x.'</a></li>';
-				
+			if ($total_page < 10) {
+				for($x = 1;$x <= $total_page;$x++) {
+					
+					$active = '';
+					
+					if($x == $curr_page)
+						$active = 'class="active"';
+					
+					$page .='<li '.$active.'><a href="'.$url.$x.'">'.$x.'</a></li>';
+					
+				}
 			}
-			if($curr_page < $total_page)
-				$page .='<li><a href="'.$url.($curr_page+1).'">Next</a></li>';
-			
+			else
+			{
+				if ($curr_page > 3)
+					for($x = $curr_page-1;$x <= $curr_page; $x++) {
+						$page .='<li><a href="'.$url.$x.'">'.$x.'</a></li>';
+					}
+
+				$page .='<li><a href="#">'.($curr_page+1).' / '.$total_page.'</a></li>';
+
+				if ($total_page - $curr_page > 3)
+					for($x = $curr_page+2;$x <= $curr_page+3; $x++) {
+						$page .='<li><a href="'.$url.$x.'">'.$x.'</a></li>';
+					}
+			}
+			if ($curr_page < $total_page)
+				$page .='<li><a href="'.$url.($curr_page+1).'">></a></li>';
+			if ($total_page > 9)
+				$page .='<li><a href="'.$url.$total_page.'">>></a></li>';
+				
 			$page .='</ul>';
 		}
 			

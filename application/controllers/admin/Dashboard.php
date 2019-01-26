@@ -10,6 +10,7 @@ class Dashboard extends Admin_Controller {
         /* Load :: Common */
         $this->load->helper('number');
         $this->load->model('admin/dashboard_model');
+        $this->output->enable_profiler(TRUE);
     }
 
 
@@ -29,6 +30,9 @@ class Dashboard extends Admin_Controller {
             $this->data['breadcrumb'] = $this->breadcrumbs->show();
 
             /* Data */
+            $this->data['count_new_mbr']     = $this->dashboard_model->get_count_new_member()->total;
+            $this->data['count_orders']      = $this->dashboard_model->get_count_orders()->total;
+            
             $this->data['count_users']       = $this->dashboard_model->get_count_record('users');
             $this->data['count_groups']      = $this->dashboard_model->get_count_record('groups');
             $this->data['disk_totalspace']   = $this->dashboard_model->disk_totalspace(DIRECTORY_SEPARATOR);

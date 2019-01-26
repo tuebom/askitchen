@@ -66,7 +66,8 @@ class Login extends Public_Controller {
                             $this->data['message_login'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 
                             /* Load Template */
-                            $this->template->auth_render('auth/choice', $this->data);
+                            // $this->template->auth_render('auth/choice', $this->data);
+                            redirect('admin', 'refresh');
                             return;
                         }
                         

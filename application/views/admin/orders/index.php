@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </tr>
                                         </thead>
                                         <tbody>
-<?php foreach ($inventory as $item):?>
+<?php foreach ($orders as $item):?>
                                             <tr>
                                             <td><?php echo htmlspecialchars($item->id, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td><?php echo htmlspecialchars($item->name, ENT_QUOTES, 'UTF-8'); ?></td>
@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <td><?php echo htmlspecialchars($item->shipcost, ENT_QUOTES, 'UTF-8'); ?></td> -->
                                                 <td><?php echo htmlspecialchars($item->gtotal, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td>
-                                                    <?php echo anchor('admin/inventory/edit/'.$item->kdurl, 'Edit'); ?>
+                                                    <?php echo anchor('admin/orders/edit/'.$item->id, 'Edit'); ?>
                                                 </td>
                                             </tr>
 <?php endforeach;?>

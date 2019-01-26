@@ -31,7 +31,7 @@
                                         <h4>Sea Freight</h4>
                                         <p>Get it right on next day - fastest option possible.</p>
                                         <div class="box-footer text-center">
-                                            <input type="radio" name="delivery" value="sea"<?php if(isset($_SESSION['delivery'])){ if($_SESSION['delivery'] == 'land') echo 'checked="checked"'; } ?>>
+                                            <input type="radio" name="delivery" value="sea"<?php if(isset($_SESSION['delivery'])){ if($_SESSION['delivery'] == 'sea') echo 'checked="checked"'; } ?>>
                                         </div>
                                     </div>
                                 </div>

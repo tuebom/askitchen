@@ -13,7 +13,7 @@ class Inventory extends Admin_Controller {
 		
 		$this->lang->load('admin/inventory');
 		
-		$this->load->model('inventory_model');
+		$this->load->model('admin/inventory_model');
 		$this->load->model('golongan_model');
 		$this->load->model('golongan2_model');
 		$this->load->model('golongan3_model');
