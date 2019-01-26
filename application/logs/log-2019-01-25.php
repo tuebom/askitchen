@@ -669,3 +669,159 @@ INFO - 2019-01-25 10:08:19 --> File loaded: C:\xampp\htdocs\askitchen\applicatio
 INFO - 2019-01-25 10:08:19 --> File loaded: C:\xampp\htdocs\askitchen\application\views\layout/footer.php
 INFO - 2019-01-25 10:08:19 --> Final output sent to browser
 DEBUG - 2019-01-25 10:08:19 --> Total execution time: 1.1651
+INFO - 2019-01-25 10:31:14 --> Config Class Initialized
+INFO - 2019-01-25 10:31:14 --> Hooks Class Initialized
+DEBUG - 2019-01-25 10:31:14 --> UTF-8 Support Enabled
+INFO - 2019-01-25 10:31:14 --> Utf8 Class Initialized
+INFO - 2019-01-25 10:31:14 --> URI Class Initialized
+DEBUG - 2019-01-25 10:31:14 --> No URI present. Default controller set.
+INFO - 2019-01-25 10:31:14 --> Router Class Initialized
+INFO - 2019-01-25 10:31:14 --> Output Class Initialized
+INFO - 2019-01-25 10:31:14 --> Security Class Initialized
+DEBUG - 2019-01-25 10:31:14 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-01-25 10:31:14 --> Input Class Initialized
+INFO - 2019-01-25 10:31:14 --> Language Class Initialized
+INFO - 2019-01-25 10:31:14 --> Loader Class Initialized
+INFO - 2019-01-25 10:31:14 --> Helper loaded: url_helper
+INFO - 2019-01-25 10:31:14 --> Database Driver Class Initialized
+INFO - 2019-01-25 10:31:14 --> Session: Class initialized using 'files' driver.
+INFO - 2019-01-25 10:31:14 --> User Agent Class Initialized
+INFO - 2019-01-25 10:31:14 --> Controller Class Initialized
+DEBUG - 2019-01-25 10:31:14 --> Config file loaded: D:\xampp\htdocs\askitchen\application\config/common/dp_config.php
+DEBUG - 2019-01-25 10:31:14 --> Config file loaded: D:\xampp\htdocs\askitchen\application\config/common/dp_language.php
+INFO - 2019-01-25 10:31:14 --> Helper loaded: form_helper
+INFO - 2019-01-25 10:31:14 --> Form Validation Class Initialized
+DEBUG - 2019-01-25 10:31:14 --> Config file loaded: D:\xampp\htdocs\askitchen\application\third_party/ion_auth/config/ion_auth.php
+INFO - 2019-01-25 10:31:14 --> Email Class Initialized
+INFO - 2019-01-25 10:31:14 --> Language file loaded: language/english/ion_auth_lang.php
+INFO - 2019-01-25 10:31:14 --> Helper loaded: cookie_helper
+INFO - 2019-01-25 10:31:14 --> Helper loaded: language_helper
+DEBUG - 2019-01-25 10:31:14 --> Session class already loaded. Second attempt ignored.
+INFO - 2019-01-25 10:31:14 --> Helper loaded: date_helper
+INFO - 2019-01-25 10:31:14 --> Model "Ion_auth_model" initialized
+INFO - 2019-01-25 10:31:14 --> Helper loaded: array_helper
+INFO - 2019-01-25 10:31:14 --> Model "Prefs_model" initialized
+INFO - 2019-01-25 10:31:14 --> Language file loaded: language/english/auth_lang.php
+INFO - 2019-01-25 10:31:14 --> Model "Golongan_model" initialized
+INFO - 2019-01-25 10:31:14 --> Model "Stock_model" initialized
+INFO - 2019-01-25 10:31:15 --> File loaded: D:\xampp\htdocs\askitchen\application\views\layout/header.php
+INFO - 2019-01-25 10:31:15 --> File loaded: D:\xampp\htdocs\askitchen\application\views\dashboard/index.php
+INFO - 2019-01-25 10:31:15 --> File loaded: D:\xampp\htdocs\askitchen\application\views\layout/footer.php
+INFO - 2019-01-25 10:31:15 --> Final output sent to browser
+DEBUG - 2019-01-25 10:31:15 --> Total execution time: 1.1227
+INFO - 2019-01-25 10:31:16 --> Config Class Initialized
+INFO - 2019-01-25 10:31:16 --> Hooks Class Initialized
+DEBUG - 2019-01-25 10:31:17 --> UTF-8 Support Enabled
+INFO - 2019-01-25 10:31:17 --> Utf8 Class Initialized
+INFO - 2019-01-25 10:31:17 --> URI Class Initialized
+INFO - 2019-01-25 10:31:17 --> Router Class Initialized
+INFO - 2019-01-25 10:31:17 --> Output Class Initialized
+INFO - 2019-01-25 10:31:17 --> Security Class Initialized
+INFO - 2019-01-25 10:31:17 --> Config Class Initialized
+INFO - 2019-01-25 10:31:17 --> Hooks Class Initialized
+DEBUG - 2019-01-25 10:31:17 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-01-25 10:31:17 --> Input Class Initialized
+DEBUG - 2019-01-25 10:31:17 --> UTF-8 Support Enabled
+INFO - 2019-01-25 10:31:17 --> Utf8 Class Initialized
+INFO - 2019-01-25 10:31:17 --> Language Class Initialized
+INFO - 2019-01-25 10:31:17 --> URI Class Initialized
+ERROR - 2019-01-25 10:31:17 --> 404 Page Not Found: Upload/gambar
+INFO - 2019-01-25 10:31:17 --> Router Class Initialized
+INFO - 2019-01-25 10:31:17 --> Config Class Initialized
+INFO - 2019-01-25 10:31:17 --> Hooks Class Initialized
+INFO - 2019-01-25 10:31:17 --> Output Class Initialized
+INFO - 2019-01-25 10:31:17 --> Security Class Initialized
+DEBUG - 2019-01-25 10:31:17 --> UTF-8 Support Enabled
+DEBUG - 2019-01-25 10:31:17 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-01-25 10:31:17 --> Utf8 Class Initialized
+INFO - 2019-01-25 10:31:17 --> Input Class Initialized
+INFO - 2019-01-25 10:31:17 --> URI Class Initialized
+INFO - 2019-01-25 10:31:17 --> Language Class Initialized
+INFO - 2019-01-25 10:31:17 --> Router Class Initialized
+INFO - 2019-01-25 10:31:17 --> Output Class Initialized
+ERROR - 2019-01-25 10:31:17 --> 404 Page Not Found: Upload/gambar
+INFO - 2019-01-25 10:31:17 --> Security Class Initialized
+DEBUG - 2019-01-25 10:31:17 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-01-25 10:31:17 --> Input Class Initialized
+INFO - 2019-01-25 10:31:17 --> Language Class Initialized
+ERROR - 2019-01-25 10:31:17 --> 404 Page Not Found: Upload/gambar
+INFO - 2019-01-25 10:31:49 --> Config Class Initialized
+INFO - 2019-01-25 10:31:49 --> Hooks Class Initialized
+DEBUG - 2019-01-25 10:31:49 --> UTF-8 Support Enabled
+INFO - 2019-01-25 10:31:49 --> Utf8 Class Initialized
+INFO - 2019-01-25 10:31:49 --> URI Class Initialized
+INFO - 2019-01-25 10:31:49 --> Router Class Initialized
+INFO - 2019-01-25 10:31:49 --> Output Class Initialized
+INFO - 2019-01-25 10:31:49 --> Security Class Initialized
+DEBUG - 2019-01-25 10:31:49 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-01-25 10:31:49 --> Input Class Initialized
+INFO - 2019-01-25 10:31:49 --> Language Class Initialized
+INFO - 2019-01-25 10:31:49 --> Loader Class Initialized
+INFO - 2019-01-25 10:31:49 --> Helper loaded: url_helper
+INFO - 2019-01-25 10:31:49 --> Database Driver Class Initialized
+INFO - 2019-01-25 10:31:49 --> Session: Class initialized using 'files' driver.
+INFO - 2019-01-25 10:31:49 --> User Agent Class Initialized
+INFO - 2019-01-25 10:31:49 --> Controller Class Initialized
+DEBUG - 2019-01-25 10:31:49 --> Config file loaded: D:\xampp\htdocs\askitchen\application\config/common/dp_config.php
+DEBUG - 2019-01-25 10:31:49 --> Config file loaded: D:\xampp\htdocs\askitchen\application\config/common/dp_language.php
+INFO - 2019-01-25 10:31:49 --> Helper loaded: form_helper
+INFO - 2019-01-25 10:31:49 --> Form Validation Class Initialized
+DEBUG - 2019-01-25 10:31:49 --> Config file loaded: D:\xampp\htdocs\askitchen\application\third_party/ion_auth/config/ion_auth.php
+INFO - 2019-01-25 10:31:49 --> Email Class Initialized
+INFO - 2019-01-25 10:31:49 --> Language file loaded: language/english/ion_auth_lang.php
+INFO - 2019-01-25 10:31:49 --> Helper loaded: cookie_helper
+INFO - 2019-01-25 10:31:49 --> Helper loaded: language_helper
+DEBUG - 2019-01-25 10:31:50 --> Session class already loaded. Second attempt ignored.
+INFO - 2019-01-25 10:31:50 --> Helper loaded: date_helper
+INFO - 2019-01-25 10:31:50 --> Model "Ion_auth_model" initialized
+INFO - 2019-01-25 10:31:50 --> Helper loaded: array_helper
+INFO - 2019-01-25 10:31:50 --> Model "Prefs_model" initialized
+INFO - 2019-01-25 10:31:50 --> Model "Golongan_model" initialized
+INFO - 2019-01-25 10:31:50 --> Model "Golongan2_model" initialized
+INFO - 2019-01-25 10:31:50 --> Model "Golongan3_model" initialized
+INFO - 2019-01-25 10:31:50 --> Model "Stock_model" initialized
+INFO - 2019-01-25 10:31:50 --> File loaded: D:\xampp\htdocs\askitchen\application\views\layout/header.php
+INFO - 2019-01-25 10:31:50 --> File loaded: D:\xampp\htdocs\askitchen\application\views\subcategories/index.php
+INFO - 2019-01-25 10:31:50 --> File loaded: D:\xampp\htdocs\askitchen\application\views\layout/footer.php
+INFO - 2019-01-25 10:31:50 --> Final output sent to browser
+DEBUG - 2019-01-25 10:31:50 --> Total execution time: 0.9976
+INFO - 2019-01-25 10:32:06 --> Config Class Initialized
+INFO - 2019-01-25 10:32:07 --> Hooks Class Initialized
+DEBUG - 2019-01-25 10:32:07 --> UTF-8 Support Enabled
+INFO - 2019-01-25 10:32:07 --> Utf8 Class Initialized
+INFO - 2019-01-25 10:32:07 --> URI Class Initialized
+INFO - 2019-01-25 10:32:07 --> Router Class Initialized
+INFO - 2019-01-25 10:32:07 --> Output Class Initialized
+INFO - 2019-01-25 10:32:07 --> Security Class Initialized
+DEBUG - 2019-01-25 10:32:07 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-01-25 10:32:07 --> Input Class Initialized
+INFO - 2019-01-25 10:32:07 --> Language Class Initialized
+INFO - 2019-01-25 10:32:07 --> Loader Class Initialized
+INFO - 2019-01-25 10:32:07 --> Helper loaded: url_helper
+INFO - 2019-01-25 10:32:07 --> Database Driver Class Initialized
+INFO - 2019-01-25 10:32:07 --> Session: Class initialized using 'files' driver.
+INFO - 2019-01-25 10:32:07 --> User Agent Class Initialized
+INFO - 2019-01-25 10:32:07 --> Controller Class Initialized
+DEBUG - 2019-01-25 10:32:07 --> Config file loaded: D:\xampp\htdocs\askitchen\application\config/common/dp_config.php
+DEBUG - 2019-01-25 10:32:07 --> Config file loaded: D:\xampp\htdocs\askitchen\application\config/common/dp_language.php
+INFO - 2019-01-25 10:32:07 --> Helper loaded: form_helper
+INFO - 2019-01-25 10:32:07 --> Form Validation Class Initialized
+DEBUG - 2019-01-25 10:32:07 --> Config file loaded: D:\xampp\htdocs\askitchen\application\third_party/ion_auth/config/ion_auth.php
+INFO - 2019-01-25 10:32:07 --> Email Class Initialized
+INFO - 2019-01-25 10:32:07 --> Language file loaded: language/english/ion_auth_lang.php
+INFO - 2019-01-25 10:32:07 --> Helper loaded: cookie_helper
+INFO - 2019-01-25 10:32:07 --> Helper loaded: language_helper
+DEBUG - 2019-01-25 10:32:07 --> Session class already loaded. Second attempt ignored.
+INFO - 2019-01-25 10:32:07 --> Helper loaded: date_helper
+INFO - 2019-01-25 10:32:07 --> Model "Ion_auth_model" initialized
+INFO - 2019-01-25 10:32:07 --> Helper loaded: array_helper
+INFO - 2019-01-25 10:32:07 --> Model "Prefs_model" initialized
+INFO - 2019-01-25 10:32:07 --> Model "Golongan_model" initialized
+INFO - 2019-01-25 10:32:07 --> Model "Golongan2_model" initialized
+INFO - 2019-01-25 10:32:07 --> Model "Golongan3_model" initialized
+INFO - 2019-01-25 10:32:07 --> Model "Stock_model" initialized
+INFO - 2019-01-25 10:32:07 --> File loaded: D:\xampp\htdocs\askitchen\application\views\layout/header.php
+INFO - 2019-01-25 10:32:07 --> File loaded: D:\xampp\htdocs\askitchen\application\views\subcategories/index.php
+INFO - 2019-01-25 10:32:07 --> File loaded: D:\xampp\htdocs\askitchen\application\views\layout/footer.php
+INFO - 2019-01-25 10:32:07 --> Final output sent to browser
+DEBUG - 2019-01-25 10:32:08 --> Total execution time: 1.0026

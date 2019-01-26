@@ -231,11 +231,11 @@ $(window).load(function() {
 			$(".shopping-cart").fadeToggle( "fast");
 		});
 	
-	    $('#img-logo').hover(function(){
-			$(this).attr('src','<?= site_url('images/askitchen2.png'); ?>');
-		},function(){
-			$(this).attr('src','<?= site_url('images/askitchen.png'); ?>');
-		});
+	    // $('#img-logo').hover(function(){
+		// 	$(this).attr('src','<?= site_url('images/askitchen2.png'); ?>');
+		// },function(){
+		// 	$(this).attr('src','<?= site_url('images/askitchen.png'); ?>');
+		// });
 	
 	    // $('.dropdown-toggle').hover(function(){
 		// 	var menu = $(this).attr('data-menu');
@@ -298,7 +298,7 @@ $(window).load(function() {
 			<div class="header-top-most">
 				<div class="container2">
 					<div class="top-left">
-						<a href="#"><img id="img-logo" class="img-header" src="<?= site_url('images/askitchen.png'); ?>" alt="ASKITCHEN Logo" hspace="3" /></a>
+						<a href="#"><img id="img-logo" class="img-header" src="<?= site_url('images/askitchen2.png'); ?>" alt="ASKITCHEN Logo" hspace="3" /></a>
 						<a href="http://www.asovic.co.id/" target="_blank"><img class="img-header" src="<?= site_url('images/asovic.jpg'); ?>" alt="ASOVIC Logo" hspace="3" /></a>
 						<a href="http://www.muchef.com/" target="_blank"><img class="img-header" src="<?= site_url('images/muchef.jpg'); ?>" alt="MUCHEF Logo" hspace="3" /></a>
 					</div>

@@ -17,7 +17,11 @@
 					<div class="about-grids">
 						<p>Our first STORE was established in 2007 and we are continuously expanding our first branch in Makassar city. THE GOAL is "to expand our services and network throughout every cities in INDONESIA.</p>
 					</div>
+					<div class="about-grids">
+							<h3 class="contact"><a style="color:black" href="<?= site_url('contact'); ?>"><b>Contact Us</b></a></h3>
+					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 		<!--content-->
