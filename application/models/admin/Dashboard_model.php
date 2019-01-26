@@ -9,6 +9,28 @@ class Dashboard_model extends CI_Model {
     }
 
 
+    public function get_count_new_member()
+    {
+        $this->db->select('COUNT(*) as total');
+        $this->db->where('DATEDIFF(CURDATE(), FROM_UNIXTIME(created_on)) = 0');
+        $query = $this->db->get('users')->row();
+
+        return $query;
+    }
+
+
+    public function get_count_orders()
+    {
+        // $this->db->query('select COUNT(*) from orders where tglinput = CURDATE();');
+        // $query = $this->db->get()->result();
+        $this->db->select('COUNT(*) as total');
+        $this->db->where('tglinput = CURDATE()');
+        $query = $this->db->get('orders')->row();
+
+        return $query;
+    }
+
+
     public function get_count_record($table)
     {
         $query = $this->db->count_all($table);

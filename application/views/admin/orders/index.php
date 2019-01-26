@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </tr>
                                         </thead>
                                         <tbody>
-<?php foreach ($inventory as $item):?>
+<?php foreach ($orders as $item):?>
                                             <tr>
                                             <td><?php echo htmlspecialchars($item->id, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td><?php echo htmlspecialchars($item->name, ENT_QUOTES, 'UTF-8'); ?></td>

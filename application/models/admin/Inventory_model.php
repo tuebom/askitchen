@@ -133,7 +133,7 @@ class Inventory_model extends CI_Model
 
     function get_limit_data($limit, $start = 0, $q = NULL, $b = NULL, $p1 = 0, $p2 = 0) {
         
-        $qry = $this->db->select('kdbar, kdurl, nama, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar');
+        $qry = $this->db->select('kdbar, kdurl, nama, kdgol, kdgol2, kdgol3, satuan, merk, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar');
         
         if ($q) {
             $qry->group_start()

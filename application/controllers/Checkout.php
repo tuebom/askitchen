@@ -16,7 +16,7 @@ class Checkout extends Public_Controller {
 		$this->load->model('kabupaten_model');
 		$this->load->model('kecamatan_model');
 		// $this->load->model('member_model');
-		$this->output->enable_profiler(TRUE);
+		// $this->output->enable_profiler(TRUE);
     }
 
 	public function index()
@@ -164,74 +164,84 @@ class Checkout extends Public_Controller {
 			if ($tab === 'delivery')
 			{
 
-				// log_message('Debug', '$this->input->post('first_name') = '.$_SESSION["regency"]);
-				/* Validate form input */
-				$this->form_validation->set_rules('first_name', 'lang:checkout_first_name', 'required');
-				$this->form_validation->set_rules('last_name', 'lang:checkout_last_name', 'required');
-				
-				$this->form_validation->set_rules('address', 'lang:checkout_address', 'required');
-
-				$this->form_validation->set_rules('province', 'lang:checkout_province', 'required');
-				$this->form_validation->set_rules('regency', 'lang:checkout_regency', 'required');
-				$this->form_validation->set_rules('district', 'lang:checkout_district', 'required');
-				
-				$this->form_validation->set_rules('post_code', 'lang:checkout_post_code', 'required');
-
-				$this->form_validation->set_rules('phone', 'lang:checkout_phone', 'required');
-				$this->form_validation->set_rules('email', 'lang:checkout_email', 'required|valid_email');
-				
-				if ($this->form_validation->run() == TRUE)
-				{
-
-					// shipping address data
-					$first_name = $this->input->post('first_name');
-					$last_name  = $this->input->post('last_name');
-					$company    = $this->input->post('company');
-					$address    = $this->input->post('address');
-
-					$province   = $this->input->post('province');
-					$regency    = $this->input->post('regency');
-					$district   = $this->input->post('district');
-					$post_code  = $this->input->post('post_code');
-					$phone      = $this->input->post('phone');
-					$email      = strtolower($this->input->post('email'));
-					$note       = $this->input->post('note');
-					
-					$address_data = array(
-						'first_name' => $first_name,
-						'last_name'  => $last_name,
-						'company'    => $company,
-						'address'    => $address,
-						'province'   => $province,
-						'regency'    => $regency,
-						'district'   => $district,
-						'post_code'  => $post_code,
-						'phone'      => $phone,
-						'email'      => $email,
-						'note'       => $note,
-					);
-					
-					// simpan data alamat pengiriman ke variabel session
-					$this->session->set_userdata($address_data);
+				if (empty($_POST)) {
 
 					$this->load->view('layout/header', $this->data);
 					$this->load->view('checkout/delivery', $this->data);
 					$this->load->view('layout/footer', $this->data);
 					return;
-					
 				}
-				else // validasi input gagal
+				else
 				{
-					$this->data['province']  = $this->form_validation->set_value('province');
-					$this->data['regency']   = $this->form_validation->set_value('regency');
-					$this->data['district']  = $this->form_validation->set_value('district');
-					$this->data['post_code'] = $this->form_validation->set_value('post_code');
-					$this->data['address']   = $this->form_validation->set_value('address');
-	
-					$this->data['message'] = (validation_errors() ? validation_errors() : 'Input data belum benar!');
+			
+					// log_message('Debug', '$this->input->post('first_name') = '.$_SESSION["regency"]);
+					/* Validate form input */
+					$this->form_validation->set_rules('first_name', 'lang:checkout_first_name', 'required');
+					$this->form_validation->set_rules('last_name', 'lang:checkout_last_name', 'required');
 					
+					$this->form_validation->set_rules('address', 'lang:checkout_address', 'required');
+
+					$this->form_validation->set_rules('province', 'lang:checkout_province', 'required');
+					$this->form_validation->set_rules('regency', 'lang:checkout_regency', 'required');
+					$this->form_validation->set_rules('district', 'lang:checkout_district', 'required');
+					
+					$this->form_validation->set_rules('post_code', 'lang:checkout_post_code', 'required');
+
+					$this->form_validation->set_rules('phone', 'lang:checkout_phone', 'required');
+					$this->form_validation->set_rules('email', 'lang:checkout_email', 'required|valid_email');
+					
+					if ($this->form_validation->run() == TRUE)
+					{
+
+						// shipping address data
+						$first_name = $this->input->post('first_name');
+						$last_name  = $this->input->post('last_name');
+						$company    = $this->input->post('company');
+						$address    = $this->input->post('address');
+
+						$province   = $this->input->post('province');
+						$regency    = $this->input->post('regency');
+						$district   = $this->input->post('district');
+						$post_code  = $this->input->post('post_code');
+						$phone      = $this->input->post('phone');
+						$email      = strtolower($this->input->post('email'));
+						$note       = $this->input->post('note');
+						
+						$address_data = array(
+							'first_name' => $first_name,
+							'last_name'  => $last_name,
+							'company'    => $company,
+							'address'    => $address,
+							'province'   => $province,
+							'regency'    => $regency,
+							'district'   => $district,
+							'post_code'  => $post_code,
+							'phone'      => $phone,
+							'email'      => $email,
+							'note'       => $note,
+						);
+						
+						// simpan data alamat pengiriman ke variabel session
+						$this->session->set_userdata($address_data);
+
+						$this->load->view('layout/header', $this->data);
+						$this->load->view('checkout/delivery', $this->data);
+						$this->load->view('layout/footer', $this->data);
+						return;
+						
+					}
+					else // validasi input gagal
+					{
+						$this->data['province']  = $this->form_validation->set_value('province');
+						$this->data['regency']   = $this->form_validation->set_value('regency');
+						$this->data['district']  = $this->form_validation->set_value('district');
+						$this->data['post_code'] = $this->form_validation->set_value('post_code');
+						$this->data['address']   = $this->form_validation->set_value('address');
+		
+						$this->data['message'] = (validation_errors() ? validation_errors() : 'Input data belum benar!');
+						
+					}
 				}
-				
 
 			}
 			elseif ($tab === 'payment')
