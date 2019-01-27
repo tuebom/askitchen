@@ -4198,7 +4198,7 @@ h3.tittle1, h3.tittle {
 }
 @media(min-width:1366px){
     div#bs-megadropdown-tabs.sticky {
-        padding-left: 19em;
+        padding-left: 20.5em;
         background: url(../images/logo2.png) no-repeat 85px 9px !important;
     }
 }
@@ -4591,14 +4591,20 @@ div.col-md-3.product-agileinfo-grid{
     margin: 0;
     float: left;
     background: #d6cfcf;
-    width: 90%;
     border-radius: 3px;
     padding: 20px;
     z-index: 9999;
     position: fixed;
-    left: 5%;
+    /* width: 90%;
+    left: 5%; */
     top: 132px;
-    /* display: none; */
+    display: none;
+}
+@media (min-width: 1366px) {
+    .dropdown-menu {
+        width: 800px;
+        left: 305px;
+    }
 }
 
 /* shopping cart */
