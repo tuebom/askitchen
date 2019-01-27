@@ -271,6 +271,7 @@ $(window).load(function() {
 		var navbar = document.getElementById("nav1");
 		var navmenu = document.getElementById("bs-megadropdown-tabs");
 		var sticky = navbar.offsetTop;
+		var topPos = 132;
 		
 		window.onscroll = function() {scrollFunction()};
 
@@ -285,9 +286,13 @@ $(window).load(function() {
 			if (window.pageYOffset >= sticky) {
 				navbar.classList.add("sticky");
 				navmenu.classList.add("sticky")
+				topPos = 40;
+				$(".dropdown-menu").css( 'top', topPos+'px');
 			} else {
 				navbar.classList.remove("sticky");
 				navmenu.classList.remove("sticky");
+				topPos = 132 - window.pageYOffset;
+				$(".dropdown-menu").css( 'top', topPos+'px');
 			}
 		}
 	});
@@ -352,7 +357,7 @@ $(window).load(function() {
 
 										foreach ($this->data['golongan'] as $item) {
 									?>
-									<li class="dropdown">
+									<li class="dropdown" data-menu="dropdown-<?=$item->kdgol?>">
 										<a href="<?php echo site_url('products/'.$item->kdgol); ?>" class="dropdown-toggle" data-toggle="dropdown" data-menu="dropdown-<?=$item->kdgol?>"><?php echo $item->nama ?><b class="caret"></b></a>
 										<?php if($index >=4){ ?>
 										<ul class="dropdown-menu multi-column columns-3 pull-right">
@@ -361,7 +366,7 @@ $(window).load(function() {
 											<?php } ?>
 											<div>
 												<?php foreach ($this->data['item_'.$item->kdgol] as $detail) { ?>
-												<div class="col-sm-3 multi-gd-img">
+												<div class="col-sm-2 multi-gd-img">
 													<div class="row text-center"><label class="block-with-text"><?php echo $detail->nama ?></label></div>
 													<div class="row">
 														<div class="sample">
@@ -535,19 +540,19 @@ $(window).load(function() {
 	?>
 	<div id="dropdown-<?=$item->kdgol?>" class="dropdown-menu">
 	<?php foreach ($this->data['item_'.$item->kdgol] as $detail) { ?>
-	<div class="col-sm-3 multi-gd-img">
-		<div class="row text-center"><label class="block-with-text"><?php echo $detail->nama ?></label></div>
-		<div class="row">
-			<div class="sample">
-			<a href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>">
-				<img src="<?php echo site_url($this->data['products_dir'].'/'.$detail->gambar); ?>" alt="<?php echo $detail->nama ?>"/></a>
+		<div class="col-sm-2 multi-gd-img">
+			<div class="row text-center"><label class="block-with-text"><?php echo $detail->nama ?></label></div>
+			<div class="row">
+				<div class="sample">
+				<a href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>">
+					<img src="<?php echo site_url($this->data['products_dir'].'/'.$detail->gambar); ?>" alt="<?php echo $detail->nama ?>"/></a>
+				</div>
+			</div>
+			<div class="row text-center"><label class="block-with-text"><?php echo $detail->kdbar ?></label></div>
+			<div class="row text-center">
+				<a class="view-more btn- btn-sm" href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>">More</a>
 			</div>
 		</div>
-		<div class="row text-center"><label class="block-with-text"><?php echo $detail->kdbar ?></label></div>
-		<div class="row text-center">
-			<a class="view-more btn- btn-sm" href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>">More</a>
-		</div>
-	</div>
 	<?php } ?>
 	</div>
 	<?php } ?>

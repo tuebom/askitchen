@@ -86,9 +86,22 @@
 
 	<script>
 		$('ul.nav li.dropdown').hover(function() {
-			$(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(300);
+			var menu = $(this).attr('data-menu');
+			// $('#'+menu).stop(true, true).delay(100).fadeIn(300);
+			$('#'+menu).stop(true, true).delay(100).fadeIn(300);
+			// console.log(menu)
+			// $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(300);
 		}, function() {
-			$(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(300);
+			var menu = $(this).attr('data-menu');
+			// $('#'+menu).stop(true, true).delay(100).fadeOut(300);
+			$('#'+menu).stop(true, true).delay(100).fadeOut(300);
+			// $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(300);
+		});
+		
+		$('.dropdown-menu').hover(function() {
+			$(this).stop(true, true).delay(100).fadeIn(300);
+		}, function() {
+			$(this).stop(true, true).delay(100).fadeOut(300);
 		});
 
 		$('.grid-arr-cat').hover(function() {

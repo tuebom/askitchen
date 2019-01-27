@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="row">
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="info-box">
-                                <span class="info-box-icon bg-maroon"><i class="ion ion-ios-people-outline"></i></span>
+                                <span class="info-box-icon bg-maroon"><i class="ion ion-ios-person"></ion-icon></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-text">New Members</span>
                                     <span class="info-box-number"><?php echo $count_new_mbr; ?></span>
@@ -23,9 +23,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="info-box">
-                                <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
+                                <span class="info-box-icon bg-green"><i class="ion ion-ios-cart"></i></span>
                                 <div class="info-box-content">
-                                    <span class="info-box-text">Sales</span>
+                                    <span class="info-box-text">New Orders</span>
                                     <span class="info-box-number"><?php echo $count_orders; ?></span>
                                 </div>
                             </div>
@@ -35,9 +35,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="info-box">
-                                <span class="info-box-icon bg-aqua"><i class="fa fa-user"></i></span>
+                                <span class="info-box-icon bg-aqua"><i class="ion ion-ios-people"></i></span> <!--fa fa-user-->
                                 <div class="info-box-content">
-                                    <span class="info-box-text">Users</span>
+                                    <span class="info-box-text">Members</span>
                                     <span class="info-box-number"><?php echo $count_users; ?></span>
                                 </div>
                             </div>
