@@ -50,7 +50,7 @@ class Products extends Public_Controller {
 				if ($kdbar != '') {
 					
 					// $detail = $this->stock_model->get_by_id($kdbar);
-					$this->db->select('kdbar, kdurl, nama, hjual, format(hjual,0,"id") as hjualf, gambar, pnj, lbr, tgi');
+					$this->db->select('kdbar, kdurl, nama, deskripsi, hjual, format(hjual,0,"id") as hjualf, gambar, pnj, lbr, tgi');
 					$this->db->where('kdurl', $kdbar);
 					
 					$detail = $this->db->get('stock')->row();

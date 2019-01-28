@@ -1434,8 +1434,9 @@ h4.branch {
     padding: .5em 0;
 }
 img.office {
-    width: 100%;
+    width: 90%;
     height: 450px;
+    margin-left: 70px;
 }
 
 @media (max-width:360px){
@@ -1449,7 +1450,7 @@ img.office {
     }
     iframe.map-about {
         margin-top: 25px;
-        width: 100%;
+        width: 90%;
         height: auto;
     }
 }

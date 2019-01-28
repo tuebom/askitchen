@@ -116,7 +116,7 @@ jQuery(function() {
 								<div id="myTabContent" class="tab-content">
 									<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab"><div class="descr">
 										<!--<h4>Suspendisse laoreet, augue vel mattis </h4>-->
-										<p> <?= $this->data['product']->deskripsi ?></p>
+										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
 									</div></div>
 									
 									<div role="tabpanel" class="tab-pane fade" id="reviews" aria-labelledby="reviews-tab">
@@ -170,7 +170,7 @@ jQuery(function() {
 									</div>
 									<div class="women">
 										<p ><em class="item_price">Rp<?= $item->hjual; ?></em></p>
-										<span class="size"><?= $item->nama; ?></span>
+										<span class="size"><?= $item->kdbar; ?></span>
 										<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
 										<span class="detail"><a href="<?= current_url().'?action=add&code='.$item->kdurl ?>" class="my-cart-d item_add"><img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a>&nbsp;<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" class="my-cart-d item_add">Detail</a></span>
 									</div>
