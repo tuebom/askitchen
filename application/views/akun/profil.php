@@ -162,7 +162,7 @@
 	<!--content-->
 
 	<script type="text/javascript">
-        
+    jQuery(document).ready(function($){
         $('#btnUpdate').click(function(event) {
             event.preventDefault();
             $('#frmAkun').submit();
@@ -218,4 +218,5 @@
         $('.btn-profile').on('click', function (c) {
             $('#userfile').trigger("click");
         });
+    });
 	</script>
