@@ -11,11 +11,13 @@ class Akun extends Public_Controller {
 		
 		$this->load->model('golongan_model');
 		$this->load->model('stock_model');
+
+		$this->load->model('admin/orders_model');
 		
 		$this->load->model('provinsi_model');
 		$this->load->model('kabupaten_model');
 		$this->load->model('kecamatan_model');
-		// $this->output->enable_profiler(TRUE);
+		$this->output->enable_profiler(TRUE);
     }
 
 
@@ -40,20 +42,27 @@ class Akun extends Public_Controller {
 		if ($page) {
 
 			$this->load->view('layout/header', $this->data);
+			$this->load->view('akun/sidemenu', $this->data);
 
+			$this->data['detil']  = $this->orders_model->get_item_bb($member->id);
 			if ($page === 'bb') {
+				// $this->data['detil']  = $this->orders_model->get_item_bb($member->id);
 				$this->load->view('akun/belanja-bb', $this->data);
 			}
 			elseif ($page === 'bk') {
+				// $this->data['detil']  = $this->orders_model->get_item_bb($member->id);
 				$this->load->view('akun/belanja-bk', $this->data);
 			}
 			elseif ($page === 'bt') {
+				// $this->data['detil']  = $this->orders_model->get_item_bt($member->id);
 				$this->load->view('akun/belanja-bt', $this->data);
 			}
 			elseif ($page === 'bs') {
+				// $this->data['detil']  = $this->orders_model->get_item_bs($member->id);
 				$this->load->view('akun/belanja-bs', $this->data);
 			}
 			else { // histori
+				// $this->data['detil']  = $this->orders_model->get_history($member->id);
 				$this->load->view('akun/histori', $this->data);
 			}
 			$this->load->view('layout/footer', $this->data);
@@ -100,12 +109,66 @@ class Akun extends Public_Controller {
 		
 			$this->db->where('id =', $id);
 			$this->db->update('users', $user_data);
+
+			// $this->session->set_userdata($user_data);
+			$this->data['anggota'] = $this->ion_auth->user()->row();
 		}
 
 		$this->load->view('layout/header', $this->data);
+		$this->load->view('akun/sidemenu', $this->data);
 		$this->load->view('akun/profil', $this->data);
 		$this->load->view('layout/footer', $this->data);
 	}
+    
+    public function upload_file() {
+        $config = array(
+            'upload_path' => './uploadfiles/',
+            'allowed_types' => 'gif|jpg|png',
+            'file_name' => 'file_'.date_default_timezone_set('Asia/Taipei'), //dmYHis
+            'file_ext_tolower' => TRUE,
+            'overwrite' => TRUE,
+            'max_size' => 100,
+            'max_width' => 1280,
+            'max_height' => 960,           
+            'min_width' => 10,
+            'min_height' => 7,     
+            'max_filename' => 0,
+            'remove_spaces' => TRUE
+        );
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload())
+        {
+            $hasil = $this->upload->display_errors();
+            ?>
+                <h3><label class="label label-danger msg">Upload file gagal, Detail informasi</label></h3>
+                <table class="table table-hover table-bordered">
+                    <?php echo "<tr><td><strong>".$hasil."</strong></td></tr>"; ?>
+                </table>
+                <?php
+        }
+        else
+        {
+                $hasil = $this->upload->data();
+                ?>
+                <h2><label class="label label-success msg">Upload file berhasil, Detail informasi</label></h2>
+                <table class="table table-hover table-bordered table-striped">
+                    <tr>
+                        <td colspan="2">
+                            <img src="<?php echo base_url('uploadfiles/'.$hasil['orig_name']);?>" />
+                        </td>
+                    </tr>
+                    <?php
+                        foreach($hasil as $res => $value){
+                            echo "<tr><td>".$res."</td>";
+                            echo "<td>".$value."</td></tr>";
+                        }
+                    ?>
+                </table>
+                <?php
+        }
+    }
 
 	public function regencies()
 	{

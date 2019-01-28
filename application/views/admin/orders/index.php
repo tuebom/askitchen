@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <th>Date</th>
                                                 <th>Status</th>
                                                 <th>Ship to</th>
-                                                <th>Total</th>
+                                                <th class="text-right">Total</th>
                                                 <!-- <th>Tax</th>
                                                 <th>Ship Cost</th>
                                                 <th>Grand Total</th> -->
@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <tbody>
 <?php foreach ($orders as $item):?>
                                             <tr>
-                                            <td><?php echo htmlspecialchars($item->id, ENT_QUOTES, 'UTF-8'); ?></td>
+                                            <td>#<?php echo htmlspecialchars($item->id, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td><?php echo htmlspecialchars($item->name, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td><?php echo htmlspecialchars($item->tglinput, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td><?php echo htmlspecialchars($item->status, ENT_QUOTES, 'UTF-8'); ?></td>
@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <!-- <td><?php echo htmlspecialchars($item->total, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td><?php echo htmlspecialchars($item->tax, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td><?php echo htmlspecialchars($item->shipcost, ENT_QUOTES, 'UTF-8'); ?></td> -->
-                                                <td><?php echo htmlspecialchars($item->gtotal, ENT_QUOTES, 'UTF-8'); ?></td>
+                                                <td class="text-right"><?php echo number_format(htmlspecialchars($item->gtotal, ENT_QUOTES, 'UTF-8'),0,",","."); ?></td>
                                                 <td>
                                                     <?php echo anchor('admin/orders/edit/'.$item->id, 'Edit'); ?>
                                                 </td>

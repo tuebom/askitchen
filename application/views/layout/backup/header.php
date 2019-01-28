@@ -78,7 +78,6 @@
 <link rel="stylesheet" href="<?=base_url('css/jstarbox.css');?>" type="text/css" media="screen" charset="utf-8" />
 <script type="text/javascript">
 jQuery(function() {
-
 	jQuery('.starbox').each(function() {
 		var starbox = jQuery(this);
 			starbox.starbox({
@@ -99,21 +98,6 @@ jQuery(function() {
 			// }
 		})
 	});
-
-	$.ajax({
-		url: "https://geoip-db.com/jsonp",
-		jsonpCallback: "callback",
-		dataType: "jsonp",
-		success: function( location ) {
-			// $('#country').html(location.country_name);
-			$('#state').html(location.state);
-			// $('#city').html(location.city);
-			// $('#latitude').html(location.latitude);
-			// $('#longitude').html(location.longitude);
-			// $('#ip').html(location.IPv4);  
-		}
-	});     
-
 });
 </script>
 <!--//End-rate-->
@@ -345,7 +329,7 @@ $(window).load(function() {
 						</div>
 						<div class="location">
 							<img src="<?= site_url('images/location.png'); ?>" alt="location"/>
-							<span style="display: inline-block; vertical-align: middle; color:#fff;">Deliver To<br><span id="state"></span></span></a>
+							<span style="display: inline-block; vertical-align: middle; color:#fff;">Deliver To<br>INDONESIA</span></a>
 						</div>
 					</div>
 					<div class="top-left2">
@@ -386,8 +370,29 @@ $(window).load(function() {
 									?>
 									<li class="dropdown" data-menu="dropdown-<?=$item->kdgol?>">
 										<a href="<?php echo site_url('products/'.$item->kdgol); ?>" class="dropdown-toggle" data-toggle="dropdown" data-menu="dropdown-<?=$item->kdgol?>"><?php echo $item->nama ?><b class="caret"></b></a>
-										<!-- <ul class="dropdown-menu multi-column columns-3">
-										</ul> -->
+										<?php if($index >=4){ ?>
+										<ul class="dropdown-menu multi-column columns-3 pull-right">
+											<?php } else { ?>
+												<ul class="dropdown-menu multi-column columns-3">
+											<?php } ?>
+											<div>
+												<?php foreach ($this->data['item_'.$item->kdgol] as $detail) { ?>
+												<div class="col-sm-2 multi-gd-img">
+													<div class="row text-center"><label class="block-with-text"><?php echo $detail->nama ?></label></div>
+													<div class="row">
+														<div class="sample">
+														<a href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>">
+															<img src="<?php echo site_url($this->data['products_dir'].'/'.$detail->gambar); ?>" alt="<?php echo $detail->nama ?>"/></a>
+														</div>
+													</div>
+													<!-- <div class="row text-center"><label class="block-with-text"><?php echo $detail->kdbar ?></label></div> -->
+													<div class="row text-center">
+														<a class="view-more btn- btn-sm" href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>">More</a>
+													</div>
+												</div>
+												<?php } ?>
+											</div>
+										</ul>
 									</li>
 									<?php 
 											$index++;
@@ -446,8 +451,12 @@ $(window).load(function() {
 									?>
 									<li class="dropdown">
 										<a href="<?php echo site_url('products/'.$item->kdgol); ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $item->nama ?><b class="caret"></b></a>
-											<ul class="dropdown-menu multi-column columns-3">
-											<div>
+										<?php if($index == 4){ ?>
+										<ul class="dropdown-menu multi-column columns-3 pull-right">
+											<?php } else { ?>
+												<ul class="dropdown-menu multi-column columns-3">
+											<?php } ?>
+											<!-- <div> -->
 												<?php foreach ($this->data['item_'.$item->kdgol] as $detail) { ?>
 												<li class="col-sm-3 multi-gd-img">
 													<div><label class="block-with-text"><?php echo $detail->nama ?></label></div>
@@ -461,7 +470,7 @@ $(window).load(function() {
 													<a class="view-more btn- btn-sm" href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>">More</a>
 												</li>
 												<?php } ?>
-											</div>
+											<!-- </div> -->
 										</ul>
 									</li>
 									<?php 
@@ -572,8 +581,7 @@ $(window).load(function() {
 		<?php 
 			$item_price = 0;
 			
-			if(isset($_SESSION["cart_item"])):
-			foreach ($_SESSION["cart_item"] as $item) {
+		foreach ($_SESSION["cart_item"] as $item) {
 			
 			$item_price  = (float)$item["qty"]*$item["harga"];
 
@@ -592,7 +600,7 @@ $(window).load(function() {
 				</div>
 			</div>
 		</li>
-		<?php } endif; ?>
+		<?php } ?>
 		</ul>
 
 		<a href="<?php echo site_url('checkout'); ?>" class="button <?php if($this->session->userdata('totqty')): echo ''; else: echo 'btn disabled'; endif;?>">Checkout</a>

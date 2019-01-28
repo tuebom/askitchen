@@ -1,27 +1,3 @@
-    <!--content-->
-	<div class="content" style="background: lightgrey;">
-		<div class="container">
-			<div class="product-agileinfo-grids w3l">
-				<div class="col-md-3">
-                    <div class="box box-primary">
-                        <div class="box-body box-profile">
-                        <img class="propic img-responsive img-circle" src="<?= site_url('images/men3.jpg'); ?>" alt="User profile picture">
-
-                        <h4 class="profile-username text-center"><?=$this->data['anggota']->first_name ?> <?=$this->data['anggota']->last_name ?></h4>
-
-                        <!-- <p class="text-muted text-center">Software Engineer</p> -->
-
-                        <ul class="list-group list-group-unbordered">
-                            <li class="list-group-item"><b><a class="profile" href="<?php echo site_url('akun'); ?>">Profil Saya</a></b></li>
-                            <li class="list-group-item"><b><a class="profile" href="<?php echo site_url('akun?p=bb'); ?>">Belanjaan Saya</a></b></li>
-                            <li class="list-group-item"><b><a class="profile" href="<?php echo site_url('akun?p=histori'); ?>">Histori</a></b></li>
-                        </ul>
-
-                        <a href="#" class="btn btn-primary btn-block"><b>Update Profile</b></a>
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                </div>
 				<div class="col-md-9">
                     <div class="row">
                         <ul class="nav nav-page nav-fill">
@@ -32,8 +8,28 @@
                         </ul>
                     </div>
                     <div class="row">
-                        <?php ?>
-                        <?php ?>
+                        
+                        <ul class="cart-items">
+                        <?php 
+                        foreach ($this->data['detil'] as $item) {
+                        ?>
+                            <li class="clearfix">
+                                <div style="display: flex; align-items: center;">
+                                    <div class="cart-img">
+                                        <img class="cart-item-img" src="<?= site_url($this->data['products_dir'].'/'.$item->gambar); ?>" alt="<?=$item->kdbar?>" />
+                                    </div>
+                                    <div class="cart-desc">
+                                        <div class="item-name"><?= $item->nama; ?></div>
+                                        <span class="item-quantity">Qty: <?= $item->qty; ?></span>
+                                    </div>
+                                    <div class="cart-price">
+                                        <span class="item-price">Rp<?= number_format($item->jumlah, 0, ',', '.') ?></span>&nbsp;
+                                    </div>
+                                </div>
+                            </li>
+                        <?php } ?>
+                        </ul>
+
                     </div>
 				</div>
 			</div>

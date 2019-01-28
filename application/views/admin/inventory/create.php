@@ -91,6 +91,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </div>
                                             </div>
 
+                                            <!-- info -->
+                                            <div class="form-group">
+                                                <?php echo lang('inventory_description', 'deskripsi', array('class' => 'col-sm-3 control-label')); ?>
+                                                <div class="col-sm-9">
+                                                    <textarea class="form-control" rows="3" placeholder=""></textarea>
+                                                </div>
+                                            </div>
+
                                             <div class="form-group">
                                                 <?php echo lang('inventory_unit', 'satuan', array('class' => 'col-sm-3 control-label')); ?>
                                                 <div class="col-sm-9">
@@ -135,6 +143,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </div>
                                             </div>
 
+                                            <div class="form-group">
+                                                <?php echo lang('inventory_electricity', 'listrik', array('class' => 'col-sm-3 control-label')); ?>
+                                                <div class="col-sm-9">
+                                                    <?php echo form_input($listrik);?>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <?php echo lang('inventory_capacity', 'kapasitas', array('class' => 'col-sm-3 control-label')); ?>
+                                                <div class="col-sm-9">
+                                                    <?php echo form_input($kapasitas);?>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <?php echo lang('inventory_gas', 'gas', array('class' => 'col-sm-3 control-label')); ?>
+                                                <div class="col-sm-9">
+                                                    <?php echo form_input($gas);?>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <?php echo lang('inventory_weight', 'berat', array('class' => 'col-sm-3 control-label')); ?>
+                                                <div class="col-sm-9">
+                                                    <?php echo form_input($berat);?>
+                                                </div>
+                                            </div>
+
+
 
                                             <div class="form-group">
                                                 <div class="col-sm-offset-2 col-sm-10">
@@ -154,7 +188,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
 
 <script type="text/javascript">
-	$(document).ready(function() {
+    jQuery(document).ready(function($){
 
 		$('#kdgol').change(function(){
 			// alert('test')
