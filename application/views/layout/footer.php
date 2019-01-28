@@ -98,7 +98,7 @@
 			// $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(300);
 		});
 		
-		$('.dropdown-menu').hover(function() {
+		$('.dropdown-menu.catalog').hover(function() {
 			$(this).stop(true, true).delay(100).fadeIn(300);
 		}, function() {
 			$(this).stop(true, true).delay(100).fadeOut(300);
@@ -106,8 +106,10 @@
 
 		$('.grid-arr-cat').hover(function() {
 			$(this).find('div.opacity-container').css("visibility", "visible");
+			$(this).find('div.article-title').css("visibility", "hidden");
 		}, function() {
 			$(this).find('div.opacity-container').css("visibility", "hidden");
+			$(this).find('div.article-title').css("visibility", "visible");
 		});
 
 	</script>

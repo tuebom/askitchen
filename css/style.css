@@ -174,11 +174,11 @@ body{
         display: flex;
         align-items: center;
     }
-    /* .top-left2 {
-        margin-left: 3em;
-    } */
+    .top-left2 {
+        margin-left: 0em;
+    }
     .top-right ul li {
-        padding: 0em .5em;
+        padding: 0em .35em;
     }
     .navbar-default .navbar-nav > li > a {
         font-size: 10px;
@@ -4192,13 +4192,13 @@ h3.tittle1, h3.tittle {
 }
 @media(min-width:1024px){
     div#bs-megadropdown-tabs.sticky {
-        padding-left: 13em;
-        background: url(../images/logo2.png) no-repeat 13px 9px !important;
+        padding-left: 10.7em;
+        background: url(../images/logo2.png) no-repeat 5px 9px !important;
     }
 }
 @media(min-width:1366px){
     div#bs-megadropdown-tabs.sticky {
-        padding-left: 20.5em;
+        padding-left: 17.7em;
         background: url(../images/logo2.png) no-repeat 85px 9px !important;
     }
 }
@@ -4468,11 +4468,11 @@ a:hover, a:focus {
     width: 45px;
     height: 34px;
 }
-.btn-default{
+/* .btn-default{
     color: rgb(2, 2, 2);
     background-color: #838383;
     border-color: transparent;
-}
+} */
 img.img-go{
     /* vertical-align: middle; */
     /* width: 100%;
@@ -4584,10 +4584,10 @@ img.img-responsive2{
 }
 div.col-md-3.product-agileinfo-grid{
 /* border-right: 3px solid black;  */
-    height: 400px;
+    height: 575px;
     overflow: auto; 
 }
-.dropdown-menu {
+.dropdown-menu.catalog {
     margin: 0;
     float: left;
     background: #d6cfcf;
@@ -4600,10 +4600,33 @@ div.col-md-3.product-agileinfo-grid{
     top: 132px;
     display: none;
 }
+
+@media (min-width: 768px) {
+    .dropdown-menu.catalog {
+        width: 90%;
+        left: 5%;
+        top: 210px;
+    }
+    /* .open>.dropdown-menu {
+        display: none;
+    } */
+}
+@media (min-width: 1024px) {
+    .dropdown-menu.catalog {
+        width: 640px;
+        left: 165px;
+    }
+}
 @media (min-width: 1366px) {
-    .dropdown-menu {
+    .dropdown-menu.catalog {
         width: 800px;
-        left: 305px;
+        left: 262px;
+    }
+}
+@media (min-width: 1440px) {
+    .dropdown-menu.catalog {
+        width: 800px;
+        left: 300px;
     }
 }
 
@@ -4718,6 +4741,27 @@ ul.shopping-cart-items {
     clear: both;
 }
 /* shopping cart */
+
+ul.cart-items {
+    list-style: none;
+    background: #fff;
+    border-radius: 5px;
+    height: 375px;
+    overflow: auto;
+}
+ul.cart-items li {
+    height: 65px;
+}
+.cart-item-img {
+    width: 35px; /*70px;*/
+    height: 50px;
+    display: inline-block;
+}
+.cart-price {
+    padding: 0 5px;
+    color: #6394F8;
+}
+
 
 /* checkout */
 .nav-pills {
