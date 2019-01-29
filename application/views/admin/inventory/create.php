@@ -168,6 +168,51 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </div>
                                             </div>
 
+                                            <div class="form-group">
+                                                <?php echo lang('inventory_feature', 'fitur', array('class' => 'col-sm-3 control-label')); ?>
+                                                <div class="col-sm-9">
+                                                    <?php echo form_textarea($fitur);?>
+                                                    <!-- <textarea class="form-control" rows="3" placeholder=""></textarea> -->
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <?php echo lang('inventory_promotion', 'promosi', array('class' => 'col-sm-3 control-label')); ?>
+                                                <div class="col-sm-9">
+                                                    <?php echo form_checkbox('promosi', FALSE);?>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <?php echo lang('inventory_tag', 'tag', array('class' => 'col-sm-3 control-label')); ?>
+                                                <div class="col-sm-9">
+                                                    <?php echo form_input($tag);?>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <?php echo lang('inventory_price', 'hjual', array('class' => 'col-sm-3 control-label')); ?>
+                                                <div class="col-sm-9">
+                                                    <?php echo form_input($hjual);?>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <?php echo lang('inventory_qty_onhand', 'saldo', array('class' => 'col-sm-3 control-label')); ?>
+                                                <div class="col-sm-9">
+                                                    <?php echo form_input($saldo);?>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <?php echo lang('inventory_picture', 'gambar', array('class' => 'col-sm-3 control-label')); ?>
+                                                <div class="col-sm-9">
+                                                    <?php echo form_input($gambar);?>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-3"></div>
+                                                <div class="col-sm-9">
+                                                    <a id="btnUpload" href="#" class="btn btn-sm btn-default btn-block btn-flat">Upload Gambar</a>
+                                                    <?php echo form_upload($tmpgambar);?>
+                                                </div>
+                                            </div>
 
 
                                             <div class="form-group">
@@ -186,40 +231,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </section>
             </div>
-
-<script type="text/javascript">
-    jQuery(document).ready(function($){
-
-		$('#kdgol').change(function(){
-			// alert('test')
-			$.ajax({
-			    type: "POST",
-			    url: "<?php echo site_url();?>inventory/level2/"+$(this).val(),
-			    success:function(json){
-			        var data = json.data;
-			        console.log(data)
-			        $('#kdgol2').html('');
-			        for (var i = 0; i < data.length; i++) {
-			            $('#kdgol2').append('<option value="'+data[i].kdgol2+'">'+data[i].nama+'</option>')
-			        }
-			    },
-			});
-		});
-
-		$('#kdgol2').change(function(){
-			$.ajax({
-				type: "POST",
-				url: "<?php echo site_url();?>inventory/level3/"+$(this).val(),
-				success:function(json){
-					var data = json.data;
-					console.log(data)
-					$('#kdgol3').html('');
-					for (var i = 0; i < data.length; i++) {
-						$('#kdgol3').append('<option value="'+data[i].kdgol3+'">'+data[i].nama+'</option>')
-					}
-				},
-			});
-		});
-
-    });
-</script>

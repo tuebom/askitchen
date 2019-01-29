@@ -41,6 +41,8 @@ class Checkout extends Public_Controller {
 			// siapkan data member
 			$member = $this->ion_auth->user()->row();
 			$this->data['anggota'] = $member;
+			$this->data['first_name'] = $member->first_name;
+			$this->data['last_name']  = $member->last_name;
 			
 			$address_data = array(
 				'first_name' => $member->first_name,

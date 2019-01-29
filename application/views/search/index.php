@@ -133,7 +133,7 @@
 																	<div class="grid-img">
 																		<img src="<?=base_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar; ?>">
 																	</div>
-																</a>		
+																</a>
 															</figure>	
 														</div>
 														<!-- <div class="block">

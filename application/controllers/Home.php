@@ -27,6 +27,13 @@ class Home extends Public_Controller {
 		foreach ($this->data['golongan'] as $item) {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
+
+		if ($this->ion_auth->logged_in())
+		{
+			$member = $this->ion_auth->user()->row();
+			$this->data['first_name'] = $member->first_name;
+			$this->data['last_name']  = $member->last_name;
+		}
 		
 		if(!isset($_SESSION["totqty"])) {
 			$this->session->set_userdata('totqty', 0);
@@ -150,9 +157,9 @@ class Home extends Public_Controller {
 				header("location: ".$url);
 			}
 		}
-		
+
 		// $this->data['rnd_products'] = $this->stock_model->get_random_products();
-		$this->data['rnd_products'] = $this->stock_model->get_limit_data(4,0);
+		$this->data['rnd_products']  = $this->stock_model->get_limit_data(4,0);
 		$this->data['rnd_products2'] = $this->stock_model->get_limit_data(4,7);
 		$this->data['rnd_products3'] = $this->stock_model->get_limit_data(4,13);
 

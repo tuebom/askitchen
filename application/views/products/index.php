@@ -52,7 +52,6 @@
 									</ul>
 									
 									<script type="text/javascript">
-									// $(window).load(function(){
 										
 										function isNumber(evt) {
 											evt = (evt) ? evt : window.event;
@@ -77,8 +76,6 @@
 											window.location.href = $(this).attr('href');
 										});
 
-									// })
-									
 									</script>
 									 
 								</div>

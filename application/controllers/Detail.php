@@ -13,6 +13,8 @@ class Detail extends Public_Controller {
 		$this->load->model('stock_model');
 		$this->load->model('reviews_model');
 		
+		require_once(APPPATH.'third_party/recaptcha-master/src/autoload.php');
+		
 		// $this->output->enable_profiler(TRUE);
 	}
 
@@ -25,12 +27,19 @@ class Detail extends Public_Controller {
 		foreach ($this->data['golongan'] as $item) {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
+
+		if ($this->ion_auth->logged_in())
+		{
+			$member = $this->ion_auth->user()->row();
+			$this->data['first_name'] = $member->first_name;
+			$this->data['last_name']  = $member->last_name;
+		}
         
         $kode = $this->uri->segment(2);
 		
 		$this->data['product']   = $this->stock_model->get_by_kodeurl($kode);
 		$this->data['related']   = $this->stock_model->get_related($this->data['product']->kdgol2, $kode);
-		// $this->data['promotion'] = $this->stock_model->get_promotion($this->data['product']->kdgol2, $kode);
+		$this->data['promotion'] = $this->stock_model->get_promotion($this->data['product']->kdgol2, $kode);
 
 		$action  = $this->input->get('action');
 		
@@ -89,7 +98,7 @@ class Detail extends Public_Controller {
 					}
 
 					// $_SESSION["totqty"] += $qty;
-					$val = (int)$this->session->userdata('totqty') + 1;
+					$val = (int)$this->session->userdata('totqty') + $qty;
 					$this->session->set_userdata('totqty', $val);
 				}
 					
@@ -102,7 +111,6 @@ class Detail extends Public_Controller {
 					$total_price += $item_price;
 				}
 				$this->session->set_userdata('tot_price', $total_price);
-				// die($total_price);
 				
 				$url = strtok(current_url(), '?');
 				header("location: ".$url);
@@ -136,7 +144,7 @@ class Detail extends Public_Controller {
 				}
 		
 				// inisiasi
-				$item_price = 0;
+				$item_price  = 0;
 				$total_price = 0;
 							
 				// hitung total dan simpan di variabel session

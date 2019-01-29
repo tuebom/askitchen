@@ -40,7 +40,7 @@ jQuery(document).ready(function($){
     // update profile
     $('.btn-profile').on('click', function (c) {
         $('#userfile').trigger("click");
-        console.log($("<input type='file'/>").get(0).files);
+        // console.log($("<input type='file'/>").get(0).files);
     });
 });
 </script>    

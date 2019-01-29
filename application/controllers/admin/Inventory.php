@@ -186,6 +186,84 @@ class Inventory extends Admin_Controller {
                 'class' => 'form-control',
 				'value' => $this->form_validation->set_value('tgi'),
 			);
+			
+			$this->data['listrik'] = array(
+				'name'  => 'listrik',
+				'id'    => 'listrik',
+				'type'  => 'text',
+                'class' => 'form-control',
+				'value' => $this->form_validation->set_value('listrik'),
+			);
+			$this->data['kapasitas'] = array(
+				'name'  => 'kapasitas',
+				'id'    => 'kapasitas',
+				'type'  => 'text',
+                'class' => 'form-control',
+				'value' => $this->form_validation->set_value('kapasitas'),
+			);
+			$this->data['gas'] = array(
+				'name'  => 'gas',
+				'id'    => 'gas',
+				'type'  => 'text',
+                'class' => 'form-control',
+				'value' => $this->form_validation->set_value('gas'),
+			);
+			$this->data['berat'] = array(
+				'name'  => 'berat',
+				'id'    => 'berat',
+				'type'  => 'text',
+                'class' => 'form-control',
+				'value' => $this->form_validation->set_value('berat'),
+			);
+			$this->data['fitur'] = array(
+				'name'  => 'fitur',
+				'id'    => 'fitur',
+				'rows'  => '3',
+                'class' => 'form-control',
+				'value' => $this->form_validation->set_value('fitur'),
+			);
+			$this->data['promosi'] = array(
+				'name'  => 'promosi',
+				'id'    => 'promosi',
+                'class' => 'form-control',
+				'value' => $this->form_validation->set_value('promosi'),
+			);
+			$this->data['tag'] = array(
+				'name'  => 'tag',
+				'id'    => 'tag',
+				'type'  => 'text',
+                'class' => 'form-control',
+				'value' => $this->form_validation->set_value('tag'),
+			);
+			$this->data['hjual'] = array(
+				'name'  => 'hjual',
+				'id'    => 'hjual',
+				'type'  => 'text',
+                'class' => 'form-control',
+				'value' => $this->form_validation->set_value('hjual'),
+			);
+			$this->data['saldo'] = array(
+				'name'  => 'saldo',
+				'id'    => 'saldo',
+				'type'  => 'text',
+                'class' => 'form-control',
+				'value' => $this->form_validation->set_value('saldo'),
+			);
+			$this->data['gambar'] = array(
+				'name'  => 'gambar',
+				'id'    => 'gambar',
+				'type'  => 'text',
+                'class' => 'form-control',
+				'value' => $this->form_validation->set_value('gambar'),
+			);
+			$this->data['tmpgambar'] = array(
+				'name'  => 'prdfile',
+				'id'    => 'prdfile',
+				'type'  => 'text',
+				'class' => 'form-control',
+				'style' => 'display: none;',
+				'value' => $this->form_validation->set_value('userfile'),
+			);
 
             /* Load Template */
             $this->template->admin_render('admin/inventory/create', $this->data);
@@ -244,8 +322,12 @@ class Inventory extends Admin_Controller {
 					'gas'        => $this->input->post('gas'),
 					'berat'      => $this->input->post('berat'),
 					
+					'fitur'      => $this->input->post('fitur'),
+					'promosi'    => $this->input->post('promosi'),
+					
 					'tag'        => $this->input->post('tag'),
 					'hjual'      => $this->input->post('hjual'),
+					'saldo'      => $this->input->post('saldo'),
 				);
 
                 if($this->inventory_model->update($user->id, $data))

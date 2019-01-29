@@ -20,10 +20,6 @@ class Contact_us extends Public_Controller {
 	public function index()
 	{
 
-		// $this->load->library("phpmailer_library");
-		// $objMail = $this->phpmailer_library->load();
-		
-
 		$this->data['golongan'] = $this->golongan_model->get_all();
 
 		foreach ($this->data['golongan'] as $item) {
@@ -99,7 +95,7 @@ class Contact_us extends Public_Controller {
 		}
 		
 		$this->load->view('layout/header', $this->data);
-		$this->load->view('contact/index', $this->data);
+		$this->load->view('contact-us/index', $this->data);
 		$this->load->view('layout/footer', $this->data);
 	}
 }
