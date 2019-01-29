@@ -23,13 +23,18 @@ class Products extends Public_Controller {
 		foreach ($this->data['golongan'] as $item) {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
+
+		if ($this->ion_auth->logged_in())
+		{
+			$member = $this->ion_auth->user()->row();
+			$this->data['first_name'] = $member->first_name;
+			$this->data['last_name']  = $member->last_name;
+		}
         
 		$kode = $this->uri->segment(3); // kode golongan
-		// die($kode);
 		
 		$this->data['title']  = $this->golongan3_model->get_by_id($kode)->nama;
 		$this->data['kdgol']  = substr($kode,0,2);
-		// $this->data['kdgol2'] = substr($kode,0,5);
 		$kdgol2 = substr($kode,0,5);
 
 		$this->data['item_'.$kdgol2] = $this->golongan2_model->get_sub_category($kdgol2);

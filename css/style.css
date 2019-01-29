@@ -2489,8 +2489,14 @@ h2.typoh2{
     font-weight: bold;
 	font-family: 'Cagliostro', sans-serif;
 }
+a.product-title.promo {
+	font-weight: 500;
+}
+a.product-title.promo:hover {
+    color: #3c8dbc;
+}
 p.price {
-    font-size: 2em;
+    font-size: 1.5em;
     margin: 0.5em 0;
     color: #AF1D0D;
     font-weight: bold;
@@ -2545,8 +2551,8 @@ span.price-in1 {
     border: none !important;
     border-radius: 10px;
     color: black;
-    /* background: #F19E1F ; */
-    background: transparent
+    /* background: #F19E1F; */
+    background: transparent;
     padding: 0.1em 0.3em;
     font-size: 1.4em;
 }
@@ -5086,4 +5092,18 @@ div.profile {
 .nav-page .nav-link:hover {
     color: #ffff;
     background: #467fbf;
+}
+
+.box.box-primary.profile,
+.box.box-primary.items {
+    height: 345px;
+}
+.box.box-primary.items {
+    overflow: scroll;
+}
+.box.box-primary {
+    border-top-color: #fff;
+}
+.box-header {
+    padding: 0;
 }

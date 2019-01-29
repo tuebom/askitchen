@@ -41,6 +41,8 @@ class Checkout extends Public_Controller {
 			// siapkan data member
 			$member = $this->ion_auth->user()->row();
 			$this->data['anggota'] = $member;
+			$this->data['first_name'] = $member->first_name;
+			$this->data['last_name']  = $member->last_name;
 			
 			$address_data = array(
 				'first_name' => $member->first_name,
@@ -114,6 +116,8 @@ class Checkout extends Public_Controller {
 			$this->db->insert('orders', $orders_data);
 			$orderid = $this->db->insert_id();
 	
+			$urut = 1;
+
 			// simpan detail
 			foreach ($_SESSION["cart_item"] as $item) {						
 			
@@ -122,12 +126,14 @@ class Checkout extends Public_Controller {
 				$detail_data = array(
 					'id'       => $orderid,
 					'tglinput' => $tglinput,
+					'urut'     => $urut,
 					'kdbar'    => $item["kdbar"],
 					'qty'      => $item["qty"],
 					'hjual'    => $item["harga"],
 					'jumlah'   => $item_price
 				);
 				$this->db->insert('orders_detail', $detail_data);
+				$urut++;
 			}
 			
 			$this->db->trans_complete(); // commit
@@ -155,11 +161,6 @@ class Checkout extends Public_Controller {
 		if ($tab) {
 
 			// if ($tab === 'address') {
-				
-			// 	if (isset($_SESSION["province"])) {
-			// 		$this->data['kabupaten'] = $this->kabupaten_model->get_by_province_id($_SESSION["province"]);
-			// 		$this->data['kecamatan'] = $this->kecamatan_model->get_by_regency_id($_SESSION["regency"]);
-			// 	}
 			// }
 			if ($tab === 'delivery')
 			{

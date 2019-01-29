@@ -19,6 +19,13 @@ class Categories extends Public_Controller {
 		foreach ($this->data['golongan'] as $item) {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
+
+		if ($this->ion_auth->logged_in())
+		{
+			$member = $this->ion_auth->user()->row();
+			$this->data['first_name'] = $member->first_name;
+			$this->data['last_name']  = $member->last_name;
+		}
         
         $kode = $this->uri->segment(2);
 		

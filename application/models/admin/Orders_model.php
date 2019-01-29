@@ -35,7 +35,7 @@ class Orders_model extends CI_Model
     // get item belum bayar
     function get_item_bb($mbrid)
     {
-        $this->db->select('o1.kdbar, s.nama, o1.qty, o1.hjual, o1.jumlah, s.gambar');
+        $this->db->select('o1.kdbar, s.kdurl, s.nama, o1.qty, o1.hjual, o1.jumlah, s.gambar');
         $this->db->from('orders o, orders_detail o1, stock s');
         $this->db->where('o.id = o1.id and o1.kdbar = s.kdbar and o.status = "P"');
         $this->db->where('o.mbrid', $mbrid);
@@ -46,7 +46,7 @@ class Orders_model extends CI_Model
     // get item delivered
     function get_item_bs($mbrid)
     {
-        $this->db->select('o1.kdbar, s.nama, o1.qty, o1.hjual, o1.jumlah, s.gambar');
+        $this->db->select('o1.kdbar, s.kdurl, s.nama, o1.qty, o1.hjual, o1.jumlah, s.gambar');
         $this->db->from('orders o, orders_detail o1, stock s');
         $this->db->where('o.id = o1.id and o1.kdbar = s.kdbar and o.status = "D"');
         $this->db->where('o.mbrid', $mbrid);
@@ -57,7 +57,7 @@ class Orders_model extends CI_Model
     // get history
     function get_history($mbrid)
     {
-        $this->db->select('o.tglinput, o.id, o1.kdbar, s.nama, o1.qty, o1.hjual, o1.jumlah, s.gambar');
+        $this->db->select('o.tglinput, o.id, o1.kdbar, s.kdurl, s.nama, o1.qty, o1.hjual, o1.jumlah, s.gambar');
         $this->db->from('orders o, orders_detail o1, stock s');
         $this->db->where('o.id = o1.id and o1.kdbar = s.kdbar and o.status = "D"');
         $this->db->where('o.mbrid', $mbrid);

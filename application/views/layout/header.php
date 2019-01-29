@@ -405,7 +405,16 @@ $(window).load(function() {
 							<li><a href="<?php echo site_url('admin'); ?>">Admin</a></li>
 							<?php endif; ?>
 							<?php if ($logout_link): ?>
-							<li><a href="<?php echo site_url('akun'); ?>">Akun Saya</a></li>
+							<li class="dropdown"><a href="<?= site_url('akun'); ?>"><?= $first_name .' '.$last_name ?>&nbsp;<b class="caret"></b></a>
+								<ul class="dropdown-menu dropdown-menu-right">
+									<li class=""><a href="<?= site_url('akun'); ?>"><i class="mi fa fa-user"></i> Profile</a></li>
+									<li class=""><a href="<?= site_url('akun?p=bb'); ?>"><i class="mi fa fa-heart"></i> Orders</a></li>
+									<li class=""><a href="<?= site_url('akun?p=histori'); ?>"><i class="mi fa fa-heart-o"></i> Quotations</a></li>
+									<li role="separator" class="divider"></li>
+									<li class=""><a href="<?= site_url('auth/logout/public'); ?>"><i class="mi fa fa-sign-out"></i> Logout</a></li>
+								</ul>
+							</li>
+							<!-- <li><a href="<?php echo site_url('akun'); ?>">Akun Saya</a></li> -->
 							<li><a href="<?php echo site_url('auth/logout/public'); ?>">Logout</a></li>
 							<?php else: ?>
 							<li><a href="<?php echo site_url('register'); ?>">Register</a></li>

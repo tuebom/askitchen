@@ -7,7 +7,7 @@
 					<div class="single-grids">
 						<div clas="single-top">
 							<!-- <div class="single-left"> -->
-							<div class="col-md-4 col-sm-4 col-xs-12">
+							<div class="col-md-3 col-sm-3 col-xs-12">
 								<div class="row">
 									<!-- <div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive2"> </div> -->
 									<div class="flexslider">
@@ -57,18 +57,26 @@
 											var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
 											divUpd.text(newVal);
 											$(this).parents("#formAdd").find('#qty')[0].value = divUpd.text();
+
+											var theUrl = "<?= current_url().'?action=add&code='.$this->data['product']->kdurl ?>";
+											var newUri = theUrl + '&qty='+divUpd.text();
+											$('#qtyOrder').attr("href", newUri);
 										});
 
 										$('.value-minus').on('click', function(){
 											var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
 											if(newVal>=1) divUpd.text(newVal);
 											$(this).parents("#formAdd").find('#qty')[0].value = divUpd.text();
+
+											var theUrl = "<?= current_url().'?action=add&code='.$this->data['product']->kdurl ?>";
+											var newUri = theUrl + '&qty='+divUpd.text();
+											$('#qtyOrder').attr("href", newUri);
 										});
 										</script>
 								</div>
 								<div class="women">
 									<!-- <a href="javascript:{}" onclick="document.getElementById('formAdd').submit(); return false;" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a> -->
-									<a href="<?= current_url().'?action=add&code='.$this->data['product']->kdurl ?>" class="my-cart-b item_add">Add To Cart</a>
+									<a id="qtyOrder" href="<?= current_url().'?action=add&code='.$this->data['product']->kdurl ?>" class="my-cart-b item_add">Add To Cart</a>
 								</div>
 								<div class="social-icon">
 									<h6>Share:</h6>
@@ -79,7 +87,65 @@
 								</div>
 								</form>
 							</div>
-							<div class="col-md-3 col-sm-3 col-xs-12">
+							<div class="col-md-4 col-sm-4 col-xs-12">
+								<div class="box box-primary">
+									<div class="box-header with-border">
+									<h3 class="box-title">Promotion Products</h3>
+
+									<!-- <div class="box-tools pull-right">
+										<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+										</button>
+										<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+									</div> -->
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body">
+									<?php if( count($promotion) > 0) { ?>
+									<ul class="products-list product-list-in-box">
+										<?php foreach ( $promotion as $item) { ?>
+										<li class="item">
+											<div class="product-img">
+												<img src="<?=site_url($this->data['products_dir'].'/'.$item->gambar)?>" alt="Image">
+											</div>
+											<div class="product-info">
+												<a class="product-title promo" href="<?= site_url('detail/'.$item->kdurl); ?>"><?=$item->nama . ' ('. $item->kdbar .')'?></a><br>
+												<span class="label label-warning">Rp<?=$item->hjual?></span></a>
+												<span class="product-description"><?=$item->deskripsi?></span>
+											</div>
+										</li>
+										<!-- /.item -->
+										<?php } ?>
+									</ul>
+									<?php } // tidak ada item promo
+									elseif( count($related) > 0) { ?>
+									<ul class="products-list product-list-in-box">
+										<?php 
+											$index = 0;
+											foreach ( $related as $item) { ?>
+										<li class="item">
+											<div class="product-img">
+												<img src="<?=site_url($this->data['products_dir'].'/'.$item->gambar)?>" alt="Image">
+											</div>
+											<div class="product-info">
+												<a class="product-title promo" href="<?= site_url('detail/'.$item->kdurl); ?>"><?=$item->nama . ' ('. $item->kdbar .')'?></a><br>
+												<span class="label label-warning">Rp<?=$item->hjual?></span></a>
+												<span class="product-description"><?=$item->deskripsi?></span>
+											</div>
+										</li>
+										<!-- /.item -->
+										<?php 
+											$index++;
+											if ($index == 5) break;
+											} ?>
+									</ul>
+									<?php } ?>
+									</div>
+									<!-- /.box-body -->
+									<!-- <div class="box-footer text-center">
+									<a href="javascript:void(0)" class="uppercase">View All Products</a>
+									</div> -->
+									<!-- /.box-footer -->
+								</div>
 							</div>
 							<div class="clearfix"> </div>
 						</div>
