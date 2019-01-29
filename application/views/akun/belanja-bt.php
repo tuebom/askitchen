@@ -1,4 +1,4 @@
-				<div class="col-md-9">
+				<div class="col-md-9 col-sm-9">
                     <div class="row">
                         <ul class="nav nav-page nav-fill">
                             <li class="nav-item"><a href="<?php echo site_url('akun?p=bb'); ?>" class="nav-link">Belum Bayar</a></li>
@@ -8,28 +8,27 @@
                         </ul>
                     </div>
                     <div class="row">
-                        
-                        <ul class="cart-items">
-                        <?php 
-                        foreach ($this->data['detil'] as $item) {
-                        ?>
-                            <li class="clearfix">
-                                <div style="display: flex; align-items: center;">
-                                    <div class="cart-img">
-                                        <img class="cart-item-img" src="<?= site_url($this->data['products_dir'].'/'.$item->gambar); ?>" alt="<?=$item->kdbar?>" />
+                        <div class="box box-primary items">
+                        <div class="box-body">
+                            <?php if( count($detil) > 0) { ?>
+                            <ul class="products-list product-list-in-box">
+                                <?php foreach ( $detil as $item) { ?>
+                                <li class="item">
+                                    <div class="product-img">
+                                        <img src="<?=site_url($this->data['products_dir'].'/'.$item->gambar)?>" alt="Image">
                                     </div>
-                                    <div class="cart-desc">
-                                        <div class="item-name"><?= $item->nama; ?></div>
-                                        <span class="item-quantity">Qty: <?= $item->qty; ?></span>
+                                    <div class="product-info">
+                                        <a class="product-title promo" href="<?= site_url('detail/'.$item->kdurl); ?>"><?=$item->nama . ' ('. $item->kdbar .')'?></a>
+                                        <span class="label label-success pull-right">Rp<?=number_format($item->jumlah, 0, ',', '.')?></span></a><br>
+                                        <span class="product-description">Qty: <?=$item->qty?></span>
                                     </div>
-                                    <div class="cart-price">
-                                        <span class="item-price">Rp<?= number_format($item->jumlah, 0, ',', '.') ?></span>&nbsp;
-                                    </div>
-                                </div>
-                            </li>
-                        <?php } ?>
-                        </ul>
-
+                                </li>
+                                <!-- /.item -->
+                                <?php } ?>
+                            </ul>
+                            <?php } ?>
+                        </div>
+                        </div>
                     </div>
 				</div>
 			</div>

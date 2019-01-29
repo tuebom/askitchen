@@ -104,17 +104,39 @@
 									<ul class="products-list product-list-in-box">
 										<?php foreach ( $promotion as $item) { ?>
 										<li class="item">
-										<div class="product-img">
-											<img src="<?=site_url($this->data['products_dir'].'/'.$item->gambar)?>" alt="Product Image">
-										</div>
-										<div class="product-info">
-											<a class="product-title promo" href="<?= site_url('detail/'.$item->kdurl); ?>"><?=$item->nama?></a>
-											<span class="label label-warning pull-right">Rp<?=$item->hjual?></span></a>
-											<span class="product-description"><?=$item->deskripsi?></span>
-										</div>
+											<div class="product-img">
+												<img src="<?=site_url($this->data['products_dir'].'/'.$item->gambar)?>" alt="Image">
+											</div>
+											<div class="product-info">
+												<a class="product-title promo" href="<?= site_url('detail/'.$item->kdurl); ?>"><?=$item->nama . ' ('. $item->kdbar .')'?></a><br>
+												<span class="label label-warning">Rp<?=$item->hjual?></span></a>
+												<span class="product-description"><?=$item->deskripsi?></span>
+											</div>
 										</li>
 										<!-- /.item -->
 										<?php } ?>
+									</ul>
+									<?php } // tidak ada item promo
+									elseif( count($related) > 0) { ?>
+									<ul class="products-list product-list-in-box">
+										<?php 
+											$index = 0;
+											foreach ( $related as $item) { ?>
+										<li class="item">
+											<div class="product-img">
+												<img src="<?=site_url($this->data['products_dir'].'/'.$item->gambar)?>" alt="Image">
+											</div>
+											<div class="product-info">
+												<a class="product-title promo" href="<?= site_url('detail/'.$item->kdurl); ?>"><?=$item->nama . ' ('. $item->kdbar .')'?></a><br>
+												<span class="label label-warning">Rp<?=$item->hjual?></span></a>
+												<span class="product-description"><?=$item->deskripsi?></span>
+											</div>
+										</li>
+										<!-- /.item -->
+										<?php 
+											$index++;
+											if ($index == 5) break;
+											} ?>
 									</ul>
 									<?php } ?>
 									</div>

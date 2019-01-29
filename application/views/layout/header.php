@@ -405,7 +405,7 @@ $(window).load(function() {
 							<li><a href="<?php echo site_url('admin'); ?>">Admin</a></li>
 							<?php endif; ?>
 							<?php if ($logout_link): ?>
-							<li class="dropdown"><a href="#"><?= $first_name .' '.$last_name ?>&nbsp;<b class="caret"></b></a>
+							<li class="dropdown"><a href="<?= site_url('akun'); ?>"><?= $first_name .' '.$last_name ?>&nbsp;<b class="caret"></b></a>
 								<ul class="dropdown-menu dropdown-menu-right">
 									<li class=""><a href="<?= site_url('akun'); ?>"><i class="mi fa fa-user"></i> Profile</a></li>
 									<li class=""><a href="<?= site_url('akun?p=bb'); ?>"><i class="mi fa fa-heart"></i> Orders</a></li>

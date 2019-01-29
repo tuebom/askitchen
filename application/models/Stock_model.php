@@ -71,7 +71,7 @@ class Stock_model extends CI_Model
     // get related product
     function get_related($kode, $kdbar)
     {
-        $this->db->select('kdbar, kdurl, nama, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar')
+        $this->db->select('kdbar, kdurl, nama, deskripsi, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar')
             ->from('stock')
             ->where('kdgol2', $kode)
             ->where('kdbar !=', $kdbar)
@@ -80,7 +80,7 @@ class Stock_model extends CI_Model
     }
 
     // get promotion product
-    function get_promotion($kode, $kdbar)
+    function get_promotion($kdbar)
     {
         $this->db->select('kdbar, kdurl, nama, deskripsi, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar')
             ->from('stock')
@@ -100,25 +100,6 @@ class Stock_model extends CI_Model
             ->order_by('kdbar', 'ASC');
         return $this->db->get()->result();
     }
-    
-    // get total rows
-    // function total_rows($q = NULL) {
-    //     $this->db->like('kdbar', $q);
-    //     $this->db->or_like('nama', $q);
-    //     $this->db->or_like('kdgol', $q);
-    //     $this->db->or_like('kdgol2', $q);
-    //     $this->db->or_like('pnj', $q);
-    //     $this->db->or_like('lbr', $q);
-    //     $this->db->or_like('tgi', $q);
-    //     $this->db->or_like('listrik', $q);
-    //     $this->db->or_like('kapasitas', $q);
-    //     $this->db->or_like('gas', $q);
-    //     $this->db->or_like('berat', $q);
-    //     $this->db->or_like('fitur', $q);
-    //     $this->db->or_like('disc', $q);
-    //     $this->db->from($this->table);
-    //     return $this->db->count_all_results();
-    // }
     
     // get total rows
     function total_rows($q = NULL, $b = NULL, $p1 = 0, $p2 = 0) {
@@ -153,31 +134,9 @@ class Stock_model extends CI_Model
         return $this->db->count_all_results();
     }
 
-    // get data with limit and search
-    // function get_limit_data($limit, $start = 0, $q = NULL) {
-        
-    //     $this->db->select('kdbar, kdurl, nama, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar');
-    //     $this->db->order_by($this->id, $this->order);
-    //     $this->db->like('kdbar', $q);
-    //     $this->db->or_like('nama', $q);
-    //     $this->db->or_like('kdgol', $q);
-    //     $this->db->or_like('kdgol2', $q);
-    //     $this->db->or_like('pnj', $q);
-    //     $this->db->or_like('lbr', $q);
-    //     $this->db->or_like('tgi', $q);
-    //     $this->db->or_like('listrik', $q);
-    //     $this->db->or_like('kapasitas', $q);
-    //     $this->db->or_like('gas', $q);
-    //     $this->db->or_like('berat', $q);
-    //     $this->db->or_like('fitur', $q);
-    //     $this->db->or_like('disc', $q);
-	//     $this->db->limit($limit, $start);
-    //     return $this->db->get($this->table)->result();
-    // }
-
     function get_limit_data($limit, $start = 0, $q = NULL, $b = NULL, $p1 = 0, $p2 = 0) {
         
-        $qry = $this->db->select('kdbar, kdurl, nama, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar');
+        $qry = $this->db->select('kdbar, kdurl, nama, deskripsi, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar');
         
         if ($q) {
             $qry->group_start()
@@ -213,15 +172,6 @@ class Stock_model extends CI_Model
 	    $this->db->limit($limit, $start);
         return $this->db->get($this->table)->result();
     }
-
-    // get item reviews
-    // function get_reviews($code)
-    // {
-    //     $this->db->select('comment');
-    //     $this->db->order_by('timestamp', 'DESC');
-    //     $this->db->where('kdbar', $code);
-    //     return $this->db->get('reviews')->result();
-    // }
 
     // insert data
     function insert($data)

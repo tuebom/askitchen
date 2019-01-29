@@ -2489,6 +2489,9 @@ h2.typoh2{
     font-weight: bold;
 	font-family: 'Cagliostro', sans-serif;
 }
+a.product-title.promo {
+	font-weight: 500;
+}
 a.product-title.promo:hover {
     color: #3c8dbc;
 }
@@ -5091,6 +5094,13 @@ div.profile {
     background: #467fbf;
 }
 
+.box.box-primary.profile,
+.box.box-primary.items {
+    height: 345px;
+}
+.box.box-primary.items {
+    overflow: scroll;
+}
 .box.box-primary {
     border-top-color: #fff;
 }
