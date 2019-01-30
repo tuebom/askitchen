@@ -27,6 +27,7 @@ $lang['menu_search'] = 'Search';
 /* ****** */$lang['menu_attributes']            = 'Attributes';
 
 /* ****** */$lang['menu_orders']                = 'Orders';
+/* ****** */$lang['menu_members']               = 'Members';
 
 
 /* * */$lang['menu_administration']             = 'Administration';

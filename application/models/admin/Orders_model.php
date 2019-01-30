@@ -79,7 +79,21 @@ class Orders_model extends CI_Model
     // get history
     function get_history($mbrid)
     {
-        $this->db->select('o.tglinput, o.id, o1.kdbar, s.kdurl, s.nama, o1.qty, o1.hjual, o1.jumlah, s.gambar');
+        $this->db->select('CONCAT(DAY(o.tglinput)," ",'. //o.tglinput,
+        'CASE MONTH(o.tglinput) '.
+          'WHEN 1 THEN "Jan" '.
+          'WHEN 2 THEN "Feb" '.
+          'WHEN 3 THEN "Mar" '.
+          'WHEN 4 THEN "Apr" '.
+          'WHEN 5 THEN "Mei" '.
+          'WHEN 6 THEN "Jun" '.
+          'WHEN 7 THEN "Jul" '.
+          'WHEN 8 THEN "Agu" '.
+          'WHEN 9 THEN "Sep" '.
+          'WHEN 10 THEN "Okt" '.
+          'WHEN 11 THEN "Nov" '.
+          'WHEN 12 THEN "Des" '.
+        'END," ", YEAR(o.tglinput)) as tglinput, o.id, o1.kdbar, s.kdurl, s.nama, o1.qty, o1.hjual, o1.jumlah, s.gambar');
         $this->db->from('orders o, orders_detail o1, stock s');
         $this->db->where('o.id = o1.id and o1.kdbar = s.kdbar and o.status = "DLV"');
         $this->db->where('o.mbrid', $mbrid);
@@ -103,7 +117,22 @@ class Orders_model extends CI_Model
 
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL) {
-        $this->db->select('o.id, concat(a.first_name, " ", a.last_name) as name, o.tglinput,'.
+        $this->db->select('o.id, concat(a.first_name, " ", a.last_name) as name, '. //o.tglinput,'.
+        'CONCAT(DAY(o.tglinput)," ",'.
+            'CASE MONTH(o.tglinput) '.
+              'WHEN 1 THEN "Jan" '.
+              'WHEN 2 THEN "Feb" '.
+              'WHEN 3 THEN "Mar" '.
+              'WHEN 4 THEN "Apr" '.
+              'WHEN 5 THEN "Mei" '.
+              'WHEN 6 THEN "Jun" '.
+              'WHEN 7 THEN "Jul" '.
+              'WHEN 8 THEN "Agu" '.
+              'WHEN 9 THEN "Sep" '.
+              'WHEN 10 THEN "Okt" '.
+              'WHEN 11 THEN "Nov" '.
+              'WHEN 12 THEN "Des" '.
+            'END," ", YEAR(o.tglinput)) as tglinput,'.
         'IF(o.status = "PND", "Pending", IF(o.status = "PAID", "Processing",'.
         'IF(o.status = "SHPD", "Shipped", "Delivered"))) as status,'.
         'CONCAT(a.address, ", ", d.name, ", ", r.name, " - ", p.name, " ", a.post_code) as address, o.gtotal');

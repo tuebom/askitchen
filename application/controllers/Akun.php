@@ -122,30 +122,6 @@ class Akun extends Public_Controller {
 		$this->load->view('akun/profil', $this->data);
 		$this->load->view('layout/footer', $this->data);
 	}
-    
-	public function date_convert($tanggal){
-		$bulan = array (
-			1 =>   'Januari',
-			'Februari',
-			'Maret',
-			'April',
-			'Mei',
-			'Juni',
-			'Juli',
-			'Agustus',
-			'September',
-			'Oktober',
-			'November',
-			'Desember'
-		);
-		$pecahkan = explode('-', $tanggal);
-		
-		// variabel pecahkan 0 = tanggal
-		// variabel pecahkan 1 = bulan
-		// variabel pecahkan 2 = tahun
-	 
-		return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
-	}
 	
 	public function upload_file() {
         $config = array(
@@ -169,7 +145,7 @@ class Akun extends Public_Controller {
         {
             $hasil = $this->upload->display_errors();
             ?>
-                <h3><label class="label label-danger msg">Upload file gagal, Detail informasi</label></h3>
+                <h3><label class="label label-danger msg">Upload file gagal, detail informasi</label></h3>
                 <table class="table table-hover table-bordered">
                     <?php echo "<tr><td><strong>".$hasil."</strong></td></tr>"; ?>
                 </table>
@@ -179,7 +155,7 @@ class Akun extends Public_Controller {
         {
                 $hasil = $this->upload->data();
                 ?>
-                <h2><label class="label label-success msg">Upload file berhasil, Detail informasi</label></h2>
+                <h2><label class="label label-success msg">Upload file berhasil, detail informasi</label></h2>
                 <table class="table table-hover table-bordered table-striped">
                     <tr>
                         <td colspan="2">

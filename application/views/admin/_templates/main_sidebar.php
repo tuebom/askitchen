@@ -79,6 +79,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </li> -->
                             </ul>
                         </li>
+                        
+                        <!-- order menu -->
                         <li class="treeview <?=active_link_controller('orders')?>">
                             <a href="#">
                                 <i class="fa fa-book"></i>
@@ -94,6 +96,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </ul>
                         </li>
 
+                        <!-- member menu -->
+                        <li class="treeview <?=active_link_controller('members')?>">
+                            <a href="#">
+                                <i class="fa fa-book"></i>
+                                <span><?php echo lang('menu_members'); ?></span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li class="<?=active_link_controller('members')?>">
+                                    <a href="<?php echo site_url('admin/members'); ?>">
+                                        <i class="fa fa-book"></i> <span>Member List</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
                         <li class="header text-uppercase"><?php echo lang('menu_administration'); ?></li>
                         <li class="<?=active_link_controller('users')?>">

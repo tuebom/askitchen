@@ -17,14 +17,16 @@ $lang['inventory_edit_inventory']      = 'Edit inventory';
 $lang['inventory_created_on']          = 'Created on';
 $lang['inventory_kdbar']               = 'Item Code';
 $lang['inventory_kdurl']               = 'Item URL';
+$lang['inventory_name']                = 'Name';
 $lang['inventory_description']         = 'Description';
-$lang['inventory_group']               = 'Group';
-$lang['inventory_group_lv2']           = 'Group Level 2';
-$lang['inventory_group_lv3']           = 'Group Level 3';
+$lang['inventory_group']               = 'Category';
+$lang['inventory_group_lv2']           = 'Sub Category';
+$lang['inventory_group_lv3']           = 'Sub Category 2';
 
 $lang['inventory_unit']                = 'Unit';
 $lang['inventory_brand']               = 'Brand';
 
+$lang['inventory_size']                = 'Size';
 $lang['inventory_length']              = 'Length';
 $lang['inventory_width']               = 'Width';
 $lang['inventory_height']              = 'Height';

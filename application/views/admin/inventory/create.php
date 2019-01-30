@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <?php echo lang('inventory_description', 'nama', array('class' => 'col-sm-3 control-label')); ?>
+                                                <?php echo lang('inventory_name', 'nama', array('class' => 'col-sm-3 control-label')); ?>
                                                 <div class="col-sm-9">
                                                     <?php echo form_input($nama);?>
                                                 </div>
