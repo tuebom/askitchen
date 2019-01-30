@@ -97,8 +97,8 @@
 									<?php if (count($this->data['products']) > 0): ?>
 									<ul id="myTab" class="nav1 nav1-tabs left-tab" role="tablist">
 										<ul id="myTab" class="nav nav-tabs left-tab" role="tablist">
-									<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"><img src="<?=base_url('images/menu1.png');?>"></a></li>
-									<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile"><img src="<?=base_url('images/menu3.png');?>"></a></li>
+									<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"><img src="<?=base_url('images/menu4.png');?>"></a></li>
+									<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile"><img src="<?=base_url('images/menu1.png');?>"></a></li>
 									</ul>
 									<?php endif; ?>
 									<div id="myTabContent" class="tab-content">
@@ -141,7 +141,7 @@
 														</div> -->
 														<div class="women">
 															<p ><em class="item_price">Rp<?= $item->hjual; ?></em></p>
-															<span class="size"><?= $item->kdbar; ?></span>
+															<span class="size"><?= $item->nama; ?></span>
 															<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
 															<span class="detail"><a href="<?= current_url().'?action=add&code='.$item->kdurl ?>" class="my-cart-d item_add"><img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a>&nbsp;<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" class="my-cart-d item_add">Detail</a></span>
 														</div>
@@ -180,7 +180,7 @@
 														</div>
 														<div class="women">
 															<p ><em class="item_price">Rp<?= $item->hjual; ?></em></p>
-															<span class="size"><?= $item->kdbar; ?></span>
+															<span class="size"><?= $item->nama; ?></span>
 															<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
 															<!--<span class="detail"><a href="<?php echo site_url('detail/'.$item->kdurl); ?>" class="my-cart-d item_add">Detail</a></span>-->
 														</div>
