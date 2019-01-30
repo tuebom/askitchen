@@ -187,13 +187,14 @@ jQuery(function() {
 									
 									<div role="tabpanel" class="tab-pane fade" id="reviews" aria-labelledby="reviews-tab">
 										<ul>
-											<li> Twin button front fastening</li>
+											<p> <?= $this->data['product']->fitur ?></p>
+											<!-- <li> Twin button front fastening</li>
 											<li> Length:65cm</li>
 											<li> Regular fit</li>
 											<li> Notched lapels</li>
 											<li> Internal pockets</li>
 											<li> Centre-back vent </li>
-											<li> Material : Outer: 40% Linen &amp; 40% Polyamide; Body Lining: 100% Cotton; Lining: 100% Acetate</li>
+											<li> Material : Outer: 40% Linen &amp; 40% Polyamide; Body Lining: 100% Cotton; Lining: 100% Acetate</li> -->
 										</ul>
 									</div>
 									<div role="tabpanel" class="tab-pane fade" id="custom" aria-labelledby="custom-tab"></div>

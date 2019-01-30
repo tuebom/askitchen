@@ -33,7 +33,7 @@ class Stock_model extends CI_Model
     // get data by kodeurl
     function get_by_kodeurl($id)
     {
-        $this->db->select('kdbar, kdurl, nama, deskripsi, kdgol2, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar');
+        $this->db->select('kdbar, kdurl, nama, deskripsi, fitur, kdgol2, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar');
         $this->db->where('kdurl', $id);
         return $this->db->get($this->table)->row();
     }
