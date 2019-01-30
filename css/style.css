@@ -975,7 +975,7 @@ h3.contact:hover {
   }
 .grid-arr .grid-arrival figure > a .grid-img {
   width: 110px;
-  height: 90px;
+  height: 120px;
   margin-left: auto;
   margin-right: auto;
   /*width: 100%;*/
@@ -2508,7 +2508,7 @@ p.price {
     font-weight: 600;
 }
 .women span {
-    font-size: 0.8em;
+    font-size: 0.7em;
     color: #941204;
     margin: 0.2em 0;
     display: block;
@@ -5095,15 +5095,27 @@ div.profile {
 }
 
 .box.box-primary.profile,
-.box.box-primary.items {
-    height: 345px;
+.box.box-primary.histori {
+    height: 500px;
+}
+.box.box-primary.histori {
+    overflow: scroll;
 }
 .box.box-primary.items {
-    overflow: scroll;
+    height: 450px;
+    /* background-color: #f4f4f4; */
 }
 .box.box-primary {
     border-top-color: #fff;
 }
 .box-header {
     padding: 0;
+}
+.box-body.items {
+    height: 375px;
+    overflow: scroll;
+}
+div.product-img img {
+    width: 50px;
+    height: 50px;
 }

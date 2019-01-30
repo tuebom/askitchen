@@ -20,7 +20,7 @@
                                         <h4>Direct bank transfer</h4>
                                         <p>Make your payment directly into our bank account.</p>
                                         <div class="box-footer text-center">
-                                            <input type="radio" name="payment" value="transfer"<?php if(isset($_SESSION['payment'])){ if($_SESSION['payment'] == 'transfer') echo 'checked="checked"'; } ?>>
+                                            <input type="radio" name="payment" value="transfer"<?php if(isset($_SESSION['payment'])){ if($_SESSION['payment'] == 'transfer') echo 'checked="checked"'; } else { echo 'checked="checked"'; } ?>>
                                         </div>
                                     </div>
                                 </div>

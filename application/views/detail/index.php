@@ -7,7 +7,7 @@
 					<div class="single-grids">
 						<div clas="single-top">
 							<!-- <div class="single-left"> -->
-							<div class="col-md-3 col-sm-3 col-xs-12">
+							<div class="col-md-4 col-sm-4 col-xs-12">
 								<div class="row">
 									<!-- <div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive2"> </div> -->
 									<div class="flexslider">
@@ -28,12 +28,12 @@
 							</div>
 
 							<!-- <div class="single-right simpleCart_shelfItem"> -->
-							<div class="col-md-5 col-sm-5 col-xs-12">
+							<div class="col-md-4 col-sm-4 col-xs-12">
 								<form id="formAdd" action="<?= site_url('cart/add'); ?>" method="post">
 								<input type="hidden" name="kode" value="<?= $this->data['product']->kdbar ?>">
 								<input type="hidden" id="qty" name="qty" value="1">
 								
-								<h4><?= $this->data['product']->nama . ' ('. $this->data['product']->kdbar .')' ?></h4>
+								<h4><?= $this->data['product']->nama . '<br>('. $this->data['product']->kdbar .')' ?></h4>
 								<div class="block">
 									<div class="starbox small ghosting unchangeable" data-start-value="<?= $this->data['item_rating']->rating ?>"> </div>
 								</div>
