@@ -21,6 +21,10 @@ class Orders extends Admin_Controller {
 
         /* Breadcrumbs :: Common */
         $this->breadcrumbs->unshift(1, 'Orders', 'admin/orders');
+		
+		// $this->output->enable_profiler(TRUE);
+		// note: display order harus memiliki data yang lengkap
+		// => data provinsi, kabupaten/kota, kecamatan dan data alamat (address)
     }
 
 

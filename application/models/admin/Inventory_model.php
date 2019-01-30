@@ -133,11 +133,13 @@ class Inventory_model extends CI_Model
 
     function get_limit_data($limit, $start = 0, $q = NULL, $b = NULL, $p1 = 0, $p2 = 0) {
         
-        $qry = $this->db->select('kdbar, kdurl, nama, kdgol, kdgol2, kdgol3, satuan, merk, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar');
+        $qry = $this->db->select('kdbar, kdurl, s.nama, g.nama as nmgol, s.kdgol, s.kdgol2, s.kdgol3, satuan, merk, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar');
+        $this->db->from('golongan g, stock s');
+        $this->db->where('g.kdgol = s.kdgol');
         
         if ($q) {
             $qry->group_start()
-            ->or_like(['kdbar'=> $q, 'nama'=> $q, 'kdgol'=> $q, 'kdgol2'=> $q, 'kdgol3'=> $q, 'pnj'=> $q, 'lbr'=> $q, 'tgi'=> $q])
+            ->or_like(['kdbar'=> $q, 's.nama'=> $q, 's.kdgol'=> $q, 's.kdgol2'=> $q, 's.kdgol3'=> $q, 'pnj'=> $q, 'lbr'=> $q, 'tgi'=> $q])
             ->group_end();
         }
         
@@ -167,7 +169,7 @@ class Inventory_model extends CI_Model
             $this->db->order_by($this->id, $this->order);
         }
 	    $this->db->limit($limit, $start);
-        return $this->db->get($this->table)->result();
+        return $this->db->get()->result(); //$this->table
     }
 
     // insert data
