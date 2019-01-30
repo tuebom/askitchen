@@ -32,23 +32,45 @@ class Orders_model extends CI_Model
         return $this->db->get($this->table)->row();
     }
 
-    // get item belum bayar
-    function get_item_bb($mbrid)
+    // daftar item belum bayar
+    function get_item_pending($mbrid)
     {
         $this->db->select('o1.kdbar, s.kdurl, s.nama, o1.qty, o1.hjual, o1.jumlah, s.gambar');
         $this->db->from('orders o, orders_detail o1, stock s');
-        $this->db->where('o.id = o1.id and o1.kdbar = s.kdbar and o.status = "P"');
+        $this->db->where('o.id = o1.id and o1.kdbar = s.kdbar and o.status = "PND"');
         $this->db->where('o.mbrid', $mbrid);
         $this->db->order_by('o1.urut', 'ASC');
         return $this->db->get()->result();
     }
 
-    // get item delivered
-    function get_item_bs($mbrid)
+    // daftar item dalam proses (belum dikirim)
+    function get_item_processed($mbrid)
     {
         $this->db->select('o1.kdbar, s.kdurl, s.nama, o1.qty, o1.hjual, o1.jumlah, s.gambar');
         $this->db->from('orders o, orders_detail o1, stock s');
-        $this->db->where('o.id = o1.id and o1.kdbar = s.kdbar and o.status = "D"');
+        $this->db->where('o.id = o1.id and o1.kdbar = s.kdbar and o.status = "PAID"');
+        $this->db->where('o.mbrid', $mbrid);
+        $this->db->order_by('o1.urut', 'ASC');
+        return $this->db->get()->result();
+    }
+
+    // daftar item sudah dikirim (shipped)
+    function get_item_shipped($mbrid)
+    {
+        $this->db->select('o1.kdbar, s.kdurl, s.nama, o1.qty, o1.hjual, o1.jumlah, s.gambar');
+        $this->db->from('orders o, orders_detail o1, stock s');
+        $this->db->where('o.id = o1.id and o1.kdbar = s.kdbar and o.status = "SHIP"');
+        $this->db->where('o.mbrid', $mbrid);
+        $this->db->order_by('o1.urut', 'ASC');
+        return $this->db->get()->result();
+    }
+
+    // daftar item sudah sampai (delivered)
+    function get_item_delivered($mbrid)
+    {
+        $this->db->select('o1.kdbar, s.kdurl, s.nama, o1.qty, o1.hjual, o1.jumlah, s.gambar');
+        $this->db->from('orders o, orders_detail o1, stock s');
+        $this->db->where('o.id = o1.id and o1.kdbar = s.kdbar and o.status = "DLV"');
         $this->db->where('o.mbrid', $mbrid);
         $this->db->order_by('o1.urut', 'ASC');
         return $this->db->get()->result();
@@ -59,7 +81,7 @@ class Orders_model extends CI_Model
     {
         $this->db->select('o.tglinput, o.id, o1.kdbar, s.kdurl, s.nama, o1.qty, o1.hjual, o1.jumlah, s.gambar');
         $this->db->from('orders o, orders_detail o1, stock s');
-        $this->db->where('o.id = o1.id and o1.kdbar = s.kdbar and o.status = "D"');
+        $this->db->where('o.id = o1.id and o1.kdbar = s.kdbar and o.status = "DLV"');
         $this->db->where('o.mbrid', $mbrid);
         $this->db->order_by('o.tglinput', 'DESC');
         $this->db->order_by('o.id', 'ASC');
@@ -81,7 +103,10 @@ class Orders_model extends CI_Model
 
     // get data with limit and search
     function get_limit_data($limit, $start = 0, $q = NULL) {
-        $this->db->select('o.id, concat(a.first_name, " ", a.last_name) as name, o.tglinput, o.status, concat(a.address, ", ", d.name, ", ", r.name, " - ", p.name, " ", a.post_code) as address, o.gtotal');
+        $this->db->select('o.id, concat(a.first_name, " ", a.last_name) as name, o.tglinput,'.
+        'IF(o.status = "PND", "Pending", IF(o.status = "PAID", "Processing",'.
+        'IF(o.status = "SHPD", "Shipped", "Delivered"))) as status,'.
+        'CONCAT(a.address, ", ", d.name, ", ", r.name, " - ", p.name, " ", a.post_code) as address, o.gtotal');
         $this->db->from('orders o');
         $this->db->join('address a', 'o.addrid = a.id');
         $this->db->join('provinces p', 'a.province = p.id');

@@ -17,7 +17,8 @@ class Akun extends Public_Controller {
 		$this->load->model('provinsi_model');
 		$this->load->model('kabupaten_model');
 		$this->load->model('kecamatan_model');
-		$this->output->enable_profiler(TRUE);
+		
+		// $this->output->enable_profiler(TRUE);
     }
 
 
@@ -46,25 +47,25 @@ class Akun extends Public_Controller {
 			$this->load->view('layout/header', $this->data);
 			$this->load->view('akun/sidemenu', $this->data);
 
-			$this->data['detil']  = $this->orders_model->get_item_bb($member->id);
+			// $this->data['detil']  = $this->orders_model->get_item_bb($member->id);
 			if ($page === 'bb') {
-				// $this->data['detil']  = $this->orders_model->get_item_bb($member->id);
+				$this->data['detil']  = $this->orders_model->get_item_pending($member->id);
 				$this->load->view('akun/belanja-bb', $this->data);
 			}
 			elseif ($page === 'bk') {
-				// $this->data['detil']  = $this->orders_model->get_item_bb($member->id);
+				$this->data['detil']  = $this->orders_model->get_item_processed($member->id);
 				$this->load->view('akun/belanja-bk', $this->data);
 			}
 			elseif ($page === 'bt') {
-				// $this->data['detil']  = $this->orders_model->get_item_bt($member->id);
+				$this->data['detil']  = $this->orders_model->get_item_shipped($member->id);
 				$this->load->view('akun/belanja-bt', $this->data);
 			}
 			elseif ($page === 'bs') {
-				// $this->data['detil']  = $this->orders_model->get_item_bs($member->id);
+				$this->data['detil']  = $this->orders_model->get_item_delivered($member->id);
 				$this->load->view('akun/belanja-bs', $this->data);
 			}
 			else { // histori
-				// $this->data['detil']  = $this->orders_model->get_history($member->id);
+				$this->data['detil']  = $this->orders_model->get_history($member->id);
 				$this->load->view('akun/histori', $this->data);
 			}
 			$this->load->view('layout/footer', $this->data);
@@ -122,7 +123,31 @@ class Akun extends Public_Controller {
 		$this->load->view('layout/footer', $this->data);
 	}
     
-    public function upload_file() {
+	public function date_convert($tanggal){
+		$bulan = array (
+			1 =>   'Januari',
+			'Februari',
+			'Maret',
+			'April',
+			'Mei',
+			'Juni',
+			'Juli',
+			'Agustus',
+			'September',
+			'Oktober',
+			'November',
+			'Desember'
+		);
+		$pecahkan = explode('-', $tanggal);
+		
+		// variabel pecahkan 0 = tanggal
+		// variabel pecahkan 1 = bulan
+		// variabel pecahkan 2 = tahun
+	 
+		return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+	}
+	
+	public function upload_file() {
         $config = array(
             'upload_path' => './uploadfiles/',
             'allowed_types' => 'gif|jpg|png',

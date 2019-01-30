@@ -12,7 +12,7 @@ class Login extends Public_Controller {
 		$this->load->model('golongan_model');
 		$this->load->model('member_model');
         
-        // $this->output->enable_profiler(TRUE);
+        $this->output->enable_profiler(TRUE);
 	}
 
 	public function index()
@@ -74,8 +74,11 @@ class Login extends Public_Controller {
                     }
                     else
                     {
+                        log_message('Debug', 'ion_auth->login failed.');
+                        log_message('Debug', $this->ion_auth->errors());
+                        $this->data['message_login'] = $this->ion_auth->errors();
                         $this->session->set_flashdata('message', $this->ion_auth->errors());
-                        redirect('login', 'refresh');
+                        redirect('login');
                     }
                 }
                 else

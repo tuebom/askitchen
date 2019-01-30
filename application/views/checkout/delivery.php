@@ -20,7 +20,7 @@
                                         <h4>Land Freight</h4>
                                         <p>Get it right on next day - fastest option possible.</p>
                                         <div class="box-footer text-center">
-                                            <input type="radio" name="delivery" value="land"<?php if(isset($_SESSION['delivery'])){ if($_SESSION['delivery'] == 'land') echo 'checked="checked"'; } ?>>
+                                            <input type="radio" name="delivery" value="land"<?php if(isset($_SESSION['delivery'])){ if($_SESSION['delivery'] == 'land') echo 'checked="checked"'; } else { echo 'checked="checked"'; }?>>
                                         </div>
                                     </div>
                                 </div>
@@ -29,7 +29,7 @@
                                 <div class="col-sm-6">    
                                     <div class="box shipping-method">
                                         <h4>Sea Freight</h4>
-                                        <p>Get it right on next day - fastest option possible.</p>
+                                        <!-- <p>Get it right on next day - fastest option possible.</p> -->
                                         <div class="box-footer text-center">
                                             <input type="radio" name="delivery" value="sea"<?php if(isset($_SESSION['delivery'])){ if($_SESSION['delivery'] == 'sea') echo 'checked="checked"'; } ?>>
                                         </div>
