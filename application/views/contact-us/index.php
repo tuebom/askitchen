@@ -50,6 +50,7 @@
 											<option value="Request quotation">Request quotation</option>
 											<option value="Request order status">Request order status</option>
 											<option value="Request copy of an invoice">Request copy of an invoice</option>
+											<option value="Request for Service">Request for Service</option>
 											<option value="Other">Other</option>
 										</select>
 										<div class="help-block with-errors"></div>
@@ -59,6 +60,16 @@
 									<div class="form-group">
 										<label for="form_phone">Phone *</label>
 										<input id="form_phone" type="phone" name="phone" class="form-control" placeholder="Please enter your Phone Number *" required="required" data-error="Phone number is required.">
+										<div class="help-block with-errors"></div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="form_emailto">Which Office you want to contact *</label>
+										<select id="form_emailto" name="emailto" class="form-control" required="required" data-error="Please specify which office you wanna contact *">
+											<option value="marketing@askitchen.com">Bali Head Office</option>
+											<option value="makassar@askitchen.com">Makassar Office</option>
+										</select>
 										<div class="help-block with-errors"></div>
 									</div>
 								</div>
