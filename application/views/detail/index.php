@@ -90,7 +90,6 @@
 							<div class="col-md-4 col-sm-4 col-xs-12">
 								<div class="box box-primary">
 									<div class="box-header with-border">
-									<h3 class="box-title">Promotion Products</h3>
 
 									<!-- <div class="box-tools pull-right">
 										<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -101,6 +100,7 @@
 									<!-- /.box-header -->
 									<div class="box-body">
 									<?php if( count($promotion) > 0) { ?>
+									<h3 class="box-title">Promotion Products</h3>
 									<ul class="products-list product-list-in-box">
 										<?php foreach ( $promotion as $item) { ?>
 										<li class="item">
@@ -118,6 +118,7 @@
 									</ul>
 									<?php } // tidak ada item promo
 									elseif( count($related) > 0) { ?>
+									<h3 class="box-title">Related Products</h3>
 									<ul class="products-list product-list-in-box">
 										<?php 
 											$index = 0;

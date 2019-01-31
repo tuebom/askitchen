@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <td><?php echo htmlspecialchars($item->shipcost, ENT_QUOTES, 'UTF-8'); ?></td> -->
                                                 <td class="text-right"><?php echo number_format(htmlspecialchars($item->gtotal, ENT_QUOTES, 'UTF-8'),0,",","."); ?></td>
                                                 <td>
-                                                    <?php echo anchor('admin/orders/edit/'.$item->id, 'Edit'); ?>
+                                                    <?php if ($item->status !== 'Delivered') echo anchor('admin/orders/edit/'.$item->id, 'Edit'); ?>
                                                 </td>
                                             </tr>
 <?php endforeach;?>

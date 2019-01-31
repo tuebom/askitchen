@@ -105,7 +105,7 @@
 						if (count($_SESSION["cart_item"]) > 0) {
 					?>
 					<div class="checkout-right-basket">
-						<a href="<?php echo site_url('checkout'); ?>">Make a Payment</a>
+						<a href="<?php echo site_url('checkout'); ?>">Proceed to Checkout</a>
 					</div>
 					<?php } endif; ?>
 				</div>

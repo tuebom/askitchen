@@ -164,11 +164,11 @@ class Search extends Public_Controller {
 			$offset = 0;
 		}
 		
-		if (is_numeric(substr($q,0,1))) {
+		// if (is_numeric(substr($q,0,1))) {
 			$total = $this->stock_model->total_rows($q,$b,$p1,$p2);
-		} else {
-			$total = $this->stock_model->total_rows(' '.$q,$b,$p1,$p2);
-		}
+		// } else {
+		// 	$total = $this->stock_model->total_rows(' '.$q,$b,$p1,$p2);
+		// }
 		
 		$cond = '';
 		// filter pencarian
@@ -205,11 +205,11 @@ class Search extends Public_Controller {
 
 		$this->data['q'] = $q; //data
 		
-		if (is_numeric(substr($q,0,1))) {
+		// if (is_numeric(substr($q,0,1))) {
 			$this->data['products'] = $this->stock_model->get_limit_data(8,$offset,$q,$b,$p1,$p2);
-		} else {
-			$this->data['products'] = $this->stock_model->get_limit_data(8,$offset,' '.$q,$b,$p1,$p2);
-		}
+		// } else {
+		// 	$this->data['products'] = $this->stock_model->get_limit_data(8,$offset,' '.$q,$b,$p1,$p2);
+		// }
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('search/index', $this->data);

@@ -11,7 +11,7 @@
                             <ul class="nav nav-pills nav-fill">
                                 <li class="nav-item"><a href="#" class="nav-link active"> <i class="fa fa-map-marker"></i><br>Address</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link disabled"><i class="fa fa-truck"></i><br>Delivery Method</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link disabled"><i class="fa fa-money"></i><br>Payment Method</a></li>
+                                <!-- <li class="nav-item"><a href="#" class="nav-link disabled"><i class="fa fa-money"></i><br>Payment Method</a></li> -->
                             </ul>
 
                             <div class="row">
@@ -70,7 +70,7 @@
                                             if (isset($this->data['kabupaten'])) :
                                                 foreach ($this->data['kabupaten'] as $item) {
                                         ?>
-                                        <option value="<?= $item->id ?>"<?php if(isset($_SESSION["regency"])) : if( $_SESSION["regency"] == $item->id ): ?> selected="selected"<?php endif; endif; ?>><?= $item->name ?></option>
+                                        <option value="<?= $item->id ?>"<?php if( $_SESSION["regency"] == $item->id ): ?> selected="selected"<?php endif; ?>><?= $item->name ?></option>
                                         <?php   }
                                             endif;
                                         ?>
@@ -87,7 +87,7 @@
                                             if (isset($this->data['kecamatan'])) :
                                                 foreach ($this->data['kecamatan'] as $item) {
                                         ?>
-                                        <option value="<?= $item->id ?>"<?php if(isset($_SESSION["district"])) : if( $_SESSION["district"] == $item->id ): ?> selected="selected"<?php endif; endif; ?>><?= $item->name ?></option>
+                                        <option value="<?= $item->id ?>"<?php if( $_SESSION["district"] == $item->id ): ?> selected="selected"<?php endif; ?>><?= $item->name ?></option>
                                         <?php   }
                                             endif;
                                         ?>
@@ -111,7 +111,7 @@
                                 <div class="col-sm-6">    
                                     <div class="form-group">
                                         <label for="email"><?= lang('checkout_email') ?></label>
-                                        <input type="text" class="form-control" id="email" name="email" value="<?=isset($_SESSION['guest'])? '': isset($this->data['anggota']->email)? $this->data['anggota']->email : '';?>" placeholder="Enter email address">
+                                        <input type="text" class="form-control" id="email" name="email" value="<?=isset($this->data['anggota']->email)? $this->data['anggota']->email : '';?>" placeholder="Enter email address">
                                     </div>
                                 </div>
                             </div>

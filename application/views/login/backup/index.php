@@ -33,8 +33,14 @@
 												<a href="<?= site_url('recover') ?>" class="forget" tabindex="5" class="forgot-password">Forgot Password?</a>
 											</div>
 											<div class="col-xs-12">
+												<!-- <label class="control control--checkbox">Remember Me
+												<input type="checkbox">
+												<div class="control__indicator"></div>
+												</label> -->
 												<div class="checkbox">
-													<label><input type="checkbox" name="guest" value="guest"> Login as guest</label>
+												<label>
+													<input type="checkbox"> Check me out
+												</label>
 												</div>
 											</div>
 										</div>
@@ -49,6 +55,15 @@
 										<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
 										<a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
 									</div>-->
+									<!-- <div class="form-group">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="text-center">
+													<a href="<?= site_url('recover') ?>" class="forget" tabindex="5" class="forgot-password">Forgot Password?</a>
+												</div>
+											</div>
+										</div>
+									</div> -->
 								</form>
 								<form id="register-form" action="<?= site_url('register') ?>" method="post" role="form" style="display: none;">
 									<?php if (isset($this->data['message_register'])) echo $this->data['message_register'];?>
