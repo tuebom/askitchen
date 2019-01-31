@@ -100,7 +100,7 @@ class Checkout extends Public_Controller {
 			$note       = $_SESSION["note"];
 			$delivery   = $_SESSION["delivery"];
 			
-			$payment    = $this->input->post('payment');
+			// $payment    = $this->input->post('payment');
 
 			$tglinput   = date('Y-m-d');
 
@@ -112,7 +112,7 @@ class Checkout extends Public_Controller {
 				'tax'      => $tax,
 				'shipcost' => $shipcost,
 				'gtotal'   => $total,
-				'payment'  => $payment,
+				// 'payment'  => $payment,
 				'note'     => $note,
 				'delivery' => $delivery,
 			);
@@ -143,9 +143,9 @@ class Checkout extends Public_Controller {
 
 			
 			// clear data
-			$array_items = array('first_name', 'last_name', 'company', 'address',
-				'province', 'regency', 'district', 'post_code', 'phone', 'email', 'guest');
-			$this->session->unset_userdata($array_items);
+			// $array_items = array('first_name', 'last_name', 'company', 'address',
+			// 	'province', 'regency', 'district', 'post_code', 'phone', 'email', 'guest');
+			// $this->session->unset_userdata($array_items);
 
 			if(!empty($_SESSION["cart_item"])) {
 	
@@ -156,7 +156,10 @@ class Checkout extends Public_Controller {
 			$this->session->set_userdata('totqty', 0);
 			$this->session->set_userdata('tot_price', 0);
 			
-			redirect('/', 'refresh');
+			$this->session->set_userdata('order_id', $orderid);
+			
+			// redirect('/', 'refresh');
+			redirect('mail_order', 'refresh');
 		}
 			
 		$tab  = $this->input->get('tab');
@@ -233,7 +236,6 @@ class Checkout extends Public_Controller {
 							$this->data['kabupaten'] = $this->kabupaten_model->get_by_province_id($_SESSION["province"]);
 							$this->data['kecamatan'] = $this->kecamatan_model->get_by_regency_id($_SESSION["regency"]);
 						}
-						log_message('Debug', 'SESSION["province"] created.');
 		
 						$this->load->view('layout/header', $this->data);
 						$this->load->view('checkout/delivery', $this->data);
