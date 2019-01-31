@@ -1,6 +1,6 @@
 
 	<!--content-->
-        <div class="content">
+    <div class="content">
 			<!--single-->
 			<div class="single-wl3">
 				<div class="container">
@@ -260,7 +260,7 @@ jQuery(function() {
 			<div class="reviews">
 				<div class="container">
 					<h3 class="tittle1">Reviews</h3>
-					<div class="col-md-7">
+					<div class="col-md-6">
 						<div class="related-grids">
 							<div class="reviews-top">
 								<?php
@@ -311,15 +311,20 @@ jQuery(function() {
 									</div>
 									<div class="row">
 										<div class="col-md-6 row-grid">
-											<div class="form-group">
-                                        		<div class="g-recaptcha" data-sitekey="6Le1AowUAAAAAF_pBHB401tykRs1buhibhqTC0uy" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
-                                        		<input class="form-control hidden" data-recaptcha="true" required data-error="Please complete the Captcha">
-                                        	<div class="help-block with-errors"></div>
-                                    	</div>
+											<img class="captcha" src="<?=site_url('images/captcha/').$this->session->userdata('image')?>">
 										</div>
+										<div class="col-md-6 row-grid">
+											<label>Captcha</label>
+											<input type="text" name="captcha" required>
+										</div>
+										<div class="clearfix"></div>
+									</div>
 									<div class="row">
 										<div class="col-md-3 col-xs-4 row-grid">
 											<input id="btnSend" type="submit" value="Send">
+										</div>
+										<div class="col-md-9 col-xs-8 row-grid">
+											<label class="message"><?=isset($this->data['message']) ? $this->data['message'] : '';?></label>
 										</div>
 									</div>
 								</form>
@@ -331,18 +336,3 @@ jQuery(function() {
 			<!--reviews-->
 		</div>
     <!--content-->
-	<script>
-	$(function () {
-
-// init the validator
-// validator files are included in the download package
-// otherwise download from http://1000hz.github.io/bootstrap-validator
-
-    window.verifyRecaptchaCallback = function (response) {
-        $('input[data-recaptcha]').val(response).trigger('change')
-    }
-
-    window.expiredRecaptchaCallback = function () {
-        $('input[data-recaptcha]').val("").trigger('change')
-    }
-</script>

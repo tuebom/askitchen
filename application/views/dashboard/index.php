@@ -5,11 +5,14 @@
 					<div class="core-slider_viewport">
 						<div class="core-slider_list">
 							<div class="core-slider_item">
-								<img src="<?php echo site_url('images/ban1-2.jpg'); ?>" class="img-responsive" alt="">
+								<img src="<?php echo site_url('images/ban1-1.jpg'); ?>" class="img-responsive" alt="">
 							</div>
 							 <div class="core-slider_item">
-								 <img src="<?php echo site_url('images/ban2-3.jpg'); ?>" class="img-responsive" alt="">
+								 <img src="<?php echo site_url('images/ban1-2.jpg'); ?>" class="img-responsive" alt="">
 							 </div>
+							<div class="core-slider_item">
+								 <img src="<?php echo site_url('images/ban1-3.jpg'); ?>" class="img-responsive" alt="">
+							</div>
 							<div class="core-slider_item">
 								 <img src="<?php echo site_url('images/ban3-2.jpg'); ?>" class="img-responsive" alt="">
 							</div>
@@ -26,9 +29,10 @@
 			<script src="<?php echo site_url('js/coreSlider.js'); ?>"></script>
 			<script>
 			$('#example1').coreSlider({
-			 pauseOnHover: false,
+			 pauseOnHover: true,
 			 interval: 3000,
-			 controlNavEnabled: true
+			 controlNavEnabled: false,
+			 NavEnabled: true,
 			});
 
 			</script>
@@ -110,9 +114,9 @@ function topFunction() {
 						<div class="col-md-4 arrival-grid simpleCart_shelfItem">
 							<div class="grid-arr-hot">
 								<a href="<?php echo site_url(); ?>" class="new-gri">
-									<img src="<?=site_url('images/hot-product.jpg');?>" class="img-hot" alt="">
+									<img src="<?=site_url('images/new-product.jpg');?>" class="img-hot" alt="">
 									<div class="text">
-										<h3>Hot Products</h3>
+										<h3>New Products</h3>
 									</div>
 								</a>		
 							</div>
