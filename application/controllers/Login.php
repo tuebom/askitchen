@@ -12,7 +12,7 @@ class Login extends Public_Controller {
 		$this->load->model('golongan_model');
 		$this->load->model('member_model');
         
-        $this->output->enable_profiler(TRUE);
+        // $this->output->enable_profiler(TRUE);
 	}
 
 	public function index()
@@ -26,7 +26,8 @@ class Login extends Public_Controller {
         if ( ! $this->ion_auth->logged_in())
         {
             
-            $id = $this->input->post('identity');
+            $guest = $this->input->post('guest');
+            $id    = $this->input->post('identity');
 
             if ($id) {
     
@@ -74,8 +75,8 @@ class Login extends Public_Controller {
                     }
                     else
                     {
-                        log_message('Debug', 'ion_auth->login failed.');
-                        log_message('Debug', $this->ion_auth->errors());
+                        // log_message('Debug', 'ion_auth->login failed.');
+                        // log_message('Debug', $this->ion_auth->errors());
                         $this->data['message_login'] = $this->ion_auth->errors();
                         $this->session->set_flashdata('message', $this->ion_auth->errors());
                         redirect('login');
@@ -83,6 +84,7 @@ class Login extends Public_Controller {
                 }
                 else
                 {
+
                     $this->data['message_login'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 
                     $this->data['identity'] = array(
@@ -103,6 +105,19 @@ class Login extends Public_Controller {
 
                     /* Load Template */
                     // $this->template->auth_render('auth/login', $this->data);
+                }
+            }
+            elseif ($guest)
+            {
+                $remember = (bool) $this->input->post('remember');
+                
+                if ($this->ion_auth->login('guest@askitchen.com', 'zyxwv_98765', $remember)) {
+                    log_message('Debug', 'Login guest sukses.');
+
+                    $this->session->set_userdata('guest', TRUE);
+                    $this->data['first_name'] = 'Guest';
+                    $this->data['last_name']  = '';
+                    redirect('/', 'refresh');
                 }
             }
 

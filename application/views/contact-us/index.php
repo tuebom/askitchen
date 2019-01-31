@@ -153,7 +153,6 @@ $('#contact-form').on('submit', function (e) {
 			success: function (data)
 			{
 				// data = JSON object that contact.php returns
-				// console.log ('result: ', data);
 				var obj = JSON.parse(data);
 
 				// we recieve the type of the message: success x danger and apply it to the 
@@ -167,7 +166,6 @@ $('#contact-form').on('submit', function (e) {
 				if (messageAlert && messageText) {
 					// inject the alert to .messages div in our form
 					var el = $('#contact-form').find('.messages');
-					console.log(el);
 					el.html(alertBox);
 					// empty the form
 					$('#contact-form')[0].reset();

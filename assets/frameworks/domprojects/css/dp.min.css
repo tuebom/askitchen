@@ -1,7 +1,12 @@
-div.dataTables_wrapper div.dataTables_length label {
+div.dataTables_length label {
     font-weight: normal;
     text-align: left;
     white-space: nowrap;
+}
+div.dataTables_filter label {
+    font-weight: normal;
+    white-space: nowrap;
+    text-align: left;
 }
 div.product-img img {
     width: 50px;
