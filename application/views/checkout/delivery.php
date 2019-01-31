@@ -11,35 +11,29 @@
                             <ul class="nav nav-pills nav-fill">
                                 <li class="nav-item"><a href="#" class="nav-link disabled"> <i class="fa fa-map-marker"></i><br>Address</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link active"><i class="fa fa-truck"></i><br>Delivery Method</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link disabled"><i class="fa fa-money"></i><br>Payment Method</a></li>
+                                <!-- <li class="nav-item"><a href="#" class="nav-link disabled"><i class="fa fa-money"></i><br>Payment Method</a></li> -->
                             </ul>
 
                             <div class="row">
-                                <div class="col-sm-6">    
-                                    <div class="box shipping-method">
-                                        <h4>Land Freight</h4>
-                                        <p>Get it right on next day - fastest option possible.</p>
-                                        <div class="box-footer text-center">
-                                            <input type="radio" name="delivery" value="land"<?php if(isset($_SESSION['delivery'])){ if($_SESSION['delivery'] == 'land') echo 'checked="checked"'; } else { echo 'checked="checked"'; }?>>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">    
-                                    <div class="box shipping-method">
-                                        <h4>Sea Freight</h4>
-                                        <!-- <p>Get it right on next day - fastest option possible.</p> -->
-                                        <div class="box-footer text-center">
-                                            <input type="radio" name="delivery" value="sea"<?php if(isset($_SESSION['delivery'])){ if($_SESSION['delivery'] == 'sea') echo 'checked="checked"'; } ?>>
-                                        </div>
-                                    </div>
+                                <div class="col-sm-12">    
+                                    <ul class="list-group list-group-unbordered">
+                                    <li class="list-group-item deli"><h4>Domestic Freight</h4>
+                                        <div><input type="radio" class="delivery" name="delivery" value="land"<?php if(isset($_SESSION['delivery'])){ if($_SESSION['delivery'] == 'DOM') echo 'checked="checked"'; } else { echo 'checked="checked"'; }?>></div>
+                                    </li>
+                                    <li class="list-group-item deli"><h4>JNE</h4>
+                                        <div><input type="radio" class="delivery" name="delivery" value="land"<?php if(isset($_SESSION['delivery'])){ if($_SESSION['delivery'] == 'JNE') echo 'checked="checked"'; }?>></div>
+                                    </li>
+                                    <li class="list-group-item deli"><h4>J&amp;T</h4>
+                                        <div><input type="radio" class="delivery" name="delivery" value="land"<?php if(isset($_SESSION['delivery'])){ if($_SESSION['delivery'] == 'JNT') echo 'checked="checked"'; }?>></div>
+                                    </li>
+                                    </ul>
+
                                 </div>
                             </div>
 
                         </div>
                         <div class="col-md-6 col-sm-4 col-xs-6 checkout-right-basket2"><a class="checkout-right-basket2" href="<?= site_url('checkout'); ?>">Back to Address</a></div>
-                        <div class="col-md-6 col-sm-8 col-xs-6 checkout-right-basket2"><a class="checkout-right-basket2" href="javascript:void(0);" id="btnSubmit">Continue to Payment Method</a></div>
+                        <div class="col-md-6 col-sm-8 col-xs-6 checkout-right-basket2"><a class="checkout-right-basket2" href="javascript:void(0);" id="btnSubmit">Mail Order</a></div>
                     </div>
 
                     <div class="col-md-1">

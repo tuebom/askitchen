@@ -11,20 +11,20 @@
                             <ul class="nav nav-pills nav-fill">
                                 <li class="nav-item"><a href="#" class="nav-link active"> <i class="fa fa-map-marker"></i><br>Address</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link disabled"><i class="fa fa-truck"></i><br>Delivery Method</a></li>
-                                <li class="nav-item"><a href="#" class="nav-link disabled"><i class="fa fa-money"></i><br>Payment Method</a></li>
+                                <!-- <li class="nav-item"><a href="#" class="nav-link disabled"><i class="fa fa-money"></i><br>Payment Method</a></li> -->
                             </ul>
 
                             <div class="row">
                                 <div class="col-sm-6">    
                                     <div class="form-group">
                                         <label for="firstname"><?= lang('checkout_first_name') ?></label>
-                                        <input type="text" class="form-control" id="first_name" name="first_name" value="<?=isset($this->data['anggota']->first_name) ? $this->data['anggota']->first_name : '';?>" placeholder="Enter first name" required>
+                                        <input type="text" class="form-control" id="first_name" name="first_name" value="<?=isset($_SESSION['first_name']) ? $_SESSION['first_name'] : '';?>" placeholder="Enter first name" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">    
                                     <div class="form-group">
                                         <label for="lastname"><?= lang('checkout_last_name') ?></label>
-                                        <input type="text" class="form-control" id="last_name" name="last_name" value="<?=isset($this->data['anggota']->last_name)? $this->data['anggota']->last_name : '';?>" placeholder="Enter last name" required>
+                                        <input type="text" class="form-control" id="last_name" name="last_name" value="<?=isset($_SESSION['last_name'])? $_SESSION['last_name'] : '';?>" placeholder="Enter last name" required>
                                     </div>
                                 </div>
                             </div>
@@ -32,7 +32,7 @@
                                 <div class="col-sm-12">    
                                     <div class="form-group">
                                         <label for="company"><?= lang('checkout_company') ?></label>
-                                        <input type="text" class="form-control" id="company" name="company" value="<?=isset($this->data['anggota']->company)? $this->data['anggota']->company : '';?>" placeholder="Enter company name">
+                                        <input type="text" class="form-control" id="company" name="company" value="<?=isset($_SESSION['company'])? $_SESSION['company'] : '';?>" placeholder="Enter company name">
                                     </div>
                                 </div>
                             </div>
@@ -40,7 +40,7 @@
                                 <div class="col-sm-12">    
                                     <div class="form-group">
                                         <label for="address"><?= lang('checkout_address') ?></label>
-                                        <input type="text" class="form-control" id="address" name="address" value="<?=isset($_SESSION["address"])? $_SESSION["address"] : '';?>" placeholder="Enter address" required>
+                                        <input type="text" class="form-control" id="address" name="address" value="<?=isset($_SESSION['address'])? $_SESSION['address'] : '';?>" placeholder="Enter address" required>
                                     </div>
                                 </div>
                             </div>
@@ -67,11 +67,10 @@
                                         <label for="regency"><?= lang('checkout_regency') ?></label>
                                         <select id="regency" name="regency" class="form-control">
                                         <?php
-                                            log_message('Debug', '$_SESSION["regency"] = '.$_SESSION["regency"]);
                                             if (isset($this->data['kabupaten'])) :
                                                 foreach ($this->data['kabupaten'] as $item) {
                                         ?>
-                                        <option value="<?= $item->id ?>"<?php if( $_SESSION["regency"] == $item->id ): ?> selected="selected"<?php endif; ?>><?= $item->name ?></option>
+                                        <option value="<?= $item->id ?>"<?php if( $_SESSION['regency'] == $item->id ): ?> selected="selected"<?php endif; ?>><?= $item->name ?></option>
                                         <?php   }
                                             endif;
                                         ?>
@@ -85,11 +84,10 @@
                                         <label for="district"><?= lang('checkout_district') ?></label>
                                         <select id="district" name="district" class="form-control">
                                         <?php
-                                            log_message('Debug', '$_SESSION["district"] = '.$_SESSION["district"]);
                                             if (isset($this->data['kecamatan'])) :
                                                 foreach ($this->data['kecamatan'] as $item) {
                                         ?>
-                                        <option value="<?= $item->id ?>"<?php if( $_SESSION["district"] == $item->id ): ?> selected="selected"<?php endif; ?>><?= $item->name ?></option>
+                                        <option value="<?= $item->id ?>"<?php if( $_SESSION['district'] == $item->id ): ?> selected="selected"<?php endif; ?>><?= $item->name ?></option>
                                         <?php   }
                                             endif;
                                         ?>
@@ -99,7 +97,7 @@
                                 <div class="col-sm-6">    
                                     <div class="form-group">
                                         <label for="zip"><?= lang('checkout_post_code') ?></label>
-                                        <input type="text" class="form-control" id="post_code" name="post_code" value="<?=isset($_SESSION["post_code"])? $_SESSION["post_code"] : '';?>" placeholder="Enter post code">
+                                        <input type="text" class="form-control" id="post_code" name="post_code" value="<?=isset($_SESSION['post_code'])? $_SESSION['post_code'] : '';?>" placeholder="Enter post code">
                                     </div>
                                 </div>
                             </div>
@@ -107,13 +105,13 @@
                                 <div class="col-sm-6">    
                                     <div class="form-group">
                                         <label for="phone"><?= lang('checkout_phone') ?></label>
-                                        <input type="text" class="form-control" id="phone" name="phone" value="<?=isset($this->data['anggota']->phone)? $this->data['anggota']->phone : '';?>" placeholder="Enter phone number">
+                                        <input type="text" class="form-control" id="phone" name="phone" value="<?=isset($_SESSION['phone'])? $_SESSION['phone'] : '';?>" placeholder="Enter phone number">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">    
                                     <div class="form-group">
                                         <label for="email"><?= lang('checkout_email') ?></label>
-                                        <input type="text" class="form-control" id="email" name="email" value="<?=isset($this->data['anggota']->email)? $this->data['anggota']->email : '';?>" placeholder="Enter email address">
+                                        <input type="text" class="form-control" id="email" name="email" value="<?=isset($_SESSION['email'])? $_SESSION['email'] : '';?>" placeholder="Enter email address">
                                     </div>
                                 </div>
                             </div>
@@ -121,7 +119,7 @@
                                 <div class="col-sm-12">    
                                     <div class="form-group">
                                         <label for="note"><?= lang('checkout_order_notes') ?></label>
-                                        <input type="text" class="form-control" id="note" name="note" value="<?=isset($_SESSION["note"])? $_SESSION["note"] : '';?>" placeholder="Enter order notes">
+                                        <input type="text" class="form-control" id="note" name="note" value="<?=isset($_SESSION['note'])? $_SESSION['note'] : '';?>" placeholder="Enter order notes">
                                     </div>
                                 </div>
                             </div>
@@ -155,13 +153,13 @@
                                     $item_price = 0;
                                     $total_price = 0;
 
-                                    foreach ($_SESSION["cart_item"] as $item) {
+                                    foreach ($_SESSION['cart_item'] as $item) {
 
-                                        $item_price  = (float)$item["qty"]*$item["harga"];
+                                        $item_price  = (float)$item['qty']*$item['harga'];
                                         $total_price += $item_price;
                                 ?>
                                 <tr>
-                                    <td><?= $item["nama"]; ?></td>
+                                    <td><?= $item['nama']; ?></td>
                                     <td class="text-right">Rp<?= number_format($item_price, 0, '.', ',') ?></td>
                                 </tr>
                                 <?php

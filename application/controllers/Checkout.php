@@ -43,22 +43,25 @@ class Checkout extends Public_Controller {
 			$this->data['anggota'] = $member;
 			$this->data['first_name'] = $member->first_name;
 			$this->data['last_name']  = $member->last_name;
-			
-			$address_data = array(
-				'first_name' => $member->first_name,
-				'last_name'  => $member->last_name,
-				'company'    => $member->company,
-				'address'    => $member->address,
-				'province'   => $member->province,
-				'regency'    => $member->regency,
-				'district'   => $member->district,
-				'post_code'  => $member->post_code,
-				'phone'      => $member->phone,
-				'email'      => $member->email,
-			);
-			
-			// simpan data alamat pengiriman ke variabel session
-			$this->session->set_userdata($address_data);
+				
+			if (!isset($_SESSION['guest'])) {
+				
+				$address_data = array(
+					'first_name' => $member->first_name,
+					'last_name'  => $member->last_name,
+					'company'    => $member->company,
+					'address'    => $member->address,
+					'province'   => $member->province,
+					'regency'    => $member->regency,
+					'district'   => $member->district,
+					'post_code'  => $member->post_code,
+					'phone'      => $member->phone,
+					'email'      => $member->email,
+				);
+				
+				// simpan data alamat pengiriman ke variabel session
+				$this->session->set_userdata($address_data);
+			}
 		}
             
 		
@@ -141,7 +144,7 @@ class Checkout extends Public_Controller {
 			
 			// clear data
 			$array_items = array('first_name', 'last_name', 'company', 'address',
-				'province', 'regency', 'district', 'post_code', 'phone', 'email');
+				'province', 'regency', 'district', 'post_code', 'phone', 'email', 'guest');
 			$this->session->unset_userdata($array_items);
 
 			if(!empty($_SESSION["cart_item"])) {
@@ -190,41 +193,48 @@ class Checkout extends Public_Controller {
 
 					$this->form_validation->set_rules('phone', 'lang:checkout_phone', 'required');
 					$this->form_validation->set_rules('email', 'lang:checkout_email', 'required|valid_email');
+
+					// shipping address data
+					$first_name = $this->input->post('first_name');
+					$last_name  = $this->input->post('last_name');
+					$company    = $this->input->post('company');
+					$address    = $this->input->post('address');
+
+					$province   = $this->input->post('province');
+					$regency    = $this->input->post('regency');
+					$district   = $this->input->post('district');
+					$post_code  = $this->input->post('post_code');
+					$phone      = $this->input->post('phone');
+					$email      = strtolower($this->input->post('email'));
+					$note       = $this->input->post('note');
+					
+					$address_data = array(
+						'first_name' => $first_name,
+						'last_name'  => $last_name,
+						'company'    => $company,
+						'address'    => $address,
+						'province'   => $province,
+						'regency'    => $regency,
+						'district'   => $district,
+						'post_code'  => $post_code,
+						'phone'      => $phone,
+						'email'      => $email,
+						'note'       => $note,
+					);
+					
+					// simpan data alamat pengiriman ke variabel session
+					$this->session->set_userdata($address_data);
 					
 					if ($this->form_validation->run() == TRUE)
 					{
-
-						// shipping address data
-						$first_name = $this->input->post('first_name');
-						$last_name  = $this->input->post('last_name');
-						$company    = $this->input->post('company');
-						$address    = $this->input->post('address');
-
-						$province   = $this->input->post('province');
-						$regency    = $this->input->post('regency');
-						$district   = $this->input->post('district');
-						$post_code  = $this->input->post('post_code');
-						$phone      = $this->input->post('phone');
-						$email      = strtolower($this->input->post('email'));
-						$note       = $this->input->post('note');
-						
-						$address_data = array(
-							'first_name' => $first_name,
-							'last_name'  => $last_name,
-							'company'    => $company,
-							'address'    => $address,
-							'province'   => $province,
-							'regency'    => $regency,
-							'district'   => $district,
-							'post_code'  => $post_code,
-							'phone'      => $phone,
-							'email'      => $email,
-							'note'       => $note,
-						);
-						
-						// simpan data alamat pengiriman ke variabel session
-						$this->session->set_userdata($address_data);
-
+			
+						// prepare for back step
+						if (isset($_SESSION["province"])) {
+							$this->data['kabupaten'] = $this->kabupaten_model->get_by_province_id($_SESSION["province"]);
+							$this->data['kecamatan'] = $this->kecamatan_model->get_by_regency_id($_SESSION["regency"]);
+						}
+						log_message('Debug', 'SESSION["province"] created.');
+		
 						$this->load->view('layout/header', $this->data);
 						$this->load->view('checkout/delivery', $this->data);
 						$this->load->view('layout/footer', $this->data);
@@ -233,11 +243,11 @@ class Checkout extends Public_Controller {
 					}
 					else // validasi input gagal
 					{
-						$this->data['province']  = $this->form_validation->set_value('province');
-						$this->data['regency']   = $this->form_validation->set_value('regency');
-						$this->data['district']  = $this->form_validation->set_value('district');
-						$this->data['post_code'] = $this->form_validation->set_value('post_code');
-						$this->data['address']   = $this->form_validation->set_value('address');
+						// $this->data['province']  = $this->form_validation->set_value('province');
+						// $this->data['regency']   = $this->form_validation->set_value('regency');
+						// $this->data['district']  = $this->form_validation->set_value('district');
+						// $this->data['post_code'] = $this->form_validation->set_value('post_code');
+						// $this->data['address']   = $this->form_validation->set_value('address');
 		
 						$this->data['message'] = (validation_errors() ? validation_errors() : 'Input data belum benar!');
 						
@@ -250,16 +260,24 @@ class Checkout extends Public_Controller {
 				
 				$delivery   = $this->input->post('delivery');
 				$this->session->set_userdata('delivery', $delivery);
-
+			
+				// prepare for back step
+				if (isset($_SESSION["province"])) {
+					$this->data['kabupaten'] = $this->kabupaten_model->get_by_province_id($_SESSION["province"]);
+					$this->data['kecamatan'] = $this->kecamatan_model->get_by_regency_id($_SESSION["regency"]);
+				}
+	
 				$this->load->view('layout/header', $this->data);
 				$this->load->view('checkout/payment', $this->data);
 				$this->load->view('layout/footer', $this->data);
 				return;
 
 			}
+			
 		}
 		else
 		{
+			// log_message('Debug', 'TAB not defined.');
 			if (isset($_SESSION["province"])) {
 				$this->data['kabupaten'] = $this->kabupaten_model->get_by_province_id($_SESSION["province"]);
 				$this->data['kecamatan'] = $this->kecamatan_model->get_by_regency_id($_SESSION["regency"]);

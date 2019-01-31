@@ -149,7 +149,7 @@ $(window).load(function() {
 </script>
 
 <style>
-/*
+
 .control {
   display: block;
   position: relative;
@@ -205,7 +205,7 @@ $(window).load(function() {
 }
 .control--checkbox input:disabled, .control__indicator:after {
   border-color: #7b7b7b;
-}*/
+}
 
 </style>
 <?php if ($mobile === FALSE): ?>
@@ -276,6 +276,7 @@ $(window).load(function() {
 			$(this).addClass('active');
 			e.preventDefault();
 		});
+
 		$('#register-form-link').click(function(e) {
 			$("#register-form").delay(100).fadeIn(100);
 			$("#login-form").fadeOut(100);
@@ -288,6 +289,8 @@ $(window).load(function() {
 		var navmenu = document.getElementById("bs-megadropdown-tabs");
 		var sticky = navbar.offsetTop;
 		var topPos = (window.screen.width > 768) ? 132: 210;
+		
+		$(".dropdown-menu.catalog").css( 'top', topPos+'px');
 		
 		window.onscroll = function() {scrollFunction()};
 
@@ -405,7 +408,7 @@ $(window).load(function() {
 							<li><a href="<?php echo site_url('admin'); ?>">Admin</a></li>
 							<?php endif; ?>
 							<?php if ($logout_link): ?>
-							<li class="dropdown"><a href="<?= site_url('akun'); ?>"><?= $first_name .' '.$last_name ?>&nbsp;<b class="caret"></b></a>
+							<li class="dropdown"><a href="<?= isset($_SESSION['guest'])? '#': site_url('akun'); ?>"><?= $first_name .' '.$last_name ?>&nbsp;<b class="caret"></b></a>
 								<ul class="dropdown-menu dropdown-menu-right">
 									<li class=""><a href="<?= site_url('akun'); ?>"><i class="mi fa fa-user"></i> Profile</a></li>
 									<li class=""><a href="<?= site_url('akun?p=bb'); ?>"><i class="mi fa fa-heart"></i> Orders</a></li>
@@ -604,5 +607,5 @@ $(window).load(function() {
 		<?php } endif; ?>
 		</ul>
 
-		<a href="<?php echo site_url('checkout'); ?>" class="button <?php if($this->session->userdata('totqty')): echo ''; else: echo 'btn disabled'; endif;?>">Checkout</a>
+		<a href="<?php echo site_url('cart'); ?>" class="button <?php if($this->session->userdata('totqty')): echo ''; else: echo 'btn disabled'; endif;?>">Checkout</a>
 	</div> <!--end shopping-cart -->

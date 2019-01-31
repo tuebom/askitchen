@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <!-- <td><?php echo htmlspecialchars($item->kdgol2, ENT_QUOTES, 'UTF-8'); ?></td> -->
                                                 <td><?php echo htmlspecialchars($item->satuan, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td><?php echo htmlspecialchars($item->merk, ENT_QUOTES, 'UTF-8'); ?></td>
-                                                <td><?php echo $item->pnj.'cm<br>x<br>'.$item->lbr.'cm<br>x<br>'.$item->tgi.'cm'; ?></td>
+                                                <td><?php echo $item->pnj.' cm<br>x<br>'.$item->lbr.' cm<br>x<br>'.$item->tgi.' cm'; ?></td>
                                                 <!-- <td class="text-right"><?php echo htmlspecialchars($item->lbr, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td class="text-right"><?php echo htmlspecialchars($item->tgi, ENT_QUOTES, 'UTF-8'); ?></td> -->
                                                 <td><div class="product-img"><img src="<?=site_url($this->data['products_dir'].'/'.$item->gambar)?>" alt="Image"></div></td>

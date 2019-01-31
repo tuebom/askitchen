@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                     </div>
 
-                    <div class="row">
+                    <!--<div class="row">
                         <div class="col-md-12">
 <?php
 /*
@@ -100,6 +100,6 @@ if ($url_exist) {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </section>
             </div>

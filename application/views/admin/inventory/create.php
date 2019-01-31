@@ -63,6 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <select id="kdgol2" name="kdgol2" class="form-control">
                                                     <option value=""<?=isset($_SESSION['kdgol2'])?'': ' selected';?>>-</option>
                                                     <?php
+                                                        if (isset($this->data['golongan2'])) {
                                                         foreach ($this->data['golongan2'] as $itemx) {
                                                             if (isset($_SESSION['kdgol2']))
                                                             {
@@ -70,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <option value="<?= $itemx->kdgol2 ?>"<?php if( $itemx->id == $_SESSION['kdgol2'] ): ?> selected="selected"<?php endif; ?>><?= $itemx->nama ?></option>
                                                     <?php   } else { ?>
                                                     <option value="<?= $itemx->kdgol2 ?>"><?= $itemx->nama ?></option>
-                                                    <?php } } ?>
+                                                    <?php } } } ?>
                                                 </select>
                                                 </div>
                                             </div>
@@ -231,3 +232,47 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </section>
             </div>
+
+<script type="text/javascript">
+// $(document).ready(function(){
+        
+    <?php $sTmp = site_url() . 'inventory/level2/'; ?>
+    $('#kdgol').change(function(){
+    // alert('test') 
+    $.ajax({
+            type: "POST",
+            url: "<?php echo sTmp; ?>"+$(this).val(),
+            success:function(json){
+                var data = json.data;
+                console.log(data)
+                $('#kdgol2').html('');
+                for (var i = 0; i < data.length; i++) {
+                    $('#kdgol2').append('<option value="'+data[i].kdgol2+'">'+data[i].nama+'</option>')
+                }
+            },
+        });
+    });
+
+    // $('#kdgol2').change(function(){
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "<?php echo site_url();?>inventory/level3/"+$(this).val(),
+    //         success:function(json){
+    //             var data = json.data;
+    //             console.log(data)
+    //             $('#kdgol3').html('');
+    //             for (var i = 0; i < data.length; i++) {
+    //                 $('#kdgol3').append('<option value="'+data[i].kdgol3+'">'+data[i].nama+'</option>')
+    //             }
+    //         },
+    //     });
+    // });
+    
+    // $('#btnUpload').click(function(event) {
+    //     // event.preventDefault();
+    //     // alert('halo')
+    //     $('#prdfile').trigger("click");
+    //     // $('#frmAkun').submit();
+    // });
+// });
+</script>
