@@ -2,7 +2,7 @@
 		<div class="content">
 			<div class="cart-items">
 				<div class="container">
-                    <form id="frmDelivery" action="<?= site_url('checkout?tab=payment'); ?>" method="post">
+                    <form id="frmDelivery" action="<?= site_url('checkout?action=submit'); ?>" method="post">
 
                     <input type="hidden" name="mbrid" value="<?=isset($this->data['anggota']->id) ? $this->data['anggota']->id : '';?>">
                     <input type="hidden" name="submit1" value="submit">
@@ -50,7 +50,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                    $item_price = 0;
+                                    $item_price  = 0;
                                     $total_price = 0;
 
                                     foreach ($_SESSION["cart_item"] as $item) {
