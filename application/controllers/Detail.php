@@ -34,7 +34,25 @@ class Detail extends Public_Controller {
 			$this->data['first_name'] = $member->first_name;
 			$this->data['last_name']  = $member->last_name;
 		}
-        
+		$recaptchaSecret = '6LeVG44UAAAAACHx9hSaJB861f6bjQhQMB-KodyD';
+        if (!empty($_POST)) {
+
+			// validate the ReCaptcha, if something is wrong, we throw an Exception,
+			// i.e. code stops executing and goes to catch() block
+			
+				if (!isset($_POST['g-recaptcha-response'])) {
+					throw new \Exception('ReCaptcha is not set.');
+				}
+				$recaptcha = new \ReCaptcha\ReCaptcha($recaptchaSecret, new \ReCaptcha\RequestMethod\CurlPost());
+			
+				// we validate the ReCaptcha field together with the user's IP address
+			
+				$response = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
+	
+				if (!$response->isSuccess()) {
+					throw new \Exception('ReCaptcha was not validated.');
+				}
+			}
         $kode = $this->uri->segment(2);
 		
 		$this->data['product']   = $this->stock_model->get_by_kodeurl($kode);
@@ -205,47 +223,47 @@ class Detail extends Public_Controller {
 			endif;
 		}
 		
-		// prepare captcha
-		$original_string = array_merge(range(0, 9), range('a', 'z'), range('A', 'Z'));
+		// // prepare captcha
+		// $original_string = array_merge(range(0, 9), range('a', 'z'), range('A', 'Z'));
 
-		$original_string = implode("", $original_string);
+		// $original_string = implode("", $original_string);
 
-		$captcha = substr(str_shuffle($original_string), 0, 6);
+		// $captcha = substr(str_shuffle($original_string), 0, 6);
 		
-		if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-			$file = 'D:\xampp\htdocs\askitchen\images\captcha\\';
-		} else {
-			$file = './captcha/';
-		}
+		// if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+		// 	$file = 'D:\xampp\htdocs\askitchen\images\captcha\\';
+		// } else {
+		// 	$file = './captcha/';
+		// }
 
-		$vals = array(
+		// $vals = array(
 
-			'word' => $captcha,
+		// 	'word' => $captcha,
 
-			'img_path' => $file, //'D:\xampp\htdocs\askitchen\images\captcha\\', //'./captcha'
+		// 	'img_path' => $file, //'D:\xampp\htdocs\askitchen\images\captcha\\', //'./captcha'
 
-			'img_url' => base_url('images/captcha'),
+		// 	'img_url' => base_url('images/captcha'),
 
-			'font_size' => 10,
+		// 	'font_size' => 10,
 
-			'img_width' => 150,
+		// 	'img_width' => 150,
 
-			'img_height' => 50,
+		// 	'img_height' => 50,
 
-			'expiration' => 7200
+		// 	'expiration' => 7200
 
-		);
+		// );
 
-		// note: pastikan folder captcha sudah dibuat
-		$cap = create_captcha($vals);
+		// // note: pastikan folder captcha sudah dibuat
+		// $cap = create_captcha($vals);
 
-		if (isset($this->session->userdata['image'])) {
+		// if (isset($this->session->userdata['image'])) {
 
-			if (file_exists($file . $this->session->userdata['image']))
-				unlink($file . $this->session->userdata['image']);
-		}
+		// 	if (file_exists($file . $this->session->userdata['image']))
+		// 		unlink($file . $this->session->userdata['image']);
+		// }
 
-		$this->session->set_userdata(array('captcha' => $captcha, 'image' => $cap['time'] . '.jpg'));
+		// $this->session->set_userdata(array('captcha' => $captcha, 'image' => $cap['time'] . '.jpg'));
 		
 		$this->data['item_rating'] = $this->reviews_model->get_rating($kode);
 		

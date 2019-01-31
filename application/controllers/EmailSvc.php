@@ -14,6 +14,7 @@ class Emailsvc extends CI_Controller{
 
         $name = $this->input->post('name') . ' ' . $this->input->post('surname');
         $toEmail = $this->input->post('emailto');
+        $toEmailSender = $this->input->post('email');
 
         // subject of the email
         $subject = 'New message from '.$name;
@@ -48,7 +49,8 @@ class Emailsvc extends CI_Controller{
         // $toEmail = "aswin@askitchen.com"; // siapa yg menerima email ini
         // $toEmail = "marketing@askitchen.com"; // siapa yg menerima email ini
         $mail->AddAddress($toEmail);
-        
+        $mail->AddAddress($toEmailSender);
+       
         if(!$mail->Send()) {
             // echo "Error: ".$mail->ErrorInfo;
             $responseArray = array('type' => 'danger', 'message' => $errorMessage);

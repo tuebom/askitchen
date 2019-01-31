@@ -26,6 +26,13 @@ class Contact_us extends Public_Controller {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
 		
+		if ($this->ion_auth->logged_in())
+		{
+			$member = $this->ion_auth->user()->row();
+			$this->data['first_name'] = $member->first_name;
+			$this->data['last_name']  = $member->last_name;
+		}
+
 
 		// // prepare captcha
 		// $original_string = array_merge(range(0, 9), range('a', 'z'), range('A', 'Z'));
@@ -74,7 +81,7 @@ class Contact_us extends Public_Controller {
 		// }
 
 		// $this->session->set_userdata(array('captcha' => $captcha, 'image' => $cap['time'] . '.jpg'));
-		
+		$recaptchaSecret = '6LeVG44UAAAAACHx9hSaJB861f6bjQhQMB-KodyD';
 		if (!empty($_POST)) {
 
         // validate the ReCaptcha, if something is wrong, we throw an Exception,
