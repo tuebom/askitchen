@@ -1,5 +1,5 @@
 		<!--banner-->
-		<div class="banner-w3">
+		<!-- <div class="banner-w3">
 			<div class="demo-1">      
 				<div id="example1" class="core-slider core-slider__carousel example_1">
 					<div class="core-slider_viewport">
@@ -36,7 +36,90 @@
 			});
 
 			</script>
-		<script>
+		</div> -->
+		<script src="js/jssor.slider-27.5.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        jssor_1_slider_init = function() {
+
+            var jssor_1_SlideshowTransitions = [
+              {$Duration:800,$Opacity:2}
+            ];
+
+            var jssor_1_options = {
+              $AutoPlay: 1,
+              $SlideshowOptions: {
+                $Class: $JssorSlideshowRunner$,
+                $Transitions: jssor_1_SlideshowTransitions,
+                $TransitionsOrder: 1
+              },
+              $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$
+              },
+              $BulletNavigatorOptions: {
+                $Class: $JssorBulletNavigator$
+              }
+            };
+
+            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+            /*#region responsive code begin*/
+
+            var MAX_WIDTH = 1440;
+
+            function ScaleSlider() {
+                var containerElement = jssor_1_slider.$Elmt.parentNode;
+                var containerWidth = containerElement.clientWidth;
+
+                if (containerWidth) {
+
+                    var expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
+
+                    jssor_1_slider.$ScaleWidth(expectedWidth);
+                }
+                else {
+                    window.setTimeout(ScaleSlider, 30);
+                }
+            }
+
+            ScaleSlider();
+
+            $Jssor$.$AddEvent(window, "load", ScaleSlider);
+            $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+            $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+            /*#endregion responsive code end*/
+        };
+    </script>
+    
+    <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:380px;overflow:hidden;visibility:hidden;">
+        <!-- Loading Screen -->
+        <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
+            <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/spin.svg" />
+        </div>
+        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
+            <div>
+				<img src="<?php echo site_url('images/ban1-1.jpg'); ?>" class="img-responsive" alt="">
+            </div>
+            <div>
+				<img src="<?php echo site_url('images/ban1-5.jpg'); ?>" class="img-responsive" alt="">
+            </div>
+            <div>
+				<img src="<?php echo site_url('images/ban1-3.jpg'); ?>" class="img-responsive" alt="">
+            </div>
+            <div>
+				<img src="<?php echo site_url('images/ban1-4.jpg'); ?>" class="img-responsive" alt="">
+            </div>
+        </div>
+        <!-- Bullet Navigator -->
+        <div data-u="navigator" class="jssorb051" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
+            <div data-u="prototype" class="i" style="width:16px;height:16px;">
+                <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                    <circle class="b" cx="8000" cy="8000" r="5800"></circle>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">jssor_1_slider_init();</script>
+<script>
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
 
@@ -54,57 +137,8 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 </script>
-
-
-		</div>
 		<!--banner-->
 		<!--content-->
-		<div class="content">
-			<!--banner-bottom-->
-				<!--<div class="ban-bottom-w3l">
-					<div class="container">
-						<div class="col-md-6 ban-bottom">
-							<div class="ban-top">
-								<img src="<?php echo site_url('images/p1.jpg'); ?>" class="img-responsive" alt=""/>
-								<div class="ban-text">
-									<h4>Men’s Clothing</h4>
-								</div>
-								<div class="ban-text2 hvr-sweep-to-top">
-									<h4>50% <span>Off/-</span></h4>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6 ban-bottom3">
-							<div class="ban-top">
-								<img src="<?php echo site_url('images/p2.jpg'); ?>" class="img-responsive" alt=""/>
-								<div class="ban-text1">
-									<h4>Women's Clothing</h4>
-								</div>
-							</div>
-							<div class="ban-img">
-								<div class=" ban-bottom1">
-									<div class="ban-top">
-										<img src="<?php echo site_url('images/p3.jpg'); ?>" class="img-responsive" alt=""/>
-										<div class="ban-text1">
-											<h4>T - Shirt</h4>
-										</div>
-									</div>
-								</div>
-								<div class="ban-bottom2">
-									<div class="ban-top">
-										<img src="<?php echo site_url('images/p4.jpg'); ?>" class="img-responsive" alt=""/>
-										<div class="ban-text1">
-											<h4>Hand Bag</h4>
-										</div>
-									</div>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>-->
-			<!--banner-bottom-->
 
 			<!--hot-products-->
 			<div class="hot-w3agile">
