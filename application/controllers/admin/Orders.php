@@ -17,7 +17,7 @@ class Orders extends Admin_Controller {
 
         /* Title Page :: Common */
         $this->page_title->push(lang('menu_orders'));
-        $this->data['pagetitle'] = '<h1>Orders</h1>'; //$this->page_title->show();
+        $this->data['pagetitle'] = '<h1>Update Order</h1>'; //$this->page_title->show();
 
         /* Breadcrumbs :: Common */
         $this->breadcrumbs->unshift(1, 'Orders', 'admin/orders');
@@ -143,53 +143,31 @@ class Orders extends Admin_Controller {
 		/* Validate form input */
 		// $this->form_validation->set_rules('kdbar', 'lang:edit_user_validation_fname_label', 'required');
 
+		$order_id = $this->uri->segment(4);
+
+		$this->data['order'] = $this->orders_model->get_by_id($order_id);
+		$this->data['order_detail'] = $this->orders_model->get_order_detail($order_id);
+
 		if (isset($_POST) && ! empty($_POST))
 		{
 
-			if ($this->form_validation->run() == TRUE)
+			$order_id = $this->input->post('id');
+
+			$order_data = array(
+				'status'     => $this->input->post('status'),
+			);
+
+			$this->orders_model->update($order_id, $order_data);
+				
+			$this->session->set_flashdata('message', $this->ion_auth->messages());
+
+			if ($this->ion_auth->is_admin())
 			{
-                $order_id = $this->input->post('id');
-
-                $order_data = array(
-					'total'      => $this->input->post('total'),
-					'disc'       => $this->input->post('disc'),
-					'discrp'     => $this->input->post('discrp'),
-					'tax'        => $this->input->post('tax'),
-					'shipcost'   => $this->input->post('shipcost'),
-					'gtotal'     => $this->input->post('gtotal'),
-
-					'payment'    => $this->input->post('payment'),
-					'status'     => $this->input->post('status'),
-					'note'       => $this->input->post('note'),
-					'delivery'   => $this->input->post('delivery'),
-				);
-
-                if($this->orders_model->update($order_id, $order_data))
-			    {
-                    $this->session->set_flashdata('message', $this->ion_auth->messages());
-
-				    if ($this->ion_auth->is_admin())
-					{
-						redirect('admin/orders', 'refresh');
-					}
-					else
-					{
-						redirect('admin', 'refresh');
-					}
-			    }
-			    else
-			    {
-                    $this->session->set_flashdata('message', $this->ion_auth->errors());
-
-				    if ($this->ion_auth->is_admin())
-					{
-						redirect('auth', 'refresh');
-					}
-					else
-					{
-						redirect('/', 'refresh');
-					}
-			    }
+				redirect('admin/orders', 'refresh');
+			}
+			else
+			{
+				redirect('admin', 'refresh');
 			}
 		}
 

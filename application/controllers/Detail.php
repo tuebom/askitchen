@@ -57,7 +57,7 @@ class Detail extends Public_Controller {
 		
 		$this->data['product']   = $this->stock_model->get_by_kodeurl($kode);
 		$this->data['related']   = $this->stock_model->get_related($this->data['product']->kdgol2, $kode);
-		$this->data['promotion'] = $this->stock_model->get_promotion($kode);
+		$this->data['promotion'] = $this->stock_model->get_promotion();
 
 		$action  = $this->input->get('action');
 		

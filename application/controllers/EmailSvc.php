@@ -63,6 +63,30 @@ class Emailsvc extends CI_Controller{
         echo json_encode($responseArray);
     }
      
+    function tgl_indo($tanggal){
+        $bulan = array (
+            1 =>   'Jan',
+            'Feb',
+            'Mar',
+            'Apr',
+            'Mei',
+            'Jun',
+            'Jul',
+            'Agu',
+            'Sep',
+            'Okt',
+            'Nov',
+            'Des'
+        );
+        $pecah = explode('-', $tanggal);
+        
+        // variabel pecah 0 = tahun
+        // variabel pecah 1 = bulan
+        // variabel pecah 2 = tanggal
+     
+        return $pecah[2] . ' ' . $bulan[ (int)$pecah[1] ] . ' ' . $pecah[0];
+    }
+    
     function mail_order(){
 
         $mbr_name  = $this->input->post('first_name') . ' ' . $this->input->post('last_name');
@@ -76,12 +100,36 @@ class Emailsvc extends CI_Controller{
         // $emailText = "You have a new message from your contact form <br>";
         
         $emailText  = '<div>'; // style="width:50%;"
-        $emailText .= '    <h2>Order #'.$_SESSION["order_id"].'</h2>';
-        $emailText .= '    <table class="table table table-striped">';
+        $emailText .= '    <h2>Order #'.$_SESSION["order_id"].' details</h2>';
+        $emailText .= '    <table style="width: 100%; max-width: 100%; margin-bottom: 20px; border: 1px solid #ddd;">';
+        $emailText .= '        <tbody>';
+        $emailText .= '            <tr style="border: 1px solid #ddd;">';
+        $emailText .= '                <td style="border: 1px solid #ddd; padding: 7px;"><b>Date Created</b></td>';
+        $emailText .= '                <td style="border: 1px solid #ddd; padding: 7px;">'. $this->tgl_indo(date('Y-m-d')) .'</td>';
+        $emailText .= '            </tr>';
+
+        $emailText .= '            <tr style="border: 1px solid #ddd;">';
+        $emailText .= '                <td valign="top" style="border: 1px solid #ddd; padding: 7px;"><b>Customer</b></td>';
+        $emailText .= '                <td style="border: 1px solid #ddd; padding: 7px;">'. $_SESSION["first_name"] .' '.$_SESSION["last_name"].'<br>';
+        $emailText .= '                '. $_SESSION["address"].'<br>';
+        $emailText .= '                '. $_SESSION["district"] .', '.$_SESSION["regency"].',<br>';
+        $emailText .= '                '. $_SESSION["province"] .' - '.$_SESSION["post_code"].'<br><br>';
+
+        $emailText .= '                Email address:<br>';
+        $emailText .= '                '. $_SESSION["email"] .'<br><br>';
+
+        $emailText .= '                Phone:<br>';
+        $emailText .= '                '. $_SESSION["phone"] .'</td>';
+        $emailText .= '            </tr>';
+
+        $emailText .= '        <tbody>';
+        $emailText .= '    </table>';
+
+        $emailText .= '    <table style="width: 100%; max-width: 100%; margin-bottom: 20px; border: 1px solid #ddd;">';
         $emailText .= '        <thead>';
-        $emailText .= '            <tr>';
-        $emailText .= '                <th>Item Code</th><th>Description</th><th style="text-align:right;">Qty</th>';
-        $emailText .= '                <th style="text-align:right;">Total</th>';
+        $emailText .= '            <tr style="border: 1px solid #ddd;">';
+        $emailText .= '                <th style="sborder: 1px solid #ddd; padding: 7px;">Item Code</th><th style="border: 1px solid #ddd;">Description</th><th style="text-align:right; border: 1px solid #ddd;">Qty</th>';
+        $emailText .= '                <th style="text-align:right; border: 1px solid #ddd; padding: 7px;">Price</th><th style="text-align:right; border: 1px solid #ddd;">Total</th>';
         $emailText .= '            </tr>';
         $emailText .= '        </thead>';
         $emailText .= '        <tbody>';
@@ -89,20 +137,27 @@ class Emailsvc extends CI_Controller{
         $item_price  = 0;
         $total_price = 0;
 
-                        foreach ($_SESSION["cart_item"] as $item) {
+        foreach ($_SESSION["cart_item"] as $item)
+        {
 
-                            $item_price  = (float)$item["qty"]*$item["harga"];
-                            $total_price += $item_price;
+            $item_price   = (float)$item["qty"]*$item["harga"];
+            $total_price += $item_price;
 
-        $emailText .= '            <tr>';
-        $emailText .= '                <td>'. $item["kdbar"] .'</td>';
-        $emailText .= '                <td>'. $item["nama"] .'</td>';
-        $emailText .= '                <td style="text-align:right;">'. $item["qty"] .'</td>';
-        $emailText .= '                <td style="text-align:right;">Rp'. number_format($item_price, 0, '.', ',') .'</td>';
+        $emailText .= '            <tr style="border: 1px solid #ddd;">';
+        $emailText .= '                <td style="border: 1px solid #ddd; padding: 7px;">'. $item["kdbar"] .'</td>';
+        $emailText .= '                <td style="border: 1px solid #ddd; padding: 7px;">'. $item["nama"] .'</td>';
+        $emailText .= '                <td style="text-align:right; border: 1px solid #ddd; padding: 7px;">'. $item["qty"] .'</td>';
+        $emailText .= '                <td style="text-align:right; border: 1px solid #ddd; padding: 7px;">Rp'. number_format($item["harga"], 0, '.', ',') .'</td>';
+        $emailText .= '                <td style="text-align:right; border: 1px solid #ddd; padding: 7px;">Rp'. number_format($item_price, 0, '.', ',') .'</td>';
         $emailText .= '            </tr>';
-                        }
+        
+        }
+
         $emailText .= '        </tbody>';
-        $emailText .= '        <tfoot>';
+        $emailText .= '    </table>';
+
+        $emailText .= '    <table style="width: 100%; max-width: 100%; margin-bottom: 20px; border: 1px solid #ddd;">';
+        $emailText .= '        <tbody>';
         $emailText .= '            <tr>';
         $emailText .= '                <td><b>Subtotal</b></td>';
         $emailText .= '                <td style="text-align:right;"><b>Rp'. number_format($total_price, 0, '.', ',') .'</b></td>';
@@ -119,23 +174,23 @@ class Emailsvc extends CI_Controller{
         $emailText .= '                <td><b>Total</b></td>';
         $emailText .= '                <td style="text-align:right;"><b>Rp'. number_format($total_price, 0, '.', ',') .'</b></td>';
         $emailText .= '            </tr>';
-        $emailText .= '        </tfoot>';
+        $emailText .= '        </tbody>';
         $emailText .= '    </table>';
         $emailText .= '</div>';
 
         $array_items = array('first_name', 'last_name', 'company', 'address',
-        'province', 'regency', 'district', 'post_code', 'phone', 'email', 'guest');
+        'province', 'regency', 'district', 'post_code', 'phone', 'email', 'delivery');
         $this->session->unset_userdata($array_items);
         
-        // array variable name => Text to appear in the email
-        // $fields = array('name' => 'Name', 'surname' => 'Surname', 'phone' => 'Phone', 'need' => 'Need', 'email' => 'Email', 'message' => 'Message');
+        if(!empty($_SESSION["cart_item"])) {
+	
+            foreach($_SESSION["cart_item"] as $k => $v) {
+                unset($_SESSION['cart_item'][$k]);
+            }
+        }
+        $this->session->set_userdata('totqty', 0);
+        $this->session->set_userdata('tot_price', 0);
 
-        // foreach ($_POST as $key => $value) {
-        //     // If the field exists in the $fields array, include it in the email 
-        //     if (isset($fields[$key])) {
-        //         $emailText .= "$fields[$key]: $value<br>";
-        //     }
-        // }
 
         $mail = $this->phpmailer_library->load(); //new PHPMailer();
         $mail->IsHTML(true);                       // set email format to HTML

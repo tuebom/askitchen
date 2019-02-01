@@ -18,13 +18,13 @@
                                 <div class="col-sm-12">    
                                     <ul class="list-group list-group-unbordered">
                                     <li class="list-group-item deli"><h4>Domestic Freight</h4>
-                                        <div><input type="radio" class="delivery" name="delivery" value="land"<?php if(isset($_SESSION['delivery'])){ if($_SESSION['delivery'] == 'DOM') echo 'checked="checked"'; } else { echo 'checked="checked"'; }?>></div>
+                                        <div><input type="radio" class="delivery" name="delivery" value="DOMESTIC"<?php if(isset($_SESSION['delivery'])){ if($_SESSION['delivery'] == 'DOM') echo 'checked="checked"'; } else { echo 'checked="checked"'; }?>></div>
                                     </li>
                                     <li class="list-group-item deli"><h4>JNE</h4>
-                                        <div><input type="radio" class="delivery" name="delivery" value="land"<?php if(isset($_SESSION['delivery'])){ if($_SESSION['delivery'] == 'JNE') echo 'checked="checked"'; }?>></div>
+                                        <div><input type="radio" class="delivery" name="delivery" value="JNE"<?php if(isset($_SESSION['delivery'])){ if($_SESSION['delivery'] == 'JNE') echo 'checked="checked"'; }?>></div>
                                     </li>
                                     <li class="list-group-item deli"><h4>J&amp;T</h4>
-                                        <div><input type="radio" class="delivery" name="delivery" value="land"<?php if(isset($_SESSION['delivery'])){ if($_SESSION['delivery'] == 'JNT') echo 'checked="checked"'; }?>></div>
+                                        <div><input type="radio" class="delivery" name="delivery" value="J&T"<?php if(isset($_SESSION['delivery'])){ if($_SESSION['delivery'] == 'JNT') echo 'checked="checked"'; }?>></div>
                                     </li>
                                     </ul>
 

@@ -102,7 +102,9 @@
 									<?php if( count($promotion) > 0) { ?>
 									<h3 class="box-title">Promotion Products</h3>
 									<ul class="products-list product-list-in-box">
-										<?php foreach ( $promotion as $item) { ?>
+										<?php 
+											$index = 0;
+											foreach ( $promotion as $item) { ?>
 										<li class="item">
 											<div class="product-img">
 												<img src="<?=site_url($this->data['products_dir'].'/'.$item->gambar)?>" alt="Image">
@@ -114,7 +116,10 @@
 											</div>
 										</li>
 										<!-- /.item -->
-										<?php } ?>
+										<?php 
+											$index++;
+											if ($index == 5) break;
+											} ?>
 									</ul>
 									<?php } // tidak ada item promo
 									elseif( count($related) > 0) { ?>

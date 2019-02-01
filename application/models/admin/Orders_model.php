@@ -28,8 +28,31 @@ class Orders_model extends CI_Model
     // get data by id
     function get_by_id($id)
     {
-        $this->db->where($this->id, $id);
-        return $this->db->get($this->table)->row();
+        $this->db->select('o.id, concat(a.first_name, " ", a.last_name) as name, '. //o.tglinput,'.
+        'CONCAT(DAY(o.tglinput),"/",MONTH(o.tglinput),"/", YEAR(o.tglinput)) as tglinput,'.
+        'a.address, d.name as district, r.name as regency, p.name as province, a.post_code,'.
+        'a.phone, a.email, o.status, o.total, o.tax, o.shipcost, o.gtotal, o.delivery, o.note');
+        $this->db->from('orders o');
+        $this->db->join('address a', 'o.addrid = a.id');
+        $this->db->join('provinces p', 'a.province = p.id');
+        $this->db->join('regencies r', 'a.regency = r.id');
+        $this->db->join('districts d', 'a.district = d.id');
+        $this->db->join('users u', 'o.mbrid = u.id');
+
+        $this->db->where('o.id', $id);
+        return $this->db->get()->row();
+        // return $this->db->get($this->table)->row();
+    }
+
+    // daftar item order
+    function get_order_detail($id)
+    {
+        $this->db->select('o1.urut, o1.kdbar, s.kdurl, s.nama, o1.qty, o1.hjual, o1.jumlah, s.gambar');
+        $this->db->from('orders_detail o1, stock s');
+        $this->db->where('o1.kdbar = s.kdbar');
+        $this->db->where('o1.id', $id);
+        $this->db->order_by('o1.urut', 'ASC');
+        return $this->db->get()->result();
     }
 
     // daftar item belum bayar
@@ -134,7 +157,7 @@ class Orders_model extends CI_Model
               'WHEN 12 THEN "Des" '.
             'END," ", YEAR(o.tglinput)) as tglinput,'.
         'IF(o.status = "PND", "Pending", IF(o.status = "PAID", "Processing",'.
-        'IF(o.status = "SHPD", "Shipped", "Delivered"))) as status,'.
+        'IF(o.status = "SHIP", "Shipped", "Delivered"))) as status,'.
         'CONCAT(a.address, ", ", d.name, ", ", r.name, " - ", p.name, " ", a.post_code) as address, o.gtotal');
         $this->db->from('orders o');
         $this->db->join('address a', 'o.addrid = a.id');
