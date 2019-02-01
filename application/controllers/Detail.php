@@ -40,19 +40,19 @@ class Detail extends Public_Controller {
 			// validate the ReCaptcha, if something is wrong, we throw an Exception,
 			// i.e. code stops executing and goes to catch() block
 			
-				if (!isset($_POST['g-recaptcha-response'])) {
-					throw new \Exception('ReCaptcha is not set.');
-				}
-				$recaptcha = new \ReCaptcha\ReCaptcha($recaptchaSecret, new \ReCaptcha\RequestMethod\CurlPost());
-			
-				// we validate the ReCaptcha field together with the user's IP address
-			
-				$response = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
-	
-				if (!$response->isSuccess()) {
-					throw new \Exception('ReCaptcha was not validated.');
-				}
+			if (!isset($_POST['g-recaptcha-response'])) {
+				throw new \Exception('ReCaptcha is not set.');
 			}
+			$recaptcha = new \ReCaptcha\ReCaptcha($recaptchaSecret, new \ReCaptcha\RequestMethod\CurlPost());
+		
+			// we validate the ReCaptcha field together with the user's IP address
+		
+			$response = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
+
+			if (!$response->isSuccess()) {
+				throw new \Exception('ReCaptcha was not validated.');
+			}
+		}
         $kode = $this->uri->segment(2);
 		
 		$this->data['product']   = $this->stock_model->get_by_kodeurl($kode);

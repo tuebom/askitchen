@@ -51,7 +51,7 @@ class Stock_model extends CI_Model
     }
 
     // get data by food category
-    function get_by_food_category($limit, $start = 0, $tag)
+    function get_by_food_category($limit = 8, $start = 0, $tag)
     {
         $this->db->select('kdbar, kdurl, nama, deskripsi, format(hjual,0,"de") as hjual, pnj, lbr, tgi, gambar');
         // $this->db->where('kdgol2', $code);
@@ -61,7 +61,7 @@ class Stock_model extends CI_Model
     }
 
     // get data by brand
-    function get_by_brand($limit, $start = 0, $brand)
+    function get_by_brand($limit = 8, $start = 0, $brand)
     {
         $this->db->where($this->merk, $brand);
 	    $this->db->limit($limit, $start);
@@ -80,7 +80,7 @@ class Stock_model extends CI_Model
     }
 
     // get new products
-    function get_new_products($limit, $start = 0)
+    function get_new_products($limit = 8, $start = 0)
     {
         $this->db->select('kdbar, kdurl, nama, deskripsi, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar')
             ->from('stock')
@@ -98,7 +98,7 @@ class Stock_model extends CI_Model
     }
 
     // get promotion product
-    function get_promotion($limit, $start = 0)
+    function get_promotion($limit = 8, $start = 0)
     {
         $this->db->select('kdbar, kdurl, nama, deskripsi, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar')
             ->from('stock')
@@ -117,7 +117,7 @@ class Stock_model extends CI_Model
     }
 
     // get best seller product
-    function get_best_seller($limit, $start = 0)
+    function get_best_seller($limit = 8, $start = 0)
     {
         $this->db->select('kdbar, kdurl, nama, deskripsi, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar')
             ->from('stock')
