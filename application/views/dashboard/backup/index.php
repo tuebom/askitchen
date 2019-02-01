@@ -5,13 +5,16 @@
 					<div class="core-slider_viewport">
 						<div class="core-slider_list">
 							<div class="core-slider_item">
-								<img src="<?php echo site_url('images/b1.jpg'); ?>" class="img-responsive" alt="">
+								<img src="<?php echo site_url('images/ban1-1.jpg'); ?>" class="img-responsive" alt="">
 							</div>
 							 <div class="core-slider_item">
-								 <img src="<?php echo site_url('images/b2.jpg'); ?>" class="img-responsive" alt="">
+								 <img src="<?php echo site_url('images/ban1-2.jpg'); ?>" class="img-responsive" alt="">
 							 </div>
 							<div class="core-slider_item">
-								 <img src="<?php echo site_url('images/b3.jpg'); ?>" class="img-responsive" alt="">
+								 <img src="<?php echo site_url('images/ban1-3.jpg'); ?>" class="img-responsive" alt="">
+							</div>
+							<div class="core-slider_item">
+								 <img src="<?php echo site_url('images/ban3-2.jpg'); ?>" class="img-responsive" alt="">
 							</div>
 						</div>
 					</div>
@@ -26,12 +29,32 @@
 			<script src="<?php echo site_url('js/coreSlider.js'); ?>"></script>
 			<script>
 			$('#example1').coreSlider({
-			 pauseOnHover: false,
+			 pauseOnHover: true,
 			 interval: 3000,
-			 controlNavEnabled: true
+			 controlNavEnabled: false,
+			 NavEnabled: true,
 			});
 
 			</script>
+		<script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("myBtn").style.display = "block";
+  } else {
+    document.getElementById("myBtn").style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
 
 		</div>
 		<!--banner-->
@@ -82,6 +105,50 @@
 					</div>
 				</div>-->
 			<!--banner-bottom-->
+
+			<!--hot-products-->
+			<div class="hot-w3agile">
+				<div class="container">
+					<!--<h4 class="tittle1">New Arrivals</h4>-->
+					<div class="arrivals-grids">
+						<div class="col-md-4 arrival-grid simpleCart_shelfItem">
+							<div class="grid-arr-hot">
+								<a href="<?php echo site_url(); ?>" class="new-gri">
+									<img src="<?=site_url('images/new-product.jpg');?>" class="img-hot" alt="">
+									<div class="text">
+										<h3>New Products</h3>
+									</div>
+								</a>		
+							</div>
+						</div>
+					
+						<div class="col-md-4 arrival-grid simpleCart_shelfItem">
+							<div class="grid-arr-hot">
+								<a href="<?php echo site_url(); ?>" class="new-gri">
+									<img src="<?=site_url('images/promotion.jpg');?>" class="img-hot" alt="">
+									<div class="text">
+										<h3>Promotions</h3>
+									</div>
+								</a>		
+							</div>
+						</div>
+						
+						<div class="col-md-4 arrival-grid simpleCart_shelfItem">
+							<div class="grid-arr-hot">
+								<a href="<?php echo site_url(); ?>" class="new-gri">
+									<img src="<?=site_url('images/best-seller.jpg');?>" class="img-hot" alt="">
+									<div class="text">
+										<h3>Best Seller</h3>
+									</div>
+								</a>		
+							</div>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+			<!--hot-products-->
+
 			<!--new-arrivals-->
 				<div class="new-arrivals-w3agile">
 					<div class="container">
@@ -99,20 +166,17 @@
 												<div class="grid-img">
 													<img src="<?=site_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar?>">
 												</div>
-												<!--<div class="grid-img">
-													<img src="<?=site_url('images/p5.jpg');?>" class="img-responsive" alt="">
-												</div>-->
 											</a>		
 										</figure>	
 									</div>
-									<div class="block">
+									<!--<div class="block">
 										<div class="starbox small ghosting"> </div>
-									</div>
+									</div>-->
 									<div class="women">
-										<h6><a href="<?php echo site_url('detail/'.$item->kdurl); ?>"><?= $item->kdbar?></a></h6>
+										<!--<p><em class="item_price">Rp<?= $item->hjual; ?></em></p>-->
+										<span class="size"><?= $item->nama; ?></span>
 										<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
-										<p><!--<del>$100.00</del>--><em class="item_price">Rp<?= $item->hjual?></em></p>
-										<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="See Details" class="my-cart-d item_add">See Details</a>
+										<span class="detail">Rp<?= $item->hjual; ?>&nbsp;&nbsp;<a href="<?= current_url().'?action=add&code='.$item->kdurl ?>" class="my-cart-d item_add"><img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a><!--<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" class="my-cart-d item_add">Detail</a>--></span>
 									</div>
 								</div>
 							</div>
@@ -154,20 +218,17 @@
 																<div class="grid-img">
 																	<img src="<?=site_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar ?>">
 																</div>
-																<!--<div class="grid-img">
-																	<img src="<?php echo site_url('images/p13.jpg'); ?>" class="img-responsive" alt="">
-																</div>-->			
 															</a>		
 														</figure>	
 													</div>
-													<div class="block">
+													<!--<div class="block">
 														<div class="starbox small ghosting"> </div>
-													</div>
+													</div>-->
 													<div class="women">
-														<h6><a href="<?php echo site_url('detail/'.$item->kdurl); ?>"><?= $item->kdbar ?></a></h6>
+														<!--<p ><em class="item_price">Rp<?= $item->hjual; ?></em></p>-->
+														<span class="size"><?= $item->nama; ?></span>
 														<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
-														<p><!--<del>$100.00</del>--><em class="item_price">Rp<?= $item->hjual ?></em></p>
-														<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="See Details" class="my-cart-d item_add">See Details</a>
+														<span class="detail">Rp<?= $item->hjual; ?>&nbsp;&nbsp;<a href="<?= current_url().'?action=add&code='.$item->kdurl ?>" class="my-cart-d item_add"><img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a><!--<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" class="my-cart-d item_add">Detail</a>--></span>
 													</div>
 												</div>
 											</div>
@@ -188,20 +249,17 @@
 																<div class="grid-img">
 																	<img src="<?=site_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar ?>">
 																</div>
-																<!--<div class="grid-img">
-																	<img src="<?php echo site_url('images/p22.jpg'); ?>" class="img-responsive" alt="">
-																</div>-->
 															</a>		
 														</figure>	
 													</div>
-													<div class="block">
+													<!--<div class="block">
 														<div class="starbox small ghosting"> </div>
-													</div>
+													</div>-->
 													<div class="women">
-														<h6><a href="<?php echo site_url('detail/'.$item->kdurl); ?>"><?= $item->kdbar ?></a></h6>
+														<!--<p><em class="item_price">Rp<?= $item->hjual; ?></em></p>-->
+														<span class="size"><?= $item->nama; ?></span>
 														<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
-														<p><!--<del>$100.00</del>--><em class="item_price">Rp<?= $item->hjual ?></em></p>
-														<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" data-text="See Details" class="my-cart-d item_add">See Details</a>
+														<span class="detail">Rp<?= $item->hjual; ?>&nbsp;&nbsp;<a href="<?= current_url().'?action=add&code='.$item->kdurl ?>" class="my-cart-d item_add"><img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a><!--<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" class="my-cart-d item_add">Detail</a>--></span>
 													</div>
 												</div>
 											</div>

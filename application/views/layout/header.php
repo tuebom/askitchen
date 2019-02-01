@@ -107,7 +107,7 @@ jQuery(function() {
 		success: function( location ) {
 			// $('#country').html(location.country_name);
 			$('#state').html(location.state);
-			// $('#city').html(location.city);
+			$('#city').html(location.city);
 			// $('#latitude').html(location.latitude);
 			// $('#longitude').html(location.longitude);
 			// $('#ip').html(location.IPv4);  
@@ -348,7 +348,7 @@ $(window).load(function() {
 						</div>
 						<div class="location">
 							<img src="<?= site_url('images/location.png'); ?>" alt="location"/>
-							<span style="display: inline-block; vertical-align: middle; color:#fff;">Deliver To<br><span id="state"></span></span></a>
+							<span style="display: inline-block; vertical-align: middle; color:#fff;">Deliver To<br><span id="city"></span>,&nbsp<span id="state"></span></span></a>
 						</div>
 					</div>
 					<div class="top-left2">
