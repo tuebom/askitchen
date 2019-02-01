@@ -1057,8 +1057,9 @@ span.size {
     color: #000000;
     font-weight: 600;
 }
-span.detail {
+.women span.detail {
     margin-top: 15px !important;
+    font-size: .9em;
 }
 /*--cart--*/
 a:focus {

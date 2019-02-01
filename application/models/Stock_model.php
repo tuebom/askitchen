@@ -79,15 +79,59 @@ class Stock_model extends CI_Model
         return $this->db->get()->result();
     }
 
-    // get promotion product
-    function get_promotion($kdbar)
+    // get new products
+    function get_new_products($limit, $start = 0)
     {
         $this->db->select('kdbar, kdurl, nama, deskripsi, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar')
             ->from('stock')
-            ->where('promosi', 'Y')
-            ->where('kdbar !=', $kdbar)
+            ->where('kriteria', 'N')
             ->order_by('kdbar', 'ASC');
+        $this->db->limit($limit, $start);
         return $this->db->get()->result();
+    }
+    
+    // get total new products
+    function total_new_products() {
+        $this->db->where('kriteria', 'N');
+        $this->db->from($this->table);
+        return $this->db->count_all_results();
+    }
+
+    // get promotion product
+    function get_promotion($limit, $start = 0)
+    {
+        $this->db->select('kdbar, kdurl, nama, deskripsi, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar')
+            ->from('stock')
+            ->where('kriteria', 'P')
+            // ->where('kdbar !=', $kdbar)
+            ->order_by('kdbar', 'ASC');
+        $this->db->limit($limit, $start);
+        return $this->db->get()->result();
+    }
+    
+    // get total promotions
+    function total_promotions() {
+        $this->db->where('kriteria', 'P');
+        $this->db->from($this->table);
+        return $this->db->count_all_results();
+    }
+
+    // get best seller product
+    function get_best_seller($limit, $start = 0)
+    {
+        $this->db->select('kdbar, kdurl, nama, deskripsi, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar')
+            ->from('stock')
+            ->where('kriteria', 'B')
+            ->order_by('kdbar', 'ASC');
+        $this->db->limit($limit, $start);
+        return $this->db->get()->result();
+    }
+    
+    // get total best seller
+    function total_best_seller() {
+        $this->db->where('kriteria', 'B');
+        $this->db->from($this->table);
+        return $this->db->count_all_results();
     }
 
     // get random product

@@ -65,101 +65,154 @@ class Checkout extends Public_Controller {
 		}
             
 		
-		$submit = $this->input->get('action');
+		$action  = $this->input->get('action');
 
-        if ($submit) {
+		if ($action) {
+
+			if ($action == 'submit') {
 						
-			if (!isset($_SESSION["first_name"])) {
-				redirect('checkout', 'refresh');
-			}
-
-			// mulai transaksi
-			$this->db->trans_start();
-			
-			$address_data = array(
-				'first_name' => $_SESSION["first_name"],
-				'last_name'  => $_SESSION["last_name"],
-				'company'    => $_SESSION["company"],
-				'address'    => $_SESSION["address"],
-				'province'   => $_SESSION["province"],
-				'regency'    => $_SESSION["regency"],
-				'district'   => $_SESSION["district"],
-				'post_code'  => $_SESSION["post_code"],
-				'phone'      => $_SESSION["phone"],
-				'email'      => $_SESSION["email"],
-			);
-		
-			$this->db->insert('address', $address_data);
-			$addrid = $this->db->insert_id();
-
-			$mbrid      = $this->input->post('mbrid');
-			$total      = $this->input->post('total');
-			$shipcost   = $this->input->post('shipcost');
-			$tax        = $this->input->post('tax');
-			
-			$note       = $_SESSION["note"];
-			$delivery   = $_SESSION["delivery"];
-			
-			// $payment    = $this->input->post('payment');
-
-			$tglinput   = date('Y-m-d');
-
-			$orders_data = array(
-				'tglinput' => $tglinput,
-				'mbrid'    => $mbrid,
-				'addrid'   => $addrid,
-				'total'    => $total,
-				'tax'      => $tax,
-				'shipcost' => $shipcost,
-				'gtotal'   => $total,
-				// 'payment'  => $payment,
-				'note'     => $note,
-				'delivery' => $delivery,
-			);
-			$this->db->insert('orders', $orders_data);
-			$orderid = $this->db->insert_id();
-	
-			$urut = 1;
-
-			// simpan detail
-			foreach ($_SESSION["cart_item"] as $item) {						
-			
-				$item_price  = (float)$item["qty"]*$item["harga"];
-				
-				$detail_data = array(
-					'id'       => $orderid,
-					'tglinput' => $tglinput,
-					'urut'     => $urut,
-					'kdbar'    => $item["kdbar"],
-					'qty'      => $item["qty"],
-					'hjual'    => $item["harga"],
-					'jumlah'   => $item_price
-				);
-				$this->db->insert('orders_detail', $detail_data);
-				$urut++;
-			}
-			
-			$this->db->trans_complete(); // commit
-
-			
-			// clear data
-			// $array_items = array('first_name', 'last_name', 'company', 'address',
-			// 	'province', 'regency', 'district', 'post_code', 'phone', 'email', 'guest');
-			// $this->session->unset_userdata($array_items);
-
-			if(!empty($_SESSION["cart_item"])) {
-	
-				foreach($_SESSION["cart_item"] as $k => $v) {
-					unset($_SESSION['cart_item'][$k]);
+				if (!isset($_SESSION["first_name"])) {
+					redirect('checkout', 'refresh');
 				}
+
+				// mulai transaksi
+				$this->db->trans_start();
+				
+				$address_data = array(
+					'first_name' => $_SESSION["first_name"],
+					'last_name'  => $_SESSION["last_name"],
+					'company'    => $_SESSION["company"],
+					'address'    => $_SESSION["address"],
+					'province'   => $_SESSION["province"],
+					'regency'    => $_SESSION["regency"],
+					'district'   => $_SESSION["district"],
+					'post_code'  => $_SESSION["post_code"],
+					'phone'      => $_SESSION["phone"],
+					'email'      => $_SESSION["email"],
+				);
+			
+				$this->db->insert('address', $address_data);
+				$addrid = $this->db->insert_id();
+
+				$mbrid      = $this->input->post('mbrid');
+				$total      = $this->input->post('total');
+				$shipcost   = $this->input->post('shipcost');
+				$tax        = $this->input->post('tax');
+				
+				$note       = $_SESSION["note"];
+				$delivery   = $this->input->post('delivery');
+				
+				// $payment    = $this->input->post('payment');
+
+				$tglinput   = date('Y-m-d');
+
+				$orders_data = array(
+					'tglinput' => $tglinput,
+					'mbrid'    => $mbrid,
+					'addrid'   => $addrid,
+					'total'    => $total,
+					'tax'      => $tax,
+					'shipcost' => $shipcost,
+					'gtotal'   => $total,
+					// 'payment'  => $payment,
+					'note'     => $note,
+					'delivery' => $delivery,
+				);
+				$this->db->insert('orders', $orders_data);
+				$orderid = $this->db->insert_id();
+		
+				$urut = 1;
+
+				// simpan detail
+				foreach ($_SESSION["cart_item"] as $item) {						
+				
+					$item_price  = (float)$item["qty"]*$item["harga"];
+					
+					$detail_data = array(
+						'id'       => $orderid,
+						'tglinput' => $tglinput,
+						'urut'     => $urut,
+						'kdbar'    => $item["kdbar"],
+						'qty'      => $item["qty"],
+						'hjual'    => $item["harga"],
+						'jumlah'   => $item_price
+					);
+					$this->db->insert('orders_detail', $detail_data);
+					$urut++;
+				}
+				
+				$this->db->trans_complete(); // commit
+
+				
+				// clear data dilakukan setelah proses mail order
+				// $array_items = array('first_name', 'last_name', 'company', 'address',
+				// 	'province', 'regency', 'district', 'post_code', 'phone', 'email', 'guest');
+				// $this->session->unset_userdata($array_items);
+
+				// if(!empty($_SESSION["cart_item"])) {
+		
+				// 	foreach($_SESSION["cart_item"] as $k => $v) {
+				// 		unset($_SESSION['cart_item'][$k]);
+				// 	}
+				// }
+				// $this->session->set_userdata('totqty', 0);
+				// $this->session->set_userdata('tot_price', 0);
+				
+				$this->session->set_userdata('order_id', $orderid);
+				
+				// redirect('/', 'refresh');
+				redirect('mail_order', 'refresh');
 			}
-			$this->session->set_userdata('totqty', 0);
-			$this->session->set_userdata('tot_price', 0);
+			elseif ($action == 'remove')
+			{
 			
-			$this->session->set_userdata('order_id', $orderid);
+				$kdbar = $this->input->get('code'); // kode barang => cart
+		
+				if ($kdbar != '') {
+					
+					// $qty = $this->input->post('qty');
+					
+		
+					if(!empty($_SESSION["cart_item"])) {
+		
+						if(in_array($kdbar, array_keys($_SESSION["cart_item"]))) {
+		
+							foreach($_SESSION["cart_item"] as $k => $v) {
+									
+								if($kdbar == $k) {
+										
+									$val = (int)$this->session->userdata('totqty') - $_SESSION["cart_item"][$k]["qty"];
+									$this->session->set_userdata('totqty', $val);
+									unset($_SESSION['cart_item'][$k]);
+								}
+							}
+						}
+		
+					}
 			
-			// redirect('/', 'refresh');
-			redirect('mail_order', 'refresh');
+				}
+		
+				// inisiasi
+				$item_price = 0;
+				$total_price = 0;
+							
+				foreach($_SESSION["cart_item"] as $k => $v) {
+					$item_price  = (float)$_SESSION["cart_item"][$k]["qty"]*$_SESSION["cart_item"][$k]["harga"];
+					$total_price += $item_price;
+				}
+				$this->session->set_userdata('tot_price', $total_price);
+				
+				if ($total_price > 0)
+				{
+					$url = strtok(current_url(), '?');
+					header("location: ".$url);
+				}
+				else
+				{
+					redirect('/', 'refresh');
+				}
+
+			}
 		}
 			
 		$tab  = $this->input->get('tab');

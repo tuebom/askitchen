@@ -118,7 +118,8 @@ class Auth extends MY_Controller {
         }
         else
         {
-            redirect('/', 'refresh');
+			$this->session->unset_userdata(['guest', 'email']);
+			redirect('/', 'refresh');
         }
 	}
 

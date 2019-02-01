@@ -5,124 +5,160 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <div class="content-wrapper">
                 <section class="content-header">
-                    <?php echo $pagetitle; ?>
+                    Edit Order
                     <?php echo $breadcrumb; ?>
                 </section>
 
-                <section class="content">
+                <section class="invoice">
+                    <!-- title row -->
                     <div class="row">
-                        <div class="col-md-12">
-                             <div class="box">
-                                <div class="box-header with-border">
-                                    <h3 class="box-title">Edit Orders</h3>
-                                </div>
-                                <div class="box-body">
-                                    <?php echo $message;?>
-
-                                    <?php echo form_open(uri_string(), array('class' => 'form-horizontal', 'id' => 'form-edit_user')); ?>
-                                        <div class="form-group">
-                                            <?php echo lang('orders_kdbar', 'kdbar', array('class' => 'col-sm-2 control-label')); ?>
-                                            <div class="col-sm-10">
-                                                <?php echo form_input($kdbar);?>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <?php echo lang('orders_kdurl', 'kdurl', array('class' => 'col-sm-2 control-label')); ?>
-                                            <div class="col-sm-10">
-                                                <?php echo form_input($kdurl);?>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <?php echo lang('orders_description', 'nama', array('class' => 'col-sm-2 control-label')); ?>
-                                            <div class="col-sm-10">
-                                                <?php echo form_input($nama);?>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <?php echo lang('orders_unit', 'satuan', array('class' => 'col-sm-2 control-label')); ?>
-                                            <div class="col-sm-10">
-                                                <?php echo form_input($satuan);?>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <?php echo lang('orders_brand', 'merk', array('class' => 'col-sm-2 control-label')); ?>
-                                            <div class="col-sm-10">
-                                                <?php echo form_input($merk);?>
-                                            </div>
-                                        </div>
-                                    <?php echo form_close();?>
-                                </div>
+                        <div class="col-xs-12">
+                        <h2 class="page-header">
+                            ASKITCHEN
+                            <small class="pull-right">Date: <?=$order->tglinput?></small>
+                        </h2>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- info row -->
+                    <div class="row invoice-info">
+                        <div class="col-sm-4 invoice-col">
+                        Billing
+                        <address>
+                            <strong><?=$order->name?></strong><br>
+                            <?=$order->address?><br>
+                            <?=$order->district?>, <?=$order->regency?><br>
+                            <?=$order->province?>, <?=$order->post_code?><br><br>
+                            Phone: <?=$order->phone?><br>
+                            Email: <?=$order->email?>
+                        </address>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4 invoice-col">
+                        Shipping
+                        <address>
+                            <strong><?=$order->name?></strong><br>
+                            <?=$order->address?><br>
+                            <?=$order->district?>, <?=$order->regency?><br>
+                            <?=$order->province?>, <?=$order->post_code?><br><br>
+                            Phone: <?=$order->phone?><br>
+                            Email: <?=$order->email?>
+                        </address>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-sm-4 invoice-col">
+                            <form id="frmOrder" action="<?= current_url(); ?>" method="post">
+                            <input type="hidden" name="id" value="<?=$order->id?>">
+                            <b>Order ID:</b> <?=$order->id?><br>
+                            <b>Payment Due:</b> -<br>
+                            <div class="form-group">
+                                <label>Status:</label>
+                                <select class="form-control" name="status">
+                                    <option value="PND"<?php if( $order->status == 'PND' ): ?> selected="selected"<?php endif; ?>>Pending</option>
+                                    <option value="PAID"<?php if( $order->status == 'PAID' ): ?> selected="selected"<?php endif; ?>>Processing</option>
+                                    <option value="SHIP"<?php if( $order->status == 'SHIP' ): ?> selected="selected"<?php endif; ?>>Shipped</option>
+                                    <option value="DLV"<?php if( $order->status == 'DLV' ): ?> selected="selected"<?php endif; ?>>Delivered</option>
+                                </select>
                             </div>
-                         </div>
+                            <!-- <b>Account:</b> 968-34567 -->
+                            </form>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+
+                    <!-- Table row -->
+                    <div class="row">
+                        <div class="col-xs-12 table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th class="text-right">#</th>
+                                <th>Item Code</th>
+                                <th>Description</th>
+                                <th class="text-right">Qty</th>
+                                <th class="text-right">Price</th>
+                                <th class="text-right">Subtotal</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach($order_detail as $item) { ?>
+                                <tr>
+                                    <td class="text-right"><?=$item->urut;?></td>
+                                    <td><?=$item->kdbar;?></td>
+                                    <td><?=$item->nama;?></td>
+                                    <td class="text-right"><?=$item->qty;?></td>
+                                    <td class="text-right">Rp<?=number_format($item->hjual, 0, '.', ',');?></td>
+                                    <td class="text-right">Rp<?=number_format($item->jumlah, 0, '.', ',');?></td>
+                                </tr>
+                            <?php } ?>
+                            </tbody>
+                        </table>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+
+                    <div class="row">
+                        <!-- accepted payments column -->
+                        <div class="col-xs-6">
+                            <p class="invoice-info">Delivery Method:</p>
+                            <?php if ($order->delivery == 'DOM') :?>
+                            <i class="fa fa-truck">&nbsp;Domestic</i>
+                            <?php else :?>
+                            <img src="<?=base_url('images/'.$order->delivery.'.png') ?>" alt="<?=$order->delivery?>">
+                            <?php endif; ?>
+
+                            <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+                                <?= $order->note ?>
+                            </p>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-xs-6">
+                            <!-- <p class="lead">Amount Due -</p> -->
+
+                            <div class="table-responsive">
+                                <table class="table">
+                                <tbody><tr>
+                                    <th style="width:50%">Subtotal:</th>
+                                    <td class="text-right">Rp<?=number_format($order->total, 0, '.', ',');?></td>
+                                </tr>
+                                <tr>
+                                    <th>Tax:</th>
+                                    <td class="text-right">Rp<?=number_format($order->tax, 0, '.', ',');?></td>
+                                </tr>
+                                <tr>
+                                    <th>Shipping:</th>
+                                    <td class="text-right">Rp<?=number_format($order->shipcost, 0, '.', ',');?></td>
+                                </tr>
+                                <tr>
+                                    <th>Total:</th>
+                                    <td class="text-right">Rp<?=number_format($order->gtotal, 0, '.', ',');?></td>
+                                </tr>
+                                </tbody></table>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+
+                    <!-- this row will not appear when printing -->
+                    <div class="row no-print">
+                        <div class="col-xs-12">
+                        <a href="#" class="btn btn-default btn-update"><i class="fa fa-save"></i> Update</a>&nbsp;
+                        <?php echo anchor('admin/orders', lang('actions_cancel'), array('class' => 'btn btn-default')); ?>
+                        </div>
                     </div>
                 </section>
             </div>
 
     
-            <script type="text/javascript">
-    $(document).ready(function() {
-        
-        $('#btnSubmit').click(function(event) {
-            event.preventDefault();
-            $('#frmAddress').submit();
-        });
-        
-        $('#kdgol').change(function(){
-            $.ajax({
-                type: "POST",
-                url: "<?php echo site_url();?>orders/level2/"+$(this).val(),
-                // dataType: "json",
-                // data: {"id":$(this).val()},
-                success:function(json){
-                    var data = json.data,
-                        firstid = data[0].kdgol2;
-
-                    $('#kdgol2').html('');
-                    for (var i = 0; i < data.length; i++) {
-                        $('#kdgol2').append('<option value="'+data[i].kdgol2+'">'+data[i].nama+'</option>')
-                    }
-
-                    $.ajax({
-                        type: "POST",
-                        url: "<?php echo site_url();?>orders/level3/"+firstid,
-                        success:function(json){
-                            var data = json.data;
-                            $('#kdgol3').html('');
-                            for (var i = 0; i < data.length; i++) {
-                                $('#kdgol3').append('<option value="'+data[i].kdgol3+'">'+data[i].nama+'</option>')
-                            }
-                        },
-                    });
-                },
-            });
-        });
-        
-        // $('#kdgol').change(function(){
-        //     $.ajax({
-        //         type: "POST",
-        //         url: "<?php echo site_url();?>orders/level2/"+$(this).val(),
-        //         success:function(json){
-        //             var data = json.data;
-        //             $('#kdgol2').html('');
-        //             for (var i = 0; i < data.length; i++) {
-        //                 $('#kdgol2').append('<option value="'+data[i].kdgol2+'">'+data[i].nama+'</option>')
-        //             }
-        //         },
-        //     });
-        // });
-        
-        $('#kdgol2').change(function(){
-            $.ajax({
-                type: "POST",
-                url: "<?php echo site_url();?>orders/level3/"+$(this).val(),
-                success:function(json){
-                    var data = json.data;
-                    $('#kdgol3').html('');
-                    for (var i = 0; i < data.length; i++) {
-                        $('#kdgol3').append('<option value="'+data[i].kdgol3+'">'+data[i].nama+'</option>')
-                    }
-                },
-            });
-        });
+<script type="text/javascript">
+$(document).ready(function() {
+    
+    $('.btn-update').click(function(event) {
+        event.preventDefault();
+        $('#frmOrder').submit();
     });
-	</script>
+});
+</script>

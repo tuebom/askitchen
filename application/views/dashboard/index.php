@@ -113,7 +113,7 @@ function topFunction() {
 					<div class="arrivals-grids">
 						<div class="col-md-4 arrival-grid simpleCart_shelfItem">
 							<div class="grid-arr-hot">
-								<a href="<?php echo site_url(); ?>" class="new-gri">
+								<a href="<?php echo site_url('new-products'); ?>" class="new-gri">
 									<img src="<?=site_url('images/new-product.jpg');?>" class="img-hot" alt="">
 									<div class="text">
 										<h3>New Products</h3>
@@ -124,7 +124,7 @@ function topFunction() {
 					
 						<div class="col-md-4 arrival-grid simpleCart_shelfItem">
 							<div class="grid-arr-hot">
-								<a href="<?php echo site_url(); ?>" class="new-gri">
+								<a href="<?php echo site_url('promotions'); ?>" class="new-gri">
 									<img src="<?=site_url('images/promotion.jpg');?>" class="img-hot" alt="">
 									<div class="text">
 										<h3>Promotions</h3>
@@ -135,7 +135,7 @@ function topFunction() {
 						
 						<div class="col-md-4 arrival-grid simpleCart_shelfItem">
 							<div class="grid-arr-hot">
-								<a href="<?php echo site_url(); ?>" class="new-gri">
+								<a href="<?php echo site_url('best-seller'); ?>" class="new-gri">
 									<img src="<?=site_url('images/best-seller.jpg');?>" class="img-hot" alt="">
 									<div class="text">
 										<h3>Best Seller</h3>

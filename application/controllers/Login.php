@@ -112,7 +112,7 @@ class Login extends Public_Controller {
                 $remember = (bool) $this->input->post('remember');
                 
                 if ($this->ion_auth->login('guest@askitchen.com', 'zyxwv_98765', $remember)) {
-                    log_message('Debug', 'Login guest sukses.');
+                    // log_message('Debug', 'Login guest sukses.');
 
                     $this->session->set_userdata('guest', TRUE);
                     $this->data['first_name'] = 'Guest';
