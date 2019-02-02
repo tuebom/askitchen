@@ -37,7 +37,8 @@
 
 			</script>
 		</div> -->
-		<script src="js/jssor.slider-27.5.0.min.js" type="text/javascript"></script>
+
+	<script src="js/jssor.slider-27.5.0.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         jssor_1_slider_init = function() {
 
@@ -119,31 +120,32 @@
         </div>
     </div>
     <script type="text/javascript">jssor_1_slider_init();</script>
-<script>
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("myBtn").style.display = "block";
-  } else {
-    document.getElementById("myBtn").style.display = "none";
-  }
-}
+	<script>
+	// When the user scrolls down 20px from the top of the document, show the button
+	window.onscroll = function() {scrollFunction()};
 
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-</script>
+	function scrollFunction() {
+	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+		document.getElementById("myBtn").style.display = "block";
+	} else {
+		document.getElementById("myBtn").style.display = "none";
+	}
+	}
+
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+	document.body.scrollTop = 0;
+	document.documentElement.scrollTop = 0;
+	}
+	</script>
+	
 		<!--banner-->
 		<!--content-->
 
 			<!--hot-products-->
 			<div class="hot-w3agile">
 				<div class="container">
-					<!--<h4 class="tittle1">New Arrivals</h4>-->
 					<div class="arrivals-grids">
 						<div class="col-md-4 arrival-grid simpleCart_shelfItem">
 							<div class="grid-arr-hot">
@@ -195,7 +197,6 @@ function topFunction() {
 								<div class="grid-arr">
 									<div class="grid-arrival">
 										<figure>		
-											<!--<a href="#" class="new-gri" data-toggle="modal" data-target="#myModal1">-->
 											<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" class="new-gri">
 												<div class="grid-img">
 													<img src="<?=site_url($this->data['products_dir'].'/'.$item->gambar);?>" class="img-responsive" alt="<?= $item->kdbar?>">
@@ -207,7 +208,6 @@ function topFunction() {
 										<div class="starbox small ghosting"> </div>
 									</div>-->
 									<div class="women">
-										<!--<p><em class="item_price">Rp<?= $item->hjual; ?></em></p>-->
 										<span class="size"><?= $item->nama; ?></span>
 										<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
 										<span class="detail">Rp<?= $item->hjual; ?>&nbsp;&nbsp;<a href="<?= current_url().'?action=add&code='.$item->kdurl ?>" class="my-cart-d item_add"><img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a><!--<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" class="my-cart-d item_add">Detail</a>--></span>
@@ -220,18 +220,7 @@ function topFunction() {
 					</div>
 				</div>
 			<!--new-arrivals-->
-			<!--accessories-->
-			<!--<div class="accessories-w3l">
-				<div class="container">
-					<h3 class="tittle">10% Discount on</h3>
-					<span>TRENDING PRODUCTS</span>
-					<div class="button">
-						<a href="#" class="button1"> Shop Now</a>
-						<a href="#" class="button1"> Quick View</a>
-					</div>
-				</div>
-			</div>-->
-			<!--accessories-->
+
 			<!--Products-->
 				<div class="product-agile">
 					<div class="container">

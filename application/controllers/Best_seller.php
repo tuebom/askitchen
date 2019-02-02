@@ -31,18 +31,13 @@ class Best_seller extends Public_Controller {
 			$this->data['last_name']  = $member->last_name;
 		}
         
-		$kode = $this->uri->segment(3); // kode golongan
+		// $kode = $this->uri->segment(3); // kode golongan
 		
-		$this->data['title']  = $this->golongan3_model->get_by_id($kode)->nama;
-		$this->data['kdgol']  = substr($kode,0,2);
-		$kdgol2 = substr($kode,0,5);
+		$this->data['title']  = 'Best Seller'; //$this->golongan3_model->get_by_id($kode)->nama;
+		// $this->data['kdgol']  = substr($kode,0,2);
+		// $kdgol2 = substr($kode,0,5);
 
-		$this->data['item_'.$kdgol2] = $this->golongan2_model->get_sub_category($kdgol2);
-		// $this->data['kode'] = $kdgol2;
-
-		// foreach ($this->data['item_'.$kdgol2] as $item) {
-		// 	$this->data['item_'.$item->kdgol3] = $this->golongan2_model->get_sample($kdgol2);
-		// }
+		// $this->data['item_'.$kdgol2] = $this->golongan2_model->get_sub_category($kdgol2);
 		
 		$action  = $this->input->get('action');
 		
@@ -170,12 +165,10 @@ class Best_seller extends Public_Controller {
 			$offset = 0;
 		}
 		
-		$total = $this->stock_model->total_best_seller($kode);
+		$total = $this->stock_model->total_best_seller();
 		$url   = current_url() . '?p=';
 		
 		$this->data['products'] = $this->stock_model->get_best_seller(8, $offset);
-		
-		// $this->data['kode'] = $kode;
 		
 		$this->data['pagination'] = $this->paging($total, $page, $url);
 
