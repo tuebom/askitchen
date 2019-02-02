@@ -106,7 +106,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <?php if ($order->delivery == 'DOM') :?>
                             <i class="fa fa-truck">&nbsp;Domestic</i>
                             <?php else :?>
-                            <img src="<?=base_url('images/'.$order->delivery.'.png') ?>" alt="<?=$order->delivery?>">
+                            <img src="<?=base_url('images/'.strtolower($order->delivery).'.png') ?>" alt="<?=$order->delivery?>">
                             <?php endif; ?>
 
                             <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
