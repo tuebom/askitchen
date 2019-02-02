@@ -160,8 +160,8 @@ class Home extends Public_Controller {
 
 		// $this->data['rnd_products'] = $this->stock_model->get_random_products();
 		$this->data['rnd_products']  = $this->stock_model->get_new_products(4,0);
-		$this->data['rnd_products2'] = $this->stock_model->get_new_products(4,4);
-		$this->data['rnd_products3'] = $this->stock_model->get_new_products(4,8);
+		$this->data['rnd_products2'] = $this->stock_model->get_new_products(4,1);
+		$this->data['rnd_products3'] = $this->stock_model->get_new_products(4,5);
 
 		$this->load->view('layout/header', $this->data);
 		$this->load->view('dashboard/index', $this->data);
