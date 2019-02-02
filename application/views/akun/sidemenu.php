@@ -10,7 +10,7 @@ jQuery(document).ready(function($){
     function simpanfoto(){
         var userfile=$('#userfile').val();
         
-        $('#uploadfotopasien').ajaxForm({
+        $('#frmUpload').ajaxForm({
         url:'<?php echo base_url("akun/upload_file"); ?>',
         type: 'post',
         data: {"userfile": userfile},
