@@ -459,10 +459,10 @@ $(window).load(function() {
 									<li class="dropdown">
 										<a href="<?php echo site_url('products/'.$item->kdgol); ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $item->nama ?><b class="caret"></b></a>
 											<ul class="dropdown-menu multi-column columns-3">
-											<div>
+											<div class="row">
 												<?php foreach ($this->data['item_'.$item->kdgol] as $detail) { ?>
-												<li class="col-sm-3 multi-gd-img">
-													<div><label class="block-with-text"><?php echo $detail->nama ?></label></div>
+												<li class="col-sm-2 multi-gd-img">
+													<div class="row text-center"><label class="block-with-text"><?php echo $detail->nama ?></label></div>
 													<div class="row">
 														<div class="sample">
 														<a href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>">
@@ -470,7 +470,9 @@ $(window).load(function() {
 														</div>
 													</div>
 													<!-- <div><label class="block-with-text"><?php echo $detail->nama ?></label></div> -->
-													<a class="view-more btn- btn-sm" href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>">More</a>
+													<div class="row text-center">
+														<a class="view-more btn- btn-sm" href="<?php echo site_url('subcategories/'.$item->kdgol.'/'.$detail->kdgol2); ?>">More</a>
+													</div>
 												</li>
 												<?php } ?>
 											</div>
