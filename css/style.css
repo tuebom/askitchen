@@ -47,7 +47,7 @@ body{
 }
 .location {
     margin: auto;
-    width: 60%;
+    width: 75%;
     display: flex;
     align-items: center;
 }
@@ -814,7 +814,7 @@ label.hot {
 	text-align: justify;
 }
 .arrivals-grids {
-    margin-top: 2em;
+    margin-top: 1em;
 }
 .related-grids {
     margin-top: 2em;
@@ -998,9 +998,9 @@ h3.contact:hover {
     transform: translateZ(0);
   }
 .grid-arr .grid-arrival figure > a .grid-img img {
-  /*width: 100%;*/
+  width: 65%;
   max-height: 100%;
-  margin-top: 5px;
+  margin-top: 0px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1059,7 +1059,7 @@ span.size {
 }
 .women span.detail {
     margin-top: 15px !important;
-    font-size: .9em;
+    font-size: 1.1em;
 }
 /*--cart--*/
 a:focus {
@@ -1416,7 +1416,8 @@ h6.tittle1 {
     text-align: center;
 }
 .caption {
-    margin-top: 4em;
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
 }
 .latest-w3 {
     padding: 5em 0;
