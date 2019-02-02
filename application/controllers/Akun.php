@@ -21,7 +21,6 @@ class Akun extends Public_Controller {
 		// $this->output->enable_profiler(TRUE);
     }
 
-
 	public function index()
 	{
 		$this->data['golongan'] = $this->golongan_model->get_all();
@@ -126,7 +125,7 @@ class Akun extends Public_Controller {
 	public function upload_file() {
 		
 		$config = array(
-            'upload_path' => './uploadfiles/',
+            'upload_path' => './upload/avatar/',
             'allowed_types' => 'gif|jpg|png',
             'file_name' => 'file_'.date_default_timezone_set('Asia/Taipei'), //dmYHis
             'file_ext_tolower' => TRUE,

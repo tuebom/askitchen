@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 ?>
+<script src="<?=base_url('assets/plugins/jqueryform/jquery.form.js');?>"></script>
 
             <div class="content-wrapper">
                 <section class="content-header">
@@ -255,7 +256,6 @@ $(document).ready(function(){
                     url: <?php echo '"'.site_url().'admin/inventory/level3/"' ?>+firstid,
                     success:function(json){
                         var data = json.data;
-                        // console.log(data)
                         
                         $('#kdgol3').html('');
                         for (var i = 0; i < data.length; i++) {
@@ -274,7 +274,7 @@ $(document).ready(function(){
             url: <?php echo '"'.site_url().'admin/inventory/level3/"' ?>+$(this).val(),
             success:function(json){
                 var data = json.data;
-                // console.log(data)
+
                 $('#kdgol3').html('');
                 for (var i = 0; i < data.length; i++) {
                     $('#kdgol3').append('<option value="'+data[i].kdgol3+'">'+data[i].nama+'</option>')

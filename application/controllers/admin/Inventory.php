@@ -502,6 +502,57 @@ class Inventory extends Admin_Controller {
 			
 		return $page;
 	}
+	
+	public function upload_file() {
+		
+		$config = array(
+            'upload_path' => './upload/',
+            'allowed_types' => 'gif|jpg|png',
+            'file_name' => 'file_'.date_default_timezone_set('Asia/Taipei'), //dmYHis
+            'file_ext_tolower' => TRUE,
+            'overwrite' => TRUE,
+            'max_size' => 100,
+            'max_width' => 1280,
+            'max_height' => 960,           
+            'min_width' => 32,
+            'min_height' => 32,     
+            'max_filename' => 0,
+            'remove_spaces' => TRUE
+        );
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload())
+        {
+            $hasil = $this->upload->display_errors();
+            ?>
+                <h3><label class="label label-danger msg">Upload file gagal, detail informasi</label></h3>
+                <table class="table table-hover table-bordered">
+                    <?php echo "<tr><td><strong>".$hasil."</strong></td></tr>"; ?>
+                </table>
+                <?php
+        }
+        else
+        {
+                $hasil = $this->upload->data();
+                ?>
+                <h2><label class="label label-success msg">Upload file berhasil, detail informasi</label></h2>
+                <table class="table table-hover table-bordered table-striped">
+                    <tr>
+                        <td colspan="2">
+                            <img src="<?php echo base_url('uploadfiles/'.$hasil['orig_name']);?>" />
+                        </td>
+                    </tr>
+                    <?php
+                        foreach($hasil as $res => $value){
+                            echo "<tr><td>".$res."</td>";
+                            echo "<td>".$value."</td></tr>";
+                        }
+                    ?>
+                </table>
+                <?php
+        }
+    }
 
 	public function level2()
 	{
