@@ -124,7 +124,8 @@ class Akun extends Public_Controller {
 	}
 	
 	public function upload_file() {
-        $config = array(
+		
+		$config = array(
             'upload_path' => './uploadfiles/',
             'allowed_types' => 'gif|jpg|png',
             'file_name' => 'file_'.date_default_timezone_set('Asia/Taipei'), //dmYHis
@@ -133,8 +134,8 @@ class Akun extends Public_Controller {
             'max_size' => 100,
             'max_width' => 1280,
             'max_height' => 960,           
-            'min_width' => 10,
-            'min_height' => 7,     
+            'min_width' => 32,
+            'min_height' => 32,     
             'max_filename' => 0,
             'remove_spaces' => TRUE
         );
