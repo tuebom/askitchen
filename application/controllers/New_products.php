@@ -13,7 +13,7 @@ class New_products extends Public_Controller {
 		$this->load->model('golongan2_model');
 		$this->load->model('golongan3_model');
 		$this->load->model('stock_model');
-		// $this->output->enable_profiler(TRUE);
+		$this->output->enable_profiler(TRUE);
 	}
 
 	public function index()
@@ -31,18 +31,13 @@ class New_products extends Public_Controller {
 			$this->data['last_name']  = $member->last_name;
 		}
         
-		$kode = $this->uri->segment(3); // kode golongan
+		// $kode = $this->uri->segment(3); // kode golongan
 		
-		$this->data['title']  = $this->golongan3_model->get_by_id($kode)->nama;
-		$this->data['kdgol']  = substr($kode,0,2);
-		$kdgol2 = substr($kode,0,5);
+		$this->data['title']  = 'New Products'; //$this->golongan3_model->get_by_id($kode)->nama;
+		// $this->data['kdgol']  = substr($kode,0,2);
+		// $kdgol2 = substr($kode,0,5);
 
-		$this->data['item_'.$kdgol2] = $this->golongan2_model->get_sub_category($kdgol2);
-		// $this->data['kode'] = $kdgol2;
-
-		// foreach ($this->data['item_'.$kdgol2] as $item) {
-		// 	$this->data['item_'.$item->kdgol3] = $this->golongan2_model->get_sample($kdgol2);
-		// }
+		// $this->data['item_'.$kdgol2] = $this->golongan2_model->get_sub_category($kdgol2);
 		
 		$action  = $this->input->get('action');
 		
@@ -173,9 +168,7 @@ class New_products extends Public_Controller {
 		$total = $this->stock_model->total_new_products();
 		$url   = current_url() . '?p=';
 		
-		$this->data['products'] = $this->stock_model->get_new_products(8, $offset, $kode);
-		
-		// $this->data['kode'] = $kode;
+		$this->data['products'] = $this->stock_model->get_new_products(8, $offset);
 		
 		$this->data['pagination'] = $this->paging($total, $page, $url);
 
