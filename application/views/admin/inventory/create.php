@@ -234,39 +234,54 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
 
 <script type="text/javascript">
-// $(document).ready(function(){
+$(document).ready(function(){
         
-    <?php $sTmp = site_url() . 'inventory/level2/'; ?>
     $('#kdgol').change(function(){
-    // alert('test') 
-    $.ajax({
+        $.ajax({
             type: "POST",
-            url: "<?php echo sTmp; ?>"+$(this).val(),
+            url: <?php echo '"'.site_url().'admin/inventory/level2/"' ?>+$(this).val(),
             success:function(json){
-                var data = json.data;
-                console.log(data)
+                var data = json.data,
+                firstid = data[0].kdgol2;
+                // console.log(data)
+
                 $('#kdgol2').html('');
                 for (var i = 0; i < data.length; i++) {
                     $('#kdgol2').append('<option value="'+data[i].kdgol2+'">'+data[i].nama+'</option>')
                 }
+                
+                $.ajax({
+                    type: "POST",
+                    url: <?php echo '"'.site_url().'admin/inventory/level3/"' ?>+firstid,
+                    success:function(json){
+                        var data = json.data;
+                        // console.log(data)
+                        
+                        $('#kdgol3').html('');
+                        for (var i = 0; i < data.length; i++) {
+                            $('#kdgol3').append('<option value="'+data[i].kdgol3+'">'+data[i].nama+'</option>')
+                        }
+                    }
+                });
+
             },
         });
     });
 
-    // $('#kdgol2').change(function(){
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "<?php echo site_url();?>inventory/level3/"+$(this).val(),
-    //         success:function(json){
-    //             var data = json.data;
-    //             console.log(data)
-    //             $('#kdgol3').html('');
-    //             for (var i = 0; i < data.length; i++) {
-    //                 $('#kdgol3').append('<option value="'+data[i].kdgol3+'">'+data[i].nama+'</option>')
-    //             }
-    //         },
-    //     });
-    // });
+    $('#kdgol2').change(function(){
+        $.ajax({
+            type: "POST",
+            url: <?php echo '"'.site_url().'admin/inventory/level3/"' ?>+$(this).val(),
+            success:function(json){
+                var data = json.data;
+                // console.log(data)
+                $('#kdgol3').html('');
+                for (var i = 0; i < data.length; i++) {
+                    $('#kdgol3').append('<option value="'+data[i].kdgol3+'">'+data[i].nama+'</option>')
+                }
+            }
+        });
+    });
     
     // $('#btnUpload').click(function(event) {
     //     // event.preventDefault();
@@ -274,5 +289,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     //     $('#prdfile').trigger("click");
     //     // $('#frmAkun').submit();
     // });
-// });
+});
 </script>

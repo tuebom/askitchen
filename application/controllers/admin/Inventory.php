@@ -17,6 +17,8 @@ class Inventory extends Admin_Controller {
 		$this->load->model('golongan_model');
 		$this->load->model('golongan2_model');
 		$this->load->model('golongan3_model');
+		
+		// $this->output->enable_profiler(TRUE);
 
         /* Title Page :: Common */
         $this->page_title->push(lang('menu_inventory'));
@@ -503,7 +505,7 @@ class Inventory extends Admin_Controller {
 
 	public function level2()
 	{
-		$groupid = $this->uri->segment(3);
+		$groupid = $this->uri->segment(4);
 		// $groupid = $this->input->post("id");
 		$data = $this->golongan_model->get_sub_category($groupid);
 		return $this->output
@@ -516,7 +518,7 @@ class Inventory extends Admin_Controller {
 
 	public function level3()
 	{
-		$groupid = $this->uri->segment(3);
+		$groupid = $this->uri->segment(4);
 		// $groupid = $this->input->post("id");
 		$data = $this->golongan2_model->get_sub_category($groupid);
 		return $this->output
