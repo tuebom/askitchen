@@ -126,13 +126,13 @@ class Akun extends Public_Controller {
 		
 		$config = array(
             'upload_path' => './upload/avatar/',
-            'allowed_types' => 'gif|jpg|png',
-            'file_name' => 'file_'.date_default_timezone_set('Asia/Taipei'), //dmYHis
+            'allowed_types' => 'png', //'gif|jpg|png',
+            'file_name' => 'user'.$_SESSION['mbrid'], //date_default_timezone_set('Asia/Taipei'), //dmYHis
             'file_ext_tolower' => TRUE,
             'overwrite' => TRUE,
-            'max_size' => 100,
-            'max_width' => 1280,
-            'max_height' => 960,           
+            'max_size' => 512,
+            'max_width' => 640,
+            'max_height' => 640,           
             'min_width' => 32,
             'min_height' => 32,     
             'max_filename' => 0,
@@ -143,34 +143,13 @@ class Akun extends Public_Controller {
 
         if ( ! $this->upload->do_upload())
         {
-            $hasil = $this->upload->display_errors();
-            ?>
-                <h3><label class="label label-danger msg">Upload file gagal, detail informasi</label></h3>
-                <table class="table table-hover table-bordered">
-                    <?php echo "<tr><td><strong>".$hasil."</strong></td></tr>"; ?>
-                </table>
-                <?php
+			$hasil = $this->upload->display_errors();
+			$this->data['message'] = '<label class="label label-danger msg">Upload file gagal!</label>\n'.
+				'<table class="table table-hover table-bordered">\n'.
+				'<tr><td><strong>'.$hasil.'</strong></td></tr>\n'.
+				'</table>';
         }
-        else
-        {
-                $hasil = $this->upload->data();
-                ?>
-                <h2><label class="label label-success msg">Upload file berhasil, detail informasi</label></h2>
-                <table class="table table-hover table-bordered table-striped">
-                    <tr>
-                        <td colspan="2">
-                            <img src="<?php echo base_url('uploadfiles/'.$hasil['orig_name']);?>" />
-                        </td>
-                    </tr>
-                    <?php
-                        foreach($hasil as $res => $value){
-                            echo "<tr><td>".$res."</td>";
-                            echo "<td>".$value."</td></tr>";
-                        }
-                    ?>
-                </table>
-                <?php
-        }
+		redirect('akun');
     }
 
 	public function regencies()
