@@ -46,7 +46,7 @@
 				<div class="col-md-3 col-sm-3">
                     <div class="box box-primary profile">
                         <div class="box-body box-profile">
-                            <img class="propic img-responsive img-circle" src="<?php if (file_exists(APPPATH.'upload/avatar/user'.$_SESSION['mbrid'].'.png')) : echo site_url('upload/avatar/user'.$_SESSION['mbrid'].'.jpg'); else: echo site_url('images/user.jpg'); endif; ?>" alt="User profile picture">
+                            <img class="propic img-responsive img-circle" src="<?=site_url('upload/avatar/user'.$_SESSION['mbrid'].'.png'); ?>" alt="User profile picture">
 
                             <h4 class="profile-username text-center"><?=$this->data['anggota']->first_name ?> <?=$this->data['anggota']->last_name ?></h4>
 
