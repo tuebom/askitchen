@@ -41,6 +41,9 @@ class Login extends Public_Controller {
 
                     if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember))
                     {
+                        
+                        $this->session->set_userdata('mbrid', $this->ion_auth->user()->row()->id);
+
                         if ( ! $this->ion_auth->is_admin())
                         {
 
@@ -48,7 +51,8 @@ class Login extends Public_Controller {
                             
                             if (isset($_SESSION["cart_item"])) {
                                 
-                                if (count($_SESSION["cart_item"]) > 0) {
+                                if (count($_SESSION["cart_item"]) > 0)
+                                {
                                     redirect('checkout', 'refresh');
                                 }
                                 else

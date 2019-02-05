@@ -179,9 +179,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </div>
                                             
                                             <div class="form-group">
-                                                <?php echo lang('inventory_promotion', 'promosi', array('class' => 'col-sm-3 control-label')); ?>
+                                                <?php echo lang('inventory_criteria', 'criteria', array('class' => 'col-sm-3 control-label')); ?>
                                                 <div class="col-sm-9">
-                                                    <?php echo form_checkbox('promosi', FALSE);?>
+                                                    <select id="kriteria" name="kriteria" class="form-control">
+                                                        <option value="" selected>-</option>
+                                                        <option value="N">New Products</option>
+                                                        <option value="P">Promotion</option>
+                                                        <option value="B">Best Seller</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -244,7 +249,6 @@ $(document).ready(function(){
             success:function(json){
                 var data = json.data,
                 firstid = data[0].kdgol2;
-                // console.log(data)
 
                 $('#kdgol2').html('');
                 for (var i = 0; i < data.length; i++) {

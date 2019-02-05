@@ -25,7 +25,8 @@ class Inventory_model extends CI_Model
     // get data by id
     function get_by_id($id)
     {
-        $this->db->select('kdbar, kdurl, nama, kdgol2, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar');
+        $this->db->select('kdbar, kdurl, nama, kdgol, kdgol2, kdgol3, deskripsi, satuan, merk, pnj, lbr, tgi, '.
+        'listrik, kapasitas, gas, berat, fitur, kriteria, tag, hjual, saldo, gambar');
         $this->db->where('kdbar', $id);
         return $this->db->get($this->table)->row();
     }
