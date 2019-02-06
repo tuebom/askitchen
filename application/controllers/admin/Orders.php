@@ -90,9 +90,9 @@ class Orders extends Admin_Controller {
 			'delivery'  => $this->input->post('delivery'),
 			'note'      => $this->input->post('note'),
             );
-            $this->orders_model->insert($order_data);
-
-            redirect('admin/inventory', 'refresh');
+			
+			$this->orders_model->insert($order_data);
+            redirect('admin/orders', 'refresh');
 		}
 		else
 		{

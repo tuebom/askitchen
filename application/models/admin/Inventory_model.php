@@ -27,7 +27,7 @@ class Inventory_model extends CI_Model
     {
         $this->db->select('kdbar, kdurl, nama, kdgol, kdgol2, kdgol3, deskripsi, satuan, merk, pnj, lbr, tgi, '.
         'listrik, kapasitas, gas, berat, fitur, kriteria, tag, hjual, saldo, gambar');
-        $this->db->where('kdbar', $id);
+        $this->db->where('kdurl', $id);
         return $this->db->get($this->table)->row();
     }
 
@@ -57,25 +57,6 @@ class Inventory_model extends CI_Model
 	    $this->db->limit($limit, $start);
         return $this->db->get($this->table)->result();
     }
-    
-    // get total rows
-    // function total_rows($q = NULL) {
-    //     $this->db->like('kdbar', $q);
-    //     $this->db->or_like('nama', $q);
-    //     $this->db->or_like('kdgol', $q);
-    //     $this->db->or_like('kdgol2', $q);
-    //     $this->db->or_like('pnj', $q);
-    //     $this->db->or_like('lbr', $q);
-    //     $this->db->or_like('tgi', $q);
-    //     $this->db->or_like('listrik', $q);
-    //     $this->db->or_like('kapasitas', $q);
-    //     $this->db->or_like('gas', $q);
-    //     $this->db->or_like('berat', $q);
-    //     $this->db->or_like('fitur', $q);
-    //     $this->db->or_like('disc', $q);
-    //     $this->db->from($this->table);
-    //     return $this->db->count_all_results();
-    // }
     
     // get total rows
     function total_rows($q = NULL, $b = NULL, $p1 = 0, $p2 = 0) {
@@ -109,28 +90,6 @@ class Inventory_model extends CI_Model
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }
-
-    // get data with limit and search
-    // function get_limit_data($limit, $start = 0, $q = NULL) {
-        
-    //     $this->db->select('kdbar, kdurl, nama, format(hjual,0,"id") as hjual, pnj, lbr, tgi, gambar');
-    //     $this->db->order_by($this->id, $this->order);
-    //     $this->db->like('kdbar', $q);
-    //     $this->db->or_like('nama', $q);
-    //     $this->db->or_like('kdgol', $q);
-    //     $this->db->or_like('kdgol2', $q);
-    //     $this->db->or_like('pnj', $q);
-    //     $this->db->or_like('lbr', $q);
-    //     $this->db->or_like('tgi', $q);
-    //     $this->db->or_like('listrik', $q);
-    //     $this->db->or_like('kapasitas', $q);
-    //     $this->db->or_like('gas', $q);
-    //     $this->db->or_like('berat', $q);
-    //     $this->db->or_like('fitur', $q);
-    //     $this->db->or_like('disc', $q);
-	//     $this->db->limit($limit, $start);
-    //     return $this->db->get($this->table)->result();
-    // }
 
     function get_limit_data($limit, $start = 0, $q = NULL, $b = NULL, $p1 = 0, $p2 = 0) {
         
@@ -184,6 +143,7 @@ class Inventory_model extends CI_Model
     {
         $this->db->where($this->id, $id);
         $this->db->update($this->table, $data);
+        return ($this->db->error()['code'] == 0) ? TRUE : FALSE;
     }
 
     // delete data

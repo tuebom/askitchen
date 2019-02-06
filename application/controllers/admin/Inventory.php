@@ -40,21 +40,25 @@ class Inventory extends Admin_Controller {
             /* Breadcrumbs */
             $this->data['breadcrumb'] = $this->breadcrumbs->show();
 
-            /* Get all users */
-            $this->data['inventory'] = $this->inventory_model->get_all();
-			
+			$pagingx = isset($_SESSION['paging']) ? $_SESSION['paging'] : 10;
 			if ($this->input->get('p')) {
 				$page   = $this->input->get('p');
-				$offset = ((int)$page-1)*8;
+				$offset = ((int)$page-1)*$pagingx;
 			} else {
 				$page   = 1;
 				$offset = 0;
 			}
 				
-			$this->data['inventory'] = $this->inventory_model->get_limit_data(8, $offset);
-			$total = $this->inventory_model->total_rows();
+			$q  = $this->input->get('q');
+			
+			$this->data['inventory'] = $this->inventory_model->get_limit_data($pagingx, $offset, $q);
+			$total = $this->inventory_model->total_rows($q);
+
 			$url   = current_url() . '?p=';
+			
 			$this->data['pagination'] = $this->paging($total, $page, $url);			
+			$this->data['q'] = $q; //data
+
 			/* Load Template */
             $this->template->admin_render('admin/inventory/index', $this->data);
         }
@@ -71,28 +75,28 @@ class Inventory extends Admin_Controller {
 		// $tables = $this->config->item('tables', 'ion_auth');
 
 		/* Validate form input */
-		$this->form_validation->set_rules('kdbar',  'Kode barang', 'required');
-		$this->form_validation->set_rules('kdurl',  'Kode url', 'required');
-		$this->form_validation->set_rules('nama',   'Nama barang', 'required');
+		$this->form_validation->set_rules('kdbar',  'Item Code', 'required');
+		$this->form_validation->set_rules('kdurl',  'Item URL', 'required');
+		$this->form_validation->set_rules('nama',   'Name', 'required');
 
-		$this->form_validation->set_rules('kdgol',  'Golongan', 'required');
-		$this->form_validation->set_rules('kdgol2', 'Golongan 2', 'required');
-		$this->form_validation->set_rules('kdgol3', 'Golongan 3', 'required');
+		$this->form_validation->set_rules('kdgol',  'Category', 'required');
+		$this->form_validation->set_rules('kdgol2', 'Sub Category', 'required');
+		$this->form_validation->set_rules('kdgol3', 'Sub Category 2', 'required');
 
-		$this->form_validation->set_rules('satuan', 'Satuan', 'required');
-		$this->form_validation->set_rules('merk',   'Merk', 'required');
+		$this->form_validation->set_rules('satuan', 'Unit', 'required');
+		$this->form_validation->set_rules('merk',   'Brand', 'required');
 
-		$this->form_validation->set_rules('pnj',    'Panjang', 'required');
-		$this->form_validation->set_rules('lbr',    'Lebar', 'required');
-		$this->form_validation->set_rules('tgi',    'Tinggi', 'required');
-		$this->form_validation->set_rules('gambar', 'Gambar', 'required');
+		$this->form_validation->set_rules('pnj',    'Length', 'required');
+		$this->form_validation->set_rules('lbr',    'Width', 'required');
+		$this->form_validation->set_rules('tgi',    'Height', 'required');
+		// $this->form_validation->set_rules('gambar', 'Picture', 'required');
 		$this->form_validation->set_rules('hjual',  'Harga jual', 'required');
 		// $this->form_validation->set_rules('disc',   'Diskon', 'required');
 
 		if ($this->form_validation->run() == TRUE)
 		{
 			
-			$detail_data = array(
+			$inventory_data = array(
 			'kdbar'  => $this->input->post('kdbar'),
 			'kdurl'  => $this->input->post('kdurl'),
 			'nama'   => $this->input->post('nama'),
@@ -101,32 +105,35 @@ class Inventory extends Admin_Controller {
 			'kdgol2' => $this->input->post('kdgol2'),
 			'kdgol3' => $this->input->post('kdgol3'),
 			
-			'satuan' => $this->input->post('satuan'),
-			'merk'   => $this->input->post('merk'),
+			'satuan'     => $this->input->post('satuan'),
+			'merk'       => $this->input->post('merk'),
+			'pnj'        => $this->input->post('pnj'),
+			'lbr'        => $this->input->post('lbr'),
+			'tgi'        => $this->input->post('tgi'),
 
-			'pnj'    => $this->input->post('pnj'),
-			'lbr'    => $this->input->post('lbr'),
-			'tgi'    => $this->input->post('tgi'),
-			'gambar' => $this->input->post('gambar'),
-			'hjual'  => $this->input->post('hjual'),
-			// 'disc'   => $this->input->post('disc'),
+			'listrik'    => $this->input->post('listrik'),
+			'kapasitas'  => $this->input->post('kapasitas'),
+			'gas'        => $this->input->post('gas'),
+			'berat'      => $this->input->post('berat'),
+			
+			'fitur'      => $this->input->post('fitur'),
+			'kriteria'   => $this->input->post('kriteria'),
+			
+			'tag'        => $this->input->post('tag'),
+			'hjual'      => $this->input->post('hjual'),
+			// 'saldo'      => $this->input->post('saldo'),
+			'gambar'     => $this->input->post('gambar'),
 			);
-		}
-
-		if ($this->form_validation->run() == TRUE && $this->inventory_model->insert($username, $password, $email, $additional_data))
-		{
-            $this->session->set_flashdata('message', $this->ion_auth->messages());
-			redirect('admin/inventory', 'refresh');
+			
+			$this->inventory_model->insert($inventory_data);
+            redirect('admin/inventory', 'refresh');
 		}
 		else
 		{
 
-			$this->data['golongan'] = $this->golongan_model->get_all();
-			
-			if (isset($_SESSION["kdgol"])) {
-				$this->data['golongan2'] = $this->golongan2_model->get_all();
-				$this->data['golongan3'] = $this->golongan3_model->get_all();
-			}
+			$this->data['golongan']  = $this->golongan_model->get_all();
+			// $this->data['golongan2'] = $this->golongan2_model->get_all();
+			// $this->data['golongan3'] = $this->golongan3_model->get_all();
 
 			$this->data['brands'] = $this->inventory_model->all_brands();
 
@@ -246,13 +253,13 @@ class Inventory extends Admin_Controller {
                 'class' => 'form-control',
 				'value' => $this->form_validation->set_value('hjual'),
 			);
-			$this->data['saldo'] = array(
-				'name'  => 'saldo',
-				'id'    => 'saldo',
-				'type'  => 'text',
-                'class' => 'form-control',
-				'value' => $this->form_validation->set_value('saldo'),
-			);
+			// $this->data['saldo'] = array(
+			// 	'name'  => 'saldo',
+			// 	'id'    => 'saldo',
+			// 	'type'  => 'text',
+            //     'class' => 'form-control',
+			// 	'value' => $this->form_validation->set_value('saldo'),
+			// );
 			$this->data['gambar'] = array(
 				'name'  => 'gambar',
 				'id'    => 'gambar',
@@ -260,6 +267,8 @@ class Inventory extends Admin_Controller {
                 'class' => 'form-control',
 				'value' => $this->form_validation->set_value('gambar'),
 			);
+		
+			// elemen upload file
 			$this->data['tmpgambar'] = array(
 				'name'  => 'prdfile',
 				'id'    => 'prdfile',
@@ -330,7 +339,7 @@ class Inventory extends Admin_Controller {
 					
 					'tag'        => $this->input->post('tag'),
 					'hjual'      => $this->input->post('hjual'),
-					'saldo'      => $this->input->post('saldo'),
+					// 'saldo'      => $this->input->post('saldo'),
 					'gambar'     => $this->input->post('gambar'),
 				);
 
@@ -364,12 +373,10 @@ class Inventory extends Admin_Controller {
 		}
 
 
-		$this->data['golongan'] = $this->golongan_model->get_all();
-		
-		if (isset($_SESSION["kdgol"])) {
-			$this->data['golongan2'] = $this->golongan2_model->get_all();
-			$this->data['golongan3'] = $this->golongan3_model->get_all();
-		}
+		$this->data['inventory'] = $this->inventory_model->get_by_id($kode);
+		$this->data['golongan']  = $this->golongan_model->get_all();
+		$this->data['golongan2'] = $this->golongan2_model->get_by_catid($this->data['inventory']->kdgol);
+		$this->data['golongan3'] = $this->golongan3_model->get_by_catid($this->data['inventory']->kdgol2);
 
 		$this->data['brands'] = $this->inventory_model->all_brands();
 
@@ -380,22 +387,23 @@ class Inventory extends Admin_Controller {
 			'name'  => 'kdbar',
 			'id'    => 'kdbar',
 			'type'  => 'text',
+			'readonly' => TRUE,
 			'class' => 'form-control',
-			'value' => $this->form_validation->set_value('kdbar'),
+			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('kdbar') : $this->data['inventory']->kdbar,
 		);
 		$this->data['kdurl'] = array(
 			'name'  => 'kdurl',
 			'id'    => 'kdurl',
 			'type'  => 'text',
 			'class' => 'form-control',
-			'value' => $this->form_validation->set_value('kdurl'),
+			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('kdurl') : $this->data['inventory']->kdurl,
 		);
 		$this->data['nama'] = array(
 			'name'  => 'nama',
 			'id'    => 'nama',
 			'type'  => 'text',
 			'class' => 'form-control',
-			'value' => $this->form_validation->set_value('nama'),
+			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('nama') : $this->data['inventory']->nama,
 		);
 
 		$this->data['satuan'] = array(
@@ -403,35 +411,35 @@ class Inventory extends Admin_Controller {
 			'id'    => 'satuan',
 			'type'  => 'text',
 			'class' => 'form-control',
-			'value' => $this->form_validation->set_value('satuan'),
+			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('satuan') : $this->data['inventory']->satuan,
 		);
 		$this->data['merk'] = array(
 			'name'  => 'merk',
 			'id'    => 'merk',
 			'type'  => 'text',
 			'class' => 'form-control',
-			'value' => $this->form_validation->set_value('merk'),
+			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('merk') : $this->data['inventory']->merk,
 		);
 		$this->data['pnj'] = array(
 			'name'  => 'pnj',
 			'id'    => 'pnj',
 			'type'  => 'text',
 			'class' => 'form-control',
-			'value' => $this->form_validation->set_value('pnj'),
+			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('pnj') : $this->data['inventory']->pnj,
 		);
 		$this->data['lbr'] = array(
 			'name'  => 'lbr',
 			'id'    => 'lbr',
 			'type'  => 'text',
 			'class' => 'form-control',
-			'value' => $this->form_validation->set_value('lbr'),
+			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('lbr') : $this->data['inventory']->lbr,
 		);
 		$this->data['tgi'] = array(
 			'name'  => 'tgi',
 			'id'    => 'tgi',
 			'type'  => 'text',
 			'class' => 'form-control',
-			'value' => $this->form_validation->set_value('tgi'),
+			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('tgi') : $this->data['inventory']->tgi,
 		);
 
 		$this->data['listrik'] = array(
@@ -439,35 +447,35 @@ class Inventory extends Admin_Controller {
 			'id'    => 'listrik',
 			'type'  => 'text',
 			'class' => 'form-control',
-			'value' => $this->form_validation->set_value('listrik'),
+			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('listrik') : $this->data['inventory']->listrik,
 		);
 		$this->data['kapasitas'] = array(
 			'name'  => 'kapasitas',
 			'id'    => 'kapasitas',
 			'type'  => 'text',
 			'class' => 'form-control',
-			'value' => $this->form_validation->set_value('kapasitas'),
+			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('kapasitas') : $this->data['inventory']->kapasitas,
 		);
 		$this->data['gas'] = array(
 			'name'  => 'gas',
 			'id'    => 'gas',
 			'type'  => 'text',
 			'class' => 'form-control',
-			'value' => $this->form_validation->set_value('gas'),
+			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('gas') : $this->data['inventory']->gas,
 		);
 		$this->data['berat'] = array(
 			'name'  => 'berat',
 			'id'    => 'berat',
 			'type'  => 'text',
 			'class' => 'form-control',
-			'value' => $this->form_validation->set_value('berat'),
+			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('berat') : $this->data['inventory']->berat,
 		);
 		$this->data['fitur'] = array(
 			'name'  => 'fitur',
 			'id'    => 'fitur',
 			'rows'  => '3',
 			'class' => 'form-control',
-			'value' => $this->form_validation->set_value('fitur'),
+			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('fitur') : $this->data['inventory']->fitur,
 		);
 
 		$this->data['tag'] = array(
@@ -475,36 +483,38 @@ class Inventory extends Admin_Controller {
 			'id'    => 'tag',
 			'type'  => 'text',
 			'class' => 'form-control',
-			'value' => $this->form_validation->set_value('tag'),
+			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('tag') : $this->data['inventory']->tag,
 		);
 		$this->data['hjual'] = array(
 			'name'  => 'hjual',
 			'id'    => 'hjual',
 			'type'  => 'text',
 			'class' => 'form-control',
-			'value' => $this->form_validation->set_value('hjual'),
+			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('hjual') : $this->data['inventory']->hjual,
 		);
-		$this->data['saldo'] = array(
-			'name'  => 'saldo',
-			'id'    => 'saldo',
-			'type'  => 'text',
-			'class' => 'form-control',
-			'value' => $this->form_validation->set_value('saldo'),
-		);
+		// $this->data['saldo'] = array(
+		// 	'name'  => 'saldo',
+		// 	'id'    => 'saldo',
+		// 	'type'  => 'text',
+		// 	'class' => 'form-control',
+		// 	'value' => isset($CI->form_validation) ? $this->form_validation->set_value('saldo') : $this->data['inventory']->saldo,
+		// );
 		$this->data['gambar'] = array(
 			'name'  => 'gambar',
 			'id'    => 'gambar',
 			'type'  => 'text',
 			'class' => 'form-control',
-			'value' => $this->form_validation->set_value('gambar'),
+			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('gambar') : $this->data['inventory']->gambar,
 		);
+		
+		// elemen upload file
 		$this->data['tmpgambar'] = array(
 			'name'  => 'prdfile',
 			'id'    => 'prdfile',
 			'type'  => 'text',
 			'class' => 'form-control',
 			'style' => 'display: none;',
-			'value' => $this->form_validation->set_value('userfile'),
+			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('userfile') : $this->data['inventory']->kdbar,
 		);
 
         /* Load Template */
@@ -512,12 +522,20 @@ class Inventory extends Admin_Controller {
 	}
 	
 	
+	public function setpaging($length){
+
+		$this->session->set_userdata('paging', $length);
+		redirect(current_url(), 'refresh');
+	}
+	
+	
 	public function paging($total,$curr_page,$url){
     
 		$page = '';
-		$total_page = ceil($total/8);
+		$pagingx = isset($_SESSION['paging']) ? $_SESSION['paging'] : 8;
+		$total_page = ceil($total/$pagingx);
 		
-		if($total > 8) { // hasil bagi atau jumlah halaman lebih dari satu
+		if($total > $pagingx) { // hasil bagi atau jumlah halaman lebih dari satu
 		
 			$page = '<ul class="pagination no-print">';
 			
