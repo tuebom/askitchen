@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <?php echo lang('inventory_description', 'nama', array('class' => 'col-sm-3 control-label')); ?>
+                                            <?php echo lang('inventory_name', 'nama', array('class' => 'col-sm-3 control-label')); ?>
                                             <div class="col-sm-9">
                                                 <?php echo form_input($nama);?>
                                             </div>
@@ -43,16 +43,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <?php echo lang('inventory_group', 'kdgol', array('class' => 'col-sm-3 control-label')); ?>
                                             <div class="col-sm-9">
                                             <select id="kdgol" name="kdgol" class="form-control">
-                                                <option value=""<?=isset($_SESSION['kdgol'])?'': ' selected';?>>-</option>
                                                 <?php
-                                                    foreach ($this->data['golongan'] as $itemx) {
-                                                        if (isset($_SESSION['kdgol']))
-                                                        {
+                                                    foreach ($this->data['golongan'] as $itemx)
+                                                      {
                                                 ?>
-                                                <option value="<?= $itemx->kdgol ?>"<?php if( $itemx->id == $_SESSION['kdgol'] ): ?> selected="selected"<?php endif; ?>><?= $itemx->nama ?></option>
-                                                <?php   } else { ?>
-                                                <option value="<?= $itemx->kdgol ?>"><?= $itemx->nama ?></option>
-                                                <?php } } ?>
+                                                <option value="<?= $itemx->kdgol ?>"<?php if( $itemx->kdgol == $inventory->kdgol ): ?> selected="selected"<?php endif; ?>><?= $itemx->nama ?></option>
+                                                <?php } ?>
                                             </select>
                                             </div>
                                         </div>
@@ -61,17 +57,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <?php echo lang('inventory_group_lv2', 'kdgol2', array('class' => 'col-sm-3 control-label')); ?>
                                             <div class="col-sm-9">
                                             <select id="kdgol2" name="kdgol2" class="form-control">
-                                                <option value=""<?=isset($_SESSION['kdgol2'])?'': ' selected';?>>-</option>
                                                 <?php
-                                                    if (isset($this->data['golongan2'])) {
                                                     foreach ($this->data['golongan2'] as $itemx) {
-                                                        if (isset($_SESSION['kdgol2']))
-                                                        {
                                                 ?>
-                                                <option value="<?= $itemx->kdgol2 ?>"<?php if( $itemx->id == $_SESSION['kdgol2'] ): ?> selected="selected"<?php endif; ?>><?= $itemx->nama ?></option>
-                                                <?php   } else { ?>
-                                                <option value="<?= $itemx->kdgol2 ?>"><?= $itemx->nama ?></option>
-                                                <?php } } } ?>
+                                                <option value="<?= $itemx->kdgol2 ?>"<?php if( $itemx->kdgol2 == $inventory->kdgol2 ): ?> selected="selected"<?php endif; ?>><?= $itemx->nama ?></option>
+                                                <?php } ?>
                                             </select>
                                             </div>
                                         </div>
@@ -81,13 +71,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <div class="col-sm-9">
                                             <select id="kdgol3" name="kdgol3" class="form-control">
                                             <?php
-                                                if (isset($this->data['golongan3'])) :
-                                                    foreach ($this->data['golongan3'] as $item) {
+                                                foreach ($this->data['golongan3'] as $item) {
                                             ?>
-                                            <option value="<?= $item->kdgol3 ?>"<?php if( $_SESSION["kdgol3"] == $item->kdgol3 ): ?> selected="selected"<?php endif; ?>><?= $item->nama ?></option>
-                                            <?php   }
-                                                endif;
-                                            ?>
+                                            <option value="<?= $item->kdgol3 ?>"<?php if( $item->kdgol3 == $inventory->kdgol3 ): ?> selected="selected"<?php endif; ?>><?= $item->nama ?></option>
+                                            <?php } ?>
                                             </select>
                                             </div>
                                         </div>
@@ -173,7 +160,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <?php echo lang('inventory_feature', 'fitur', array('class' => 'col-sm-3 control-label')); ?>
                                             <div class="col-sm-9">
                                                 <?php echo form_textarea($fitur);?>
-                                                <!-- <textarea class="form-control" rows="3" placeholder=""></textarea> -->
                                             </div>
                                         </div>
                                         
@@ -200,12 +186,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <?php echo form_input($hjual);?>
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <?php echo lang('inventory_qty_onhand', 'saldo', array('class' => 'col-sm-3 control-label')); ?>
                                             <div class="col-sm-9">
                                                 <?php echo form_input($saldo);?>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="form-group">
                                             <?php echo lang('inventory_picture', 'gambar', array('class' => 'col-sm-3 control-label')); ?>
                                             <div class="col-sm-9">
@@ -222,7 +208,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
-                                                <?php echo form_hidden('kdbar', $this->session->userdata('kdbar'));?>
                                                 <div class="btn-group">
                                                     <?php echo form_button(array('type' => 'submit', 'class' => 'btn btn-primary btn-flat', 'content' => lang('actions_submit'))); ?>
                                                     <?php echo form_button(array('type' => 'reset', 'class' => 'btn btn-warning btn-flat', 'content' => lang('actions_reset'))); ?>

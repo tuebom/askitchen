@@ -174,10 +174,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <?php echo lang('inventory_feature', 'fitur', array('class' => 'col-sm-3 control-label')); ?>
                                                 <div class="col-sm-9">
                                                     <?php echo form_textarea($fitur);?>
-                                                    <!-- <textarea class="form-control" rows="3" placeholder=""></textarea> -->
                                                 </div>
                                             </div>
-                                            
+                                        
                                             <div class="form-group">
                                                 <?php echo lang('inventory_criteria', 'criteria', array('class' => 'col-sm-3 control-label')); ?>
                                                 <div class="col-sm-9">
@@ -201,12 +200,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <?php echo form_input($hjual);?>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                                 <?php echo lang('inventory_qty_onhand', 'saldo', array('class' => 'col-sm-3 control-label')); ?>
                                                 <div class="col-sm-9">
                                                     <?php echo form_input($saldo);?>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="form-group">
                                                 <?php echo lang('inventory_picture', 'gambar', array('class' => 'col-sm-3 control-label')); ?>
                                                 <div class="col-sm-9">

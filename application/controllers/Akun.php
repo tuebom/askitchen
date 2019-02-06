@@ -144,12 +144,12 @@ class Akun extends Public_Controller {
         if ( ! $this->upload->do_upload())
         {
 			$hasil = $this->upload->display_errors();
-			$this->data['message'] = '<label class="label label-danger msg">Upload file gagal!</label>\n'.
-				'<table class="table table-hover table-bordered">\n'.
-				'<tr><td><strong>'.$hasil.'</strong></td></tr>\n'.
-				'</table>';
+			$this->session->set_flashdata('message', '<label class="label label-danger msg">Upload file gagal!</label>'.
+				'<table class="table table-hover table-bordered">'.
+				'<tr><td><strong>'.$hasil.'</strong></td></tr>'.
+				'</table>');
         }
-		redirect('akun');
+		redirect('akun', 'refresh');
     }
 
 	public function regencies()

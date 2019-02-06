@@ -46,7 +46,7 @@
 				<div class="col-md-3 col-sm-3">
                     <div class="box box-primary profile">
                         <div class="box-body box-profile">
-                            <img class="propic img-responsive img-circle" src="<?=file_exists('upload/avatar/user'.$_SESSION['mbrid'].'.png') ? base_url('upload/avatar/user'.$_SESSION['mbrid'].'.png') : base_url('images/user.jpg') ?>" alt="User profile picture">
+                            <img class="propic img-responsive img-circle" src="<?=site_url('upload/avatar/user'.$_SESSION['mbrid'].'.png'); ?>" alt="User profile picture">
 
                             <h4 class="profile-username text-center"><?=$this->data['anggota']->first_name ?> <?=$this->data['anggota']->last_name ?></h4>
 
@@ -85,8 +85,7 @@
                             });
                             </script>
                             <div class="form-group">
-                                <?php $msg = $this->session->flashdata('message'); ?>
-                                <div class="hasil text-center"><?= ($msg) ? $msg : '';?></div>
+                                <div class="hasil text-center"><?= isset($message) ? $message : ''?></div>
                             </div>
 
                         </div>

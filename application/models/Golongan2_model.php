@@ -52,6 +52,13 @@ class Golongan2_model extends CI_Model
         return $this->db->get($this->table)->row();
     }
 
+    // get data by category id
+    function get_by_catid($id)
+    {
+        $this->db->where('kdgol', $id);
+        return $this->db->get($this->table)->result();
+    }
+
     // get data by sub-id
     function get_by_subid($id)
     {

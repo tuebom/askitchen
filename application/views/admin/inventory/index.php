@@ -15,7 +15,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                              <div class="box">
                                 <div class="box-header with-border">
                                     <h3 class="box-title"><?php echo anchor('admin/inventory/create', '<i class="fa fa-plus"></i> Create Inventory', array('class' => 'btn btn-block btn-primary btn-flat')); ?></h3>
-                                    <div class="row"><div class="col-sm-6"><div class="dataTables_length" id="example1_length"><label>Show <select name="example1_length" aria-controls="example1" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-6"><div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label></div></div></div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <form class="frmpaging" action="<?= site_url('admin/inventory/setpaging'); ?>" method="post">
+                                            <div class="dataTables_length" id="example1_length">
+                                            <label>Show <select name="example1_length" aria-controls="example1" class="form-control input-sm">
+                                                <option value="10"<?php if(isset($_SESSION['paging'])) : ($_SESSION['paging']==='10') ? ' selected':''; endif; ?>>10</option>
+                                                <option value="25"<?php if(isset($_SESSION['paging'])) : ($_SESSION['paging']==='25') ? ' selected':''; endif; ?>>25</option>
+                                                <option value="50"<?php if(isset($_SESSION['paging'])) : ($_SESSION['paging']==='50') ? ' selected':''; endif; ?>>50</option>
+                                                <option value="100"<?php if(isset($_SESSION['paging'])) : ($_SESSION['paging']==='100') ? ' selected':''; endif; ?>>100</option>
+                                            </select> entries</label></div></form></div>
+                                        <div class="col-sm-6">
+                                            <form class="frmfilter" action="<?= site_url('admin/inventory'); ?>" method="get"><div id="search_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label></div></form></div></div>
                                 </div>
                                 <div class="box-body table-responsive">
                                     <table class="table table-striped table-hover">
@@ -80,3 +91,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </section>
             </div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+        
+    $('.dataTables_length').change(function(){
+        location.reload();
+        // $.ajax({
+        //     type: "POST",
+        //     url: <?php echo '"'.site_url().'admin/inventory' ?>,
+        //     success:function(json){
+        //         var data = json.data;
+
+        //         $('#kdgol3').html('');
+        //         for (var i = 0; i < data.length; i++) {
+        //             $('#kdgol3').append('<option value="'+data[i].kdgol3+'">'+data[i].nama+'</option>')
+        //         }
+        //     }
+        // });
+    });
+    
+    $(".dataTables_filter").on('keyup', function (e) {
+        if (e.keyCode == 13) {
+        alert('tes')
+        }
+    });
+});
+</script>
