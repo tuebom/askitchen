@@ -609,17 +609,12 @@ class Inventory extends Admin_Controller {
         if ( ! $this->upload->do_upload())
         {
             $hasil = $this->upload->display_errors();
-            ?>
-                <label class="label label-danger msg">Upload file gagal!</label>
-                <table class="table table-hover table-bordered">
-                    <?php echo "<tr><td><strong>".$hasil."</strong></td></tr>"; ?>
-                </table>
-                <?php
+			$this->session->set_flashdata('message', '<label class="label label-danger msg">Upload file gagal!</label>'.
+				'<table class="table table-hover table-bordered">'.
+				'<tr><td><strong>'.$hasil.'</strong></td></tr>'.
+				'</table>');
         }
-        else
-        {
-			$hasil = $this->upload->data();
-        }
+		redirect(current_url(), 'refresh');
     }
 
 	public function level2()

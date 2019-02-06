@@ -35,9 +35,9 @@ $lang['inventory_electricity']         = 'Electricity';
 $lang['inventory_capacity']            = 'Capacity';
 $lang['inventory_gas']                 = 'Gas';
 $lang['inventory_weight']              = 'Weight';
-$lang['inventory_feature']             = 'Fitur';
+$lang['inventory_feature']             = 'Feature';
 
-$lang['inventory_promotion']           = 'Promotion';
+$lang['inventory_criteria']            = 'Criteria';
 $lang['inventory_tag']                 = 'Tag';
 $lang['inventory_price']               = 'Price';
 $lang['inventory_qty_onhand']          = 'Qty On Hand';
