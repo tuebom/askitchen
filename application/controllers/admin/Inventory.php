@@ -56,8 +56,10 @@ class Inventory extends Admin_Controller {
 
 			$url   = current_url() . '?p=';
 			
-			$this->data['pagination'] = $this->paging($total, $page, $url);			
-			$this->data['q'] = $q; //data
+			$this->data['pagination'] = $this->paging($total, $page, $url);
+
+			$this->session->set_userdata('q', $q);
+			// $this->data['q'] = $q; //data
 
 			/* Load Template */
             $this->template->admin_render('admin/inventory/index', $this->data);
@@ -270,7 +272,7 @@ class Inventory extends Admin_Controller {
 		
 			// elemen upload file
 			$this->data['tmpgambar'] = array(
-				'name'  => 'prdfile',
+				'name'  => 'userfile',
 				'id'    => 'prdfile',
 				'type'  => 'text',
 				'class' => 'form-control',
@@ -477,6 +479,8 @@ class Inventory extends Admin_Controller {
 			'class' => 'form-control',
 			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('fitur') : $this->data['inventory']->fitur,
 		);
+		
+		$this->data['kriteria'] = $this->data['inventory']->kriteria;
 
 		$this->data['tag'] = array(
 			'name'  => 'tag',
@@ -509,7 +513,7 @@ class Inventory extends Admin_Controller {
 		
 		// elemen upload file
 		$this->data['tmpgambar'] = array(
-			'name'  => 'prdfile',
+			'name'  => 'userfile',
 			'id'    => 'prdfile',
 			'type'  => 'text',
 			'class' => 'form-control',
@@ -524,8 +528,19 @@ class Inventory extends Admin_Controller {
 	
 	public function setpaging($length){
 
+		$length = (int) $length;
 		$this->session->set_userdata('paging', $length);
-		redirect(current_url(), 'refresh');
+
+		$data = array(
+			'status' => TRUE
+		);
+		return $this->output
+		->set_content_type('application/json')
+		->set_status_header(200)
+		->set_output(json_encode(array(
+				'data' => $data
+		)));
+		// redirect('admin/inventory', 'refresh');
 	}
 	
 	

@@ -42,6 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" href="<?php echo base_url($plugins_dir . '/colorpickersliders/colorpickersliders.min.css'); ?>">
 <?php endif; ?>
         <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/domprojects/css/dp.min.css'); ?>">
+        <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/jquery.fileupload/css/jquery.fileupload.css'); ?>">
 <?php if ($mobile === FALSE): ?>
         <!--[if lt IE 9]>
             <script src="<?php echo base_url($plugins_dir . '/html5shiv/html5shiv.min.js'); ?>"></script>
@@ -49,6 +50,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <![endif]-->
 <?php endif; ?>
         <script src="<?php echo base_url($frameworks_dir . '/jquery/jquery.min.js'); ?>"></script>
+        <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+        <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+        <script src="https://blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script> 
+        <!-- The Canvas to Blob plugin is included for image resizing functionality -->
+        <script src="https://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+        <script src="<?php echo base_url($frameworks_dir . '/jquery.fileupload/js/jquery.ui.widget.js'); ?>"></script>
+        <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+        <script src="<?php echo base_url($frameworks_dir . '/jquery.fileupload/js/jquery.iframe-transport.js'); ?>"></script>
+        <!-- The basic File Upload plugin -->
+        <script src="<?php echo base_url($frameworks_dir . '/jquery.fileupload/js/jquery.fileupload.js'); ?>"></script>
+        <!-- The File Upload processing plugin -->
+        <script src="<?php echo base_url($frameworks_dir . '/jquery.fileupload/js/jquery.fileupload-process.js'); ?>"></script>
+        <!-- The File Upload image preview & resize plugin -->
+        <script src="<?php echo base_url($frameworks_dir . '/jquery.fileupload/js/jquery.fileupload-image.js'); ?>"></script>
+        <!-- The File Upload validation plugin -->
+        <script src="<?php echo base_url($frameworks_dir . '/jquery.fileupload/js/jquery.fileupload-validate.js'); ?>"></script>
     </head>
     <body class="hold-transition skin-blue fixed sidebar-mini">
 <?php if ($mobile === FALSE && $admin_prefs['transition_page'] == TRUE): ?>

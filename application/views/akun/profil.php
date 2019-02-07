@@ -2,7 +2,6 @@
 					<div class="row profile">
                         <div class="col-md-12">
                             <h4>Profil Saya</h4>
-                            <?=file_exists(APPPATH.'upload/avatar/user'.$_SESSION['mbrid'].'.png')?'File exists': APPPATH.'upload/avatar/user'.$_SESSION['mbrid'].'.png'?>
                         </div>
                         <form id="frmAkun" action="<?= site_url('akun'); ?>" method="post">
 
