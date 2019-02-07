@@ -20,13 +20,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <!-- <form class="frmpaging" action="<?= site_url('admin/inventory/setpaging'); ?>" method="post"> -->
                                             <div class="dataTables_length" id="example1_length">
                                             <label>Show <select name="example1_length" aria-controls="example1" class="form-control input-sm">
-                                                <option value="10"<?= (!isset($_SESSION['paging'])) ? '': ($_SESSION['paging']=='10') ? ' selected="selected"':''; ?>>10</option>
-                                                <option value="25"<?= (!isset($_SESSION['paging'])) ? '': ($_SESSION['paging']=='25') ? ' selected="selected"':''; ?>>25</option>
-                                                <option value="50"<?= (!isset($_SESSION['paging'])) ? '': ($_SESSION['paging']=='50') ? ' selected="selected"':''; ?>>50</option>
-                                                <option value="100"<?= (!isset($_SESSION['paging'])) ? '': ($_SESSION['paging']=='100') ? ' selected="selected"':''; ?>>100</option>
+                                                <option value="10"<?php if(isset($_SESSION['paging'])) : ($_SESSION['paging']==='10') ? ' selected':''; endif; ?>>10</option>
+                                                <option value="25"<?php if(isset($_SESSION['paging'])) : ($_SESSION['paging']==='25') ? ' selected':''; endif; ?>>25</option>
+                                                <option value="50"<?php if(isset($_SESSION['paging'])) : ($_SESSION['paging']==='50') ? ' selected':''; endif; ?>>50</option>
+                                                <option value="100"<?php if(isset($_SESSION['paging'])) : ($_SESSION['paging']==='100') ? ' selected':''; endif; ?>>100</option>
                                             </select> entries</label></div><!--</form>--></div>
                                         <div class="col-sm-6">
-                                            <form class="frmfilter" action="<?= site_url('admin/inventory'); ?>" method="get"><div id="search_filter" class="dataTables_filter"><label>Search:<input type="search" name="q" value="<?=isset($_SESSION['q'])?$_SESSION['q']:''; ?>" class="form-control input-sm" placeholder="" aria-controls="example1"></label></div></form></div></div>
+                                            <form class="frmfilter" action="<?= site_url('admin/inventory'); ?>" method="get"><div id="search_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label></div></form></div></div>
                                 </div>
                                 <div class="box-body table-responsive">
                                     <table class="table table-striped table-hover">
@@ -40,7 +40,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <th><?= lang('inventory_unit'); ?></th>
                                                 <th><?= lang('inventory_brand'); ?></th>
                                                 <th><?= lang('inventory_size'); ?></th>
-                                                <th class="text-right"><?= lang('inventory_price'); ?></th>
                                                 <!-- <th class="text-right">Lebar</th>
                                                 <th class="text-right">Tinggi</th> -->
                                                 <th><?= lang('inventory_picture'); ?></th>
@@ -48,7 +47,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <th>Kapasitas</th>
                                                 <th>Gas</th>
                                                 <th>Berat</th>
-                                                <th>Tag</th> -->
+                                                <th>Tag</th>
+                                                <th>Harga Jual</th>
+                                                <th>Diskon</th> -->
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -63,10 +64,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <td><?php echo htmlspecialchars($item->satuan, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td><?php echo htmlspecialchars($item->merk, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td><?php echo $item->pnj.' cm<br>x<br>'.$item->lbr.' cm<br>x<br>'.$item->tgi.' cm'; ?></td>
-                                                <td class="text-right"><?php echo htmlspecialchars($item->hjual, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <!-- <td class="text-right"><?php echo htmlspecialchars($item->lbr, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td class="text-right"><?php echo htmlspecialchars($item->tgi, ENT_QUOTES, 'UTF-8'); ?></td> -->
                                                 <td><div class="product-img"><img src="<?=site_url($this->data['products_dir'].'/'.$item->gambar)?>" alt="Image"></div></td>
+                                                <!-- <td><?php echo htmlspecialchars($item->listrik, ENT_QUOTES, 'UTF-8'); ?></td>
+                                                <td><?php echo htmlspecialchars($item->kapasitas, ENT_QUOTES, 'UTF-8'); ?></td>
+                                                <td><?php echo htmlspecialchars($item->gas, ENT_QUOTES, 'UTF-8'); ?></td>
+                                                <td><?php echo htmlspecialchars($item->berat, ENT_QUOTES, 'UTF-8'); ?></td>
+                                                <td><?php echo htmlspecialchars($item->tag, ENT_QUOTES, 'UTF-8'); ?></td>
+                                                <td><?php echo htmlspecialchars($item->hjual, ENT_QUOTES, 'UTF-8'); ?></td>
+                                                <td><?php echo htmlspecialchars($item->disc, ENT_QUOTES, 'UTF-8'); ?></td> -->
                                                 <td>
                                                     <?php echo anchor('admin/inventory/edit/'.$item->kdurl, 'Edit'); ?>
                                                 </td>
@@ -97,6 +104,12 @@ $(document).ready(function(){
                 location.reload();
             }
         });
+    });
+    
+    $(".dataTables_filter").on('keyup', function (e) {
+        if (e.keyCode == 13) {
+        alert('tes')
+        }
     });
 });
 </script>
