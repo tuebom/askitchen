@@ -5219,3 +5219,9 @@ div.product-img img {
 .jssora051:hover {opacity:.8;}
 .jssora051.jssora051dn {opacity:.5;}
 .jssora051.jssora051ds {opacity:.3;pointer-events:none;}
+
+.banner-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}

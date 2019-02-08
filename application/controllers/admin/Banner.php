@@ -9,7 +9,7 @@ class Banner extends Admin_Controller {
 
         /* Load :: Common */
         $this->load->model('admin/banner_model');
-        $this->output->enable_profiler(TRUE);
+        // $this->output->enable_profiler(TRUE);
     }
 
 
@@ -29,7 +29,9 @@ class Banner extends Admin_Controller {
             $this->data['breadcrumb'] = $this->breadcrumbs->show();
 
             /* Data */
-            $this->data['banner']     = $this->banner_model->get_all();
+            $this->data['banner'] = $this->banner_model->get_all();
+
+            $this->session->set_userdata('custom_dir', '/upload/banner/');
 
             /* Load Template */
             $this->template->admin_render('admin/banner/index', $this->data);

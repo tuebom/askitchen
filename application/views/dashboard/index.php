@@ -96,11 +96,13 @@
         <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
             <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="<?= site_url('images/spin.svg'); ?>" />
         </div>
-        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
+		<div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
+		<?php foreach ($banner as $item) {?>
             <div>
-				<img src="<?php echo site_url('images/ban1-1.jpg'); ?>" class="img-responsive" alt="">
-            </div>
-            <div>
+				<img src="<?php echo site_url($this->data['banner_dir'].'/'.$item->filename); ?>" class="img-responsive" alt="">
+			</div>
+		<?php } ?>
+            <!-- <div>
 				<img src="<?php echo site_url('images/ban1-5.jpg'); ?>" class="img-responsive" alt="">
             </div>
             <div>
@@ -108,7 +110,7 @@
             </div>
             <div>
 				<img src="<?php echo site_url('images/ban1-4.jpg'); ?>" class="img-responsive" alt="">
-            </div>
+            </div> -->
         </div>
         <!-- Bullet Navigator -->
         <div data-u="navigator" class="jssorb051" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">

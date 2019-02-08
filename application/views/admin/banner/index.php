@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         $index = 0;
                                         foreach ($banner as $item) { ?>
                                         <div class="item<?=$index == 0 ? ' active':''?>">
-                                            <img src="<?=base_url('images/'.$item->filename)?>" alt="Banner <?=(int)$index+1?>">
+                                            <img src="<?=base_url($this->data['banner_dir'].'/'.$item->filename)?>" alt="Banner <?=(int)$index+1?>">
 
                                             <div class="carousel-caption">
                                                 Banner <?=(int)$index+1?>
@@ -52,43 +52,138 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                     </div>
 
+                    <div id="files" class="files">
+                    <?php 
+                        $index = 0;
+                        foreach ($banner as $item) { ?>
                     <!-- banner file -->
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div class="box box-solid">
+                            <div class="box box-primary box-solid">
                                 <div class="box-header with-border">
-                                    <h3 class="box-title">Banner File</h3>
+                                <h3 class="box-title">Banner #<?=(int)$index+1?></h3>
+
+                                <div class="box-tools pull-right">
+                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                </div>
+                                <!-- /.box-tools -->
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body">
-                                    <div class="box-group" id="accordion">
-                                        <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
-                                        <div class="panel box box-primary">
-                                        <div class="box-header with-border">
-                                            <h4 class="box-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" class="collapsed">
-                                                Banner #<?=(int)$index+1?>
-                                            </a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapse<?=(int)$index+1?>" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
-                                            <div class="box-body">
-                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                                            wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
-                                            eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-                                            assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                                            nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                                            farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                                            labore sustainable VHS.
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
+                                    <img class="banner-img" style="display:block;max-width:100%;height:auto;" src="<?=base_url($this->data['banner_dir'].'/'.$item->filename)?>" alt="Banner <?=(int)$index+1?>">
                                 </div>
                                 <!-- /.box-body -->
                             </div>
                         </div>
                     </div>
+                    <?php $index++; } ?>
+                    </div>
+                    <a id="btnUpload" href="#" class="btn btn-sm btn-default btn-flat fileinput-button">Tambah gambar
+                    <input id="fileupload" type="file" name="files[]" multiple></a>
 
                 </section>
             </div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+    // Change this to the location of your server-side upload handler:
+    // var url = window.location.hostname === 'askitchen.com' ?
+    var url = <?php echo '"'.base_url('admin/fileupload').'"' ?>,
+        uploadButton = $('<button/>')
+            .addClass('btn btn-primary')
+            .prop('disabled', true)
+            .text('Processing...')
+            .on('click', function () {
+                var $this = $(this),
+                    data = $this.data();
+                $this
+                    .off('click')
+                    .text('Abort')
+                    .on('click', function () {
+                        $this.remove();
+                        data.abort();
+                    });
+                data.submit().always(function () {
+                    $this.remove();
+                });
+            });
+
+    $('#fileupload').fileupload({
+        url: url,
+        dataType: 'json',
+        autoUpload: false,
+        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+        maxFileSize: 999000,
+        // Enable image resizing, except for Android and Opera,
+        // which actually support image resizing, but fail to
+        // send Blob objects via XHR requests:
+        disableImageResize: /Android(?!.*Chrome)|Opera/
+            .test(window.navigator.userAgent),
+        previewMaxWidth: 744,
+        previewMaxHeight: 272,
+        previewCrop: true
+    }).on('fileuploadadd', function (e, data) {
+        data.context = $('<div/>').appendTo('#files');
+        $.each(data.files, function (index, file) {
+            var node = $('<p/>')
+                    .append($('<span/>').text(file.name));
+            if (!index) {
+                node
+                    .append('<br>')
+                    .append(uploadButton.clone(true).data(data));
+            }
+            node.appendTo(data.context);
+        });
+    }).on('fileuploadprocessalways', function (e, data) {
+        var index = data.index,
+            file = data.files[index],
+            node = $(data.context.children()[index]);
+        if (file.preview) {
+            node
+                .prepend('<br>')
+                .prepend(file.preview);
+        }
+        if (file.error) {
+            node
+                .append('<br>')
+                .append($('<span class="text-danger"/>').text(file.error));
+        }
+        if (index + 1 === data.files.length) {
+            data.context.find('button')
+                .text('Upload')
+                .prop('disabled', !!data.files.error);
+        }
+    }).on('fileuploadprogressall', function (e, data) {
+        var progress = parseInt(data.loaded / data.total * 100, 10);
+        $('#progress .progress-bar').css(
+            'width',
+            progress + '%'
+        );
+    }).on('fileuploaddone', function (e, data) {
+        $.each(data.result.files, function (index, file) {
+            if (file.url) {
+                var link = $('<a>')
+                    .attr('target', '_blank')
+                    .prop('href', file.url);
+                $(data.context.children()[index])
+                    .wrap(link);
+            } else if (file.error) {
+                var error = $('<span class="text-danger"/>').text(file.error);
+                $(data.context.children()[index])
+                    .append('<br>')
+                    .append(error);
+            }
+        });
+    }).on('fileuploadfail', function (e, data) {
+        $.each(data.files, function (index) {
+            var error = $('<span class="text-danger"/>').text('File upload failed.');
+            $(data.context.children()[index])
+                .append('<br>')
+                .append(error);
+        });
+    }).prop('disabled', !$.support.fileInput)
+        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+        
+});
+</script>

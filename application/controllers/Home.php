@@ -5,28 +5,30 @@ class Home extends Public_Controller {
 
     public function __construct()
     {
-		parent::__construct();
+			parent::__construct();
 
-		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
-		$this->lang->load('auth');
+			$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
+			$this->lang->load('auth');
 
-		$this->load->model('golongan_model');
-		$this->load->model('stock_model');
-		
-		// unset($_SESSION["cart_item"]);
-		// unset($_SESSION["totqty"]);
-		// $this->output->enable_profiler(TRUE);
+			$this->load->model('golongan_model');
+			$this->load->model('stock_model');
+			$this->load->model('admin/banner_model');
+			
+			// unset($_SESSION["cart_item"]);
+			// unset($_SESSION["totqty"]);
+			// $this->output->enable_profiler(TRUE);
     }
 
 
 	public function index()
 	{
-		// $this->load->view('public/home', $this->data);
 		$this->data['golongan'] = $this->golongan_model->get_all();
 
 		foreach ($this->data['golongan'] as $item) {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
+		
+		$this->data['banner'] = $this->banner_model->get_all();
 
 		if ($this->ion_auth->logged_in())
 		{
