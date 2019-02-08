@@ -121,7 +121,15 @@ class Login extends Public_Controller {
                     $this->session->set_userdata('guest', TRUE);
                     $this->data['first_name'] = 'Guest';
                     $this->data['last_name']  = '';
-                    redirect('/', 'refresh');
+                    
+                    if (count($_SESSION["cart_item"]) > 0)
+                    {
+                        redirect('checkout', 'refresh');
+                    }
+                    else
+                    {
+                        redirect('/', 'refresh');
+                    }
                 }
             }
 

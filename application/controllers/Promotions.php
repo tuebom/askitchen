@@ -31,13 +31,7 @@ class Promotions extends Public_Controller {
 			$this->data['last_name']  = $member->last_name;
 		}
         
-		// $kode = $this->uri->segment(3); // kode golongan
-		
-		$this->data['title']  = 'Promotion'; //$this->golongan3_model->get_by_id($kode)->nama;
-		// $this->data['kdgol']  = substr($kode,0,2);
-		// $kdgol2 = substr($kode,0,5);
-
-		// $this->data['item_'.$kdgol2] = $this->golongan2_model->get_sub_category($kdgol2);
+		$this->data['title']  = 'Promotion';
 		
 		$action  = $this->input->get('action');
 		

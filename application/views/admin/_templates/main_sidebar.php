@@ -44,14 +44,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <i class="fa fa-dashboard"></i> <span><?php echo lang('menu_dashboard'); ?></span>
                             </a>
                         </li>
-                        <li class="<?=active_link_controller('general')?>">
-                            <a href="<?php echo site_url('admin/general'); ?>">
-                                <i class="fa fa-user"></i> <span><?php echo lang('menu_general'); ?></span>
+                        <li class="treeview" class="<?=active_link_controller('general')?>">
+                            <a href="#">
+                                <i class="fa fa-cogs"></i>
+                                <span><?php echo lang('menu_general'); ?></span>
+                                <i class="fa fa-angle-left pull-right"></i>
                             </a>
+                            <ul class="treeview-menu">
+                                <li class="<?=active_link_controller('banner')?>">
+                                    <a href="<?php echo site_url('admin/banner'); ?>">
+                                        <i class="fa fa-file"></i> <span><?php echo lang('menu_banner'); ?></span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="treeview <?=active_link_controller('products')?>">
                             <a href="#">
-                                <i class="fa fa-cogs"></i>
+                                <i class="fa fa-cubes"></i>
                                 <span><?php echo lang('menu_products'); ?></span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>

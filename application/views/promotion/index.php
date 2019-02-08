@@ -128,7 +128,9 @@
 																</a>
 															</figure>	
 														</div>
-														<!-- <div class="block">
+														<div class="ribben">
+															<p>-<?=$item->diskon;?>%</p>
+														</div>														<!-- <div class="block">
 															<div class="starbox small ghosting unchangeable"> </div>
 														</div> -->
 														<div class="women">
@@ -136,7 +138,7 @@
 															<span class="size"><?= $item->nama; ?></span>
 															<span class="size"><?= $item->pnj; ?> x <?= $item->lbr; ?> x <?= $item->tgi; ?> CM</span>
 															<span class="detail"><del>Rp<?= $item->hjual; ?></del><a href="<?= current_url().'?action=add&code='.$item->kdurl ?>" class="my-cart-search item_add"><img src="<?= site_url('images/bag.png'); ?>" alt="Cart" /></a><!--<a href="<?php echo site_url('detail/'.$item->kdurl); ?>" class="my-cart-d item_add">Detail</a>--></span>
-															<span class="detail">Rp<?= $item->hpromo; ?></span>
+															<span class="detail2">Rp<?= $item->hpromo; ?></span>
 														</div>
 													</div>
 												</div>
