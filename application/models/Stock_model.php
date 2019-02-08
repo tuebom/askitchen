@@ -100,7 +100,7 @@ class Stock_model extends CI_Model
     // get promotion product
     function get_promotion($limit = 8, $start = 0)
     {
-        $this->db->select('kdbar, kdurl, nama, deskripsi, format(hjual,0,"id") as hjual, format(hpromo,0,"id") as hpromo, pnj, lbr, tgi, gambar')
+        $this->db->select('kdbar, kdurl, nama, deskripsi, format(hjual,0,"id") as hjual, format(hpromo,0,"id") as hpromo, ROUND(100-hpromo*100/hjual,1) as diskon, pnj, lbr, tgi, gambar')
             ->from('stock')
             ->where('kriteria', 'P')
             // ->where('kdbar !=', $kdbar)

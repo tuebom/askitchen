@@ -40,6 +40,8 @@ class Inventory extends Admin_Controller {
             /* Breadcrumbs */
             $this->data['breadcrumb'] = $this->breadcrumbs->show();
 
+            $this->session->set_userdata('custom_dir', '/upload/gambar/');
+
 			$pagingx = isset($_SESSION['paging']) ? $_SESSION['paging'] : 10;
 			if ($this->input->get('p')) {
 				$page   = $this->input->get('p');

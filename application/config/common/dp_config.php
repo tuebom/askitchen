@@ -50,3 +50,4 @@ $config['plugins_dir']    = $config['assets_dir'] . '/plugins';
 $config['upload_dir']     = 'upload';
 $config['avatar_dir']     = $config['upload_dir'] . '/avatar';
 $config['products_dir']   = $config['upload_dir'] . '/gambar';
+$config['banner_dir']     = $config['upload_dir'] . '/banner';

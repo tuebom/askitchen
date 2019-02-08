@@ -18,13 +18,15 @@
                                 <div class="col-sm-6">    
                                     <div class="form-group">
                                         <label for="firstname"><?= lang('checkout_first_name') ?></label>
-                                        <input type="text" class="form-control" id="first_name" name="first_name" value="<?=isset($_SESSION['first_name']) ? $_SESSION['first_name'] : '';?>" placeholder="Enter first name" required>
+                                        <input type="text" class="form-control" id="first_name" name="first_name" value="<?=isset($_SESSION['first_name']) ? $_SESSION['first_name'] : '';?>" placeholder="Enter first name" data-error="Please enter first name." required>
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">    
                                     <div class="form-group">
                                         <label for="lastname"><?= lang('checkout_last_name') ?></label>
-                                        <input type="text" class="form-control" id="last_name" name="last_name" value="<?=isset($_SESSION['last_name'])? $_SESSION['last_name'] : '';?>" placeholder="Enter last name" required>
+                                        <input type="text" class="form-control" id="last_name" name="last_name" value="<?=isset($_SESSION['last_name'])? $_SESSION['last_name'] : '';?>" placeholder="Enter last name" data-error="Please enter last name." required>
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                             </div>
@@ -40,7 +42,8 @@
                                 <div class="col-sm-12">    
                                     <div class="form-group">
                                         <label for="address"><?= lang('checkout_address') ?></label>
-                                        <input type="text" class="form-control" id="address" name="address" value="<?=isset($_SESSION['address'])? $_SESSION['address'] : '';?>" placeholder="Enter address" required>
+                                        <input type="text" class="form-control" id="address" name="address" value="<?=isset($_SESSION['address'])? $_SESSION['address'] : '';?>" placeholder="Enter address" data-error="Please enter address." required>
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                             </div>
@@ -48,7 +51,7 @@
                                 <div class="col-sm-6">    
                                     <div class="form-group">
                                         <label for="province"><?= lang('checkout_province') ?></label>
-                                        <select id="province" name="province" class="form-control">
+                                        <select id="province" name="province" class="form-control" data-error="Please enter province." required>
                                             <option value=""<?=isset($_SESSION['province'])?'': ' selected';?>>-</option>
                                             <?php
                                                 foreach ($this->data['provinsi'] as $itemx) {
@@ -60,12 +63,13 @@
                                             <option value="<?= $itemx->id ?>"><?= $itemx->name ?></option>
                                             <?php } } ?>
                                         </select>
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">    
                                     <div class="form-group">
                                         <label for="regency"><?= lang('checkout_regency') ?></label>
-                                        <select id="regency" name="regency" class="form-control">
+                                        <select id="regency" name="regency" class="form-control" data-error="Please enter regency." required>
                                         <?php
                                             if (isset($this->data['kabupaten'])) :
                                                 foreach ($this->data['kabupaten'] as $item) {
@@ -75,6 +79,7 @@
                                             endif;
                                         ?>
                                         </select>
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +87,7 @@
                                 <div class="col-sm-6">    
                                     <div class="form-group">
                                         <label for="district"><?= lang('checkout_district') ?></label>
-                                        <select id="district" name="district" class="form-control">
+                                        <select id="district" name="district" class="form-control" data-error="Please enter district." required>
                                         <?php
                                             if (isset($this->data['kecamatan'])) :
                                                 foreach ($this->data['kecamatan'] as $item) {
@@ -92,6 +97,7 @@
                                             endif;
                                         ?>
                                         </select>
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">    
@@ -111,7 +117,7 @@
                                 <div class="col-sm-6">    
                                     <div class="form-group">
                                         <label for="email"><?= lang('checkout_email') ?></label>
-                                        <input type="text" class="form-control" id="email" name="email" value="<?=isset($_SESSION['email'])? $_SESSION['email'] : '';?>" placeholder="Enter email address">
+                                        <input type="text" class="form-control" id="email" name="email" value="<?=isset($_SESSION['guest'])? '': isset($_SESSION['email'])? $_SESSION['email'] : '';?>" placeholder="Enter email address">
                                     </div>
                                 </div>
                             </div>
@@ -199,6 +205,8 @@
 	<script type="text/javascript">
     $(document).ready(function() {
         
+        $('#frmAddress').validator();
+
         $('#btnSubmit').click(function(event) {
             event.preventDefault();
             $('#frmAddress').submit();
