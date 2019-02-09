@@ -99,7 +99,7 @@ class Inventory_model extends CI_Model
         
         if ($q) {
             $qry->group_start()
-            ->or_like(['kdbar'=> $q, 's.nama'=> $q, 's.kdgol'=> $q, 's.kdgol2'=> $q, 's.kdgol3'=> $q, 'pnj'=> $q, 'lbr'=> $q, 'tgi'=> $q])
+            ->or_like(['kdbar'=> $q, 's.nama'=> $q, 's.merk'=> $q, 's.kdgol'=> $q, 's.kdgol2'=> $q, 's.kdgol3'=> $q, 'pnj'=> $q, 'lbr'=> $q, 'tgi'=> $q])
             ->group_end();
         }
         
