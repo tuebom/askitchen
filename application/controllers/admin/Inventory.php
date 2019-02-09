@@ -43,6 +43,7 @@ class Inventory extends Admin_Controller {
             $this->session->set_userdata('custom_dir', '/upload/gambar/');
 
 			$pagingx = isset($_SESSION['paging']) ? $_SESSION['paging'] : 10;
+
 			if ($this->input->get('p')) {
 				$page   = $this->input->get('p');
 				$offset = ((int)$page-1)*$pagingx;
@@ -51,17 +52,17 @@ class Inventory extends Admin_Controller {
 				$offset = 0;
 			}
 				
-			$q  = $this->input->get('q');
+            $this->session->set_userdata('start', $offset);
 			
+			$q  = $this->input->get('q');
+			$this->session->set_userdata('q', $q);
+
 			$this->data['inventory'] = $this->inventory_model->get_limit_data($pagingx, $offset, $q);
 			$total = $this->inventory_model->total_rows($q);
 
 			$url   = current_url() . '?p=';
 			
 			$this->data['pagination'] = $this->paging($total, $page, $url);
-
-			$this->session->set_userdata('q', $q);
-			// $this->data['q'] = $q; //data
 
 			/* Load Template */
             $this->template->admin_render('admin/inventory/index', $this->data);

@@ -32,6 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <table class="table table-striped table-hover">
                                         <thead>
                                             <tr>
+                                                <th class="text-right">No.</th>
                                                 <th><?= lang('inventory_kdbar'); ?></th>
                                                 <th><?= lang('inventory_kdurl'); ?></th>
                                                 <th><?= lang('inventory_name'); ?></th>
@@ -53,9 +54,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </tr>
                                         </thead>
                                         <tbody>
-<?php foreach ($inventory as $item):?>
+<?php 
+    $index = (int)$_SESSION['start'];
+    foreach ($inventory as $item):?>
                                             <tr>
-                                            <td><?php echo anchor('admin/inventory/edit/'.$item->kdurl, htmlspecialchars($item->kdbar, ENT_QUOTES, 'UTF-8')); ?></td>
+                                                <td class="text-right"><?= ++$index; ?></td>
+                                                <td><?php echo anchor('admin/inventory/edit/'.$item->kdurl, htmlspecialchars($item->kdbar, ENT_QUOTES, 'UTF-8')); ?></td>
                                                 <td><?php echo htmlspecialchars($item->kdurl, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td><?php echo htmlspecialchars($item->nama, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td><?php echo htmlspecialchars($item->nmgol, ENT_QUOTES, 'UTF-8'); ?></td>
