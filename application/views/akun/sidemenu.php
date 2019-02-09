@@ -1,4 +1,3 @@
-<!-- <script src="<?=base_url('assets/plugins/jqueryform/jquery.form.js');?>"></script> -->
 <script type="text/javascript">
       
     function upload_foto(){
@@ -58,7 +57,6 @@
                                 <li class="list-group-item"><b><a class="profile" href="<?php echo site_url('akun?p=histori'); ?>">Histori</a></b></li>
                             </ul>
 
-                            <!-- <a href="#" class="btn btn-primary btn-block btn-profile"><b>Update Profile</b></a> -->
                             <div class="form-group">
                             <a href="#" class="btn btn-sm btn-default btn-block btn-flat btn-profile">Update Profile</a>
                             <!-- <a href="#" class="btn btn-sm btn-default btn-block btn-flat btn-upload">Upload file</a> -->
@@ -74,10 +72,10 @@
                                 $("#foto").trigger('click');
                             });
 
-                            $(".btn-upload").click(function(e){
-                                e.preventDefault();
-                                $("#uploadfoto").submit();
-                            });
+                            // $(".btn-upload").click(function(e){
+                            //     e.preventDefault();
+                            //     $("#uploadfoto").submit();
+                            // });
 
                             $("#foto").on("change", function(){ //When a new file is selected
                                 var file = $("#foto").prop("files")[0];

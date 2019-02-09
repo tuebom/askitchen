@@ -37,4 +37,41 @@ class Banner extends Admin_Controller {
             $this->template->admin_render('admin/banner/index', $this->data);
         }
 	}
+
+	public function add()
+	{
+		// $filename = $this->uri->segment(3);
+		$filename = $this->input->post("filename");
+		$this->banner_model->insert(array('filename' => $filename));
+        
+        return $this->output
+		->set_content_type('application/json')
+		->set_status_header(200)
+		->set_output(json_encode(array(
+				'status' => TRUE
+		)));
+	}
+
+	public function delete()
+	{
+        $banner_id = $this->uri->segment(4);
+        // log_message('Debug', '$banner_id: '. $banner_id);
+        
+        $banner = $this->banner_model->get_by_id($banner_id);
+        
+        if (file_exists('upload/banner/' . $banner->filename))
+            unlink('upload/banner/' . $banner->filename);
+        if (file_exists('upload/banner/thumbnail/' . $banner->filename))
+            unlink('upload/banner/thumbnail/' . $banner->filename);
+
+        // hapus data
+        $this->banner_model->delete($banner_id);
+        
+        return $this->output
+		->set_content_type('application/json')
+		->set_status_header(200)
+		->set_output(json_encode(array(
+				'status' => TRUE
+		)));
+	}
 }
