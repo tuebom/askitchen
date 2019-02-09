@@ -43,6 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php endif; ?>
         <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/domprojects/css/dp.min.css'); ?>">
         <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/jquery.fileupload/css/jquery.fileupload.css'); ?>">
+        <link rel="stylesheet" href="<?php echo base_url('css/style.css'); ?>">
 <?php if ($mobile === FALSE): ?>
         <!--[if lt IE 9]>
             <script src="<?php echo base_url($plugins_dir . '/html5shiv/html5shiv.min.js'); ?>"></script>

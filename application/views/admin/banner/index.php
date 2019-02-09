@@ -61,17 +61,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="box box-primary box-solid">
-                                <div class="box-header with-border">
-                                <h3 class="box-title">Banner #<?=(int)$index+1?></h3>
+                                <!-- <div class="box-header with-border">
+                                    <h3 class="box-title">Banner #<?=(int)$index+1?></h3>
 
-                                <div class="box-tools pull-right">
-                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                                </div>
-                                <!-- /.box-tools -->
-                                </div>
+                                    <div class="box-tools pull-right">
+                                        <button type="button" class="btn btn-box-tool btn-remove" data-value="<?=$item->id?>" data-widget="remove"><i class="fa fa-times"></i></button>
+                                    </div>
+                                </div> -->
                                 <!-- /.box-header -->
-                                <div class="box-body">
+                                <div class="box-body banner">
                                     <img class="banner-img" style="display:block;width:auto;height:40px;" src="<?=base_url($this->data['banner_dir'].'/'.$item->filename)?>" alt="Banner <?=(int)$index+1?>">
+                                    <div class="rem2">
+                                        <a href="#" class="btn-remove" data-value="<?=$item->id?>"><span class="close3"></span></a>
+                                    </div>
                                 </div>
                                 <!-- /.box-body -->
                             </div>
@@ -89,7 +91,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $(document).ready(function() {
 
     // Change this to the location of your server-side upload handler:
-    // var url = window.location.hostname === 'askitchen.com' ?
     var url = <?php echo '"'.base_url('admin/fileupload').'"' ?>,
         uploadButton = $('<button/>')
             .addClass('btn btn-primary')
@@ -167,6 +168,16 @@ $(document).ready(function() {
                 var link = $('<a>')
                     .attr('target', '_blank')
                     .prop('href', file.url);
+                
+                $.ajax({
+                    type: "POST",
+                    url: <?php echo '"'.site_url().'admin/banner/add"' ?>,
+                    dataType: "json",
+                    data: {"filename": file.name},
+                    success:function(json){
+                    }
+                });
+
                 $(data.context.children()[index])
                     .wrap(link);
             } else if (file.error) {
@@ -185,6 +196,17 @@ $(document).ready(function() {
         });
     }).prop('disabled', !$.support.fileInput)
         .parent().addClass($.support.fileInput ? undefined : 'disabled');
+
+    $(".btn-remove").click(function(e){
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: <?php echo '"'.site_url().'admin/banner/delete/'.'"' ?> + $(this).attr('data-value'),
+            success:function(json){
+                location.reload();
+            }
+        });
+    });
         
 });
 </script>

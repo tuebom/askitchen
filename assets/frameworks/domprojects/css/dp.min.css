@@ -16,3 +16,7 @@ div.product-img-edit img {
     width: 120px;
     height: 120px;
 }
+
+div.box-body.banner {
+    margin-right: 30px;
+}

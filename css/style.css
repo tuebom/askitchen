@@ -4474,6 +4474,19 @@ td.invert-image a img:hover {
     -o-transition: color 0.2s ease-in-out;
     transition: color 0.2s ease-in-out;
 }
+.close3 {
+    background: url('../images/circle.png') no-repeat 0px 0px;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    right: -35px;
+    top: -32px;
+    -webkit-transition: color 0.2s ease-in-out;
+    -moz-transition: color 0.2s ease-in-out;
+    -o-transition: color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out;
+}
   
 .checkout-right-basket {
     margin-top: 20px;
