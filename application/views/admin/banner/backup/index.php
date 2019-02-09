@@ -55,7 +55,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div id="files" class="files">
                     <?php 
                         $index = 0;
-                        
                         foreach ($banner as $item) { ?>
                     <!-- banner file -->
                     <div class="row">
@@ -71,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body">
-                                    <img class="banner-img" style="display:block;width:auto;height:40px;" src="<?=base_url($this->data['banner_dir'].'/'.$item->filename)?>" alt="Banner <?=(int)$index+1?>">
+                                    <img class="banner-img" style="display:block;max-width:100%;height:auto;" src="<?=base_url($this->data['banner_dir'].'/'.$item->filename)?>" alt="Banner <?=(int)$index+1?>">
                                 </div>
                                 <!-- /.box-body -->
                             </div>
@@ -121,8 +120,8 @@ $(document).ready(function() {
         // send Blob objects via XHR requests:
         disableImageResize: /Android(?!.*Chrome)|Opera/
             .test(window.navigator.userAgent),
-        previewMaxWidth: 109,
-        previewMaxHeight: 40,
+        previewMaxWidth: 744,
+        previewMaxHeight: 272,
         previewCrop: true
     }).on('fileuploadadd', function (e, data) {
         data.context = $('<div/>').appendTo('#files');
