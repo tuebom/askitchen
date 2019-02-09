@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="col-md-12">
                              <div class="box">
                                 <div class="box-header with-border">
-                                    <h3 class="box-title"><?php echo anchor('admin/inventory/create', '<i class="fa fa-plus"></i> Create Inventory', array('class' => 'btn btn-block btn-primary btn-flat')); ?></h3>
+                                    <h3 class="box-title"><?php echo anchor('admin/inventory/create', '<i class="fa fa-plus">&nbsp</i> Add New Item', array('class' => 'btn btn-block btn-primary btn-flat')); ?></h3>
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <!-- <form class="frmpaging" action="<?= site_url('admin/inventory/setpaging'); ?>" method="post"> -->
