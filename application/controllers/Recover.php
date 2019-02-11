@@ -20,20 +20,20 @@ class Recover extends Public_Controller {
 			$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
 		}
 		
-		$this->form_validation->set_rules('email', 'Email', 'required');
+		// $this->form_validation->set_rules('email', 'Email', 'required');
 		
-		if ($this->form_validation->run() == TRUE)
-		{
-			// send email
-		}
-		else
-		{
-			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-		}
-
+		// if ($this->form_validation->run() == TRUE)
+		// {
+		// 	// send email
+		// }
+		// else
+		// {
+		// 	$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+		// }
+		$this->data['message'] = "";
 
 		$this->load->view('layout/header', $this->data);
-		$this->load->view('recover/index', $this->data);
+		$this->load->view('forgot-password/index', $this->data);
 		$this->load->view('layout/footer', $this->data);
 	}
 }

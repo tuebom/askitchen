@@ -97,9 +97,8 @@ class Emailsvc extends CI_Controller{
         // subject of the email
         $subject = 'New order from '. $mbr_name;
             
-        // $emailText = "You have a new message from your contact form <br>";
         
-        $emailText  = '<div>'; // style="width:50%;"
+        $emailText  = '<div>';
         $emailText .= '    <h2>Order #'.$_SESSION["order_id"].' details</h2>';
         $emailText .= '    <table style="width: 100%; max-width: 100%; margin-bottom: 20px; border: 1px solid #ddd;">';
         $emailText .= '        <tbody>';
@@ -220,4 +219,5 @@ class Emailsvc extends CI_Controller{
         echo json_encode($responseArray);
     }
 }
+
 ?>

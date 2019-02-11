@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Promotions extends Public_Controller {
+class Promotion extends Public_Controller {
 
     public function __construct()
     {
