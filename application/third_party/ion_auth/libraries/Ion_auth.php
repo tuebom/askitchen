@@ -67,6 +67,7 @@ class Ion_auth
 		$this->load->helper(array('cookie', 'language','url'));
 
 		$this->load->library('session');
+        $this->load->library("phpmailer_library");
 
 		$this->load->model('ion_auth_model');
 
@@ -151,8 +152,35 @@ class Ion_auth
 
 				if (!$this->config->item('use_ci_email', 'ion_auth'))
 				{
-					$this->set_message('forgot_password_successful');
-					return $data;
+					// $this->set_message('forgot_password_successful');
+					// return $data;
+
+					$message = $this->load->view($this->config->item('email_templates', 'ion_auth') . $this->config->item('email_forgot_password', 'ion_auth'), $data, TRUE);
+					$subject = $this->config->item('site_title', 'ion_auth') . ' - ' . $this->lang->line('email_forgotten_password_subject');
+    
+					$fromEmail = "webmaster@askitchen.com";
+					
+					$mail = $this->phpmailer_library->load(); //new PHPMailer();
+					$mail->IsHTML(true);                       // set email format to HTML
+					$mail->IsSMTP();                           // we are going to use SMTP
+					$mail->SMTPAuth   = true;                  // enabled SMTP authentication
+					$mail->SMTPSecure = "ssl";                 // prefix for secure protocol to connect to the server
+					$mail->Host       = "smtp.gmail.com";      // setting GMail as our SMTP server
+					$mail->Port       = 465;                   // SMTP port to connect to GMail
+					$mail->Username   = $fromEmail;            // alamat email kamu
+					$mail->Password   = "jimmyfallon5757";     // password GMail
+					$mail->SetFrom('webmaster@askitchen.com', 'noreply');  //Siapa yg mengirim email
+					$mail->Subject    = $subject;
+					$mail->Body       = $message;
+					$mail->AddAddress($user->email);
+					
+					if(!$mail->Send()) {
+						$this->set_error('forgot_password_unsuccessful');
+						return FALSE;
+					} else {
+						$this->set_message('forgot_password_successful');
+						return TRUE;
+					}
 				}
 				else
 				{

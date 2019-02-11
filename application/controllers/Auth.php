@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Auth extends MY_Controller {
+class Auth extends Public_Controller { /*MY_Controller*/
 
 	function __construct()
 	{
@@ -10,6 +10,8 @@ class Auth extends MY_Controller {
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
 		$this->lang->load('auth');
+		$this->load->model('golongan_model');
+		$this->load->model('stock_model');
 		// $this->output->enable_profiler(TRUE);
 	}
 
@@ -153,9 +155,20 @@ class Auth extends MY_Controller {
 				$this->data['identity_label'] = $this->lang->line('forgot_password_email_identity_label');
 			}
 
+			// siapkan data golongan
+			$this->data['golongan'] = $this->golongan_model->get_all();
+
+			foreach ($this->data['golongan'] as $item) {
+				$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
+			}
+	
 			// set any errors and display the form
 			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-			$this->_render_page('auth/forgot_password', $this->data);
+			
+			// $this->_render_page('auth/forgot_password', $this->data);
+			$this->load->view('layout/header', $this->data);
+			$this->load->view('forgot-password/index', $this->data);
+			$this->load->view('layout/footer', $this->data);
 		}
 		else
 		{
@@ -170,7 +183,7 @@ class Auth extends MY_Controller {
 		            	}
 		            	else
 		            	{
-		            	   $this->ion_auth->set_error('forgot_password_email_not_found');
+		            		$this->ion_auth->set_error('forgot_password_email_not_found');
 		            	}
 
 		                $this->session->set_flashdata('message', $this->ion_auth->errors());
@@ -182,9 +195,14 @@ class Auth extends MY_Controller {
 
 			if ($forgotten)
 			{
+				if (!$this->config->item('use_ci_email', 'ion_auth'))
+				{
+					$this->data['forgot_data'] = $forgotten;
+				}
 				// if there were no errors
-				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect("auth/login", 'refresh'); //we should display a confirmation page here instead of the login page
+				$this->session->set_flashdata('message_login', $this->ion_auth->messages());
+				// redirect("auth/login", 'refresh'); //we should display a confirmation page here instead of the login page
+				redirect("login", 'refresh'); //we should display a confirmation page here instead of the login page
 			}
 			else
 			{
@@ -220,15 +238,17 @@ class Auth extends MY_Controller {
 
 				$this->data['min_password_length'] = $this->config->item('min_password_length', 'ion_auth');
 				$this->data['new_password'] = array(
-					'name' => 'new',
-					'id'   => 'new',
-					'type' => 'password',
+					'name'    => 'new',
+					'id'      => 'new',
+					'type'    => 'password',
+					'class'   => 'form-control',
 					'pattern' => '^.{'.$this->data['min_password_length'].'}.*$',
 				);
 				$this->data['new_password_confirm'] = array(
 					'name'    => 'new_confirm',
 					'id'      => 'new_confirm',
 					'type'    => 'password',
+					'class'   => 'form-control',
 					'pattern' => '^.{'.$this->data['min_password_length'].'}.*$',
 				);
 				$this->data['user_id'] = array(
@@ -240,9 +260,19 @@ class Auth extends MY_Controller {
 				$this->data['csrf'] = $this->_get_csrf_nonce();
 				$this->data['code'] = $code;
 
+				// siapkan data golongan
+				$this->data['golongan'] = $this->golongan_model->get_all();
+
+				foreach ($this->data['golongan'] as $item) {
+					$this->data['item_'.$item->kdgol] = $this->golongan_model->get_sample($item->kdgol);
+				}
+
 				// render
-				$this->_render_page('auth/reset_password', $this->data);
-			}
+				// $this->_render_page('auth/reset_password', $this->data);
+				$this->load->view('layout/header', $this->data);
+				$this->load->view('reset-password/index', $this->data);
+				$this->load->view('layout/footer', $this->data);
+					}
 			else
 			{
 				// do we have a valid request?
@@ -266,7 +296,8 @@ class Auth extends MY_Controller {
 					{
 						// if the password was successfully changed
 						$this->session->set_flashdata('message', $this->ion_auth->messages());
-						redirect("auth/login", 'refresh');
+						// redirect("auth/login", 'refresh');
+						redirect("login", 'refresh');
 					}
 					else
 					{
@@ -281,6 +312,31 @@ class Auth extends MY_Controller {
 			// if the code is invalid then send them back to the forgot password page
 			$this->session->set_flashdata('message', $this->ion_auth->errors());
 			redirect("auth/forgot_password", 'refresh');
+		}
+	}
+
+
+	function _get_csrf_nonce()
+	{
+		$this->load->helper('string');
+		$key   = random_string('alnum', 8);
+		$value = random_string('alnum', 20);
+		$this->session->set_flashdata('csrfkey', $key);
+		$this->session->set_flashdata('csrfvalue', $value);
+
+		return array($key => $value);
+	}
+
+	function _valid_csrf_nonce()
+	{
+		if ($this->input->post($this->session->flashdata('csrfkey')) !== FALSE &&
+			$this->input->post($this->session->flashdata('csrfkey')) == $this->session->flashdata('csrfvalue'))
+		{
+			return TRUE;
+		}
+		else
+		{
+			return FALSE;
 		}
 	}
 }

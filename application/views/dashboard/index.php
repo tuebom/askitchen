@@ -162,7 +162,7 @@
 					
 						<div class="col-md-4 arrival-grid simpleCart_shelfItem">
 							<div class="grid-arr-hot">
-								<a href="<?php echo site_url('promotions'); ?>" class="new-gri">
+								<a href="<?php echo site_url('promotion'); ?>" class="new-gri">
 									<img src="<?=site_url('images/promotion.jpg');?>" class="img-hot" alt="">
 									<div class="text">
 										<h3>Promotions</h3>
