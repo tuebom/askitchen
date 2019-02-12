@@ -42,7 +42,7 @@ body{
     background: #ffffff;
 }
 .header-top {
-    background: #021931; /*#1565c0;*/
+    background: #03274e; /*#1565c0;*/
     padding: .7em 0;
 }
 .location {
@@ -929,16 +929,16 @@ h3.contact:hover {
   }
   
 .grid-arr {
-    background: whitesmoke; /*#E2E2E2*/
+    /* background: whitesmoke; #E2E2E2 */
     /* border: 1px solid #777; */
-    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    /* -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); */
     -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); */
     padding: 1.0em;
     margin-top: 12px; /***/
     border-radius: 10px;
     height: 250px;
-    background: #e2e2e2;
+    /* background: #e2e2e2; */
 }
 .grid-rel {
     background: #e2e2e2; /*#E2E2E2*/
@@ -974,8 +974,8 @@ h3.contact:hover {
     z-index: 1;
   }
 .grid-arr .grid-arrival figure > a .grid-img {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   margin-left: auto;
   margin-right: auto;
   /*width: 100%;*/
@@ -1201,7 +1201,7 @@ a.my-cart-b, a.my-cart-d {
     border-radius: 50px;
     position: absolute;
     right: 10px;
-    bottom: 17px;
+    bottom: 0px;
 }
 .my-cart-detil {
     background: #941204;
@@ -2553,8 +2553,9 @@ p.price {
     font-weight: 600;
 }
 .women span {
-    font-size: 0.7em;
-    color: #941204;
+    font-size: 0.9em;
+    /* color: #941204; */
+    color: black;
     margin: 0.2em 0;
     display: block;
 }
