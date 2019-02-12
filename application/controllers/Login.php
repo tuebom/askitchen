@@ -68,7 +68,8 @@ class Login extends Public_Controller {
                         else
                         {
                             /* Data */
-                            $this->data['message_login'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+                            // $this->data[''] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+                            $this->session->set_flashdata('message', validation_errors() ? validation_errors() : $this->session->flashdata('message'));
 
                             /* Load Template */
                             // $this->template->auth_render('auth/choice', $this->data);
@@ -79,17 +80,16 @@ class Login extends Public_Controller {
                     }
                     else
                     {
-                        // log_message('Debug', 'ion_auth->login failed.');
-                        // log_message('Debug', $this->ion_auth->errors());
-                        $this->data['message_login'] = $this->ion_auth->errors();
                         $this->session->set_flashdata('message', $this->ion_auth->errors());
-                        redirect('login');
+                        redirect('login', 'refresh');
+                        return;
                     }
                 }
                 else
                 {
 
-                    $this->data['message_login'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+                    // $this->data['message_login'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+                    $this->session->set_flashdata('message', validation_errors() ? validation_errors() : $this->session->flashdata('message'));
 
                     $this->data['identity'] = array(
                         'name'        => 'identity',
@@ -121,9 +121,10 @@ class Login extends Public_Controller {
                     $this->data['first_name'] = 'Guest';
                     $this->data['last_name']  = '';
                     
-                    if (count($_SESSION["cart_item"]) > 0)
+                    if (isset($_SESSION["cart_item"]))
                     {
-                        redirect('checkout', 'refresh');
+                        if (count($_SESSION["cart_item"]) > 0)
+                            redirect('checkout', 'refresh');
                     }
                     else
                     {

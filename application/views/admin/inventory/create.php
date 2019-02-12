@@ -96,7 +96,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <div class="form-group">
                                                 <?php echo lang('inventory_description', 'deskripsi', array('class' => 'col-sm-3 control-label')); ?>
                                                 <div class="col-sm-9">
-                                                    <textarea class="form-control" rows="3" placeholder=""></textarea>
+                                                    <?php echo form_textarea($deskripsi);?>
                                                 </div>
                                             </div>
 

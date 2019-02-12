@@ -57,14 +57,15 @@ class Register extends Public_Controller {
                 );
             }
 
-            if ($this->form_validation->run() == TRUE && $this->ion_auth->register($username, $password, $email, $additional_data)) //
+            if ($this->form_validation->run() == TRUE && $this->ion_auth->register($username, $password, $email, $additional_data))
             {
-                $this->session->set_flashdata('message', $this->ion_auth->messages());
+                $this->session->set_flashdata('message_reg', $this->ion_auth->messages());
                 redirect('login', 'refresh');
             }
             else
             {
-                $this->data['message_register'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
+                // $this->data['message_register'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
+                $this->session->set_flashdata('message_reg', validation_errors() ? validation_errors() : $this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message'));
 
                 $this->data['first_name'] = array(
                     'name'  => 'first_name',

@@ -83,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <div class="form-group">
                                             <?php echo lang('inventory_description', 'deskripsi', array('class' => 'col-sm-3 control-label')); ?>
                                             <div class="col-sm-9">
-                                                <textarea class="form-control" rows="3" placeholder=""></textarea>
+                                                <?php echo form_textarea($deskripsi);?>
                                             </div>
                                         </div>
 
@@ -96,7 +96,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <div class="form-group">
                                             <?php echo lang('inventory_brand', 'merk', array('class' => 'col-sm-3 control-label')); ?>
-                                            <div class="col-sm-9">
+                                            <div class="col-sm-9"><!--<?=$_SESSION['merk']?>-->
                                                 <select id="merk" name="merk" class="form-control">
                                                     <option value=""<?=isset($_SESSION['merk'])?'': ' selected';?>>-</option>
                                                     <?php

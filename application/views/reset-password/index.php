@@ -14,7 +14,7 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="reset-form" action="<?= site_url('auth/reset_password') ?>" method="post" role="form" style="display: block;">
+								<form id="reset-form" action="<?= site_url('auth/reset_password/'. $code) ?>" method="post" role="form" style="display: block;">
 									<div class="form-group has-feedback">
 										<?php echo form_input($new_password);?>
 										<span class="glyphicon glyphicon-lock form-control-feedback"></span>
