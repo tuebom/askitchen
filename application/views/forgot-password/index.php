@@ -16,7 +16,7 @@
 							<div class="col-lg-12">
 								<form id="reset-form" action="<?= site_url('auth/forgot_password') ?>" method="post" role="form" style="display: block;">
 									<div class="form-group has-feedback">
-										<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="<?php echo lang('auth_your_email') ?>">
+										<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="<?php echo lang('auth_your_email') ?>" autofocus>
 										<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 									</div>
 									<div class="row">

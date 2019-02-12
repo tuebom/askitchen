@@ -125,6 +125,31 @@ class Auth extends Public_Controller { /*MY_Controller*/
         }
 	}
 
+	// activate the user
+	function activate($id, $code=false)
+	{
+		if ($code !== false)
+		{
+			$activation = $this->ion_auth->activate($id, $code);
+		}
+		else if ($this->ion_auth->is_admin())
+		{
+			$activation = $this->ion_auth->activate($id);
+		}
+
+		if ($activation)
+		{
+			// redirect them to the auth page
+			$this->session->set_flashdata('message', $this->ion_auth->messages());
+			redirect("login", 'refresh');
+		}
+		else
+		{
+			// redirect them to the forgot password page
+			$this->session->set_flashdata('message', $this->ion_auth->errors());
+			redirect("auth/forgot_password", 'refresh');
+		}
+	}
 
 	// forgot password
 	function forgot_password()
@@ -195,12 +220,8 @@ class Auth extends Public_Controller { /*MY_Controller*/
 
 			if ($forgotten)
 			{
-				if (!$this->config->item('use_ci_email', 'ion_auth'))
-				{
-					$this->data['forgot_data'] = $forgotten;
-				}
 				// if there were no errors
-				$this->session->set_flashdata('message_login', $this->ion_auth->messages());
+				$this->session->set_flashdata('message', $this->ion_auth->messages());
 				// redirect("auth/login", 'refresh'); //we should display a confirmation page here instead of the login page
 				redirect("login", 'refresh'); //we should display a confirmation page here instead of the login page
 			}
@@ -272,7 +293,7 @@ class Auth extends Public_Controller { /*MY_Controller*/
 				$this->load->view('layout/header', $this->data);
 				$this->load->view('reset-password/index', $this->data);
 				$this->load->view('layout/footer', $this->data);
-					}
+			}
 			else
 			{
 				// do we have a valid request?
@@ -287,6 +308,7 @@ class Auth extends Public_Controller { /*MY_Controller*/
 				}
 				else
 				{
+					
 					// finally change the password
 					$identity = $user->{$this->config->item('identity', 'ion_auth')};
 

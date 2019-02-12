@@ -386,11 +386,34 @@ class Ion_auth
 				'email'      => $email,
 				'activation' => $activation_code,
 			);
+			
 			if(!$this->config->item('use_ci_email', 'ion_auth'))
 			{
-				$this->ion_auth_model->trigger_events(array('post_account_creation', 'post_account_creation_successful', 'activation_email_successful'));
-				$this->set_message('activation_email_successful');
-				return $data;
+
+				$message = $this->load->view($this->config->item('email_templates', 'ion_auth').$this->config->item('email_activate', 'ion_auth'), $data, true);
+				$subject = $this->config->item('site_title', 'ion_auth') . ' - ' . $this->lang->line('email_activation_subject');
+
+				$fromEmail = "webmaster@askitchen.com";
+				
+				$mail = $this->phpmailer_library->load(); //new PHPMailer();
+				$mail->IsHTML(true);                       // set email format to HTML
+				$mail->IsSMTP();                           // we are going to use SMTP
+				$mail->SMTPAuth   = true;                  // enabled SMTP authentication
+				$mail->SMTPSecure = "ssl";                 // prefix for secure protocol to connect to the server
+				$mail->Host       = "smtp.gmail.com";      // setting GMail as our SMTP server
+				$mail->Port       = 465;                   // SMTP port to connect to GMail
+				$mail->Username   = $fromEmail;            // alamat email kamu
+				$mail->Password   = "jimmyfallon5757";     // password GMail
+				$mail->SetFrom('webmaster@askitchen.com', 'noreply');  //Siapa yg mengirim email
+				$mail->Subject    = $subject;
+				$mail->Body       = $message;
+				$mail->AddAddress($email);
+				
+				if($mail->Send()) {
+					$this->ion_auth_model->trigger_events(array('post_account_creation', 'post_account_creation_successful', 'activation_email_successful'));
+					$this->set_message('activation_email_successful');
+					return $id;
+				}
 			}
 			else
 			{

@@ -308,7 +308,7 @@ class Users extends Admin_Controller {
 
 		if ($code !== FALSE)
 		{
-            $activation = $this->ion_auth->activate($id, $code);
+			$activation = $this->ion_auth->activate($id, $code);
 		}
 		else if ($this->ion_auth->is_admin())
 		{
@@ -386,7 +386,8 @@ class Users extends Admin_Controller {
         /* Data */
         $id = (int) $id;
 
-        $this->data['user_info'] = $this->ion_auth->user($id)->result();
+		$this->data['user_info'] = $this->ion_auth->user($id)->result();
+		
         foreach ($this->data['user_info'] as $k => $user)
         {
             $this->data['user_info'][$k]->groups = $this->ion_auth->get_users_groups($user->id)->result();
