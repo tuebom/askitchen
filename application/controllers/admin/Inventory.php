@@ -55,7 +55,14 @@ class Inventory extends Admin_Controller {
             $this->session->set_userdata('start', $offset);
 			
 			$q  = $this->input->get('q');
-			$this->session->set_userdata('q', $q);
+			if ($q)
+			{
+				$this->session->set_userdata('q', $q);
+			}
+			elseif (isset($_SESSION['q']))
+			{
+				$q = $_SESSION['q'];
+			}
 
 			$this->data['inventory'] = $this->inventory_model->get_limit_data($pagingx, $offset, $q);
 			$total = $this->inventory_model->total_rows($q);
@@ -76,9 +83,6 @@ class Inventory extends Admin_Controller {
         $this->breadcrumbs->unshift(2, 'Create Inventory', 'admin/inventory/create');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
 
-        /* Variables */
-		// $tables = $this->config->item('tables', 'ion_auth');
-
 		/* Validate form input */
 		$this->form_validation->set_rules('kdbar',  'Item Code', 'required');
 		$this->form_validation->set_rules('kdurl',  'Item URL', 'required');
@@ -89,14 +93,12 @@ class Inventory extends Admin_Controller {
 		$this->form_validation->set_rules('kdgol3', 'Sub Category 2', 'required');
 
 		$this->form_validation->set_rules('satuan', 'Unit', 'required');
-		$this->form_validation->set_rules('merk',   'Brand', 'required');
+		// $this->form_validation->set_rules('merk',   'Brand', 'required');
 
-		$this->form_validation->set_rules('pnj',    'Length', 'required');
-		$this->form_validation->set_rules('lbr',    'Width', 'required');
-		$this->form_validation->set_rules('tgi',    'Height', 'required');
-		// $this->form_validation->set_rules('gambar', 'Picture', 'required');
+		// $this->form_validation->set_rules('pnj',    'Length', 'required');
+		// $this->form_validation->set_rules('lbr',    'Width', 'required');
+		// $this->form_validation->set_rules('tgi',    'Height', 'required');
 		$this->form_validation->set_rules('hjual',  'Harga jual', 'required');
-		// $this->form_validation->set_rules('disc',   'Diskon', 'required');
 
 		if ($this->form_validation->run() == TRUE)
 		{
@@ -110,6 +112,7 @@ class Inventory extends Admin_Controller {
 			'kdgol2' => $this->input->post('kdgol2'),
 			'kdgol3' => $this->input->post('kdgol3'),
 			
+			'deskripsi'  => $this->input->post('deskripsi'),
 			'satuan'     => $this->input->post('satuan'),
 			'merk'       => $this->input->post('merk'),
 			'pnj'        => $this->input->post('pnj'),
@@ -126,7 +129,6 @@ class Inventory extends Admin_Controller {
 			
 			'tag'        => $this->input->post('tag'),
 			'hjual'      => $this->input->post('hjual'),
-			// 'saldo'      => $this->input->post('saldo'),
 			'gambar'     => $this->input->post('gambar'),
 			);
 			
@@ -164,6 +166,13 @@ class Inventory extends Admin_Controller {
 				'type'  => 'text',
                 'class' => 'form-control',
 				'value' => $this->form_validation->set_value('nama'),
+			);
+			$this->data['deskripsi'] = array(
+				'name'  => 'deskripsi',
+				'id'    => 'deskripsi',
+                'class' => 'form-control',
+				'rows'  => '3',
+				'value' => $this->form_validation->set_value('deskripsi'),
 			);
 			
 			$this->data['satuan'] = array(
@@ -258,13 +267,6 @@ class Inventory extends Admin_Controller {
                 'class' => 'form-control',
 				'value' => $this->form_validation->set_value('hjual'),
 			);
-			// $this->data['saldo'] = array(
-			// 	'name'  => 'saldo',
-			// 	'id'    => 'saldo',
-			// 	'type'  => 'text',
-            //     'class' => 'form-control',
-			// 	'value' => $this->form_validation->set_value('saldo'),
-			// );
 			$this->data['gambar'] = array(
 				'name'  => 'gambar',
 				'id'    => 'gambar',
@@ -274,14 +276,14 @@ class Inventory extends Admin_Controller {
 			);
 		
 			// elemen upload file
-			$this->data['tmpgambar'] = array(
-				'name'  => 'userfile',
-				'id'    => 'prdfile',
-				'type'  => 'text',
-				'class' => 'form-control',
-				'style' => 'display: none;',
-				'value' => $this->form_validation->set_value('userfile'),
-			);
+			// $this->data['tmpgambar'] = array(
+			// 	'name'  => 'userfile',
+			// 	'id'    => 'prdfile',
+			// 	'type'  => 'text',
+			// 	'class' => 'form-control',
+			// 	'style' => 'display: none;',
+			// 	'value' => $this->form_validation->set_value('userfile'),
+			// );
 
             /* Load Template */
             $this->template->admin_render('admin/inventory/create', $this->data);
@@ -328,6 +330,7 @@ class Inventory extends Admin_Controller {
 					'kdgol2'     => $this->input->post('kdgol2'),
 					'kdgol3'     => $this->input->post('kdgol3'),
 
+					'deskripsi'  => $this->input->post('deskripsi'),
 					'satuan'     => $this->input->post('satuan'),
 					'merk'       => $this->input->post('merk'),
 					'pnj'        => $this->input->post('pnj'),
@@ -344,7 +347,6 @@ class Inventory extends Admin_Controller {
 					
 					'tag'        => $this->input->post('tag'),
 					'hjual'      => $this->input->post('hjual'),
-					// 'saldo'      => $this->input->post('saldo'),
 					'gambar'     => $this->input->post('gambar'),
 				);
 
@@ -409,6 +411,13 @@ class Inventory extends Admin_Controller {
 			'type'  => 'text',
 			'class' => 'form-control',
 			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('nama') : $this->data['inventory']->nama,
+		);
+		$this->data['deskripsi'] = array(
+			'name'  => 'deskripsi',
+			'id'    => 'deskripsi',
+			'class' => 'form-control',
+			'rows'  => '3',
+			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('deskripsi') : $this->data['inventory']->deskripsi,
 		);
 
 		$this->data['satuan'] = array(
@@ -499,13 +508,6 @@ class Inventory extends Admin_Controller {
 			'class' => 'form-control',
 			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('hjual') : $this->data['inventory']->hjual,
 		);
-		// $this->data['saldo'] = array(
-		// 	'name'  => 'saldo',
-		// 	'id'    => 'saldo',
-		// 	'type'  => 'text',
-		// 	'class' => 'form-control',
-		// 	'value' => isset($CI->form_validation) ? $this->form_validation->set_value('saldo') : $this->data['inventory']->saldo,
-		// );
 		$this->data['gambar'] = array(
 			'name'  => 'gambar',
 			'id'    => 'gambar',
@@ -515,14 +517,14 @@ class Inventory extends Admin_Controller {
 		);
 		
 		// elemen upload file
-		$this->data['tmpgambar'] = array(
-			'name'  => 'userfile',
-			'id'    => 'prdfile',
-			'type'  => 'text',
-			'class' => 'form-control',
-			'style' => 'display: none;',
-			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('userfile') : $this->data['inventory']->kdbar,
-		);
+		// $this->data['tmpgambar'] = array(
+		// 	'name'  => 'userfile',
+		// 	'id'    => 'prdfile',
+		// 	'type'  => 'text',
+		// 	'class' => 'form-control',
+		// 	'style' => 'display: none;',
+		// 	'value' => isset($CI->form_validation) ? $this->form_validation->set_value('userfile') : $this->data['inventory']->kdbar,
+		// );
 
         /* Load Template */
 		$this->template->admin_render('admin/inventory/edit', $this->data);
