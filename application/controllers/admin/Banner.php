@@ -55,8 +55,6 @@ class Banner extends Admin_Controller {
 	public function delete()
 	{
         $banner_id = $this->uri->segment(4);
-        // log_message('Debug', '$banner_id: '. $banner_id);
-        
         $banner = $this->banner_model->get_by_id($banner_id);
         
         if (file_exists('upload/banner/' . $banner->filename))

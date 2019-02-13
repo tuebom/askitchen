@@ -96,7 +96,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <div class="form-group">
                                             <?php echo lang('inventory_brand', 'merk', array('class' => 'col-sm-3 control-label')); ?>
-                                            <div class="col-sm-9"><!--<?=$_SESSION['merk']?>-->
+                                            <div class="col-sm-9">
                                                 <select id="merk" name="merk" class="form-control">
                                                     <option value=""<?=isset($_SESSION['merk'])?'': ' selected';?>>-</option>
                                                     <?php
@@ -104,7 +104,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                             if (isset($_SESSION['merk']))
                                                             {
                                                     ?>
-                                                    <option value="<?= $itemx->name ?>"<?php if( $itemx->id == $_SESSION['merk'] ): ?> selected="selected"<?php endif; ?>><?= $itemx->name ?></option>
+                                                    <option value="<?= $itemx->name ?>"<?php if( $itemx->name == $_SESSION['merk'] ): ?> selected="selected"<?php endif; ?>><?= $itemx->name ?></option>
                                                     <?php   } else { ?>
                                                     <option value="<?= $itemx->name ?>"><?= $itemx->name ?></option>
                                                     <?php } } ?>
@@ -192,6 +192,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <?php echo form_input($gambar);?>
                                             </div>
                                         </div>
+                                        <?php echo form_hidden($old_pic); ?>
                                         <div class="form-group">
                                             <div class="col-sm-3"></div>
                                             <div class="col-sm-9">
@@ -261,12 +262,15 @@ $(document).ready(function() {
     }).on('fileuploadadd', function (e, data) {
         data.context = $('<div/>').appendTo('#files');
         $.each(data.files, function (index, file) {
+            
             $('.product-img-edit').css('display', 'none');
-            var node = $('<p/>')
-                    .append($('<span/>').text(file.name));
+            $('#gambar').val(file.name);
+            
+            var node = $('<p/>');
+                    // .append($('<span/>').text(file.name));
             if (!index) {
                 node
-                    .append('<br>')
+                    // .append('<br>')
                     .append(uploadButton.clone(true).data(data));
             }
             node.appendTo(data.context);

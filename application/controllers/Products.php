@@ -13,11 +13,13 @@ class Products extends Public_Controller {
 		$this->load->model('golongan2_model');
 		$this->load->model('golongan3_model');
 		$this->load->model('stock_model');
+		$this->load->model('brands_model');
 		// $this->output->enable_profiler(TRUE);
 	}
 
 	public function index()
 	{
+		$this->data['brands']   = $this->brands_model->get_all();
 		$this->data['golongan'] = $this->golongan_model->get_all();
 
 		foreach ($this->data['golongan'] as $item) {
@@ -38,12 +40,7 @@ class Products extends Public_Controller {
 		$kdgol2 = substr($kode,0,5);
 
 		$this->data['item_'.$kdgol2] = $this->golongan2_model->get_sub_category($kdgol2);
-		// $this->data['kode'] = $kdgol2;
 
-		// foreach ($this->data['item_'.$kdgol2] as $item) {
-		// 	$this->data['item_'.$item->kdgol3] = $this->golongan2_model->get_sample($kdgol2);
-		// }
-		
 		$action  = $this->input->get('action');
 		
 		if ($action) {

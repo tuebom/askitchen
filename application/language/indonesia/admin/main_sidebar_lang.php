@@ -21,8 +21,9 @@ $lang['menu_search'] = 'Search';
 
 /* ****** */$lang['menu_general']               = 'General';
 /* ****** */$lang['menu_inventory']             = 'Inventory';
-/* ****** */$lang['menu_linkedproducts']        = 'Linked Products';
+/* ****** */$lang['menu_brands']                = 'Brands';
 /* ****** */$lang['menu_shipping']              = 'Shipping';
+/* ****** */$lang['menu_linkedproducts']        = 'Linked Products';
 
 
 /* * */$lang['menu_administration']             = 'Administration';

@@ -84,11 +84,13 @@
 										}
 									?>
 									<ul>
-										<li><a href="<?php echo site_url('search?b=GEA'.$q); ?>">GEA</a></li>
-										<li><a href="<?php echo site_url('search?b=GETRA'.$q); ?>">GETRA</a></li>
+										<?php foreach($brands as $item) { ?>
+										<li><a href="<?php echo site_url('search?b='.$item->name.$q); ?>"><?=$item->name?></a></li>
+										<?php } ?>
+										<!-- <li><a href="<?php echo site_url('search?b=GETRA'.$q); ?>">GETRA</a></li>
 										<li><a href="<?php echo site_url('search?b=SANDEN'.$q); ?>">SANDEN</a></li>
 										<li><a href="<?php echo site_url('search?b=MADIN'.$q); ?>">MADIN</a></li>
-										<li><a href="<?php echo site_url('search?b=OTHER'.$q); ?>">OTHER</a></li>
+										<li><a href="<?php echo site_url('search?b=OTHER'.$q); ?>">OTHER</a></li> -->
 									</ul>
 								</div>
 							</div>

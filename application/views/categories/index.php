@@ -80,11 +80,13 @@
 								<div class="brand-w3l">
 									<label class="title">Brand</label>
 									<ul>
+										<?php foreach($brands as $item) { ?>
 										<li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&b=GEA'); ?>">GEA</a></li>
-										<li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&b=GETRA'); ?>">GETRA</a></li>
+										<?php } ?>
+										<!-- <li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&b=GETRA'); ?>">GETRA</a></li>
 										<li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&b=SANDEN'); ?>">SANDEN</a></li>
 										<li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&b=MADIN'); ?>">MADIN</a></li>
-										<li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&b=OTHER'); ?>">OTHER</a></li>
+										<li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&b=OTHER'); ?>">OTHER</a></li> -->
 									</ul>
 								</div>
 							</div>

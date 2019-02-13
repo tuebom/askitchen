@@ -139,10 +139,16 @@ class Inventory extends Admin_Controller {
 		{
 
 			$this->data['golongan']  = $this->golongan_model->get_all();
-			// $this->data['golongan2'] = $this->golongan2_model->get_all();
-			// $this->data['golongan3'] = $this->golongan3_model->get_all();
+			$this->data['golongan2'] = $this->golongan2_model->get_all();
+			$this->data['golongan3'] = $this->golongan3_model->get_all();
 
 			$this->data['brands'] = $this->inventory_model->all_brands();
+			
+			$this->session->set_flashdata('kdgol',  $this->input->post('kdgol'));
+			$this->session->set_flashdata('kdgol2', $this->input->post('kdgol2'));
+			$this->session->set_flashdata('kdgol3', $this->input->post('kdgol3'));
+
+			$this->session->set_flashdata('merk',   $this->input->post('merk'));
 
 			$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
 
@@ -273,6 +279,7 @@ class Inventory extends Admin_Controller {
 				'type'  => 'text',
                 'class' => 'form-control',
 				'value' => $this->form_validation->set_value('gambar'),
+				'readonly' => '1'
 			);
 		
 			// elemen upload file
@@ -389,6 +396,7 @@ class Inventory extends Admin_Controller {
 
 		// set the flash data error message if there is one
 		$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
+		$this->session->set_flashdata('merk', isset($CI->form_validation) ? $this->form_validation->set_value('merk') : $this->data['inventory']->merk);
 
 		$this->data['kdbar'] = array(
 			'name'  => 'kdbar',
@@ -514,8 +522,13 @@ class Inventory extends Admin_Controller {
 			'type'  => 'text',
 			'class' => 'form-control',
 			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('gambar') : $this->data['inventory']->gambar,
+			'readonly' => '1'
 		);
-		
+		$this->data['old_pic'] = array(
+			'name'  => 'old_pic',
+			'value' => $this->data['inventory']->gambar,
+		);
+	
 		// elemen upload file
 		// $this->data['tmpgambar'] = array(
 		// 	'name'  => 'userfile',

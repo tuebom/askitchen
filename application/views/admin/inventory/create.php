@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                             if (isset($_SESSION['kdgol']))
                                                             {
                                                     ?>
-                                                    <option value="<?= $itemx->kdgol ?>"<?php if( $itemx->id == $_SESSION['kdgol'] ): ?> selected="selected"<?php endif; ?>><?= $itemx->nama ?></option>
+                                                    <option value="<?= $itemx->kdgol ?>"<?php if( $itemx->kdgol == $_SESSION['kdgol'] ): ?> selected="selected"<?php endif; ?>><?= $itemx->nama ?></option>
                                                     <?php   } else { ?>
                                                     <option value="<?= $itemx->kdgol ?>"><?= $itemx->nama ?></option>
                                                     <?php } } ?>
@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                             if (isset($_SESSION['kdgol2']))
                                                             {
                                                     ?>
-                                                    <option value="<?= $itemx->kdgol2 ?>"<?php if( $itemx->id == $_SESSION['kdgol2'] ): ?> selected="selected"<?php endif; ?>><?= $itemx->nama ?></option>
+                                                    <option value="<?= $itemx->kdgol2 ?>"<?php if( $itemx->kdgol2 == $_SESSION['kdgol2'] ): ?> selected="selected"<?php endif; ?>><?= $itemx->nama ?></option>
                                                     <?php   } else { ?>
                                                     <option value="<?= $itemx->kdgol2 ?>"><?= $itemx->nama ?></option>
                                                     <?php } } } ?>
@@ -78,14 +78,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                             <div class="form-group">
                                                 <?php echo lang('inventory_group_lv3', 'kdgol3', array('class' => 'col-sm-3 control-label')); ?>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-9"><!--<?=$_SESSION['kdgol3']?>-->
                                                 <select id="kdgol3" name="kdgol3" class="form-control">
+                                                <option value=""<?=isset($_SESSION['kdgol2'])?'': ' selected';?>>-</option>
                                                 <?php
                                                     if (isset($this->data['golongan3'])) :
                                                         foreach ($this->data['golongan3'] as $item) {
+                                                            if (isset($_SESSION['kdgol3']))
+                                                            {
                                                 ?>
-                                                <option value="<?= $item->kdgol3 ?>"<?php if( $_SESSION["kdgol3"] == $item->kdgol3 ): ?> selected="selected"<?php endif; ?>><?= $item->nama ?></option>
-                                                <?php   }
+                                                <option value="<?= $item->kdgol3 ?>"<?php if( $item->kdgol3 == $_SESSION['kdgol3'] ): ?> selected="selected"<?php endif; ?>><?= $item->nama ?></option>
+                                                    <?php   } else { ?>
+                                                <option value="<?= $item->kdgol3 ?>"><?= $item->nama ?></option>
+                                                <?php   }   }
                                                     endif;
                                                 ?>
                                                 </select>
@@ -117,7 +122,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                 if (isset($_SESSION['merk']))
                                                                 {
                                                         ?>
-                                                        <option value="<?= $itemx->name ?>"<?php if( $itemx->id == $_SESSION['merk'] ): ?> selected="selected"<?php endif; ?>><?= $itemx->name ?></option>
+                                                        <option value="<?= $itemx->name ?>"<?php if( $itemx->name == $_SESSION['merk'] ): ?> selected="selected"<?php endif; ?>><?= $itemx->name ?></option>
                                                         <?php   } else { ?>
                                                         <option value="<?= $itemx->name ?>"><?= $itemx->name ?></option>
                                                         <?php } } ?>
@@ -275,12 +280,14 @@ $(document).ready(function(){
     }).on('fileuploadadd', function (e, data) {
         data.context = $('<div/>').appendTo('#files');
         $.each(data.files, function (index, file) {
+            
             $('#gambar').val(file.name);
-            var node = $('<p/>')
-                    .append($('<span/>').text(file.name));
+            
+            var node = $('<p/>');
+                    // .append($('<span/>').text(file.name));
             if (!index) {
                 node
-                    .append('<br>')
+                    // .append('<br>')
                     .append(uploadButton.clone(true).data(data));
             }
             node.appendTo(data.context);
