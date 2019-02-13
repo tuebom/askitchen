@@ -78,15 +78,16 @@ class Detail extends Public_Controller {
 						
 					if (!$qty) $qty = 1; //$this->input->post('qty');
 					
-					$itemArray = array( $kdbar => array( 'kdbar' => $detail->kdbar, 'kdurl' => $detail->kdurl,
-														'nama'  => $detail->nama,
-														'qty'   => $qty,
-														'harga' => $detail->hjual,
-														'hargaf'=> $detail->hjualf, // harga dgn pemisah ribuan
-														'gambar'=> $detail->gambar,
-														'pnj'   => $detail->pnj,
-														'lbr'   => $detail->lbr,
-														'tgi'   => $detail->tgi
+					$itemArray = array( $kdbar => array('kdbar'   => $detail->kdbar,
+														'kdurl'   => $detail->kdurl,
+														'nama'    => $detail->nama,
+														'qty'     => $qty,
+														'harga'   => $detail->hjual,
+														'hargaf'  => $detail->hjualf, // harga dgn pemisah ribuan
+														'gambar'  => $detail->gambar,
+														'pnj'     => $detail->pnj,
+														'lbr'     => $detail->lbr,
+														'tgi'     => $detail->tgi
 													));
 		
 					if(!empty($_SESSION["cart_item"])) {

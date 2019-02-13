@@ -38,7 +38,11 @@
 									<div class="starbox small ghosting unchangeable" data-start-value="<?= $this->data['item_rating']->rating ?>"> </div>
 								</div>
 								<span class="size"><?= $this->data['product']->pnj; ?> x <?= $this->data['product']->lbr; ?> x <?= $this->data['product']->tgi; ?> CM</span>
+								<?php if($this->data['product']->kriteria == 'P') : ?>
+								<p class="price item_price">Rp <?= $this->data['product']->hpromof ?></p>
+								<?php else :?>
 								<p class="price item_price">Rp <?= $this->data['product']->hjual ?></p>
+								<?php endif; ?>
 								
 								<!--<div class="description">
 									<p><span>Fitur: </span> In cursus faucibus tortor eu vestibulum. Ut eget turpis ac justo porta varius. Donec vel felis ante, ac vehicula ipsum. Quisque sed diam metus. Quisque eget leo sit amet erat varius rutrum vitae dapibus lectus. Vivamus et sapien ante. Suspendisse potenti. Fusce in tellus est, ac consequat.</p>
@@ -111,7 +115,7 @@
 											</div>
 											<div class="product-info">
 												<a class="product-title promo" href="<?= site_url('detail/'.$item->kdurl); ?>"><?=$item->nama . ' ('. $item->kdbar .')'?></a><br>
-												<span class="label label-warning">Rp<?=$item->hjual?></span></a>
+												<span class="label label-warning">Rp<?=$item->hpromo?></span></a>
 												<span class="product-description"><?=$item->deskripsi?></span>
 											</div>
 										</li>
@@ -187,20 +191,12 @@ jQuery(function() {
 								</ul>
 								<div id="myTabContent" class="tab-content">
 									<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab"><div class="descr">
-										<!--<h4>Suspendisse laoreet, augue vel mattis </h4>-->
 										<p> <?= $this->data['product']->deskripsi ?></p>
 									</div></div>
 									
 									<div role="tabpanel" class="tab-pane fade" id="reviews" aria-labelledby="reviews-tab">
 										<ul>
 											<p> <?= $this->data['product']->fitur ?></p>
-											<!-- <li> Twin button front fastening</li>
-											<li> Length:65cm</li>
-											<li> Regular fit</li>
-											<li> Notched lapels</li>
-											<li> Internal pockets</li>
-											<li> Centre-back vent </li>
-											<li> Material : Outer: 40% Linen &amp; 40% Polyamide; Body Lining: 100% Cotton; Lining: 100% Acetate</li> -->
 										</ul>
 									</div>
 									<div role="tabpanel" class="tab-pane fade" id="custom" aria-labelledby="custom-tab"></div>
