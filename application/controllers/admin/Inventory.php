@@ -357,8 +357,9 @@ class Inventory extends Admin_Controller {
 					'gambar'     => $this->input->post('gambar'),
 				);
 
-                if($this->inventory_model->update($kode, $data))
-			    {
+                // if($this->inventory_model->update($kode, $data))
+                $this->inventory_model->update($kode, $data);
+			    // {
                     // $this->session->set_flashdata('message', $this->ion_auth->messages());
 
 				    if ($this->ion_auth->is_admin())
@@ -369,20 +370,20 @@ class Inventory extends Admin_Controller {
 					{
 						redirect('admin', 'refresh');
 					}
-			    }
-			    else
-			    {
-                    // $this->session->set_flashdata('message', $this->ion_auth->errors());
+			    // }
+			    // else
+			    // {
+                //     // $this->session->set_flashdata('message', $this->ion_auth->errors());
 
-				    if ($this->ion_auth->is_admin())
-					{
-						redirect('auth', 'refresh');
-					}
-					else
-					{
-						redirect('/', 'refresh');
-					}
-			    }
+				//     if ($this->ion_auth->is_admin())
+				// 	{
+				// 		redirect('auth', 'refresh');
+				// 	}
+				// 	else
+				// 	{
+				// 		redirect('/', 'refresh');
+				// 	}
+			    // }
 			}
 		}
 
