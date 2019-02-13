@@ -175,6 +175,7 @@ $(document).ready(function() {
                     dataType: "json",
                     data: {"filename": file.name},
                     success:function(json){
+                        location.reload();
                     }
                 });
 

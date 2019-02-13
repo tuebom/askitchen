@@ -71,7 +71,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <i class="fa fa-shopping-cart"></i> <span><?php echo lang('menu_inventory'); ?></span>
                                     </a>
                                 </li>
-                                <li class="<?=active_link_controller('shipping')?>">
+                                <li class="<?=active_link_controller('brands')?>">
+                                    <a href="<?php echo site_url('admin/brands'); ?>">
+                                        <i class="fa fa-shopping-cart"></i> <span><?php echo lang('menu_brands'); ?></span>
+                                    </a>
+                                </li>
+                                <!-- <li class="<?=active_link_controller('shipping')?>">
                                     <a href="<?php echo site_url('admin/shipping'); ?>">
                                         <i class="fa fa-truck"></i> <span><?php echo lang('menu_shipping'); ?></span>
                                     </a>
@@ -80,7 +85,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <a href="<?php echo site_url('admin/linkedproducts'); ?>">
                                         <i class="fa fa-share-alt"></i> <span><?php echo lang('menu_linkedproducts'); ?></span>
                                     </a>
-                                </li>
+                                </li> -->
                                 <!-- <li class="<?=active_link_controller('attributes')?>">
                                     <a href="<?php echo site_url('admin/attributes'); ?>">
                                         <i class="fa fa-shapes"></i> <span><?php echo lang('menu_attributes'); ?></span>
@@ -106,7 +111,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </li>
 
                         <!-- member menu -->
-                        <li class="treeview <?=active_link_controller('members')?>">
+                        <!-- <li class="treeview <?=active_link_controller('members')?>">
                             <a href="#">
                                 <i class="fa fa-book"></i>
                                 <span><?php echo lang('menu_members'); ?></span>
@@ -119,7 +124,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
 
                         <li class="header text-uppercase"><?php echo lang('menu_administration'); ?></li>
                         <li class="<?=active_link_controller('users')?>">

@@ -9,11 +9,13 @@ class Categories extends Public_Controller {
 
 		$this->load->model('golongan_model');
 		$this->load->model('stock_model');
+		$this->load->model('brands_model');
 		// $this->output->enable_profiler(TRUE);
 	}
 
 	public function index()
 	{
+		$this->data['brands']   = $this->brands_model->get_all();
 		$this->data['golongan'] = $this->golongan_model->get_all();
 
 		foreach ($this->data['golongan'] as $item) {
