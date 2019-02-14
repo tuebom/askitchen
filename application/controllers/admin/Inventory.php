@@ -357,7 +357,7 @@ class Inventory extends Admin_Controller {
 					'gambar'     => $this->input->post('gambar'),
 				);
 
-                // if($this->inventory_model->update($kode, $data))
+				// if($this->inventory_model->update($kode, $data))
                 $this->inventory_model->update($kode, $data);
 			    // {
                     // $this->session->set_flashdata('message', $this->ion_auth->messages());

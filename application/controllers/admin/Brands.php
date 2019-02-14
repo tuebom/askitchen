@@ -51,7 +51,7 @@ class Brands extends Admin_Controller {
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
 
 		/* Validate form input */
-		$this->form_validation->set_rules('name', 'Brand Name', 'required|alpha_dash');
+		$this->form_validation->set_rules('name', 'Brand Name', 'required');
 
 		if ($this->form_validation->run() == TRUE)
 		{
@@ -113,7 +113,7 @@ class Brands extends Admin_Controller {
 		$brand = $this->brands_model->get_by_name($id);
 
 		/* Validate form input */
-        $this->form_validation->set_rules('brand_name', 'Brand Name', 'required|alpha_dash');
+        $this->form_validation->set_rules('brand_name', 'Brand Name', 'required');
 
 		if (isset($_POST) && ! empty($_POST))
 		{
