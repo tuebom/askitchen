@@ -10,7 +10,6 @@
 
 		gtag('config', 'UA-134496570-1');
 	</script>
-	<?php echo '<!-- '.current_url(). ' -->'; ?>
 	<meta charset="<?php echo $charset; ?>">
 	<title>Professional Food Service Supplies | Home :: ASKITCHEN</title>
 <?php if ($mobile === FALSE): ?>
