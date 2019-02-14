@@ -78,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                             <div class="form-group">
                                                 <?php echo lang('inventory_group_lv3', 'kdgol3', array('class' => 'col-sm-3 control-label')); ?>
-                                                <div class="col-sm-9"><!--<?=$_SESSION['kdgol3']?>-->
+                                                <div class="col-sm-9">
                                                 <select id="kdgol3" name="kdgol3" class="form-control">
                                                 <option value=""<?=isset($_SESSION['kdgol2'])?'': ' selected';?>>-</option>
                                                 <?php

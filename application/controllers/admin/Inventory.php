@@ -52,17 +52,18 @@ class Inventory extends Admin_Controller {
 				$offset = 0;
 			}
 				
+            $this->session->set_flashdata('last_page', $page);
             $this->session->set_userdata('start', $offset);
 			
 			$q  = $this->input->get('q');
 			if ($q)
 			{
-				$this->session->set_userdata('q', $q);
+				$this->session->set_flashdata('q', $q);
 			}
-			elseif (isset($_SESSION['q']))
-			{
-				$q = $_SESSION['q'];
-			}
+			// elseif (isset($_SESSION['q']))
+			// {
+			// 	$q = $_SESSION['q'];
+			// }
 
 			$this->data['inventory'] = $this->inventory_model->get_limit_data($pagingx, $offset, $q);
 			$total = $this->inventory_model->total_rows($q);
@@ -104,13 +105,13 @@ class Inventory extends Admin_Controller {
 		{
 			
 			$inventory_data = array(
-			'kdbar'  => $this->input->post('kdbar'),
-			'kdurl'  => $this->input->post('kdurl'),
-			'nama'   => $this->input->post('nama'),
+			'kdbar'      => $this->input->post('kdbar'),
+			'kdurl'      => $this->input->post('kdurl'),
+			'nama'       => $this->input->post('nama'),
 			
-			'kdgol'  => $this->input->post('kdgol'),
-			'kdgol2' => $this->input->post('kdgol2'),
-			'kdgol3' => $this->input->post('kdgol3'),
+			'kdgol'      => $this->input->post('kdgol'),
+			'kdgol2'     => $this->input->post('kdgol2'),
+			'kdgol3'     => $this->input->post('kdgol3'),
 			
 			'deskripsi'  => $this->input->post('deskripsi'),
 			'satuan'     => $this->input->post('satuan'),
@@ -281,16 +282,6 @@ class Inventory extends Admin_Controller {
 				'value' => $this->form_validation->set_value('gambar'),
 				'readonly' => '1'
 			);
-		
-			// elemen upload file
-			// $this->data['tmpgambar'] = array(
-			// 	'name'  => 'userfile',
-			// 	'id'    => 'prdfile',
-			// 	'type'  => 'text',
-			// 	'class' => 'form-control',
-			// 	'style' => 'display: none;',
-			// 	'value' => $this->form_validation->set_value('userfile'),
-			// );
 
             /* Load Template */
             $this->template->admin_render('admin/inventory/create', $this->data);
@@ -357,32 +348,22 @@ class Inventory extends Admin_Controller {
 					'gambar'     => $this->input->post('gambar'),
 				);
 
-				// if($this->inventory_model->update($kode, $data))
                 $this->inventory_model->update($kode, $data);
 			    // {
                     // $this->session->set_flashdata('message', $this->ion_auth->messages());
 
 				    if ($this->ion_auth->is_admin())
 					{
-						redirect('admin/inventory', 'refresh');
+						if (isset($_SESSION['last_page'])) {
+							redirect('admin/inventory?p='.$_SESSION['last_page'], 'refresh');
+						} else {
+							redirect('admin/inventory', 'refresh');
+						}
 					}
 					else
 					{
 						redirect('admin', 'refresh');
 					}
-			    // }
-			    // else
-			    // {
-                //     // $this->session->set_flashdata('message', $this->ion_auth->errors());
-
-				//     if ($this->ion_auth->is_admin())
-				// 	{
-				// 		redirect('auth', 'refresh');
-				// 	}
-				// 	else
-				// 	{
-				// 		redirect('/', 'refresh');
-				// 	}
 			    // }
 			}
 		}
@@ -397,7 +378,10 @@ class Inventory extends Admin_Controller {
 
 		// set the flash data error message if there is one
 		$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
+		
 		$this->session->set_flashdata('merk', isset($CI->form_validation) ? $this->form_validation->set_value('merk') : $this->data['inventory']->merk);
+		if (isset($_SESSION['last_page']))
+			$this->session->set_flashdata('last_page', $_SESSION['last_page']);
 
 		$this->data['kdbar'] = array(
 			'name'  => 'kdbar',
@@ -529,16 +513,6 @@ class Inventory extends Admin_Controller {
 			'name'  => 'old_pic',
 			'value' => $this->data['inventory']->gambar,
 		);
-	
-		// elemen upload file
-		// $this->data['tmpgambar'] = array(
-		// 	'name'  => 'userfile',
-		// 	'id'    => 'prdfile',
-		// 	'type'  => 'text',
-		// 	'class' => 'form-control',
-		// 	'style' => 'display: none;',
-		// 	'value' => isset($CI->form_validation) ? $this->form_validation->set_value('userfile') : $this->data['inventory']->kdbar,
-		// );
 
         /* Load Template */
 		$this->template->admin_render('admin/inventory/edit', $this->data);
