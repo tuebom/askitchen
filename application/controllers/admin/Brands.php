@@ -110,7 +110,7 @@ class Brands extends Admin_Controller {
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
 
         /* Variables */
-		$brand = $this->brands_model->get_by_name($id);
+		$brand = $this->brands_model->get_by_name(urldecode($id));
 
 		/* Validate form input */
         $this->form_validation->set_rules('brand_name', 'Brand Name', 'required');
@@ -119,7 +119,7 @@ class Brands extends Admin_Controller {
 		{
 			if ($this->form_validation->run() == TRUE)
 			{
-                $this->brands_model->update($id, array('name' => $this->input->post('brand_name')));
+                $this->brands_model->update(urldecode($id), array('name' => $this->input->post('brand_name')));
 
                 $this->session->set_flashdata('message', '');
                 redirect('admin/brands', 'refresh');

@@ -740,11 +740,21 @@ h3.contact:hover {
     /* -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); */
     -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); */
-    padding: 1.0em;
+    /* padding: 1em; */
     margin-top: 12px; /***/
     border-radius: 10px;
     height: 250px;
     /* background: #e2e2e2; */
+}
+@media (min-width:360px){
+    .grid-arr {
+        padding: .25em;
+    }
+}
+@media (min-width:1366px){
+    .grid-arr {
+        padding: 1em;
+    }
 }
 .grid-rel {
     background: #e2e2e2; /*#E2E2E2*/
@@ -4236,7 +4246,7 @@ div.col-md-3.product-tab-grid.simpleCart_shelfItem {
     /* position: relative;
     min-height: 1px; */
     padding-right: 5px;
-    padding-left: 8px;
+    padding-left: 5px;
 }
 #myBtn {
     

@@ -1,6 +1,15 @@
 <!DOCTYPE HTML>
 <html lang="<?php echo $lang; ?>">
 <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134496570-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-134496570-1');
+	</script>
 	<?php echo '<!-- '.current_url(). ' -->'; ?>
 	<meta charset="<?php echo $charset; ?>">
 	<title>Professional Food Service Supplies | Home :: ASKITCHEN</title>
