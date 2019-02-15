@@ -21,7 +21,7 @@ class Inventory extends Admin_Controller {
 		// $this->output->enable_profiler(TRUE);
 
         /* Title Page :: Common */
-        $this->page_title->push(lang('menu_inventory'));
+        // $this->page_title->push(lang('menu_inventory'));
         $this->data['pagetitle'] = '<h1>Inventory</h1>'; //$this->page_title->show();
 
         /* Breadcrumbs :: Common */

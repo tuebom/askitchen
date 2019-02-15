@@ -1,21 +1,22 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Brands extends Admin_Controller {
+class Subcategory extends Admin_Controller {
 
     public function __construct()
     {
         parent::__construct();
 
-        $this->lang->load('admin/brands');
-		$this->load->model('brands_model');
+        $this->lang->load('admin/subcategory');
+		$this->load->model('golongan_model');
+		$this->load->model('golongan2_model');
 
         /* Title Page :: Common */
-        $this->page_title->push(lang('menu_brands'));
+        $this->page_title->push(lang('menu_subcategory'));
         $this->data['pagetitle'] = $this->page_title->show();
 
         /* Breadcrumbs :: Common */
-        $this->breadcrumbs->unshift(1, lang('menu_brands'), 'admin/brands');
+        $this->breadcrumbs->unshift(1, lang('menu_subcategory'), 'admin/subcategory');
         // $this->output->enable_profiler(TRUE);
     }
 
@@ -31,10 +32,11 @@ class Brands extends Admin_Controller {
             /* Breadcrumbs */
             $this->data['breadcrumb'] = $this->breadcrumbs->show();
 
-            $this->data['brands'] = $this->brands_model->get_all();
+            $this->data['golongan']  = $this->golongan_model->get_all();
+            $this->data['subcategory'] = $this->golongan2_model->get_all();
 
             /* Load Template */
-            $this->template->admin_render('admin/brands/index', $this->data);
+            $this->template->admin_render('admin/sub-category/index', $this->data);
         }
     }
 
@@ -47,7 +49,7 @@ class Brands extends Admin_Controller {
 		}
 
         /* Breadcrumbs */
-        $this->breadcrumbs->unshift(2, lang('brands_create'), 'admin/brands/create');
+        $this->breadcrumbs->unshift(2, lang('subcategory_create'), 'admin/brands/create');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
 
 		/* Validate form input */
