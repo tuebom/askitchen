@@ -1,21 +1,21 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Brands extends Admin_Controller {
+class Subcategories extends Admin_Controller {
 
     public function __construct()
     {
         parent::__construct();
 
-        $this->lang->load('admin/brands');
-		$this->load->model('brands_model');
+        $this->lang->load('admin/subcategory');
+		$this->load->model('golongan_model');
 
         /* Title Page :: Common */
-        $this->page_title->push(lang('menu_brands'));
-        $this->data['pagetitle'] = $this->page_title->show();
+        // $this->page_title->push(lang('menu_categories'));
+        $this->data['pagetitle'] = '<h1>Sub Categories</h1>'; //$this->page_title->show();
 
         /* Breadcrumbs :: Common */
-        $this->breadcrumbs->unshift(1, lang('menu_brands'), 'admin/brands');
+        $this->breadcrumbs->unshift(1, lang('menu_sub_categories'), 'admin/subcategories');
         // $this->output->enable_profiler(TRUE);
     }
 
@@ -31,10 +31,11 @@ class Brands extends Admin_Controller {
             /* Breadcrumbs */
             $this->data['breadcrumb'] = $this->breadcrumbs->show();
 
-            $this->data['brands'] = $this->brands_model->get_all();
+            $catid = $this->uri->segment(3);
+            $this->data['subcategories']  = $this->golongan_model->get_sub_category($catid);
 
             /* Load Template */
-            $this->template->admin_render('admin/brands/index', $this->data);
+            $this->template->admin_render('admin/subcategories/index', $this->data);
         }
     }
 
@@ -47,36 +48,46 @@ class Brands extends Admin_Controller {
 		}
 
         /* Breadcrumbs */
-        $this->breadcrumbs->unshift(2, lang('brands_create'), 'admin/brands/create');
+        $this->breadcrumbs->unshift(2, lang('subcategory_create'), 'admin/subcategories/create');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
 
 		/* Validate form input */
-		$this->form_validation->set_rules('name', 'Brand Name', 'required');
+		$this->form_validation->set_rules('nama', 'Sub Category Name', 'required');
 
 		if ($this->form_validation->run() == TRUE)
 		{
-            $brand_data = array(
-                'name' => $this->input->post('name')
+            $category_data = array(
+                'kdgol'  => $this->input->post('kdgol'),
+                'kdgol2' => $this->input->post('kdgol2'),
+                'name'   => $this->input->post('name')
             );
             
-            $this->brands_model->insert($brand_data);
+            $this->subcategory_model->insert($category_data);
             // $this->session->set_flashdata('message', '');
-            redirect('admin/brands', 'refresh');
+            redirect('admin/subcategories', 'refresh');
 		}
 		else
 		{
             $this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
 
-			$this->data['brand_name'] = array(
-				'name'  => 'name',
-				'id'    => 'name',
+			$this->data['subcategory_code'] = array(
+				'name'  => 'kdgol2',
+				'id'    => 'kdgol2',
 				'type'  => 'text',
                 'class' => 'form-control',
-				'value' => $this->form_validation->set_value('name')
+				'value' => $this->form_validation->set_value('kdgol2')
+			);
+
+			$this->data['subcategory_name'] = array(
+				'name'  => 'nama',
+				'id'    => 'nama',
+				'type'  => 'text',
+                'class' => 'form-control',
+				'value' => $this->form_validation->set_value('nama')
 			);
 
             /* Load Template */
-            $this->template->admin_render('admin/brands/create', $this->data);
+            $this->template->admin_render('admin/subcategories/create', $this->data);
 		}
 	}
 
@@ -93,7 +104,7 @@ class Brands extends Admin_Controller {
         }
         else
         {
-            $this->load->view('admin/brands/delete');
+            $this->load->view('admin/subcategories/delete');
         }
 	}
 
@@ -106,38 +117,37 @@ class Brands extends Admin_Controller {
 		}
 
         /* Breadcrumbs */
-        $this->breadcrumbs->unshift(2, lang('menu_brands_edit'), 'admin/brands/edit');
+        $this->breadcrumbs->unshift(2, lang('menu_subcategory_edit'), 'admin/subcategories/edit');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
 
         /* Variables */
-		$brand = $this->brands_model->get_by_name(urldecode($id));
+		$subcategories = $this->golongan2_model->get_by_id($id);
 
 		/* Validate form input */
-        $this->form_validation->set_rules('brand_name', 'Brand Name', 'required');
+        $this->form_validation->set_rules('nama', 'Sub Category Name', 'required');
 
 		if (isset($_POST) && ! empty($_POST))
 		{
 			if ($this->form_validation->run() == TRUE)
 			{
-                $this->brands_model->update(urldecode($id), array('name' => $this->input->post('brand_name')));
-
+                $this->golongan2_model->update($kdgol2, array('nama' => $this->input->post('nama')));
                 $this->session->set_flashdata('message', '');
-                redirect('admin/brands', 'refresh');
+                redirect('admin/subcategories', 'refresh');
 			}
 		}
 
         $this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
-        $this->data['brand'] = $brand;
+        $this->data['subcategories'] = $subcategories;
 
-		$this->data['brand_name'] = array(
+		$this->data['nama'] = array(
 			'type'    => 'text',
-			'name'    => 'brand_name',
-			'id'      => 'brand_name',
-			'value'   => isset($CI->form_validation) ? $this->form_validation->set_value('name') : $this->data['brand']->name,
+			'name'    => 'nama',
+			'id'      => 'nama',
+			'value'   => isset($CI->form_validation) ? $this->form_validation->set_value('nama') : $this->data['subcategories']->nama,
             'class'   => 'form-control',
 		);
 
         /* Load Template */
-        $this->template->admin_render('admin/brands/edit', $this->data);
+        $this->template->admin_render('admin/subcategories/edit', $this->data);
 	}
 }

@@ -19,7 +19,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="box-body">
                                     <?php echo $message;?>
 
-                                    <div class="col-md-7">
                                     <?php echo form_open(uri_string(), array('class' => 'form-horizontal', 'id' => 'form-edit_inventory')); ?>
                                         <div class="form-group">
                                             <?php echo lang('inventory_kdbar', 'kdbar', array('class' => 'col-sm-3 control-label')); ?>
@@ -214,9 +213,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </div>
                                         </div>
                                     <?php echo form_close();?>
-                                    </div>
-                                    <div class="col-md-5">
-                                    </div>
                                 </div>
                             </div>
                          </div>

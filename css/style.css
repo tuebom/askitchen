@@ -4831,9 +4831,9 @@ div.profile {
 .box.box-primary {
     border-top-color: #fff;
 }
-.box-header {
+/* .box-header {
     padding: 0;
-}
+} */
 .box-body.items {
     height: 375px;
     overflow: scroll;

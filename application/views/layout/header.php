@@ -27,8 +27,12 @@
 	<meta name="robots" content="noindex, nofollow">
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Professional Food Service Supplies" />
 	<meta name="keywords" content="Freezer, Cooler, Cooler Showcase, Cooler Dispenser, Ice Maker, Ice Cream, Ice Cream Machine, 
 	Refrigerator, Refrigeration, Stainless Steel Refrigeration, Minimarket, Minimarket Refrigeration" />
+	<meta name="author" content="ASKITCHEN" />
+	<meta name="reply-to" content="marketing@askitchen.com" />
+	<meta name="owner" content="webmaster@askitchen.com" />
 <?php if ($mobile == TRUE && $ios == TRUE): ?>
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
