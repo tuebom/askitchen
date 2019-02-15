@@ -1,7 +1,15 @@
 <!DOCTYPE HTML>
 <html lang="<?php echo $lang; ?>">
 <head>
-	<?php echo '<!-- '.current_url(). ' -->'; ?>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134496570-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-134496570-1');
+	</script>
 	<meta charset="<?php echo $charset; ?>">
 	<title>Professional Food Service Supplies | Home :: ASKITCHEN</title>
 <?php if ($mobile === FALSE): ?>
@@ -19,8 +27,12 @@
 	<meta name="robots" content="noindex, nofollow">
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Professional Food Service Supplies" />
 	<meta name="keywords" content="Freezer, Cooler, Cooler Showcase, Cooler Dispenser, Ice Maker, Ice Cream, Ice Cream Machine, 
 	Refrigerator, Refrigeration, Stainless Steel Refrigeration, Minimarket, Minimarket Refrigeration" />
+	<meta name="author" content="ASKITCHEN" />
+	<meta name="reply-to" content="marketing@askitchen.com" />
+	<meta name="owner" content="webmaster@askitchen.com" />
 <?php if ($mobile == TRUE && $ios == TRUE): ?>
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
