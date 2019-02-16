@@ -9,6 +9,7 @@ class Subcategories2 extends Admin_Controller {
 
         $this->lang->load('admin/subcategory');
 		$this->load->model('golongan2_model');
+		$this->load->model('golongan3_model');
 
         /* Title Page :: Common */
         // $this->page_title->push(lang('menu_categories'));
@@ -33,6 +34,28 @@ class Subcategories2 extends Admin_Controller {
 
             $catid = $this->uri->segment(3);
             $this->data['subcategories']  = $this->golongan2_model->get_sub_category($catid);
+            $this->session->set_userdata('kdgol2', $catid);
+
+            /* Load Template */
+            $this->template->admin_render('admin/subcategories2/index', $this->data);
+        }
+    }
+
+
+	public function detail()
+	{
+        if ( ! $this->ion_auth->logged_in() OR ! $this->ion_auth->is_admin())
+        {
+            redirect('auth/login', 'refresh');
+        }
+        else
+        {
+            /* Breadcrumbs */
+            $this->data['breadcrumb'] = $this->breadcrumbs->show();
+
+            $catid = $this->uri->segment(4);
+            $this->data['subcategories']  = $this->golongan2_model->get_sub_category($catid);
+            $this->session->set_userdata('kdgol2', $catid);
 
             /* Load Template */
             $this->template->admin_render('admin/subcategories2/index', $this->data);
@@ -51,6 +74,11 @@ class Subcategories2 extends Admin_Controller {
         $this->breadcrumbs->unshift(2, lang('subcategory_create'), 'admin/subcategories2/create');
         $this->data['breadcrumb'] = $this->breadcrumbs->show();
 
+        $total = (int)$this->golongan2_model->total_sub_category($_SESSION['kdgol2']) + 1;
+        $newcode = $total < 10 ? str_pad($total, 2, '0', STR_PAD_LEFT) : $total;
+        $newcode = $_SESSION['kdgol2'].'.'. $newcode;
+        $this->session->set_flashdata('newcode', $newcode);
+
 		/* Validate form input */
 		$this->form_validation->set_rules('nama', 'Sub Category Name', 'required');
 
@@ -60,26 +88,35 @@ class Subcategories2 extends Admin_Controller {
                 'kdgol'  => $this->input->post('kdgol'),
                 'kdgol2' => $this->input->post('kdgol2'),
                 'kdgol3' => $this->input->post('kdgol3'),
-                'name'   => $this->input->post('name')
+                'nama'   => $this->input->post('nama')
             );
             
-            $this->subcategory_model->insert($category_data);
+            $this->golongan3_model->insert($category_data);
             // $this->session->set_flashdata('message', '');
-            redirect('admin/subcategories2', 'refresh');
+            redirect('admin/subcategories2/detail/'.$_SESSION['kdgol2'], 'refresh');
 		}
 		else
 		{
             $this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
 
-			$this->data['subcategory_code'] = array(
+            $this->data['kdgol'] = array(
+                'kdgol' => $this->session->userdata['kdgol'],
+            );
+            
+            $this->data['kdgol2'] = array(
+                'kdgol2' => $this->session->userdata['kdgol2'],
+            );           
+
+			$this->data['kdgol3'] = array(
 				'name'  => 'kdgol3',
 				'id'    => 'kdgol3',
 				'type'  => 'text',
+                'readonly' => TRUE,
                 'class' => 'form-control',
-				'value' => $this->form_validation->set_value('kdgol3')
+				'value' => isset($CI->form_validation) ? $this->form_validation->set_value('kdgol3') : $_SESSION['newcode']
 			);
 
-			$this->data['subcategory_name'] = array(
+			$this->data['nama'] = array(
 				'name'  => 'nama',
 				'id'    => 'nama',
 				'type'  => 'text',
@@ -123,6 +160,7 @@ class Subcategories2 extends Admin_Controller {
 
         /* Variables */
 		$subcategories = $this->golongan3_model->get_by_id($id);
+        // $catid = $this->uri->segment(4);
 
 		/* Validate form input */
         $this->form_validation->set_rules('nama', 'Sub Category Name', 'required');
@@ -131,14 +169,23 @@ class Subcategories2 extends Admin_Controller {
 		{
 			if ($this->form_validation->run() == TRUE)
 			{
-                $this->golongan3_model->update($kdgol3, array('nama' => $this->input->post('nama')));
+                $this->golongan3_model->update($id, array('nama' => $this->input->post('nama')));
                 $this->session->set_flashdata('message', '');
-                redirect('admin/subcategories2', 'refresh');
+                redirect('admin/subcategories2/detail/'.$_SESSION['kdgol2'], 'refresh');
 			}
 		}
 
         $this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
         $this->data['subcategories'] = $subcategories;
+
+        $this->data['kdgol3'] = array(
+            'name'  => 'kdgol3',
+            'id'    => 'kdgol3',
+            'type'  => 'text',
+			'readonly' => TRUE,
+            'class' => 'form-control',
+            'value' => isset($CI->form_validation) ? $this->form_validation->set_value('kdgol3') : $this->data['subcategories']->kdgol3,
+        );
 
 		$this->data['nama'] = array(
 			'type'    => 'text',
@@ -149,6 +196,6 @@ class Subcategories2 extends Admin_Controller {
 		);
 
         /* Load Template */
-        $this->template->admin_render('admin/subcategories/edit', $this->data);
+        $this->template->admin_render('admin/subcategories2/edit', $this->data);
 	}
 }

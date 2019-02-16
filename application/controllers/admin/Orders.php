@@ -19,7 +19,7 @@ class Orders extends Admin_Controller {
 
         /* Title Page :: Common */
         $this->page_title->push(lang('menu_orders'));
-        $this->data['pagetitle'] = '<h1>Update Order</h1>'; //$this->page_title->show();
+        $this->data['pagetitle'] = '<h1>Order List</h1>'; //$this->page_title->show();
 
         /* Breadcrumbs :: Common */
         $this->breadcrumbs->unshift(1, 'Orders', 'admin/orders');
