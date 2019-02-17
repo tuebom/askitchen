@@ -23,39 +23,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="col-md-7">
                                         
                                         <div class="form-group">
-                                            <?php echo lang('inventory_group', 'kdgol', array('class' => 'col-sm-3 control-label')); ?>
+                                            <?php echo lang('subcategory_kdgol2', 'kdgol2', array('class' => 'col-sm-3 control-label')); ?>
                                             <div class="col-sm-9">
-                                            <select id="kdgol" name="kdgol" class="form-control">
-                                                <?php
-                                                    foreach ($this->data['golongan'] as $itemx)
-                                                      {
-                                                ?>
-                                                <option value="<?= $itemx->kdgol ?>"<?php if( $itemx->kdgol == $inventory->kdgol ): ?> selected="selected"<?php endif; ?>><?= $itemx->nama ?></option>
-                                                <?php } ?>
-                                            </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <?php echo lang('inventory_group_lv2', 'kdgol2', array('class' => 'col-sm-3 control-label')); ?>
-                                            <div class="col-sm-9">
-                                            <select id="kdgol2" name="kdgol2" class="form-control">
-                                                <?php
-                                                    foreach ($this->data['golongan2'] as $itemx) {
-                                                ?>
-                                                <option value="<?= $itemx->kdgol2 ?>"<?php if( $itemx->kdgol2 == $inventory->kdgol2 ): ?> selected="selected"<?php endif; ?>><?= $itemx->nama ?></option>
-                                                <?php } ?>
-                                            </select>
+                                                <?php echo form_input($kdgol2);?>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <?php echo lang('inventory_kdurl', 'kdurl', array('class' => 'col-sm-3 control-label')); ?>
-                                            <div class="col-sm-9">
-                                                <?php echo form_input($kdurl);?>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <?php echo lang('inventory_name', 'nama', array('class' => 'col-sm-3 control-label')); ?>
+                                            <?php echo lang('subcategory_nama', 'nama', array('class' => 'col-sm-3 control-label')); ?>
                                             <div class="col-sm-9">
                                                 <?php echo form_input($nama);?>
                                             </div>
@@ -66,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <div class="btn-group">
                                                 <?php echo form_button(array('type' => 'submit', 'class' => 'btn btn-primary btn-flat', 'content' => lang('actions_submit'))); ?>
                                                 <?php echo form_button(array('type' => 'reset', 'class' => 'btn btn-warning btn-flat', 'content' => lang('actions_reset'))); ?>
-                                                <?php echo anchor(isset($_SESSION['last_page'])?'admin/inventory?p='.$_SESSION['last_page']:'admin/inventory', lang('actions_cancel'), array('class' => 'btn btn-default btn-flat')); ?>
+                                                <?php echo anchor('admin/subcategories/'.$_SESSION['kdgol'], lang('actions_cancel'), array('class' => 'btn btn-default btn-flat')); ?>
                                             </div>
                                         </div>
                                     </div>

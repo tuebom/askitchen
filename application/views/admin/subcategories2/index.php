@@ -12,16 +12,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <section class="content">
                     <div class="row">
                         <div class="col-md-12">
-                             <div class="box">
+                            <div class="box">
                                 <div class="box-header with-border">
                                     
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <h3 class="box-title"><?php echo anchor('admin/subcategories2/create', '<i class="fa fa-plus">&nbsp</i> Add New Sub category', array('class' => 'btn btn-block btn-primary btn-flat')); ?></h3>
+                                            <h3 class="box-title"><?php echo anchor('admin/subcategories/detail/'.$_SESSION['kdgol'], '<i class="fa fa-reply">&nbsp</i> Up one level', array('class' => 'btn btn-block btn-primary btn-flat')); ?></h3>&nbsp;
+                                            <h3 class="box-title"><?php echo anchor('admin/subcategories2/create', '<i class="fa fa-plus">&nbsp</i> New Sub category', array('class' => 'btn btn-block btn-primary btn-flat')); ?></h3>
                                         </div>
                                         <div class="col-sm-6">
                                         </div>
                                     </div>
+                                </div>
                                 <div class="box-body table-responsive">
                                     <table class="table table-striped table-hover">
                                         <thead>
@@ -34,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </thead>
                                         <tbody>
 <?php 
-    $index = (int)$_SESSION['start'];
+    $index = 0;
     foreach ($subcategories as $item):?>
                                             <tr>
                                                 <td class="text-right"><?= ++$index; ?></td>
@@ -50,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
 
                             </div>
-                         </div>
+                        </div>
                     </div>
                 </section>
             </div>

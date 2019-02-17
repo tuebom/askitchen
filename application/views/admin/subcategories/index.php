@@ -14,6 +14,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="col-md-12">
                             <div class="box">
                                     
+                                <div class="box-header with-border">
+                                    
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <h3 class="box-title"><?php echo anchor('admin/categories', '<i class="fa fa-reply">&nbsp</i> Up one level', array('class' => 'btn btn-block btn-primary btn-flat')); ?></h3>&nbsp;
+                                            <h3 class="box-title"><?php echo anchor('admin/subcategories/create', '<i class="fa fa-plus">&nbsp</i> New Sub category', array('class' => 'btn btn-block btn-primary btn-flat')); ?></h3>
+                                        </div>
+                                        <div class="col-sm-6">
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="box-body table-responsive">
                                     <table class="table table-striped table-hover">
                                         <thead>
@@ -26,14 +37,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </thead>
                                         <tbody>
 <?php 
-    $index = (int)$_SESSION['start'];
+    $index = 0;
     foreach ($subcategories as $item):?>
                                             <tr>
                                                 <td class="text-right"><?= ++$index; ?></td>
-                                                <td><?php echo anchor('admin/subcategories2/'.$item->kdgol2, htmlspecialchars($item->kdgol2, ENT_QUOTES, 'UTF-8')); ?></td>
+                                                <td><?php echo anchor('admin/subcategories2/detail/'.$item->kdgol2, htmlspecialchars($item->kdgol2, ENT_QUOTES, 'UTF-8')); ?></td>
                                                 <td><?php echo htmlspecialchars($item->nama, ENT_QUOTES, 'UTF-8'); ?></td>
                                                 <td>
-                                                    <?php echo anchor('admin/subcategories2/'.$item->kdgol2, 'Add/Edit'); ?>
+                                                    <?php echo anchor('admin/subcategories/edit/'.$item->kdgol2, 'Edit'); ?>
                                                 </td>
                                             </tr>
 <?php endforeach;?>

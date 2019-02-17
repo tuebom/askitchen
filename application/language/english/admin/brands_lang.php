@@ -10,7 +10,7 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['brands_name']        = 'Name';
+$lang['brands_name']        = 'Brand Name';
 $lang['brands_action']      = 'Action';
 $lang['brands_edit_brand']  = 'Edit brand';
 $lang['brands_create']      = 'Create brand';

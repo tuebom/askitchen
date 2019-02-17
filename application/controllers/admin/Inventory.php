@@ -510,8 +510,7 @@ class Inventory extends Admin_Controller {
 			'readonly' => '1'
 		);
 		$this->data['old_pic'] = array(
-			'name'  => 'old_pic',
-			'value' => $this->data['inventory']->gambar,
+			'old_pic' => $this->data['inventory']->gambar,
 		);
 
         /* Load Template */
