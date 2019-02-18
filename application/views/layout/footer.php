@@ -82,13 +82,10 @@
 	<script>
 		$('ul.nav li.dropdown').hover(function() {
 			var menu = $(this).attr('data-menu');
-			// $('#'+menu).stop(true, true).delay(100).fadeIn(300);
 			$('#'+menu).stop(true, true).delay(100).fadeIn(300);
-			// console.log(menu)
 			// $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(300);
 		}, function() {
 			var menu = $(this).attr('data-menu');
-			// $('#'+menu).stop(true, true).delay(100).fadeOut(300);
 			$('#'+menu).stop(true, true).delay(100).fadeOut(300);
 			// $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(300);
 		});
@@ -114,15 +111,7 @@
 
 	<!-- <script src="<?php echo base_url($frameworks_dir . '/jquery/jquery.min.js'); ?>"></script> -->
 	<!-- <script src="<?php echo base_url($frameworks_dir . '/bootstrap/js/bootstrap.min.js'); ?>"></script> -->
-	<!-- <script src="<?php echo base_url($plugins_dir . '/icheck/js/icheck.min.js'); ?>"></script> -->
 	<script>
-		$(function(){
-			// $('input').iCheck({
-			// 	checkboxClass: 'icheckbox_square-blue',
-			// 	radioClass: 'iradio_square-blue',
-			// 	increaseArea: '20%'
-			// });
-		});
 
 		// When the user clicks on the button, scroll to the top of the document
 		function topFunction() {

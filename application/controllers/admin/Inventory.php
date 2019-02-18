@@ -59,16 +59,18 @@ class Inventory extends Admin_Controller {
 			if ($q)
 			{
 				$this->session->set_flashdata('q', $q);
+				$url   = current_url() . '?q='.$q.'&p=';
 			}
-			// elseif (isset($_SESSION['q']))
-			// {
-			// 	$q = $_SESSION['q'];
-			// }
+			else
+			{
+				$this->session->unset_userdata('q');
+				$url   = current_url() . '?p=';
+			}
 
 			$this->data['inventory'] = $this->inventory_model->get_limit_data($pagingx, $offset, $q);
 			$total = $this->inventory_model->total_rows($q);
 
-			$url   = current_url() . '?p=';
+			// $url   = current_url() . '?p=';
 			
 			$this->data['pagination'] = $this->paging($total, $page, $url);
 
