@@ -741,9 +741,9 @@ h3.contact:hover {
     -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); */
     /* padding: 1em; */
-    margin-top: 12px; /***/
+    margin-top: 10px; /***/
     border-radius: 10px;
-    height: 280px;
+    height: 300px;
     /* background: #e2e2e2; */
 }
 @media (min-width:360px){
@@ -1033,8 +1033,8 @@ a.my-cart-b, a.my-cart-d {
     outline: none;
     border-radius: 50px;
     position: absolute;
-    right: 10px;
-    bottom: 30px;
+    right: -5px;
+    bottom: 25px;
 }
 .my-cart-detil {
     background: #941204;
@@ -2387,9 +2387,23 @@ p.price {
     margin: 1em 0;
     font-weight: 600;
 }
-.women span {
-    font-size: 1.3em;
+.dashboard span {
+    font-size: 1.4em;
     /* color: #941204; */
+    color: black;
+    margin: 0.2em 0;
+    display: block;
+}
+div.dimensi span {
+    font-size: 0.9em;
+    /* color: #941204; */
+    color: black;
+    margin: 0.2em 0;
+    display: block;
+}
+div.harga span {
+    font-size: 1.3em;
+    /* color: #941204;  */
     color: black;
     margin: 0.2em 0;
     display: block;
