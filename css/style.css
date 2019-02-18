@@ -42,7 +42,7 @@ body{
     background: #ffffff;
 }
 .header-top {
-    background: #03274e; /*#1565c0;*/
+    background: #03274e;
     padding: .7em 0;
 }
 .location {
@@ -1363,11 +1363,11 @@ img.office {
     }
 }        
 .footer-w3l {
-    background: #021931;
+    background: #03274e;
     padding: 1em 0;
 }
 .footer-bawah {
-    background: #021931;
+    background: #03274e;
     padding: 1em 0;
 }
 @media (min-width:768px){

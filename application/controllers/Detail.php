@@ -240,26 +240,19 @@ class Detail extends Public_Controller {
 		// $vals = array(
 
 		// 	'word' => $captcha,
-
 		// 	'img_path' => $file, //'D:\xampp\htdocs\askitchen\images\captcha\\', //'./captcha'
-
 		// 	'img_url' => base_url('images/captcha'),
 
 		// 	'font_size' => 10,
-
 		// 	'img_width' => 150,
-
 		// 	'img_height' => 50,
-
 		// 	'expiration' => 7200
-
 		// );
 
 		// // note: pastikan folder captcha sudah dibuat
 		// $cap = create_captcha($vals);
 
 		// if (isset($this->session->userdata['image'])) {
-
 		// 	if (file_exists($file . $this->session->userdata['image']))
 		// 		unlink($file . $this->session->userdata['image']);
 		// }

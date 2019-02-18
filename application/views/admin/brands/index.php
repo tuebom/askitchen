@@ -15,6 +15,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                              <div class="box">
                                 <div class="box-header with-border">
                                     <h3 class="box-title"><?php echo anchor('admin/brands/create', '<i class="fa fa-plus"></i> '. lang('brands_create'), array('class' => 'btn btn-block btn-primary btn-flat')); ?></h3>
+                                    <form class="frmfilter" action="<?= site_url('admin/inventory'); ?>" method="get">
+                                        <div class="box-tools pull-right">
+                                            <div class="has-feedback">
+                                                <div id="search_filter" class="dataTables_filter">
+                                                    <!-- <label>Search: -->
+                                                    <input type="search" name="q" value="<?=isset($_SESSION['q'])?$_SESSION['q']:''; ?>" class="form-control input-sm" placeholder="" aria-controls="example1">
+                                                    <!-- </label> -->
+                                                    <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                                 <div class="box-body">
                                     <table class="table table-striped table-hover">

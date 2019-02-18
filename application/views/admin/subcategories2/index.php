@@ -23,6 +23,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <div class="col-sm-6">
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <!-- <form class="frmpaging" action="<?= site_url('admin/inventory/setpaging'); ?>" method="post"> -->
+                                            <div class="dataTables_length" id="example1_length">
+                                            <label style="display: flex; align-items: center;">Show&nbsp;<select name="example1_length" aria-controls="example1" class="form-control input-sm" style="width: 60px;">
+                                                <option value="10"<?= (!isset($_SESSION['paging'])) ? '': ($_SESSION['paging']=='10') ? ' selected="selected"':''; ?>>10</option>
+                                                <option value="25"<?= (!isset($_SESSION['paging'])) ? '': ($_SESSION['paging']=='25') ? ' selected="selected"':''; ?>>25</option>
+                                                <option value="50"<?= (!isset($_SESSION['paging'])) ? '': ($_SESSION['paging']=='50') ? ' selected="selected"':''; ?>>50</option>
+                                                <option value="100"<?= (!isset($_SESSION['paging'])) ? '': ($_SESSION['paging']=='100') ? ' selected="selected"':''; ?>>100</option>
+                                            </select>&nbsp;entries</label></div>
+                                            <!--</form>-->
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <form class="frmfilter" action="<?= site_url('admin/inventory'); ?>" method="get">
+                                            <div class="box-tools pull-right">
+                                                <div class="has-feedback">
+                                                    <div id="search_filter" class="dataTables_filter">
+                                                        <!-- <label>Search: -->
+                                                        <input type="search" name="q" value="<?=isset($_SESSION['q'])?$_SESSION['q']:''; ?>" class="form-control input-sm" placeholder="" aria-controls="example1">
+                                                        <!-- </label> -->
+                                                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="box-body table-responsive">
                                     <table class="table table-striped table-hover">
@@ -31,6 +58,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <th class="text-right">No.</th>
                                                 <th><?= lang('subcategory_kdgol3'); ?></th>
                                                 <th><?= lang('subcategory_nama'); ?></th>
+                                                <th><?= lang('subcategory_info'); ?></th>
+                                                <th><?= lang('subcategory_picture'); ?></th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -42,6 +71,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <td class="text-right"><?= ++$index; ?></td>
                                                 <td><?php echo anchor('admin/subcategories2/edit/'.$item->kdgol3, htmlspecialchars($item->kdgol3, ENT_QUOTES, 'UTF-8')); ?></td>
                                                 <td><?php echo htmlspecialchars($item->nama, ENT_QUOTES, 'UTF-8'); ?></td>
+                                                <td><?php echo htmlspecialchars($item->info, ENT_QUOTES, 'UTF-8'); ?></td>
+                                                <td><div class="product-img"><img src="<?=site_url($this->data['products_dir'].'/'.$item->gambar)?>" alt="Image"></div></td>
                                                 <td>
                                                     <?php echo anchor('admin/subcategories2/edit/'.$item->kdgol3, 'Edit'); ?>
                                                 </td>
