@@ -138,7 +138,7 @@ class Search extends Public_Controller {
 				}
 		
 				// inisiasi
-				$item_price = 0;
+				$item_price  = 0;
 				$total_price = 0;
 							
 				foreach($_SESSION["cart_item"] as $k => $v) {

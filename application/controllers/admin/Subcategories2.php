@@ -88,7 +88,9 @@ class Subcategories2 extends Admin_Controller {
                 'kdgol'  => $this->input->post('kdgol'),
                 'kdgol2' => $this->input->post('kdgol2'),
                 'kdgol3' => $this->input->post('kdgol3'),
-                'nama'   => $this->input->post('nama')
+                'nama'   => $this->input->post('nama'),
+                'info'   => $this->input->post('info'),
+                'gambar' => $this->input->post('gambar')
             );
             
             $this->golongan3_model->insert($category_data);
@@ -115,13 +117,27 @@ class Subcategories2 extends Admin_Controller {
                 'class' => 'form-control',
 				'value' => isset($CI->form_validation) ? $this->form_validation->set_value('kdgol3') : $_SESSION['newcode']
 			);
-
 			$this->data['nama'] = array(
 				'name'  => 'nama',
 				'id'    => 'nama',
 				'type'  => 'text',
                 'class' => 'form-control',
 				'value' => $this->form_validation->set_value('nama')
+			);
+			$this->data['info'] = array(
+				'name'  => 'info',
+				'id'    => 'info',
+                'class' => 'form-control',
+				'rows'  => '3',
+				'value' => $this->form_validation->set_value('info'),
+			);
+			$this->data['gambar'] = array(
+				'name'  => 'gambar',
+				'id'    => 'gambar',
+				'type'  => 'text',
+                'class' => 'form-control',
+				'value' => $this->form_validation->set_value('gambar'),
+				'readonly' => '1'
 			);
 
             /* Load Template */
@@ -169,7 +185,16 @@ class Subcategories2 extends Admin_Controller {
 		{
 			if ($this->form_validation->run() == TRUE)
 			{
-                $this->golongan3_model->update($id, array('nama' => $this->input->post('nama')));
+				$data = array(
+					'kdgol2'     => $this->input->post('kdgol2'),
+					'kdgol3'     => $this->input->post('kdgol3'),
+
+					'nama'       => $this->input->post('nama'),
+					'info'       => $this->input->post('info'),
+					'gambar'     => $this->input->post('gambar'),
+				);
+
+                $this->golongan3_model->update($id, $data);
                 $this->session->set_flashdata('message', '');
                 redirect('admin/subcategories2/detail/'.$_SESSION['kdgol2'], 'refresh');
 			}
@@ -186,7 +211,6 @@ class Subcategories2 extends Admin_Controller {
             'class' => 'form-control',
             'value' => isset($CI->form_validation) ? $this->form_validation->set_value('kdgol3') : $this->data['subcategories']->kdgol3,
         );
-
 		$this->data['nama'] = array(
 			'type'    => 'text',
 			'name'    => 'nama',
@@ -194,8 +218,103 @@ class Subcategories2 extends Admin_Controller {
 			'value'   => isset($CI->form_validation) ? $this->form_validation->set_value('nama') : $this->data['subcategories']->nama,
             'class'   => 'form-control',
 		);
+		$this->data['info'] = array(
+			'name'  => 'info',
+			'id'    => 'info',
+			'class' => 'form-control',
+			'rows'  => '3',
+			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('info') : $this->data['subcategories']->info,
+		);
+		$this->data['gambar'] = array(
+			'name'  => 'gambar',
+			'id'    => 'gambar',
+			'type'  => 'text',
+			'class' => 'form-control',
+			'value' => isset($CI->form_validation) ? $this->form_validation->set_value('gambar') : $this->data['subcategories']->gambar,
+			'readonly' => '1'
+		);
+		$this->data['old_pic'] = array(
+			'old_pic' => $this->data['subcategories']->gambar,
+		);
 
         /* Load Template */
         $this->template->admin_render('admin/subcategories2/edit', $this->data);
+	}
+	
+	
+	public function paging($total,$curr_page,$url){
+    
+		$page = '';
+		$pagingx = isset($_SESSION['paging']) ? $_SESSION['paging'] : 8;
+		$total_page = ceil($total/$pagingx);
+		
+		if($total > $pagingx) { // hasil bagi atau jumlah halaman lebih dari satu
+		
+			$page = '<ul class="pagination no-print">';
+			
+			if ($total_page > 9 && $curr_page > 2)
+		   		$page .='<li><a href="'.$url.'1"><<</a></li>';
+			if ($curr_page > 1)
+				$page .='<li><a href="'.$url.($curr_page-1).'"><</a></li>';
+		   
+			if ($total_page < 10) {
+				for($x = 1;$x <= $total_page;$x++) {
+					
+					$active = '';
+					
+					if($x == $curr_page)
+						$active = 'class="active"';
+					
+					$page .='<li '.$active.'><a href="'.$url.$x.'">'.$x.'</a></li>';
+					
+				}
+			}
+			else
+			{
+				if ($curr_page > 3) {
+					for($x = $curr_page-2;$x <= $curr_page-1; $x++) {
+						$page .='<li><a href="'.$url.$x.'">'.$x.'</a></li>';
+					}
+				}
+				else
+				{
+					for($x = 1;$x <= 2;$x++) {
+						$active = '';
+					
+						if($x == $curr_page)
+							$active = ' class="active"';
+						
+						$page .='<li'.$active.'><a href="'.$url.$x.'">'.$x.'</a></li>';
+					}
+				}
+
+				if ($curr_page >= 3 && $total_page - $curr_page > 3)
+					// $page .='<li><a href="#">'.($curr_page).' / '.$total_page.'</a></li>';
+					$page .='<li class="active"><a href="#">'.($curr_page).'</a></li>';
+
+				if ($total_page - $curr_page > 3) {
+					
+					if ($curr_page == 1) {
+						for($x = $curr_page+2;$x <= $curr_page+3; $x++) {
+							$page .='<li><a href="'.$url.$x.'">'.$x.'</a></li>';
+						}
+					}
+					else
+					{
+						for($x = $curr_page+1;$x <= $curr_page+2; $x++) {
+							$page .='<li><a href="'.$url.$x.'">'.$x.'</a></li>';
+						}
+					}
+				}
+			}
+			if ($curr_page < $total_page)
+				$page .='<li><a href="'.$url.($curr_page+1).'">></a></li>';
+			if ($total_page > 9)
+				$page .='<li><a href="'.$url.$total_page.'">>></a></li>';
+				
+			$page .='</ul>';
+		}
+			
+		return $page;
 	}
 }

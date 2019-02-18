@@ -6,10 +6,8 @@
 				<div class="container">
 					<div class="single-grids">
 						<div clas="single-top">
-							<!-- <div class="single-left"> -->
 							<div class="col-md-4 col-sm-4 col-xs-12">
 								<div class="row">
-									<!-- <div class="thumb-image"> <img src="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>" data-imagezoom="true" class="img-responsive2"> </div> -->
 									<div class="flexslider">
 										<ul class="slides">
 											<li data-thumb="<?=base_url($this->data['products_dir'].'/'.$this->data['product']->gambar);?>">
@@ -23,11 +21,9 @@
 											</li> 
 										</ul>
 									</div>
-									<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/wVHoD1eQPE4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 								</div>
 							</div>
 
-							<!-- <div class="single-right simpleCart_shelfItem"> -->
 							<div class="col-md-4 col-sm-4 col-xs-12">
 								<form id="formAdd" action="<?= site_url('cart/add'); ?>" method="post">
 								<input type="hidden" name="kode" value="<?= $this->data['product']->kdbar ?>">
@@ -44,9 +40,6 @@
 								<p class="price item_price">Rp <?= $this->data['product']->hjual ?></p>
 								<?php endif; ?>
 								
-								<!--<div class="description">
-									<p><span>Fitur: </span> In cursus faucibus tortor eu vestibulum. Ut eget turpis ac justo porta varius. Donec vel felis ante, ac vehicula ipsum. Quisque sed diam metus. Quisque eget leo sit amet erat varius rutrum vitae dapibus lectus. Vivamus et sapien ante. Suspendisse potenti. Fusce in tellus est, ac consequat.</p>
-								</div>-->
 								<div class="color-quality">
 									<h6>Quantity:</h6>
 										<div class="quantity"> 
@@ -79,7 +72,6 @@
 										</script>
 								</div>
 								<div class="women">
-									<!-- <a href="javascript:{}" onclick="document.getElementById('formAdd').submit(); return false;" data-text="Add To Cart" class="my-cart-b item_add">Add To Cart</a> -->
 									<a id="qtyOrder" href="<?= current_url().'?action=add&code='.$this->data['product']->kdurl ?>" class="my-cart-b item_add">Add To Cart</a>
 								</div>
 								<div class="social-icon">
@@ -221,11 +213,9 @@ jQuery(function() {
 						<div id="owl-demo" class="owl-carousel owl-theme owl-loaded owl-drag">
 
 							<?php
-								// for($i=0; $i<6;$i++) $this->data['related'][$i]
 								$index = 0;
 								foreach ($this->data['related'] as $item) {
 							?>
-							<!-- <div class="col-md-3 related-grid simpleCart_shelfItem"> -->
 							<div class="item related">
 								<div class="grid-rel">
 									<div class="grid-related">
@@ -247,7 +237,6 @@ jQuery(function() {
 							</div>
 							<?php 
 								$index++;
-								// if ($index == 6) break;
 								} ?>
 							<div class="clearfix"></div>
 						</div>
@@ -283,7 +272,7 @@ jQuery(function() {
 								</div>
 								<?php }
 									if(isset($this->data['showbutton'])) {
-									// if($this->data['totreviews'] > 3): ?>
+								?>
 									<a class="all-reviews" href="<?=current_url().'?action=getall';?>">Read All Reviews</a>
 								<?php } ?>
 							</div>
@@ -293,7 +282,7 @@ jQuery(function() {
 								Your Rating
 								<form id="formReview" action="<?=current_url().'?action=comment';?>" method="post">
 								<div class="block">
-									<div class="starbox small ghosting" data-start-value="<?=isset($this->data['rating']) ? $this->data['rating'] : '0';?>"><div class="positioner" style=""><div class="stars"><div class="ghost" style="width: 0px; display: none;"></div><div class="colorbar" style="width: 42.5px;"></div><div class="star_holder"><div class="star star-0"></div><div class="star star-1"></div><div class="star star-2"></div><div class="star star-3"></div><div class="star star-4"></div></div></div></div></div>
+									<div class="starbox small ghosting" data-start-value="<?=isset($this->data['rating']) ? $this->data['rating'] : '0'; ?>"><div class="positioner" style=""><div class="stars"><div class="ghost" style="width: 0px; display: none;"></div><div class="colorbar" style="width: 42.5px;"></div><div class="star_holder"><div class="star star-0"></div><div class="star star-1"></div><div class="star star-2"></div><div class="star star-3"></div><div class="star star-4"></div></div></div></div></div>
 								</div>
 									<input type="hidden" name="kdbar" value="<?= $this->data['product']->kdbar ?>">
 									<input type="hidden" name="url" value="<?= current_url() ?>">

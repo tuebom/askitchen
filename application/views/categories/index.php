@@ -47,7 +47,6 @@
 									</ul>
 									
 									<script type="text/javascript">
-									// $(window).load(function(){
 										
 										function isNumber(evt) {
 											evt = (evt) ? evt : window.event;
@@ -67,26 +66,20 @@
 											if (p1 == '' || p2 == '') {
 												return false;
 											}
-											var newUri = theUrl + '&p1='+p1+'&p2='+p2; //$(this).attr('href') + stringToSend;
+											var newUri = theUrl + '&p1='+p1+'&p2='+p2;
 											$(this).attr("href", newUri);
 											window.location.href = $(this).attr('href');
 										});
-
-									// })
 									
 									</script>
 									 
 								</div>
 								<div class="brand-w3l">
-									<label class="title">Brand</label>
+									<label class="title">Brand</label> <!-- display all brand -->
 									<ul>
 										<?php foreach($brands as $item) { ?>
 										<li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&b=GEA'); ?>">GEA</a></li>
 										<?php } ?>
-										<!-- <li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&b=GETRA'); ?>">GETRA</a></li>
-										<li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&b=SANDEN'); ?>">SANDEN</a></li>
-										<li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&b=MADIN'); ?>">MADIN</a></li>
-										<li><a href="<?php echo site_url('search?q='.$this->data['kode'].'&b=OTHER'); ?>">OTHER</a></li> -->
 									</ul>
 								</div>
 							</div>

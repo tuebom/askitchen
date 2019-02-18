@@ -50,7 +50,7 @@
 	<link rel="stylesheet" type="text/css" href="<?=base_url('css/jquery-ui.css');?>">
 	
 	<!--<link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/bootstrap/css/bootstrap.min.css'); ?>">-->
-    <link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/font-awesome/css/font-awesome.min.css'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/font-awesome/css/font-awesome.min.css'); ?>">
 	<link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/adminlte/css/adminlte.min.css'); ?>">
 	<!-- <link rel="stylesheet" type="text/css" href="<?=base_url($frameworks_dir . '/adminlte/plugins/iCheck/flat/blue.css'); ?>"> -->
 	<link rel="stylesheet" type="text/css" href="<?=base_url('css/style.css');?>" media="all"/>
@@ -156,66 +156,6 @@ $(window).load(function() {
 	});
 </script>
 
-<style>
-
-.control {
-  display: block;
-  position: relative;
-  padding-left: 30px;
-  margin-bottom: 15px;
-  cursor: pointer;
-}
-.control input {
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
-}
-.control:hover input, .control__indicator,
-.control input:focus, .control__indicator {
-  background: #ccc;
-}
-.control input:checked, .control__indicator {
-  background: #2aa1c0;
-}
-.control:hover input:not([disabled]):checked, .control__indicator,
-.control input:checked:focus, .control__indicator {
-  background: #0e647d;
-}
-.control input:disabled, .control__indicator {
-  background: #e6e6e6;
-  opacity: 0.6;
-  pointer-events: none;
-}
-.control__indicator {
-  position: absolute;
-  top: 2px;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  background: #e6e6e6;
-}
-.control__indicator:after {
-  content: '';
-  position: absolute;
-  display: none;
-}
-.control input:checked, .control__indicator:after {
-  display: block;
-}
-.control--checkbox .control__indicator:after {
-  left: 8px;
-  top: 4px;
-  width: 3px;
-  height: 8px;
-  border: solid #fff;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
-.control--checkbox input:disabled, .control__indicator:after {
-  border-color: #7b7b7b;
-}
-
-</style>
 <?php if ($mobile === FALSE): ?>
 	<!--[if lt IE 9]>
 		<script src="<?php echo base_url($plugins_dir . '/html5shiv/html5shiv.min.js'); ?>"></script>
@@ -341,7 +281,7 @@ $(window).load(function() {
 			<div class="header-top-most">
 				<div class="container2">
 					<div class="top-left">
-						<a href="#"><img id="img-logo" class="img-header" src="<?= site_url('images/askitchen2.png'); ?>" alt="ASKITCHEN Logo" hspace="3" /></a>
+						<a href="#"><img id="img-logo" class="img-header" src="<?= site_url('images/askitchen.jpg'); ?>" alt="ASKITCHEN Logo" hspace="3" /></a>
 						<a href="http://www.asovic.co.id/" target="_blank"><img class="img-header" src="<?= site_url('images/asovic.jpg'); ?>" alt="ASOVIC Logo" hspace="3" /></a>
 						<a href="http://www.muchef.com/" target="_blank"><img class="img-header" src="<?= site_url('images/muchef.jpg'); ?>" alt="MUCHEF Logo" hspace="3" /></a>
 					</div>
@@ -377,9 +317,6 @@ $(window).load(function() {
 								</div>
 								<input type="text" name="q" class="form-control" placeholder="Search for..." value="">
 								<span class="input-group-btn">
-									<!--<a href="javascript:void(0);" onclick="frmSearch.submit();">
-									<img src="<?= site_url('images/search.png'); ?>"></a>-->
-									
 									<button id='search-btn' class="btn btn-default-go" type="button" onclick="frmSearch.submit();"><img class="img-go" src="<?= site_url('images/search.png'); ?>"></button>
 								</span>
 							</div>
@@ -405,7 +342,6 @@ $(window).load(function() {
 											// if ($index == 5) break;
 										}
 									?>
-									<!--<li><a href="#">%BB</a></li>-->
 								</ul>
 							</div>
 						</nav>
@@ -488,7 +424,6 @@ $(window).load(function() {
 									</li>
 									<?php 
 											$index++;
-											// if ($index == 5) break;
 										}
 									?>
 								</ul>
