@@ -65,15 +65,12 @@ class Inventory extends Admin_Controller {
 			{
 				$url   = current_url() . '?p=';
 				$this->session->unset_userdata('q');
-				// $this->session->unset_userdata('url');
 			}
 			$this->session->set_userdata('url', $url.$page);
 
 			$this->data['inventory'] = $this->inventory_model->get_limit_data($pagingx, $offset, $q);
 			$total = $this->inventory_model->total_rows($q);
 
-			// $url   = current_url() . '?p=';
-			
 			$this->data['pagination'] = $this->paging($total, $page, $url);
 
 			/* Load Template */
