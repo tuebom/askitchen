@@ -33,7 +33,16 @@
 								<div class="block">
 									<div class="starbox small ghosting unchangeable" data-start-value="<?= $this->data['item_rating']->rating ?>"> </div>
 								</div>
-								<span class="size"><?= $this->data['product']->pnj; ?> x <?= $this->data['product']->lbr; ?> x <?= $this->data['product']->tgi; ?> CM</span>
+								<span class="size"><?= $this->data['product']->pnj; ?> x <?= $this->data['product']->lbr; ?> x <?= $this->data['product']->tgi; ?> CM</span><br>
+								<?php if ($product->listrik) { ?>
+									<span class="size">Electricity: <?= $product->listrik; ?></span><br>
+								<?php } ?>
+								<?php if ($product->kapasitas) { ?>
+								<span class="size">Capacity: <?= $product->kapasitas; ?></span>
+								<?php } ?>
+								<?php if ($product->gas) { ?>
+								<span class="size"><?= $product->gas; ?></span>
+								<?php } ?>
 								<?php if($this->data['product']->kriteria == 'P') : ?>
 								<p class="price item_price">Rp <?= $this->data['product']->hpromof ?></p>
 								<?php else :?>

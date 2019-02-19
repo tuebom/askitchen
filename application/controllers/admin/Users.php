@@ -12,11 +12,11 @@ class Users extends Admin_Controller {
 		$this->load->model('ion_auth_model');
 
         /* Title Page :: Common */
-        $this->page_title->push(lang('menu_users'));
+        $this->page_title->push(lang('menu_members'));
         $this->data['pagetitle'] = $this->page_title->show();
 
         /* Breadcrumbs :: Common */
-        $this->breadcrumbs->unshift(1, lang('menu_users'), 'admin/users');
+        $this->breadcrumbs->unshift(1, lang('menu_members'), 'admin/users');
     }
 
 

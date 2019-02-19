@@ -58,14 +58,16 @@ class Inventory extends Admin_Controller {
 			$q  = $this->input->get('q');
 			if ($q)
 			{
-				$this->session->set_flashdata('q', $q);
 				$url   = current_url() . '?q='.$q.'&p=';
+				$this->session->set_userdata('q', $q);
 			}
 			else
 			{
-				$this->session->unset_userdata('q');
 				$url   = current_url() . '?p=';
+				$this->session->unset_userdata('q');
+				// $this->session->unset_userdata('url');
 			}
+			$this->session->set_userdata('url', $url.$page);
 
 			$this->data['inventory'] = $this->inventory_model->get_limit_data($pagingx, $offset, $q);
 			$total = $this->inventory_model->total_rows($q);
@@ -357,7 +359,14 @@ class Inventory extends Admin_Controller {
 				    if ($this->ion_auth->is_admin())
 					{
 						if (isset($_SESSION['last_page'])) {
-							redirect('admin/inventory?p='.$_SESSION['last_page'], 'refresh');
+							if (isset($_SESSION['q']))
+							{
+								redirect('admin/inventory?q='.$_SESSION['q'].'&p='.$_SESSION['last_page'], 'refresh');
+							}
+							else
+							{
+								redirect('admin/inventory?p='.$_SESSION['last_page'], 'refresh');
+							}
 						} else {
 							redirect('admin/inventory', 'refresh');
 						}

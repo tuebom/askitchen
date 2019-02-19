@@ -22,9 +22,6 @@ $host_prod = 'your_domain.tld';
 
 Coming soon
 
-### Login
- * Email : `admin@admin.com` / Password : `password`
-
 ## Browser Compatibility
 Support for most major browsers including Chrome, Firefox, IE9+, Opera and Safari.
 
