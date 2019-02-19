@@ -211,7 +211,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <div class="btn-group">
                                                 <?php echo form_button(array('type' => 'submit', 'class' => 'btn btn-primary btn-flat', 'content' => lang('actions_submit'))); ?>
                                                 <?php echo form_button(array('type' => 'reset', 'class' => 'btn btn-warning btn-flat', 'content' => lang('actions_reset'))); ?>
-                                                <?php echo anchor(isset($_SESSION['last_page'])?'admin/inventory?p='.$_SESSION['last_page']:'admin/inventory', lang('actions_cancel'), array('class' => 'btn btn-default btn-flat')); ?>
+                                                <?php echo anchor(isset($_SESSION['url'])?$_SESSION['url']:'admin/inventory', lang('actions_cancel'), array('class' => 'btn btn-default btn-flat')); ?>
                                             </div>
                                         </div>
                                     </div>
@@ -267,7 +267,8 @@ $(document).ready(function() {
         $.each(data.files, function (index, file) {
             
             $('.product-img-edit').css('display', 'none');
-            $('#gambar').val(file.name);
+            
+            $('#gambar').val(file.name); //update nama file
             
             var node = $('<p/>');
                     // .append($('<span/>').text(file.name));

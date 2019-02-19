@@ -23,9 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <div class="col-sm-6">
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-sm-6">
-                                            <!-- <form class="frmpaging" action="<?= site_url('admin/inventory/setpaging'); ?>" method="post"> -->
                                             <div class="dataTables_length" id="example1_length">
                                             <label style="display: flex; align-items: center;">Show&nbsp;<select name="example1_length" aria-controls="example1" class="form-control input-sm" style="width: 60px;">
                                                 <option value="10"<?= (!isset($_SESSION['paging'])) ? '': ($_SESSION['paging']=='10') ? ' selected="selected"':''; ?>>10</option>
@@ -33,23 +32,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <option value="50"<?= (!isset($_SESSION['paging'])) ? '': ($_SESSION['paging']=='50') ? ' selected="selected"':''; ?>>50</option>
                                                 <option value="100"<?= (!isset($_SESSION['paging'])) ? '': ($_SESSION['paging']=='100') ? ' selected="selected"':''; ?>>100</option>
                                             </select>&nbsp;entries</label></div>
-                                            <!--</form>-->
                                         </div>
                                         <div class="col-sm-6">
-                                            <form class="frmfilter" action="<?= site_url('admin/inventory'); ?>" method="get">
+                                            <form class="frmfilter" action="<?= site_url('admin/subcategories2'); ?>" method="get">
                                             <div class="box-tools pull-right">
                                                 <div class="has-feedback">
                                                     <div id="search_filter" class="dataTables_filter">
-                                                        <!-- <label>Search: -->
                                                         <input type="search" name="q" value="<?=isset($_SESSION['q'])?$_SESSION['q']:''; ?>" class="form-control input-sm" placeholder="" aria-controls="example1">
-                                                        <!-- </label> -->
                                                         <span class="glyphicon glyphicon-search form-control-feedback"></span>
                                                     </div>
                                                 </div>
                                             </div>
                                             </form>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="box-body table-responsive">
                                     <table class="table table-striped table-hover">
@@ -92,9 +88,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $(document).ready(function(){
         
     $('.dataTables_length').change(function(){
+        // alert('tes')
         $.ajax({
             type: "POST",
-            url: <?php echo '"'.site_url().'admin/subcategory/setpaging/"' ?> + $('.dataTables_length option:selected').val(),
+            url: <?php echo '"'.site_url().'admin/subcategories2/setpaging/"' ?> + $('.dataTables_length option:selected').val(),
             success:function(json){
                 // var data = json.data;
                 location.reload();
