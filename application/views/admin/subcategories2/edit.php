@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <?php echo $message;?>
 
                                     <?php echo form_open(uri_string(), array('class' => 'form-horizontal', 'id' => 'form-edit_inventory')); ?>
-                                    <div class="col-md-7">
+                                    <div class="col-md-9">
                                         
                                         <div class="form-group">
                                             <?php echo lang('subcategory_kdgol3', 'kdurl', array('class' => 'col-sm-3 control-label')); ?>

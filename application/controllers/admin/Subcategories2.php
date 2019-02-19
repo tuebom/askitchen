@@ -242,6 +242,23 @@ class Subcategories2 extends Admin_Controller {
 	}
 	
 	
+	public function setpaging($length){
+
+		$length = (int) $length;
+		$this->session->set_userdata('paging', $length);
+
+		$data = array(
+			'status' => TRUE
+		);
+		return $this->output
+		->set_content_type('application/json')
+		->set_status_header(200)
+		->set_output(json_encode(array(
+				'data' => $data
+		)));
+	}
+	
+	
 	public function paging($total,$curr_page,$url){
     
 		$page = '';

@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <?php echo form_open(current_url(), array('class' => 'form-horizontal', 'id' => 'form-create_subcategory')); ?>
                                     <?php echo form_hidden($kdgol); ?>
                                     <?php echo form_hidden($kdgol2); ?>
-                                    <div class="col-md-7">
+                                    <div class="col-md-9">
 
                                         <div class="form-group">
                                             <?php echo lang('subcategory_kdgol3', 'kdurl', array('class' => 'col-sm-3 control-label')); ?>
@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <?php echo lang('inventory_picture', 'gambar', array('class' => 'col-sm-3 control-label')); ?>
+                                            <?php echo lang('subcategory_picture', 'gambar', array('class' => 'col-sm-3 control-label')); ?>
                                                 <div class="col-sm-9">
                                                     <?php echo form_input($gambar);?>
                                                 </div>
@@ -60,13 +60,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-offset-2 col-sm-10">
-                                            <div class="btn-group">
-                                                <?php echo form_button(array('type' => 'submit', 'class' => 'btn btn-primary btn-flat', 'content' => lang('actions_submit'))); ?>
-                                                <?php echo form_button(array('type' => 'reset', 'class' => 'btn btn-warning btn-flat', 'content' => lang('actions_reset'))); ?>
-                                                <?php echo anchor('admin/subcategories2/detail/'.$_SESSION['kdgol2'], lang('actions_cancel'), array('class' => 'btn btn-default btn-flat')); ?>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <div class="btn-group">
+                                                    <?php echo form_button(array('type' => 'submit', 'class' => 'btn btn-primary btn-flat', 'content' => lang('actions_submit'))); ?>
+                                                    <?php echo form_button(array('type' => 'reset', 'class' => 'btn btn-warning btn-flat', 'content' => lang('actions_reset'))); ?>
+                                                    <?php echo anchor('admin/subcategories2/detail/'.$_SESSION['kdgol2'], lang('actions_cancel'), array('class' => 'btn btn-default btn-flat')); ?>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
