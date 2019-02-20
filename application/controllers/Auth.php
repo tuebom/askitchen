@@ -66,8 +66,8 @@ class Auth extends Public_Controller { /*MY_Controller*/
                         $this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 
                         /* Load Template */
-                        $this->template->auth_render('auth/choice', $this->data);
-                        // redirect('admin', 'refresh');
+                        // $this->template->auth_render('auth/choice', $this->data);
+                        redirect('admin', 'refresh');
                     }
                 }
                 else

@@ -102,15 +102,6 @@
 				<img src="<?php echo site_url($this->data['banner_dir'].'/'.$item->filename); ?>" class="img-responsive" alt="">
 			</div>
 		<?php } ?>
-            <!-- <div>
-				<img src="<?php echo site_url('images/ban1-5.jpg'); ?>" class="img-responsive" alt="">
-            </div>
-            <div>
-				<img src="<?php echo site_url('images/ban1-3.jpg'); ?>" class="img-responsive" alt="">
-            </div>
-            <div>
-				<img src="<?php echo site_url('images/ban1-4.jpg'); ?>" class="img-responsive" alt="">
-            </div> -->
         </div>
         <!-- Bullet Navigator -->
         <div data-u="navigator" class="jssorb051" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
@@ -137,8 +128,8 @@
 
 	// When the user clicks on the button, scroll to the top of the document
 	function topFunction() {
-	document.body.scrollTop = 0;
-	document.documentElement.scrollTop = 0;
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
 	}
 	</script>
 	

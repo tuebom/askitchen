@@ -126,7 +126,8 @@
 														</div>
 														<div class="ribben">
 															<p>-<?=$item->diskon;?>%</p>
-														</div>														<!-- <div class="block">
+														</div>
+														<!-- <div class="block">
 															<div class="starbox small ghosting unchangeable"> </div>
 														</div> -->
 														<div class="women">

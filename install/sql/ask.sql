@@ -114,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `districts` (
   CONSTRAINT `districts_regency_id_foreign` FOREIGN KEY (`regency_id`) REFERENCES `regencies` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table ask.districts: ~7.135 rows (approximately)
+-- Dumping data for table ask.districts: ~7.183 rows (approximately)
 /*!40000 ALTER TABLE `districts` DISABLE KEYS */;
 INSERT INTO `districts` (`id`, `regency_id`, `name`) VALUES
 	('1101010', '1101', 'TEUPAH SELATAN'),
@@ -7294,7 +7294,7 @@ INSERT INTO `districts` (`id`, `regency_id`, `name`) VALUES
 	('9433033', '9433', 'OMUKIA'),
 	('9433040', '9433', 'SINAK'),
 	('9433041', '9433', 'SINAK BARAT'),
-	('9433042', '9433', 'MAGEÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚ÂBUME'),
+	('9433042', '9433', 'MAGEÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢Ãƒ'),
 	('9433043', '9433', 'YUGUMUAK'),
 	('9433050', '9433', 'POGOMA'),
 	('9433051', '9433', 'KEMBRU'),
@@ -7425,7 +7425,7 @@ CREATE TABLE IF NOT EXISTS `golongan3` (
   PRIMARY KEY (`kdgol`,`kdgol2`,`kdgol3`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
--- Dumping data for table ask.golongan3: 127 rows
+-- Dumping data for table ask.golongan3: 126 rows
 /*!40000 ALTER TABLE `golongan3` DISABLE KEYS */;
 INSERT INTO `golongan3` (`kdgol`, `kdgol2`, `kdgol3`, `nama`, `info`, `gambar`, `detail`) VALUES
 	('01', '01.01', '01.01.01', 'Chest Freezer', 'Box tempat penyimpanan bahan makanan yang akan dibekukan seperti daging, bakso, nuget, sosis, dsb. Dengan berbagai ukuran yang disesuaikan untuk kebutuhan masing-masing.', 'AS.AB-106R.png', 'N'),
@@ -7553,8 +7553,7 @@ INSERT INTO `golongan3` (`kdgol`, `kdgol2`, `kdgol3`, `nama`, `info`, `gambar`, 
 	('08', '08.08', '08.08.04', 'Stand Oven', 'Meja stainless steel khusus untuk tempat meletakkan oven.\r\n', 'STSO-11.png', 'N'),
 	('08', '08.08', '08.08.05', 'Trolley', 'Troli untuk tray oven.\r\n', 'STTR-13.png', 'N'),
 	('08', '08.08', '08.08.06', 'Miscelaneous Table', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.', 'STWUDR-100.png', 'N'),
-	('08', '08.08', '08.08.07', 'Grease Trap', 'Box untuk menyaring kotoran dan minyak pada sink.\r\n', 'GT-433.png', 'N'),
-	('02', '02.02', '02.02.04', 'ITEM X1234', NULL, NULL, 'N');
+	('08', '08.08', '08.08.07', 'Grease Trap', 'Box untuk menyaring kotoran dan minyak pada sink.\r\n', 'GT-433.png', 'N');
 /*!40000 ALTER TABLE `golongan3` ENABLE KEYS */;
 
 
@@ -7749,7 +7748,7 @@ CREATE TABLE IF NOT EXISTS `regencies` (
   CONSTRAINT `regencies_province_id_foreign` FOREIGN KEY (`province_id`) REFERENCES `provinces` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table ask.regencies: ~634 rows (approximately)
+-- Dumping data for table ask.regencies: ~291 rows (approximately)
 /*!40000 ALTER TABLE `regencies` DISABLE KEYS */;
 INSERT INTO `regencies` (`id`, `province_id`, `name`) VALUES
 	('1101', '11', 'KABUPATEN SIMEULUE'),
@@ -8283,7 +8282,7 @@ CREATE TABLE IF NOT EXISTS `reviews` (
   KEY `kdbar` (`kdbar`)
 ) ENGINE=InnoDB AUTO_INCREMENT=240 DEFAULT CHARSET=utf8;
 
--- Dumping data for table ask.reviews: ~195 rows (approximately)
+-- Dumping data for table ask.reviews: ~265 rows (approximately)
 /*!40000 ALTER TABLE `reviews` DISABLE KEYS */;
 INSERT INTO `reviews` (`id`, `kdbar`, `rating`, `name`, `email`, `comment`, `timestamp`) VALUES
 	(1, 'A-530V', 0, 'Eka', 'eka@gmail.com', 'Produknya bagus', '2019-02-18 09:51:36'),
@@ -8600,7 +8599,7 @@ CREATE TABLE IF NOT EXISTS `stock` (
   KEY `kdurl` (`kdurl`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table ask.stock: ~770 rows (approximately)
+-- Dumping data for table ask.stock: ~701 rows (approximately)
 /*!40000 ALTER TABLE `stock` DISABLE KEYS */;
 INSERT INTO `stock` (`kdbar`, `kdurl`, `nama`, `kdgol`, `kdgol2`, `kdgol3`, `deskripsi`, `satuan`, `merk`, `pnj`, `lbr`, `tgi`, `gambar`, `listrik`, `kapasitas`, `gas`, `berat`, `fitur`, `kriteria`, `tag`, `hjual`, `hpromo`, `disc`, `saldo`, `last_update`) VALUES
 	('02810002', '02810002', 'Kitchen Aid Mixer Empire Red', '06', '06.01', NULL, NULL, 'pcs', 'Kitchen Aid', '47.0', '25.5', '46.5', '02810002.png', '400 WATT / 220 V', 'Bowl : 4.8 Liter', NULL, 15, NULL, 'N', NULL, 11000000, 11000000, 0, 0, '2019-02-09 10:40:31'),
@@ -9043,8 +9042,8 @@ INSERT INTO `stock` (`kdbar`, `kdurl`, `nama`, `kdgol`, `kdgol2`, `kdgol3`, `des
 	('SD-132P', 'SD-132P', 'Sliding Flat Glass Freezer 132 Liter', '01', '01.01', '01.01.05', 'Box penyimpanan bahan makanan yang akan dibekukan. Menggunakan pintu sliding kaca untuk mendisplay sehingga memudahkan user untuk melihat isi dalamnya.\r\n', 'pcs', 'GEA', '73.5', '54', '92', 'AS.SD132P.png', '160 WATT / 220 V', '132 Liter', NULL, 46, '1. CFC Free<br>\r\n2. Energy Saving<br>\r\n3. Climate Zone<br>\r\n4. Low Noise<br>\r\n5. Fast Cooling<br>\r\n6. Electric Shock Protection.', NULL, NULL, 3400000, 3400000, 0, 0, '2019-02-19 15:22:10'),
 	('SD-1500QS', 'SD-1500QS', 'Sliding Curve Glass Freezer 415 Liter', '01', '01.01', '01.01.06', 'Box penyimpanan bahan makanan yang akan dibekukan. Menggunakan pintu sliding kaca untuk mendisplay sehingga memudahkan user untuk melihat isi dalamnya. Pintu kaca sliding berbentuk lengkung untuk sehingga freezer lebih terlihat premium.\r\n', 'pcs', 'GEA', '150', '89', '95', 'AS.SD-1500QS.png', '500 WATT / 220 V', '415 Liter', NULL, 125, '1. Analogue thermometer<br>\r\n2. Key lock<br>\r\n3. Castor<br>\r\n4. Sliding curve glass door<br>\r\n5. Refrigerant : R134a', NULL, NULL, 18500000, 18500000, 0, 0, '2019-02-19 15:22:10'),
 	('SD-160BY', 'SD-160BY', 'Sliding Curve Glass Freezer 160 Liter', '01', '01.01', '01.01.06', 'Box penyimpanan bahan makanan yang akan dibekukan. Menggunakan pintu sliding kaca untuk mendisplay sehingga memudahkan user untuk melihat isi dalamnya. Pintu kaca sliding berbentuk lengkung untuk sehingga freezer lebih terlihat premium.\r\n', 'pcs', 'GEA', '66.5', '70.5', '87.5', 'AS.SD160BY.png', '184 WATT / 220 V', '160 Liter', NULL, 42, '1. LED Light<br>\r\n2. Key Lock<br>\r\n3. Castor<br>\r\n4. Curve glass sliding<br>\r\n5. Refigerant : R134a\r\n', NULL, NULL, 5300000, 5300000, 0, 0, '2019-02-19 15:22:10'),
-	('SD-186', 'SD-186', 'Sliding Flat Glass Freezer 186 Liter', '01', '01.01', '01.01.05', 'Box penyimpanan bahan makanan yang akan dibekukan. Menggunakan pintu sliding kaca untuk mendisplay sehingga memudahkan user untuk melihat isi dalamnya.\r\n', 'pcs', 'GEA', '93', '54', '85', 'AS.SD186.png', '196 WATT / 220 V', '186 Liter', NULL, 43, '1. CFC Free<br>\r\n2. Energy Saving<br>\r\n3. Climate Zone<br>\r\n4. Low Noise<br>\r\n5. Fast Cooling<br>\r\n6. Electric Shock Protection.', NULL, NULL, 3500000, 3500000, 0, 0, '2019-02-19 15:22:10'),
-	('SD-2000QS', 'SD-2000QS', 'Sliding Curve Glass Freezer 568 Liter', '01', '01.01', '01.01.06', 'Box penyimpanan bahan makanan yang akan dibekukan. Menggunakan pintu sliding kaca untuk mendisplay sehingga memudahkan user untuk melihat isi dalamnya. Pintu kaca sliding berbentuk lengkung untuk sehingga freezer lebih terlihat premium.\r\n', 'pcs', 'GEA', '200', '89', '95', 'AS.SD-2000QS.png', '650 WATT / 220 V', '568 Liter', NULL, 170, '1. Analogue thermometer<br>\r\n2. Key lock<br>\r\n3. Castor<br>\r\n4. Sliding curve glass door<br>\r\n5. Refrigerant : R134a', NULL, NULL, 22300000, 22300000, 0, 0, '2019-02-19 15:22:10'),
+	('SD-186', 'SD-186', 'Sliding Flat Glass Freezer 186 Liter', '01', '01.01', '01.01.05', 'Box penyimpanan bahan makanan yang akan dibekukan. Menggunakan pintu sliding kaca untuk mendisplay sehingga memudahkan user untuk melihat isi dalamnya.\r\n', 'pcs', 'GEA', '93', '54', '85', 'AS.SD186.png', '196 WATT / 220 V', '186 Liter', '', 43, '1. CFC Free<br>\r\n2. Energy Saving<br>\r\n3. Climate Zone<br>\r\n4. Low Noise<br>\r\n5. Fast Cooling<br>\r\n6. Electric Shock Protection.', '', '', 3500000, 3500000, 0, 0, '2019-02-20 12:19:07'),
+	('SD-2000QS', 'SD-2000QS', 'Sliding Curve Glass Freezer 568 Liter', '01', '01.01', '01.01.06', 'Box penyimpanan bahan makanan yang akan dibekukan. Menggunakan pintu sliding kaca untuk mendisplay sehingga memudahkan user untuk melihat isi dalamnya. Pintu kaca sliding berbentuk lengkung untuk sehingga freezer lebih terlihat premium.\r\n', 'pcs', 'GEA', '200', '89', '95', 'AS.SD-2000QS.png', '650 WATT / 220 V', '568 Liter', '', 170, '1. Analogue thermometer<br>\r\n2. Key lock<br>\r\n3. Castor<br>\r\n4. Sliding curve glass door<br>\r\n5. Refrigerant : R134a', '', '', 22300000, 22300000, 0, 0, '2019-02-20 12:20:25'),
 	('SD-256', 'SD-256', 'Sliding Flat Glass Freezer 256 Liter', '01', '01.01', '01.01.05', 'Box penyimpanan bahan makanan yang akan dibekukan. Menggunakan pintu sliding kaca untuk mendisplay sehingga memudahkan user untuk melihat isi dalamnya.\r\n', 'pcs', 'GEA', '107', '60', '85', 'AS.SD256.png', '220 WATT / 220 V', '256 Liter', NULL, 48, '1. CFC Free<br>\r\n2. Energy Saving<br>\r\n3. Climate Zone<br>\r\n4. Low Noise<br>\r\n5. Fast Cooling<br>\r\n6. Electric Shock Protection.', NULL, NULL, 4400000, 4400000, 0, 0, '2019-02-19 15:22:10'),
 	('SD-260-ICS', 'SD-260-ICS', 'Gelato Showcase 5 Bin', '02', '02.02', '02.02.01', 'Showcase untuk memajang es krim maupun gelato. \r\n', 'pcs', 'GEA', '99', '70.5', '122', 'AS.SD-260-ICS.png', '203 WATT / 220 V', '5 bin @ 5 Liter', NULL, 70, NULL, NULL, NULL, 12750000, 12750000, 0, 0, '2019-02-19 15:22:10'),
 	('SD-260BY', 'SD-260BY', 'Sliding Curve Glass Freezer 260 Liter', '01', '01.01', '01.01.06', 'Box penyimpanan bahan makanan yang akan dibekukan. Menggunakan pintu sliding kaca untuk mendisplay sehingga memudahkan user untuk melihat isi dalamnya. Pintu kaca sliding berbentuk lengkung untuk sehingga freezer lebih terlihat premium.\r\n', 'pcs', 'GEA', '99', '80.6', '87.5', 'AS.SD260BY.png', '203 WATT / 220 V', '260 Liter', NULL, 57, '1. LED Light<br>\r\n2. Key Lock<br>\r\n3. Castor<br>\r\n4. Curve glass sliding<br>\r\n5. Refigerant : R134a\r\n', NULL, NULL, 5900000, 5900000, 0, 0, '2019-02-19 15:22:10'),
@@ -9336,7 +9335,6 @@ INSERT INTO `stock` (`kdbar`, `kdurl`, `nama`, `kdgol`, `kdgol2`, `kdgol3`, `des
 	('WHB-15', 'WHB-15', 'Horizontal Dough Mixer 12 Kg', '06', '06.01', '06.01.03', 'Mesin pengaduk adonan roti. Dapat pula digunakan untuk membuat adonan mie, kulit pastel, dll.\r\n', 'pcs', 'GETRA', '68', '52', NULL, 'AS.WHB-15.png', '750 WATT / 220 V', '12 Kg', NULL, 59, NULL, NULL, 'bakery', 6500000, 6500000, 0, 0, '2019-02-09 10:36:28'),
 	('WHB-25', 'WHB-25', 'Horizontal Dough Mixer 23 Kg', '06', '06.01', '06.01.03', 'Mesin pengaduk adonan roti. Dapat pula digunakan untuk membuat adonan mie, kulit pastel, dll.\r\n', 'pcs', 'GETRA', '80', '62', NULL, 'AS.WHB-25.png', '1.500 WATT / 220 V', '23 Kg', NULL, 88, NULL, NULL, 'bakery', 8600000, 8600000, 0, 0, '2019-02-09 10:36:28'),
 	('WHB-50', 'WHB-50', 'Horizontal Dough Mixer 45 Kg', '06', '06.01', '06.01.03', 'Mesin pengaduk adonan roti. Dapat pula digunakan untuk membuat adonan mie, kulit pastel, dll.\r\n', 'pcs', 'GETRA', '95', '70', NULL, 'AS.WHB-50.png', '2.200 WATT / 380 V', '45 Kg', NULL, 140, NULL, NULL, 'bakery', 13000000, 13000000, 0, 0, '2019-02-09 10:36:28'),
-	('X123', 'X123', 'ITEM X123', '02', '02.01', '02.01.01', 'yyyy', 'pcs', 'ASKITCHEN', '', '', '', '', '', '', '', 0, '', '', '', 1500000, 0, 0, 0, '2019-02-12 16:57:53'),
 	('XHC-16-AC/DC', 'XHC-16-ACDC', 'Lemari Pemanas/Pendingin', '05', '05.02', '05.02.01', NULL, 'pcs', 'GETRA', '29.2', '33.3', NULL, 'AS.XHC-16-ACDC.png', '56 WATT / 220 V', '160 Liter', NULL, 6, '1. Metode thermoelectric element<br>\r\n2. Bisa dijinjing dan dibawa-bawa (portable)<br>\r\n3. Voltase AC 220 V / DC 12 V<br>\r\n4. Insulasi polyurethane padat bebas CFC<br>\r\n5. Tidak bising', NULL, 'bakery', 1100000, 1100000, 0, 0, '2019-02-09 10:39:51'),
 	('XW-400E', 'XW-400E', 'Wine Cooler 83 Botol', '01', '01.02', '01.02.03', 'Kulkas untuk menyimpan wine. Dengan pintu kaca sehingga memudahkan user untuk melihat isi di dalamnya.\r\n', 'pcs', 'GEA', '60', '62.7', '183.5', 'AS.XW400.png', '160 WATT / 220 V', '342 Liter, 83 Botol', NULL, 72, '1. Low Noise<br>\r\n2. Energy saving<br>\r\n3. Wooden Shelves<br>\r\n4. Digital Temprature Display', NULL, NULL, 7700000, 7700000, 0, 0, '2019-02-19 15:22:10'),
 	('XW-85', 'XW-85', 'Wine Cooler 18 Botol', '01', '01.02', '01.02.03', 'Kulkas untuk menyimpan wine. Dengan pintu kaca sehingga memudahkan user untuk melihat isi di dalamnya.\r\n', 'pcs', 'GEA', '44.5', '51', '67.6', 'AS.XW85.png', '82 WATT / 220 V', '85 Liter, 18 Botol', NULL, 24, '1. Low Noise<br>\r\n2. Energy saving<br>\r\n3. Wooden Shelves', NULL, NULL, 3200000, 3200000, 0, 0, '2019-02-19 15:22:10'),
@@ -9375,7 +9373,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table ask.users: ~5 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `address`, `phone`, `province`, `regency`, `district`, `post_code`) VALUES
-	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1550556439, 1, 'admin', 'istrator', 'ABCDEF', 'Jalan Kargo Permai XX', '081916032171', '51', '5103', '5103050', '80117'),
+	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1550636160, 1, 'admin', 'istrator', 'ABCDEF', 'Jalan Kargo Permai XX', '081916032171', '51', '5103', '5103050', '80117'),
 	(2, '::1', 'putu wirya', '$2y$08$tvFyYYIdnc6b8Vz5IvqBVe5oEOsfp2eB6OulIthOQcG/u1AfIJfx2', NULL, 'rokmeowildan@gmail.com', NULL, NULL, NULL, NULL, 1544226665, 1550107495, 1, 'Putu', 'Wirya T.', 'ABCDEF', 'Jalan Kargo Permai XX', '081916032171', '51', '5103', '5103050', '80117'),
 	(3, '::1', 'made budi', '$2y$08$7GoIzuhCEnah8CV6yAv68uoYpRvBUF36HhB7Fg8rRI5Qii7H.lPLi', NULL, 'made_budixyz@gmail.com', NULL, NULL, NULL, NULL, 1546487728, 1550555892, 1, 'Made', 'Budi', 'ATOZ', 'Jalan Kargo Permai XX', '081916032172', '51', '5171', '5171030', '80117'),
 	(4, '::1', 'aswin blank', '$2y$08$8dgRfIjOOdOQgdeuAAXgUO88YMQpf.WEFMRlSQsEXCaPceCnkhk6.', NULL, 'k3r4zy@hotmail.com', NULL, NULL, NULL, NULL, 1548647649, 1548647665, 1, 'Aswin', 'Blank', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
@@ -9419,7 +9417,7 @@ CREATE TABLE IF NOT EXISTS `villages` (
   CONSTRAINT `villages_district_id_foreign` FOREIGN KEY (`district_id`) REFERENCES `districts` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Dumping data for table ask.villages: ~82.372 rows (approximately)
+-- Dumping data for table ask.villages: ~80.772 rows (approximately)
 /*!40000 ALTER TABLE `villages` DISABLE KEYS */;
 INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 	('1101010001', '1101010', 'LATIUNG'),
@@ -73965,7 +73963,7 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 	('7209070013', '7209070', 'BAULU'),
 	('7209070014', '7209070', 'MATOBIYAI'),
 	('7209070015', '7209070', 'SAMPOBAE'),
-	('7209070016', '7209070', 'TITIRIÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â­ POPOLION'),
+	('7209070016', '7209070', 'TITIRIÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢'),
 	('7209080006', '7209080', 'TIGA PULAU'),
 	('7209080007', '7209080', 'LUOK'),
 	('7209080008', '7209080', 'POPOLII'),
@@ -75156,10 +75154,10 @@ INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
 	('7308022002', '7308022', 'ADATONGENG'),
 	('7308022003', '7308022', 'PETTUADAE'),
 	('7308022004', '7308022', 'BORI BELLAYA'),
-	('7308022005', '7308022', 'R A Y A'),
-	('7308022006', '7308022', 'TURIKALE'),
-	('7308022007', '7308022', 'ALLIRITENGAE');
+	('7308022005', '7308022', 'R A Y A');
 INSERT INTO `villages` (`id`, `district_id`, `name`) VALUES
+	('7308022006', '7308022', 'TURIKALE'),
+	('7308022007', '7308022', 'ALLIRITENGAE'),
 	('7308023001', '7308023', 'ALLEPOLEA'),
 	('7308023002', '7308023', 'SOREANG'),
 	('7308023003', '7308023', 'MARRANNU'),
