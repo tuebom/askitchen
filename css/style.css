@@ -3927,7 +3927,7 @@ li.bt-nn h6 {
 @media(min-width:768px){
     nav#nav1.sticky {
         overflow: hidden;
-        background-color: #03274e; /*#021931;*/
+        background-color: #03274e;
         padding-left: 1.5em;
         position: fixed !important;
         left: 0;

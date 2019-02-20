@@ -161,29 +161,27 @@
 							<div class="clearfix"> </div>
 						</div>
 						<script type="text/javascript">
-jQuery(function() {
-	jQuery('.starbox').each(function() {
-		var starbox = jQuery(this);
-			starbox.starbox({
-			average: 0, //starbox.attr('data-start-value'),
-			changeable: starbox.hasClass('unchangeable') ? false : starbox.hasClass('clickonce') ? 'once' : true,
-			ghosting: starbox.hasClass('ghosting'),
-			autoUpdateAverage: true, //starbox.hasClass('autoupdate'),
-			buttons: starbox.hasClass('smooth') ? false : starbox.attr('data-button-count') || 5,
-			stars: starbox.attr('data-star-count') || 5
-			}).bind('starbox-value-changed', function(event, value) {
-				starbox.starbox('setOption', 'average', value);
-				var el = $(this).parents("#formReview").find('#rating')[0];
-				if (el) el.value = value;
-			// if(starbox.hasClass('random')) {
-			// var val = Math.random();
-			// starbox.next().text(' '+val);
-			// return val;
-			// }
-		})
-	});
-});
-</script>
+
+						jQuery(function() {
+							jQuery('.starbox').each(function() {
+								var starbox = jQuery(this);
+									
+								starbox.starbox({
+								average: starbox.attr('data-start-value'),
+								changeable: starbox.hasClass('unchangeable') ? false : starbox.hasClass('clickonce') ? 'once' : true,
+								ghosting: starbox.hasClass('ghosting'),
+								autoUpdateAverage: starbox.hasClass('autoupdate'),
+								buttons: starbox.hasClass('smooth') ? false : starbox.attr('data-button-count') || 5,
+								stars: starbox.attr('data-star-count') || 5
+								}).bind('starbox-value-changed', function(event, value) {
+									starbox.starbox('setOption', 'average', value);
+									var el = $(this).parents("#formReview").find('#rating')[0];
+									if (el) el.value = value;
+								});
+							});
+						});
+						</script>
+
 						<div class="tab-wl3">
 							<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
 								<ul id="myTab" class="nav nav-tabs left-tab" role="tablist">
@@ -316,7 +314,7 @@ jQuery(function() {
                                         		<input class="form-control hidden" data-recaptcha="true" required data-error="Please complete the Captcha">
                                         	<div class="help-block with-errors"></div>
                                     	</div>
-										</div>
+									</div>
 									<div class="row">
 										<div class="col-md-3 col-xs-4 row-grid">
 											<input id="btnSend" type="submit" value="Send">
@@ -331,12 +329,12 @@ jQuery(function() {
 			<!--reviews-->
 		</div>
     <!--content-->
-	<script>
-	$(function () {
+<script>
+$(function () {
 
-// init the validator
-// validator files are included in the download package
-// otherwise download from http://1000hz.github.io/bootstrap-validator
+	// init the validator
+	// validator files are included in the download package
+	// otherwise download from http://1000hz.github.io/bootstrap-validator
 
     window.verifyRecaptchaCallback = function (response) {
         $('input[data-recaptcha]').val(response).trigger('change')
@@ -345,4 +343,5 @@ jQuery(function() {
     window.expiredRecaptchaCallback = function () {
         $('input[data-recaptcha]').val("").trigger('change')
     }
+});
 </script>

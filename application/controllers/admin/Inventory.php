@@ -52,7 +52,7 @@ class Inventory extends Admin_Controller {
 				$offset = 0;
 			}
 				
-            $this->session->set_flashdata('last_page', $page);
+            $this->session->set_userdata('last_page', $page);
             $this->session->set_userdata('start', $offset);
 			
 			$q  = $this->input->get('q');
@@ -131,7 +131,7 @@ class Inventory extends Admin_Controller {
 			
 			'tag'        => $this->input->post('tag'),
 			'hjual'      => $this->input->post('hjual'),
-			'gambar'     => $this->input->post('gambar'),
+			'gambar'     => urldecode($this->input->post('gambar')),
 			);
 			
 			$this->inventory_model->insert($inventory_data);
@@ -346,7 +346,7 @@ class Inventory extends Admin_Controller {
 					
 					'tag'        => $this->input->post('tag'),
 					'hjual'      => $this->input->post('hjual'),
-					'gambar'     => $this->input->post('gambar'),
+					'gambar'     => urldecode($this->input->post('gambar')),
 				);
 
                 $this->inventory_model->update($kode, $data);
@@ -388,8 +388,6 @@ class Inventory extends Admin_Controller {
 		$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
 		
 		$this->session->set_flashdata('merk', isset($CI->form_validation) ? $this->form_validation->set_value('merk') : $this->data['inventory']->merk);
-		if (isset($_SESSION['last_page']))
-			$this->session->set_flashdata('last_page', $_SESSION['last_page']);
 
 		$this->data['kdbar'] = array(
 			'name'  => 'kdbar',
